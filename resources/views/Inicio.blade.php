@@ -4,7 +4,7 @@
 		<!-- Mobile Specific Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Favicon-->
-		<link rel="shortcut icon" href="img/fav.png">
+		<link rel="shortcut icon" href="img/favicon.ico">
 		<!-- Author Meta -->
 		<meta name="author" content="colorlib">
 		<!-- Meta Description -->
@@ -14,7 +14,7 @@
 		<!-- meta character set -->
 		<meta charset="UTF-8">
 		<!-- Site Title -->
-		<title>Repair</title>
+		<title>Quick Fix - Corrientes</title>
 
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
 			<!--
@@ -45,8 +45,8 @@
 				  				</ul>
 				  			</div>
 				  			<div class="col-lg-6 col-sm-6 col-8 header-top-right no-padding">
-				  				<a href="tel:+953 012 3654 896">+953 012 3654 896</a>
-				  				<a href="mailto:support@colorlib.com">support@colorlib.com</a>				
+				  				<a href="tel:+953 012 3654 896">+54 379 4448149</a>
+				  				<a href="mailto:support@colorlib.com">quickfix.ctes@gmail.com</a>				
 				  			</div>
 				  		</div>			  					
 		  			</div>
@@ -59,8 +59,8 @@
 				      <nav id="nav-menu-container">
 				        <ul class="nav-menu">
 				          <li class="menu-active"><a href="index.html">Home</a></li>
-				          <li><a href="about.html">About</a></li>
-				          <li><a href="services.html">Service</a></li>
+				          <li><a href="about.html">Quienes somos</a></li>
+				          <li><a href="services.html">Servicio</a></li>
 				          <li><a href="feedback.html">Feedback</a></li>
 				          <li class="menu-has-children"><a href="">Blog</a>
 				            <ul>
@@ -69,7 +69,7 @@
 				            </ul>
 				          </li>						          
 			              <li><a href="elements.html">Elements</a></li>				          
-				          <li><a href="contact.html">Contact</a></li>
+				          <li><a href="contact.html">Contacto</a></li>
 				        </ul>
 				      </nav><!-- #nav-menu-container -->		    		
 			    	</div>
@@ -81,15 +81,15 @@
 				<div class="container">
 					<div class="row fullscreen d-flex align-items-center">
 						<div class="banner-content col-lg-7 col-md-6 justify-content-center "> 
+							<h6 class="text-uppercase">Somos lo que buscás.</h6>
 
-							<h6 class="text-uppercase">Don’t look further, This is our Leader</h6>
 							<h1>
-								All things need to repair			
+								TODAS LAS COSAS NECESITAN REPARARSE			
 							</h1>
 							<p class="text-white">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.  sed do eiusmod tempor incididunt..
+								Somos una empresa que se caracteriza porque no descansa hasta encontrar la solución a tu problema. Con atención personalizada en el menor lapso de tiempo..
 							</p>
-							<a href="#" class="primary-btn header-btn text-uppercase mt-10">Get Started</a>
+							<a href="#" class="primary-btn header-btn text-uppercase mt-10">Empezar</a>
 						</div>	
 						<div class="banner-img col-lg-5 col-md-6 align-self-end">
 							<img class="img-fluid" src="img/banner-img.png" alt="">
