@@ -80,8 +80,9 @@
 			<section class="banner-area" id="home">
 				<div class="container">
 					<div class="row fullscreen d-flex align-items-center">
-						<div class="banner-content col-lg-7 col-md-6 justify-content-center ">
+						<div class="banner-content col-lg-7 col-md-6 justify-content-center "> 
 							<h6 class="text-uppercase">Somos lo que buscás.</h6>
+
 							<h1>
 								TODAS LAS COSAS NECESITAN REPARARSE			
 							</h1>

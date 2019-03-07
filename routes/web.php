@@ -12,7 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('Inicio');
 });
 
 Route::get('/Inicio', 'MyController@index');
+
+Route::get('/login', 'MyController@login');

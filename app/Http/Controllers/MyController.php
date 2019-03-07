@@ -10,4 +10,9 @@ class MyController extends Controller
     {
         return view('Inicio');
     }
+
+    public function login()
+    {
+        return view('login');
+    }
 }
