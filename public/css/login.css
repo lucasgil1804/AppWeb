@@ -60,7 +60,7 @@ a:focus {
 
 a:hover {
 	text-decoration: none;
-  color: #57b846;
+  color: #E65100;
 }
 
 /*---------------------------------------------*/
@@ -153,7 +153,7 @@ iframe {
 [ Utility ]*/
 .txt1 {
   font-family: Poppins-Regular;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.4;
   color: #999999;
 }
@@ -178,7 +178,8 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #ebeeef;
+  /*background: #ebeeef;*/
+   background-color: #FFCC80;
 }
 
 
@@ -188,6 +189,9 @@ iframe {
   border-radius: 10px;
   overflow: hidden;
   position: relative;
+  border-color: #FFA726;
+  border-style: solid;
+  border-width: 2px;
 }
 
 /*==================================================================
@@ -261,7 +265,7 @@ iframe {
 
 .label-input100 {
   font-family: Poppins-Regular;
-  font-size: 15px;
+  font-size: 16px;
   color: #808080;
   line-height: 1.2;
   text-align: right;
@@ -276,7 +280,7 @@ iframe {
 /*---------------------------------------------*/
 .input100 {
   font-family: Poppins-Regular;
-  font-size: 15px;
+  font-size: 16px;
   color: #555555;
   line-height: 1.2;
 
@@ -310,7 +314,7 @@ iframe {
   -moz-transition: all 0.6s;
   transition: all 0.6s;
 
-  background: #57b846;
+  background: #E65100;
 }
 
 
@@ -337,7 +341,7 @@ input.input100 {
 
 .label-checkbox100 {
   font-family: Poppins-Regular;
-  font-size: 13px;
+  font-size: 14px;
   color: #999999;
   line-height: 1.4;
 
@@ -350,7 +354,7 @@ input.input100 {
 .label-checkbox100::before {
   content: "\f00c";
   font-family: FontAwesome;
-  font-size: 13px;
+  font-size: 14px;
   color: transparent;
 
   display: -webkit-box;
@@ -376,7 +380,7 @@ input.input100 {
 }
 
 .input-checkbox100:checked + .label-checkbox100::before {
-  color: #57b846;
+  color: #E65100;
 }
 
 /*------------------------------------------------------------------
@@ -399,14 +403,15 @@ input.input100 {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 15px;
   min-width: 160px;
   height: 50px;
-  background-color: #57b846;
+ /*background-color: #57b846;*/
+  background-color: #E65100;
   border-radius: 25px;
 
   font-family: Poppins-Regular;
-  font-size: 16px;
+  font-size: 18px;
   color: #fff;
   line-height: 1.2;
 
@@ -417,7 +422,8 @@ input.input100 {
 }
 
 .login100-form-btn:hover {
-  background-color: #333333;
+  /*background-color: #333333;*/
+   background-color: #000000;
 }
 
 
