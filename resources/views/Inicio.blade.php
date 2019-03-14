@@ -29,7 +29,7 @@
 			<link rel="stylesheet" href="{{asset('css/owl.carousel.css')}}">
 			<link rel="stylesheet" href="{{asset('css/main.css')}}">
 			
-			<link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+			<!-- <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css"> -->
 		</head>
 		<body>	
 			  <header id="header" id="home">
@@ -54,7 +54,7 @@
 			    <div class="container main-menu">
 			    	<div class="row align-items-center justify-content-between d-flex">
 				      <div id="logo">
-				        <a href="index.html"><img src="img/logo.png" alt="" title="" /></a>
+				        <a href="Inicio.blade.php"><img src="img/logo.png" alt="" title="" /></a>
 				      </div>
 				      <nav id="nav-menu-container">
 				        <ul class="nav-menu">
