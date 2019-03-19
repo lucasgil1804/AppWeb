@@ -15,8 +15,10 @@ Route::get('/', function () {
     return view('Inicio');
 });
 
-Route::get('/inicio', 'MyController@index');
+Route::get('/inicio', 'MyController@index')
+	->name('inicio');
 
 Route::get('/login', 'MyController@login');
 
-Route::get('/contacto', 'MyController@contacto');
+Route::get('/contacto', 'MyController@contacto')
+	->name('contacto');
