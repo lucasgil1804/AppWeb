@@ -34,19 +34,19 @@
             <div class="wrap-login100">
                 <div class="login100-form-title" style="background-image: url(../img/bg-01.jpg);">
                     <span class="login100-form-title-1">
-                       Quick Fix - Iniciar Sesión
+                       <b>Quick Fix - Iniciar Sesión</b>
                     </span>
                 </div>
 
                 <form class="login100-form validate-form">
                     <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
-                        <span class="label-input100">Usuario:</span>
+                        <span class="label-input100">Usuario</span>
                         <input class="input100" type="text" name="username" placeholder="Ingrese su email">
                         <span class="focus-input100"></span>
                     </div>
 
                     <div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
-                        <span class="label-input100">Contraseña:</span>
+                        <span class="label-input100">Contraseña</span>
                         <input class="input100" type="password" name="pass" placeholder="Ingrese su contraseña">
                         <span class="focus-input100"></span>
                     </div>
