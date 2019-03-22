@@ -23,7 +23,9 @@
 			<section class="contact-page-area section-gap">
 				<div class="container">
 					<div class="row">
-						<div class="map-wrap" style="width:100%; height: 445px;" id="map"></div>
+						<div class="map-wrap" style="width:100%; height: 445px;" id="map">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3539.9639044263326!2d-58.83390588549135!3d-27.470383082890617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94456ca04ea7fa13%3A0x7f204ab544da8fed!2sSan+Mart%C3%ADn+1524%2C+W3400AQG+Corrientes!5e0!3m2!1ses!2sar!4v1553178436295" width="100%" height="445px" frameborder="0" style="border:0" allowfullscreen></iframe>
+						</div>
 						<div class="col-lg-4 d-flex flex-column address-wrap">
 							<div class="single-contact-address d-flex flex-row">
 								<div class="icon">
