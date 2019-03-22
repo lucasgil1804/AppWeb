@@ -59,15 +59,14 @@
 				        <ul class="nav-menu">
 				          <li class="menu-active"><a href="{{ route('inicio') }}">Home</a></li>
 				          <li><a href="about.html">Quienes somos</a></li>
-				          <li><a href="services.html">Servicio</a></li>
-				          <li><a href="feedback.html">Feedback</a></li>
-				          <li class="menu-has-children"><a href="">Blog</a>
+				          <li class="menu-has-children"><a href="">Servicio</a>
 				            <ul>
-				              <li><a href="blog-home.html">Blog Home</a></li>
-				              <li><a href="blog-single.html">Blog Single</a></li>
+				              <li><a href="blog-home.html">Reparacion de Pc</a></li>
+				              <li><a href="blog-single.html">Reparacion de Notebook</a></li>
 				            </ul>
-				          </li>						          
-			              <li><a href="elements.html">Elements</a></li>				          
+				          </li>	
+				          <li><a href="feedback.html">Estado De Mi Equipo</a></li>	
+				          <li><a href="feedback.html">Feedback</a></li>					         		          
 				          <li><a href="{{ route('contacto') }}">Contacto</a></li>
 				        </ul>
 				      </nav>
