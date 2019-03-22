@@ -4,7 +4,7 @@
 @section('contenidoApp')
 
 			<!-- start banner Area -->
-			<section class="banner-area relative" id="home">	
+			<section class="banner-area relative" id="home" style="background-image: url('../img/banner-otro.jpg');">	
 				<div class="overlay overlay-bg"></div>
 				<div class="container">				
 					<div class="row d-flex align-items-center justify-content-center">
@@ -12,7 +12,7 @@
 							<h1 class="text-white">
 								Contáctenos				
 							</h1>	
-							<p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="contact.html"> Contáctenos</a></p>
+							<p class="text-white link-nav"><a href="{{ route('inicio') }}">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="{{ route('contacto') }}"> Contáctenos</a></p>
 						</div>	
 					</div>
 				</div>
