@@ -25,4 +25,9 @@ class MyController extends Controller
     {
         return view('quienessomos');
     }
+
+    public function reparacionPC()
+    {
+        return view('reparacionPC');
+    }
 }
