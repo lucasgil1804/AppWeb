@@ -22,3 +22,6 @@ Route::get('/login', 'MyController@login');
 
 Route::get('/contacto', 'MyController@contacto')
 	->name('contacto');
+
+Route::get('/quienessomos', 'MyController@quienessomos')
+	->name('quienessomos');
