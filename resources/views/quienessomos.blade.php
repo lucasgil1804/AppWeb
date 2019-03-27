@@ -29,7 +29,7 @@
 								<p class="text-right">Pretendemos ofrecerte el mejor servicio y ahorrar tu tiempo, que sabemos que es valioso para ti.</p>
 							</div>
 							<div class="col-md-3">
-								<img src="img/elements/d.jpg" alt="" class="img-fluid">
+								<img src="img/elements/d1.jpg" alt="" class="img-fluid">
 							</div>
 						</div>
 					</div>
