@@ -20,4 +20,9 @@ class MyController extends Controller
     {
         return view('contacto');
     }
+
+    public function quienessomos()
+    {
+        return view('quienessomos');
+    }
 }

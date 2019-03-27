@@ -58,7 +58,7 @@
 				      <nav id="nav-menu-container">
 				        <ul class="nav-menu">
 				          <li class="menu-active"><a href="{{ route('inicio') }}">Home</a></li>
-				          <li><a href="about.html">Quienes somos</a></li>
+				          <li><a href="{{ route('quienessomos') }}">Quienes somos</a></li>
 				          <li class="menu-has-children"><a href="">Servicio</a>
 				            <ul>
 				              <li><a href="blog-home.html">Reparacion de Pc</a></li>
