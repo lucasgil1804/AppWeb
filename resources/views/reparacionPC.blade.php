@@ -37,6 +37,32 @@
 						</div>
 					</div>
 					<div class="section-top-border">
+						<h3 class="mb-30">Lo que te podemos ofrecer:</h3>
+						<div class="row">
+							<div class="col-md-4">
+								<div class="single-defination">
+									<img  align="left" src="img/icons/clean-repair.png" width="30px" height="30px" style="margin-right: 10px;">
+									<h4 class="mb-20" align="justify">Limpieza de Computadoras</h4>
+									<p align="justify">Configuramos tus equipos para que brinden el mayor rendimiento dentro de sus posibilidades técnicas.Eliminando todo tipo de virus, programas innecesarios, archivos temporales, configurando el Equipo para un inicio rápido y seguro.</p>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="single-defination">
+									<img align="left" src="img/icons/pc-mechanic.png" width="30px" height="30px" style="margin-right: 10px;">
+									<h4 class="mb-20">Cambio de Partes de la Computadora</h4>
+									<p align="justify">Cambiamos las partes rotas del Equipo: Teclados, Discos Rígidos, Pantallas, Fuentes, MotherBoards.</p>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="single-defination">
+									<img  align="left" src="img/icons/pay.png" width="30px" height="30px" style="margin-right: 10px;">
+									<h4 class="mb-20">Presupuestos por la reparación de la PC</h4>
+									<p align="justify">Hacemos presupuestos por la reparación o instalación que necesites antes de comenzar a trabajar. Todos cuentan con garantía para que pruebes que quedó funcionando correctamente.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="section-top-border">
 						<h3>Image Gallery</h3>
 						<div class="row gallery-item">
 							<div class="col-md-4">
