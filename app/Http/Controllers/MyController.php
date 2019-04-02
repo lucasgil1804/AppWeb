@@ -30,4 +30,9 @@ class MyController extends Controller
     {
         return view('reparacionPC');
     }
+
+    public function feedback()
+    {
+        return view('feedback');
+    }
 }
