@@ -61,12 +61,12 @@
 				          <li><a href="{{ route('quienessomos') }}">Quienes somos</a></li>
 				          <li class="menu-has-children"><a href="">Servicio</a>
 				            <ul>
-				              <li><a href="blog-home.html">Reparacion de Pc</a></li>
+				              <li><a href="{{ route('reparacionPC') }}">Reparacion de Pc</a></li>
 				              <li><a href="blog-single.html">Reparacion de Notebook</a></li>
 				            </ul>
 				          </li>	
 				          <li><a href="feedback.html">Estado De Mi Equipo</a></li>	
-				          <li><a href="feedback.html">Feedback</a></li>					         		          
+				          <li><a href="{{ route('feedback') }}">Feedback</a></li>					         		          
 				          <li><a href="{{ route('contacto') }}">Contacto</a></li>
 				        </ul>
 				      </nav>
