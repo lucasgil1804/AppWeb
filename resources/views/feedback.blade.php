@@ -57,74 +57,68 @@
 						</div>	
 						<div class="col-lg-4">
 							<div class="single-feedback">
-								<img src="img/t1.png" alt="">
+								<img class="imgRedonda" src="img/t4.jpg" alt="">
 								<p>
-									Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector, hardware and more. laptop accessory.
+									No sé que le habrán hecho a mi notebook, ¡pero quedó perfecta!
 								</p>
 								<a href="#">
-									<h5 class="text-uppercase">Mark Alviro Wiens</h5>
+									<h5 class="text-uppercase">Adrián Encinas</h5>
 								</a>
-								<p>CEO at Google</p>
 							</div>								
 						</div>
 						<div class="col-lg-4">
 							<div class="single-feedback">
-								<img src="img/t2.png" alt="">
+								<img class="imgRedonda" src="img/t5.jpg" alt="">
 								<p>
-									Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector, hardware and more. laptop accessory.
+									Estuve un tiempo esperando un repuesto, pero una vez que llegó.. quedó muy bien.
 								</p>
 								<a href="#">
-									<h5 class="text-uppercase">Mark Alviro Wiens</h5>
+									<h5 class="text-uppercase">Belén Chavez</h5>
 								</a>
-								<p>CEO at Google</p>
 							</div>								
 						</div>
 						<div class="col-lg-4">
 							<div class="single-feedback">
-								<img src="img/t3.png" alt="">
+								<img class="imgRedonda" src="img/t6.jpg" alt="">
 								<p>
-									Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector, hardware and more. laptop accessory.
+									Poder consultar el estado de mi equipo desde mi casa ¡ES LO MÁS!
 								</p>
 								<a href="#">
-									<h5 class="text-uppercase">Mark Alviro Wiens</h5>
+									<h5 class="text-uppercase">Maximiliano Cabral</h5>
 								</a>
-								<p>CEO at Google</p>
 							</div>								
 						</div>	
 						<div class="col-lg-4">
 							<div class="single-feedback">
-								<img src="img/t1.png" alt="">
+								<img class="imgRedonda" src="img/t7.jpg" alt="">
 								<p>
-									Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector, hardware and more. laptop accessory.
+									Precios accesibles y buena atención. Ninguna queja.
 								</p>
 								<a href="#">
-									<h5 class="text-uppercase">Mark Alviro Wiens</h5>
+									<h5 class="text-uppercase">Camila Prósperi</h5>
 								</a>
-								<p>CEO at Google</p>
 							</div>								
 						</div>
 						<div class="col-lg-4">
 							<div class="single-feedback">
-								<img src="img/t2.png" alt="">
+								<img class="imgRedonda" src="img/t8.jpg" alt="">
 								<p>
-									Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector, hardware and more. laptop accessory.
+									Les llevó un tiempo la solución pero quedó bien.
 								</p>
 								<a href="#">
-									<h5 class="text-uppercase">Mark Alviro Wiens</h5>
+									<h5 class="text-uppercase">José Manuel Alonso</h5>
 								</a>
-								<p>CEO at Google</p>
 							</div>								
 						</div>
 						<div class="col-lg-4">
 							<div class="single-feedback">
-								<img src="img/t3.png" alt="">
+								<img class="imgRedonda" src="img/t9.jpg" alt="">
 								<p>
-									Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector, hardware and more. laptop accessory.
+									Llegué por recomendación de un amigo, y quedé conforme con el servicio.
 								</p>
 								<a href="#">
-									<h5 class="text-uppercase">Mark Alviro Wiens</h5>
+									<h5 class="text-uppercase">Federico Alegre</h5>
 								</a>
-								<p>CEO at Google</p>
 							</div>								
 						</div>																													
 					</div>
