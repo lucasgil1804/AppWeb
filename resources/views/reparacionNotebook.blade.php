@@ -1,6 +1,6 @@
 @extends('layouts.estiloApp')
 	
-<title>Quick Fix - Reparación de PC</title>	
+<title>Quick Fix - Reparación de Notebook</title>	
 @section('contenidoApp')
 
 			<!-- start banner Area -->
@@ -10,9 +10,9 @@
 					<div class="row d-flex align-items-center justify-content-center">
 						<div class="about-content col-lg-12">
 							<h1 class="text-white">
-								Reparación de PC			
+								Reparación de Notebook			
 							</h1>	
-							<p class="text-white link-nav"><a href="{{ route('inicio') }}">Home</a>  <span class="lnr lnr-arrow-right"></span>  <a href="{{ route('reparacionPC') }}"> Reparación de PC</a></p>
+							<p class="text-white link-nav"><a href="{{ route('inicio') }}">Home</a>  <span class="lnr lnr-arrow-right"></span>  <a href="{{ route('reparacionNotebook') }}"> Reparación de Notebook</a></p>
 						</div>	
 					</div>
 				</div>
