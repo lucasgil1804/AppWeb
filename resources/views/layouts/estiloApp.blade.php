@@ -62,7 +62,7 @@
 				          <li class="menu-has-children"><a href="">Servicio</a>
 				            <ul>
 				              <li><a href="{{ route('reparacionPC') }}">Reparacion de Pc</a></li>
-				              <li><a href="blog-single.html">Reparacion de Notebook</a></li>
+				              <li><a href="{{ route('reparacionNotebook') }}">Reparacion de Notebook</a></li>
 				            </ul>
 				          </li>	
 				          <li><a href="feedback.html">Estado De Mi Equipo</a></li>	

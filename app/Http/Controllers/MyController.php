@@ -35,4 +35,9 @@ class MyController extends Controller
     {
         return view('feedback');
     }
+
+    public function reparacionNotebook()
+    {
+        return view('reparacionNotebook');
+    }
 }

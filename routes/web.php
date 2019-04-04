@@ -31,3 +31,6 @@ Route::get('/reparacionPC', 'MyController@reparacionPC')
 
 Route::get('/feedback', 'MyController@feedback')
 	->name('feedback');
+
+Route::get('/reparacionNotebook', 'MyController@reparacionNotebook')
+	->name('reparacionNotebook');
