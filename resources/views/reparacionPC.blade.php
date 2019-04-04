@@ -63,31 +63,31 @@
 						</div>
 					</div>
 					<div class="section-top-border">
-						<h3>Image Gallery</h3>
+						<h3>Reparamos Todas Las Marcas</h3>
 						<div class="row gallery-item">
-							<div class="col-md-4">
-								<a href="img/elements/g1.jpg" class="img-gal"><div class="single-gallery-image" style="background: url(img/elements/g1.jpg);"></div></a>
+							<div class="col-md-3">
+								<a href="img/elements/hp.jpg" class="img-gal"><div class="single-gallery-image" style="background: url(img/elements/hp.jpg);"></div></a>
 							</div>
-							<div class="col-md-4">
-								<a href="img/elements/g2.jpg" class="img-gal"><div class="single-gallery-image" style="background: url(img/elements/g2.jpg);"></div></a>
+							<div class="col-md-3">
+								<a href="img/elements/acer.jpg" class="img-gal"><div class="single-gallery-image" style="background: url(img/elements/acer.jpg);"></div></a>
 							</div>
-							<div class="col-md-4">
-								<a href="img/elements/g3.jpg" class="img-gal"><div class="single-gallery-image" style="background: url(img/elements/g3.jpg);"></div></a>
+							<div class="col-md-3">
+								<a href="img/elements/asus.jpg" class="img-gal"><div class="single-gallery-image" style="background: url(img/elements/asus.jpg);"></div></a>
 							</div>
-							<div class="col-md-6">
-								<a href="img/elements/g4.jpg" class="img-gal"><div class="single-gallery-image" style="background: url(img/elements/g4.jpg);"></div></a>
+							<div class="col-md-3">
+								<a href="img/elements/lenovo.jpg" class="img-gal"><div class="single-gallery-image" style="background: url(img/elements/lenovo.jpg);"></div></a>
 							</div>
-							<div class="col-md-6">
-								<a href="img/elements/g5.jpg" class="img-gal"><div class="single-gallery-image" style="background: url(img/elements/g5.jpg);"></div></a>
+							<div class="col-md-3">
+								<a href="img/elements/dell.png" class="img-gal"><div class="single-gallery-image" style="background: url(img/elements/dell.png);"></div></a>
 							</div>
-							<div class="col-md-4">
-								<a href="img/elements/g6.jpg" class="img-gal"><div class="single-gallery-image" style="background: url(img/elements/g6.jpg);"></div></a>
+							<div class="col-md-3">
+								<a href="img/elements/vaio.jpg" class="img-gal"><div class="single-gallery-image" style="background: url(img/elements/vaio.jpg);"></div></a>
 							</div>
-							<div class="col-md-4">
-								<a href="img/elements/g7.jpg" class="img-gal"><div class="single-gallery-image" style="background: url(img/elements/g7.jpg);"></div></a>
+							<div class="col-md-3">
+								<a href="img/elements/bangho.jpg" class="img-gal"><div class="single-gallery-image" style="background: url(img/elements/bangho.jpg);"></div></a>
 							</div>
-							<div class="col-md-4">
-								<a href="img/elements/g8.jpg" class="img-gal"><div class="single-gallery-image" style="background: url(img/elements/g8.jpg);"></div></a>
+							<div class="col-md-3">
+								<a href="img/elements/apple.jpg" class="img-gal"><div class="single-gallery-image" style="background: url(img/elements/apple.jpg);"></div></a>
 							</div>
 						</div>
 					</div>
