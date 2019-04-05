@@ -27,7 +27,7 @@
 						<h3 class="mb-30">PC's De Escritorio y All In One</h3>
 						<div class="row">
 							<div class="col-md-3">
-								<img src="{{asset('img/elements/gabinete.jpg')}}" alt="" class="img-fluid">
+								<img src="{{asset('img/elements/gabinete.jpg')}}" alt="gabinete" class="img-fluid">
 							</div>
 							<div class="col-md-9 mt-sm-20 left-align-p">
 								<p align="justify">Quick Fix cuenta con todo para darle el más completo servicio de reparación de computadoras. Sabemos de tecnología, y entendemos la gran importancia que ésta tiene en el día a día, tanto para el cliente como para una empresa; es por eso que nuestro servicio de reparación le asegura la mayor eficiencia en el menor tiempo posible.</p>
@@ -63,7 +63,7 @@
 						</div>
 					</div>
 					<div class="section-top-border">
-						<h3>Reparamos Todas Las Marcas</h3>
+						<h3>Reparamos Todas Las Marcas Y Modelos</h3>
 						<div class="row gallery-item">
 							<div class="col-md-3">
 								<a href="img/elements/hp.jpg" class="img-gal"><div class="single-gallery-image" style="background: url(img/elements/hp.jpg);"></div></a>
