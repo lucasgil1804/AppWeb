@@ -24,17 +24,47 @@
 			<div class="whole-wrap">
 				<div class="container">
 					<div class="section-top-border">
-						<h3 class="mb-30">PC's De Escritorio y All In One</h3>
+						<h3 class="mb-30">Notebooks</h3>
 						<div class="row">
 							<div class="col-md-3">
-								<img src="{{asset('img/elements/gabinete.jpg')}}" alt="" class="img-fluid">
+								<img src="{{asset('img/elements/notebook.jpg')}}" alt="Notebook" class="img-fluid">
 							</div>
 							<div class="col-md-9 mt-sm-20 left-align-p">
-								<p align="justify">Quick Fix cuenta con todo para darle el más completo servicio de reparación de computadoras. Sabemos de tecnología, y entendemos la gran importancia que ésta tiene en el día a día, tanto para el cliente como para una empresa; es por eso que nuestro servicio de reparación le asegura la mayor eficiencia en el menor tiempo posible.</p>
+								<p align="justify">Quick Fix cuenta con todo para darle el más completo servicio de reparación de notebook. Sabemos de tecnología, y entendemos la gran importancia que ésta tiene en el día a día, tanto para el cliente como para una empresa; es por eso que nuestro servicio de reparación le asegura la mayor eficiencia en el menor tiempo posible.</p>
 								<p align="justify">El servicio técnico de computadoras de Quick  Fix se caracteriza por abarcar cualquier tipo de problemática que presenten sus equipos, trabajando de manera conjunta y multidisciplinaria para lograr los mejores resultados. Contamos con un plantel de técnicos muy bien formados y actualizados en lo último en tecnología para efectuar un service de computadoras de primer nivel.</p>
-								<p align="justify">Consideramos que Quick Fix es su mejor opción para el arreglo de computadoras que aspiren a recuperar el 100% de su rendimiento.</p>
+								<p align="justify">Consideramos que Quick Fix es su mejor opción para el arreglo de notebooks y netbooks que aspiren a recuperar el 100% de su rendimiento.</p>
 							</div>
 						</div>
+					</div>
+					<h3 class="text-uppercase mb-30 mt-30">Repuestos Destacados</h3>
+					<div class="row">
+						<div class="col-lg-4">
+							<div class="single-feedback">
+								<img class="" src="img/elements/cambioPantalla.jpg" alt="Pantalla" width="200px" height="200px">
+								<h5 class="text-uppercase mb-2">Pantallas</h5>
+								<p>
+									Contamos con laboratorio propio y un equipo altamente especializado en la reparación de pantallas.
+								</p>
+							</div>								
+						</div>
+						<div class="col-lg-4">
+							<div class="single-feedback">
+								<img class="" src="img/elements/teclado.jpg" alt="Teclado" width="200px" height="200px">
+								<h5 class="text-uppercase mb-2">Teclados</h5>
+								<p>
+									Servicio técnico de teclados de notebook. Encuentre en nosotros su mejor opción para su notebook.
+								</p>
+							</div>								
+						</div>
+						<div class="col-lg-4">
+							<div class="single-feedback">
+								<img class="" src="img/elements/bateria.jpg" alt="Bateria" width="200px" height="200px">
+								<h5 class="text-uppercase mb-2">Baterias</h5>
+								<p>
+									Venta de baterías de todas las marcas. Solicite asesoramiento y nuestros expertos lo ayudarán para brindarle la mejor solución.
+								</p>
+							</div>								
+						</div>	
 					</div>
 					<div class="section-top-border">
 						<h3 class="mb-30">Lo que te podemos ofrecer:</h3>
@@ -42,28 +72,28 @@
 							<div class="col-md-4">
 								<div class="single-defination">
 									<img  align="left" src="img/icons/clean-repair.png" width="30px" height="30px" style="margin-right: 10px;">
-									<h4 class="mb-20" align="justify">Limpieza de Computadoras</h4>
+									<h4 class="mb-20" align="justify">Limpieza del Equipo</h4>
 									<p align="justify">Configuramos tus equipos para que brinden el mayor rendimiento dentro de sus posibilidades técnicas.Eliminando todo tipo de virus, programas innecesarios, archivos temporales, configurando el Equipo para un inicio rápido y seguro.</p>
 								</div>
 							</div>
 							<div class="col-md-4">
 								<div class="single-defination">
 									<img align="left" src="img/icons/pc-mechanic.png" width="30px" height="30px" style="margin-right: 10px;">
-									<h4 class="mb-20">Cambio de Partes de la Computadora</h4>
+									<h4 class="mb-20">Cambio de Partes del Equipo</h4>
 									<p align="justify">Cambiamos las partes rotas del Equipo: Teclados, Discos Rígidos, Pantallas, Fuentes, MotherBoards.</p>
 								</div>
 							</div>
 							<div class="col-md-4">
 								<div class="single-defination">
 									<img  align="left" src="img/icons/pay.png" width="30px" height="30px" style="margin-right: 10px;">
-									<h4 class="mb-20">Presupuestos por la reparación de la PC</h4>
+									<h4 class="mb-20">Presupuestos por la reparación del Equipo</h4>
 									<p align="justify">Hacemos presupuestos por la reparación o instalación que necesites antes de comenzar a trabajar. Todos cuentan con garantía para que pruebes que quedó funcionando correctamente.</p>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="section-top-border">
-						<h3>Reparamos Todas Las Marcas</h3>
+						<h3>Reparamos Todas Las Marcas Y Modelos</h3>
 						<div class="row gallery-item">
 							<div class="col-md-3">
 								<a href="img/elements/hp.jpg" class="img-gal"><div class="single-gallery-image" style="background: url(img/elements/hp.jpg);"></div></a>
