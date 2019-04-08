@@ -12,7 +12,28 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('Inicio');
 });
 
-Route::get('/Inicio', 'MyController@index');
+Route::get('/inicio', 'MyController@index')
+	->name('inicio');
+
+Route::get('/login', 'MyController@login');
+
+Route::get('/contacto', 'MyController@contacto')
+	->name('contacto');
+
+Route::get('/quienessomos', 'MyController@quienessomos')
+	->name('quienessomos');
+
+Route::get('/reparacionPC', 'MyController@reparacionPC')
+	->name('reparacionPC');
+
+Route::get('/feedback', 'MyController@feedback')
+	->name('feedback');
+
+Route::get('/reparacionNotebook', 'MyController@reparacionNotebook')
+	->name('reparacionNotebook');
+
+Route::get('/estadoEquipo', 'MyController@estadoEquipo')
+	->name('estadoEquipo');
