@@ -40,4 +40,9 @@ class MyController extends Controller
     {
         return view('reparacionNotebook');
     }
+
+    public function estadoEquipo()
+    {
+        return view('estadoEquipo');
+    }
 }

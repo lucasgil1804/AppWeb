@@ -34,3 +34,6 @@ Route::get('/feedback', 'MyController@feedback')
 
 Route::get('/reparacionNotebook', 'MyController@reparacionNotebook')
 	->name('reparacionNotebook');
+
+Route::get('/estadoEquipo', 'MyController@estadoEquipo')
+	->name('estadoEquipo');

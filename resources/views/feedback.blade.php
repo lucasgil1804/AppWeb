@@ -12,7 +12,7 @@
 							<h1 class="text-white">
 								Feedback				
 							</h1>	
-							<p class="text-white link-nav"><a href="{{ route('inicio') }}">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="{{ route('contacto') }}"> Feedback</a></p>
+							<p class="text-white link-nav"><a href="{{ route('inicio') }}">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="{{ route('feedback') }}"> Feedback</a></p>
 						</div>	
 					</div>
 				</div>

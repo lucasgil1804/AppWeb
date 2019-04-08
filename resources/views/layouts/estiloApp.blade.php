@@ -64,7 +64,7 @@
 				              <li><a href="{{ route('reparacionNotebook') }}">Reparacion de Notebook</a></li>
 				            </ul>
 				          </li>	
-				          <li><a href="feedback.html">Estado De Mi Equipo</a></li>	
+				          <li><a href="{{ route('estadoEquipo') }}">Estado De Mi Equipo</a></li>	
 				          <li><a href="{{ route('feedback') }}">Feedback</a></li>					         		          
 				          <li><a href="{{ route('contacto') }}">Contacto</a></li>
 				        </ul>
