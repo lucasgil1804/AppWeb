@@ -21,8 +21,7 @@
 
 			<div class="container" align="center">
 				<div class="section-top-border">
-						<div class="row">
-							<div class="col-lg-8 col-md-8" style="margin-left: 185px;">
+							<div class="col-lg-8 col-md-8">
 								<h1>¿Ya está listo mi equipo?</h1>
 								<h3 class="mb-30 mt-20" style="color: grey;">Ingresá tu código</h3>
 								<form action="#">
@@ -35,7 +34,6 @@
 									</div>
 								</form>
 							</div>
-						</div>
 					</div>
 
 			</div>

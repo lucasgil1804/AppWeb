@@ -37,3 +37,6 @@ Route::get('/reparacionNotebook', 'MyController@reparacionNotebook')
 
 Route::get('/estadoEquipo', 'MyController@estadoEquipo')
 	->name('estadoEquipo');
+
+Route::get('/index', 'AdminController@index')
+	->name('adminIndex');
