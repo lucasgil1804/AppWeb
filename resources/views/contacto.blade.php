@@ -1,6 +1,7 @@
 @extends('layouts.estiloApp')
 	
 <title>Quick Fix - Contacto</title>	
+
 @section('contenidoApp')
 
 			<!-- start banner Area -->
@@ -83,4 +84,3 @@
 			<!-- End contact-page Area -->
 
 @endsection
-

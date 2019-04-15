@@ -30,7 +30,7 @@
 			<link rel="stylesheet" href="{{asset('css/main.css')}}">
 
 		</head>
-			<body>	
+			<body class="animsition">	
 			  <header id="header" id="home">
 		  		<div class="header-top">
 		  			<div class="container">
