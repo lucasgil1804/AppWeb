@@ -7,6 +7,10 @@
 
 @section('contenidoAdmin')
 <div style="margin-left: 20px; margin-right: 20px;">
+    <div  style="margin-bottom: 15px;" align="right">
+        <button type="button" class="btn btn-primary">
+            <i class="fa fa-plus"></i>&nbsp; Añadir</button>
+    </div>
     <table id="myTable" class="table table-hover table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
@@ -16,6 +20,7 @@
                 <th>Age</th>
                 <th>Start date</th>
                 <th>Salary</th>
+                <th>Acción</th>
             </tr>
         </thead>
         <tbody>
@@ -26,6 +31,19 @@
                 <td>61</td>
                 <td>2011/04/25</td>
                 <td>$320,800</td>
+                <td>
+                    <div class="table-data-feature">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <i class="zmdi zmdi-eye"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                            <i class="zmdi zmdi-edit"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Borrar">
+                            <i class="zmdi zmdi-delete"></i>
+                        </button>
+                    </div>
+                </td>
             </tr>
             <tr>
                 <td>Garrett Winters</td>
@@ -34,6 +52,19 @@
                 <td>63</td>
                 <td>2011/07/25</td>
                 <td>$170,750</td>
+                <td>
+                    <div class="table-data-feature">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <i class="zmdi zmdi-eye"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                            <i class="zmdi zmdi-edit"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Borrar">
+                            <i class="zmdi zmdi-delete"></i>
+                        </button>
+                    </div>
+                </td>
             </tr>
             <tr>
                 <td>Ashton Cox</td>
@@ -42,6 +73,19 @@
                 <td>66</td>
                 <td>2009/01/12</td>
                 <td>$86,000</td>
+                <td>
+                    <div class="table-data-feature">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <i class="zmdi zmdi-eye"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                            <i class="zmdi zmdi-edit"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Borrar">
+                            <i class="zmdi zmdi-delete"></i>
+                        </button>
+                    </div>
+                </td>
             </tr>
             <tr>
                 <td>Cedric Kelly</td>
@@ -50,6 +94,19 @@
                 <td>22</td>
                 <td>2012/03/29</td>
                 <td>$433,060</td>
+                <td>
+                    <div class="table-data-feature">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <i class="zmdi zmdi-eye"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                            <i class="zmdi zmdi-edit"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Borrar">
+                            <i class="zmdi zmdi-delete"></i>
+                        </button>
+                    </div>
+                </td>
             </tr>
             <tr>
                 <td>Airi Satou</td>
@@ -58,6 +115,19 @@
                 <td>33</td>
                 <td>2008/11/28</td>
                 <td>$162,700</td>
+                <td>
+                    <div class="table-data-feature">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <i class="zmdi zmdi-eye"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                            <i class="zmdi zmdi-edit"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Borrar">
+                            <i class="zmdi zmdi-delete"></i>
+                        </button>
+                    </div>
+                </td>
             </tr>
             <tr>
                 <td>Brielle Williamson</td>
@@ -66,6 +136,19 @@
                 <td>61</td>
                 <td>2012/12/02</td>
                 <td>$372,000</td>
+                <td>
+                    <div class="table-data-feature">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <i class="zmdi zmdi-eye"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                            <i class="zmdi zmdi-edit"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Borrar">
+                            <i class="zmdi zmdi-delete"></i>
+                        </button>
+                    </div>
+                </td>
             </tr>
             <tr>
                 <td>Herrod Chandler</td>
@@ -74,6 +157,19 @@
                 <td>59</td>
                 <td>2012/08/06</td>
                 <td>$137,500</td>
+                <td>
+                    <div class="table-data-feature">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <i class="zmdi zmdi-eye"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                            <i class="zmdi zmdi-edit"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Borrar">
+                            <i class="zmdi zmdi-delete"></i>
+                        </button>
+                    </div>
+                </td>
             </tr>
             <tr>
                 <td>Rhona Davidson</td>
@@ -82,6 +178,19 @@
                 <td>55</td>
                 <td>2010/10/14</td>
                 <td>$327,900</td>
+                <td>
+                    <div class="table-data-feature">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <i class="zmdi zmdi-eye"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                            <i class="zmdi zmdi-edit"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Borrar">
+                            <i class="zmdi zmdi-delete"></i>
+                        </button>
+                    </div>
+                </td>
             </tr>
             <tr>
                 <td>Colleen Hurst</td>
@@ -90,6 +199,19 @@
                 <td>39</td>
                 <td>2009/09/15</td>
                 <td>$205,500</td>
+                <td>
+                    <div class="table-data-feature">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <i class="zmdi zmdi-eye"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                            <i class="zmdi zmdi-edit"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Borrar">
+                            <i class="zmdi zmdi-delete"></i>
+                        </button>
+                    </div>
+                </td>
             </tr>
             <tr>
                 <td>Sonya Frost</td>
@@ -98,6 +220,19 @@
                 <td>23</td>
                 <td>2008/12/13</td>
                 <td>$103,600</td>
+                <td>
+                    <div class="table-data-feature">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <i class="zmdi zmdi-eye"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                            <i class="zmdi zmdi-edit"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Borrar">
+                            <i class="zmdi zmdi-delete"></i>
+                        </button>
+                    </div>
+                </td>
             </tr>
             <tr>
                 <td>Jena Gaines</td>
@@ -106,6 +241,19 @@
                 <td>30</td>
                 <td>2008/12/19</td>
                 <td>$90,560</td>
+                <td>
+                    <div class="table-data-feature">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <i class="zmdi zmdi-eye"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                            <i class="zmdi zmdi-edit"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Borrar">
+                            <i class="zmdi zmdi-delete"></i>
+                        </button>
+                    </div>
+                </td>
             </tr>
             <tr>
                 <td>Quinn Flynn</td>
@@ -114,6 +262,19 @@
                 <td>22</td>
                 <td>2013/03/03</td>
                 <td>$342,000</td>
+                <td>
+                    <div class="table-data-feature">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <i class="zmdi zmdi-eye"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                            <i class="zmdi zmdi-edit"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Borrar">
+                            <i class="zmdi zmdi-delete"></i>
+                        </button>
+                    </div>
+                </td>
             </tr>
             <tr>
                 <td>Charde Marshall</td>
@@ -122,6 +283,19 @@
                 <td>36</td>
                 <td>2008/10/16</td>
                 <td>$470,600</td>
+                <td>
+                    <div class="table-data-feature">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <i class="zmdi zmdi-eye"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                            <i class="zmdi zmdi-edit"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Borrar">
+                            <i class="zmdi zmdi-delete"></i>
+                        </button>
+                    </div>
+                </td>
             </tr>
             <tr>
                 <td>Haley Kennedy</td>
@@ -130,6 +304,19 @@
                 <td>43</td>
                 <td>2012/12/18</td>
                 <td>$313,500</td>
+                <td>
+                    <div class="table-data-feature">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <i class="zmdi zmdi-eye"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                            <i class="zmdi zmdi-edit"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Borrar">
+                            <i class="zmdi zmdi-delete"></i>
+                        </button>
+                    </div>
+                </td>
             </tr>
             <tr>
                 <td>Tatyana Fitzpatrick</td>
@@ -138,6 +325,19 @@
                 <td>19</td>
                 <td>2010/03/17</td>
                 <td>$385,750</td>
+                <td>
+                    <div class="table-data-feature">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <i class="zmdi zmdi-eye"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                            <i class="zmdi zmdi-edit"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Borrar">
+                            <i class="zmdi zmdi-delete"></i>
+                        </button>
+                    </div>
+                </td>
             </tr>
             <tr>
                 <td>Michael Silva</td>
@@ -146,6 +346,19 @@
                 <td>66</td>
                 <td>2012/11/27</td>
                 <td>$198,500</td>
+                <td>
+                    <div class="table-data-feature">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <i class="zmdi zmdi-eye"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                            <i class="zmdi zmdi-edit"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Borrar">
+                            <i class="zmdi zmdi-delete"></i>
+                        </button>
+                    </div>
+                </td>
             </tr>
             <tr>
                 <td>Paul Byrd</td>
@@ -154,6 +367,19 @@
                 <td>64</td>
                 <td>2010/06/09</td>
                 <td>$725,000</td>
+                <td>
+                    <div class="table-data-feature">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <i class="zmdi zmdi-eye"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                            <i class="zmdi zmdi-edit"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Borrar">
+                            <i class="zmdi zmdi-delete"></i>
+                        </button>
+                    </div>
+                </td>
             </tr>
             <tr>
                 <td>Gloria Little</td>
@@ -162,6 +388,19 @@
                 <td>59</td>
                 <td>2009/04/10</td>
                 <td>$237,500</td>
+                <td>
+                    <div class="table-data-feature">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <i class="zmdi zmdi-eye"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                            <i class="zmdi zmdi-edit"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Borrar">
+                            <i class="zmdi zmdi-delete"></i>
+                        </button>
+                    </div>
+                </td>
             </tr>
             <tr>
                 <td>Bradley Greer</td>
@@ -170,6 +409,19 @@
                 <td>41</td>
                 <td>2012/10/13</td>
                 <td>$132,000</td>
+                <td>
+                    <div class="table-data-feature">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <i class="zmdi zmdi-eye"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                            <i class="zmdi zmdi-edit"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Borrar">
+                            <i class="zmdi zmdi-delete"></i>
+                        </button>
+                    </div>
+                </td>
             </tr>
             <tr>
                 <td>Dai Rios</td>
@@ -178,6 +430,19 @@
                 <td>35</td>
                 <td>2012/09/26</td>
                 <td>$217,500</td>
+                <td>
+                    <div class="table-data-feature">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <i class="zmdi zmdi-eye"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                            <i class="zmdi zmdi-edit"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Borrar">
+                            <i class="zmdi zmdi-delete"></i>
+                        </button>
+                    </div>
+                </td>
             </tr>
         </tbody>
     </table>
