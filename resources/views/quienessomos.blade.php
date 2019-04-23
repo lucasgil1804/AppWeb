@@ -25,7 +25,7 @@
 						<h3 class="mb-30">Quick Fix - Reparación de PC y Notebook</h3>
 						<div class="row">
 							<div class="col-md-9">
-								<p class="text-right">Somos una empresa pequeña pero con grandes aspiraciones, surgida en el año 2018 de la mano de Juan Cruz Fernandez y Lucas Sebastian Gil, en la provincia de Corrientes. Dos jovenes emprendedores que quisieron innovar y mejorar la interacción del cliente con el local, y a la vez, ahorrar que tenga que presentarse en el mismo varias veces, pudiendo consultar el estado de su equipo desde su casa a travéz de un CÓDIGO DE SEGUIMIENTO del equipo.</p> <br><br>
+								<p align="justify">Somos una empresa pequeña pero con grandes aspiraciones, surgida en el año 2018 de la mano de Juan Cruz Fernandez y Lucas Sebastian Gil, en la provincia de Corrientes. Dos jovenes emprendedores que quisieron innovar y mejorar la interacción del cliente con el local, y a la vez, ahorrar que tenga que presentarse en el mismo varias veces, pudiendo consultar el estado de su equipo desde su casa a travéz de un CÓDIGO DE SEGUIMIENTO del equipo.</p> <br><br>
 								<p class="text-right">Pretendemos ofrecerte el mejor servicio y ahorrar tu tiempo, que sabemos que es valioso para ti.</p>
 							</div>
 							<div class="col-md-3">
