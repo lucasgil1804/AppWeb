@@ -10,4 +10,9 @@ class AdminController extends Controller
     {
     	return view('Admin.index');
     }
+
+    public function nuevoUsuario()
+    {
+    	return view('Admin.agregarUsuario');
+    }
 }

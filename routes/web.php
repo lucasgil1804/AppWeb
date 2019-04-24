@@ -40,3 +40,9 @@ Route::get('/estadoEquipo', 'MyController@estadoEquipo')
 
 Route::get('/index', 'AdminController@index')
 	->name('adminIndex');
+
+Route::get('/nuevoUsuario', 'AdminController@nuevoUsuario')
+	->name('adminNuevoUsuario');
+
+Route::get('/prueba', 'MyController@pruebaForm')
+	->name('prueba');

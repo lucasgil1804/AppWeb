@@ -45,4 +45,10 @@ class MyController extends Controller
     {
         return view('estadoEquipo');
     }
+
+     public function pruebaForm()
+    {
+        return view('Admin.pruebaform');
+    }
+
 }
