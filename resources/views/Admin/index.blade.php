@@ -15,7 +15,7 @@
                                         <table class="table">
                                             <thead>
                                                 <tr>
-                                                    <td>name</td>
+                                                    <td>Nombre</td>
                                                     <td>Age</td>
                                                     <td>role</td>
                                                     <td>Salary</td>
