@@ -21,7 +21,15 @@ class UserSeeder extends Seeder
         ]);
         
         factory(User::class,30)->create([ 
-          'password' => bcrypt('juan123'),
+          'password' => bcrypt('lucas123'),
+        ]);
+
+        User::create([
+         'nombre' => 'Lucas Sebastian',
+         'apellido' => 'Gil',
+         'dni' => '38308485',
+         'email' => 'lucasgil.1804@gmail.com',
+         'password' => bcrypt('lucas123'),
         ]);
     }
 }
