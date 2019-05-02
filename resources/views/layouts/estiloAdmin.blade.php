@@ -85,7 +85,7 @@
                                 <i class="fas fa-tachometer-alt"></i>Reparaciones</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="index.html">PC Escritorio</a>
+                                    <a href="index.html">PCs Escritorio</a>
                                 </li>
                                 <li>
                                     <a href="index2.html">Notebooks</a>
@@ -136,7 +136,7 @@
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
                                     <a href="index.html">
-                                        <i class="fas fa-desktop"></i>PC Escritorio</a>
+                                        <i class="fas fa-desktop"></i>PCs Escritorio</a>
                                 </li>
                                 <li>
                                     <a href="index2.html">
