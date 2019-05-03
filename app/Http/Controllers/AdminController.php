@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class AdminController extends Controller
 {
     public function listaUsuario()
     {
-    	return view('Admin.listaUsuario');
+        $users=User::all();
+
+    	return view('Admin.listaUsuario', compact('users'));
     }
 
     public function index()
