@@ -11,7 +11,7 @@
               <!-- <script >$('#myModal').modal('show');</script>  -->
               <div class="alert alert-danger">Hay Errores</div>
               <!-- Modal -->
-                <div class="modal" tabindex="-1" role="dialog" id="myModal">
+                <!-- <div class="modal" tabindex="-1" role="dialog" id="myModal">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -29,7 +29,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <!-- Button trigger modal -->
                <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#MyMod">
                 Launch demo modal
@@ -149,9 +149,9 @@
 </div>                         
 @endsection
 @section('scripts')
-<script>
+<!-- <script>
   $(document).ready(function(){
     $("#myModal").modal('show');
   });
-</script>
+</script> -->
 @endsection

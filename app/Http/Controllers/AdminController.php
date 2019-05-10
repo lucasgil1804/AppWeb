@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
 {
@@ -43,6 +44,8 @@ class AdminController extends Controller
          'email' => $data['email'],
          'password' => bcrypt($data['password'])
         ]);
+
+        Session::flash('flash_message', 'Prueba saved successfully.');
 
         return redirect()->route('adminListaUsuario');
     }
