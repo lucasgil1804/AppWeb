@@ -26,8 +26,25 @@ class AdminController extends Controller
 
      public function store()
     {
-        return 'Procesando informacion...';
-    }
+        $data = request()->validate([
+            'nombre' => 'required'
+        ],
+        [
+            'nombre.required' => 'El campo nombre es obligatorio'
+        ]
+        );
+        //$data = request()->all();
 
+        User::create([
+         'id_tipoUsuario' => '2',   
+         'nombre' => $data['nombre'],
+         'apellido' => $data['apellido'],
+         'dni' => $data['dni'],
+         'email' => $data['email'],
+         'password' => bcrypt($data['password'])
+        ]);
+
+        return redirect()->route('adminListaUsuario');
+    }
 
 }
