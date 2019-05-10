@@ -23,4 +23,11 @@ class AdminController extends Controller
     {
     	return view('Admin.agregarUsuario');
     }
+
+     public function store()
+    {
+        return 'Procesando informacion...';
+    }
+
+
 }

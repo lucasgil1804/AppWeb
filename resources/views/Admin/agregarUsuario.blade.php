@@ -4,7 +4,8 @@
   <div class="card" style="margin-right: 20px; margin-left: 20px;" >
     <div class="card-header">Nuevo Usuario</div>
       <div class="card-body card-block">
-          <form action="" method="post" class="needs-validation" novalidate>
+          <form action="{{url('nuevoUsuario')}}" method="post" class="needs-validation" novalidate>
+              {{csrf_field()}}
           	  <div class="form-group">
                   <div class="input-group">
                       <div class="input-group-addon">
@@ -78,7 +79,7 @@
                     <i class="fa fa-save"></i>  
                      &nbsp;Guardar
                   </button>
-                  <button type="button" class="btn btn-danger">
+                  <button type="button" class="btn btn-danger" onclick="location='{{ route('adminListaUsuario') }}'">
                     <i class="fa fa-times"></i>  
                      &nbsp;Cancelar
                   </button>

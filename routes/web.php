@@ -47,5 +47,7 @@ Route::get('/listaUsuario', 'AdminController@listaUsuario')
 Route::get('/nuevoUsuario', 'AdminController@nuevoUsuario')
 	->name('adminNuevoUsuario');
 
+Route::post('/nuevoUsuario', 'AdminController@store');
+
 Route::get('/prueba', 'MyController@pruebaForm')
 	->name('prueba');
