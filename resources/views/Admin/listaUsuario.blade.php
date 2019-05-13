@@ -6,6 +6,29 @@
 <!-- Estilo Datatable -->
 
 @section('contenidoAdmin')
+@if(Session::has('flash_message'))
+  <!-- Modal -->
+    <div class="modal" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p>Modal body text goes here.</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+        </div>
+    </div>
+    </div>
+@endif 
+
 <div style="margin-left: 20px; margin-right: 20px;">
     <h3>Lista de Empleados</h3>
     <div  style="margin-bottom: 15px;" align="right">
@@ -67,9 +90,15 @@
 @endsection
 
 @section('scripts')
-<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script>
+  $(document).ready(function(){
+    $("#myModal").modal('show');
+  });
+</script>
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.js"></script>  -->
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
 <script>
     $(document).ready(function() {
         $('#myTable').DataTable(
@@ -97,4 +126,5 @@
         });
     });
 </script>
+
 @endsection
