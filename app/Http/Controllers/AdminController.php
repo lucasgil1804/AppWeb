@@ -27,14 +27,14 @@ class AdminController extends Controller
 
      public function store()
     {
-        $data = request()->validate([
-            'nombre' => 'required'
-        ],
-        [
-            'nombre.required' => 'El campo nombre es obligatorio'
-        ]
-        );
-        //$data = request()->all();
+        // $data = request()->validate([
+        //     'nombre' => 'required'
+        // ],
+        // [
+        //     'nombre.required' => 'El campo nombre es obligatorio'
+        // ]
+        // );
+        $data = request()->all();
 
         User::create([
          'id_tipoUsuario' => '2',   
@@ -45,7 +45,7 @@ class AdminController extends Controller
          'password' => bcrypt($data['password'])
         ]);
 
-        Session::flash('flash_message', 'Prueba saved successfully.');
+        Session::flash('flash_message', 'El usuario se guardo correctamente.');
 
         return redirect()->route('adminListaUsuario');
     }
