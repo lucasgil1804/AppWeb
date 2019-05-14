@@ -28,10 +28,23 @@ class AdminController extends Controller
      public function store()
     {
         $data = request()->validate([
-            'nombre' => 'required'
+            'nombre' => 'required',
+            'apellido' => 'required',
+            'dni' => 'bail|required|max:8|min:7|numeric',
+            'email' => 'required',
+            'password' => 'required',
+            'comfirmpassword' => 'required'
         ],
         [
-            'nombre.required' => 'El campo nombre es obligatorio'
+            'nombre.required' => 'El campo Nombre es obligatorio.',
+            'apellido.required' => 'El campo Apellido es obligatorio.',
+            'dni.required' => 'El campo DNI es obligatorio.',
+            'dni.max' => 'El numero maximo para el DNI es de 8 digitos.',
+            'dni.min' => 'El numero minimo para el DNI es de 7 digitos.',
+            'dni.numeric' => 'El DNI debe ser solo numerico.',
+            'email.required' => 'El campo Email es obligatorio.',
+            'password.required' => 'El campo Password es obligatorio.',
+            'comfirmpassword.required' => 'El campo Comfirmar Password es obligatorio.'
         ]
         );
         //$data = request()->all();
@@ -45,7 +58,7 @@ class AdminController extends Controller
          'password' => bcrypt($data['password'])
         ]);
 
-        Session::flash('flash_message', 'Prueba saved successfully.');
+        Session::flash('flash_message', 'El usuario se guardo correctamente.');
 
         return redirect()->route('adminListaUsuario');
     }

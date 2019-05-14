@@ -7,26 +7,51 @@
 
 @section('contenidoAdmin')
 @if(Session::has('flash_message'))
-  <!-- Modal -->
+    <!-- The Modal -->
     <div class="modal" tabindex="-1" role="dialog" id="myModal">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title">Modal title</h5>
+            <h5 class="modal-title">Registro Exitoso</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
         </div>
         <div class="modal-body">
-            <p>Modal body text goes here.</p>
+            <p>{{Session::get('flash_message')}}</p>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color: #ff4000; border-color: white;">Aceptar</button>
+            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
         </div>
         </div>
     </div>
     </div>
+
+     
+     <!-- <div class="modal fade" id="myModal">
+         <div class="modal-dialog modal-sm">
+         <div class="modal-content">
+       -->
+             <!-- Modal Header -->
+             <!-- <div class="modal-header">
+             <h4 class="modal-title">Registro Exitoso</h4>
+             <button type="button" class="close" data-dismiss="modal">&times;</button>
+             </div>
+        
+             Modal body
+             <div class="modal-body">
+                {{Session::get('flash_message')}}
+             </div> -->
+        
+             <!-- Modal footer -->
+             <!-- <div class="modal-footer">
+             <button type="button" class="btn btn-secondary" data-dismiss="modal" style="color: #ff4000;">Close</button>
+             </div>
+        
+         </div>
+         </div>
+     </div> -->
 @endif 
 
 <div style="margin-left: 20px; margin-right: 20px;">
@@ -90,17 +115,20 @@
 @endsection
 
 @section('scripts')
-<script>
+<!-- <script>
   $(document).ready(function(){
     $("#myModal").modal('show');
   });
-</script>
+</script> -->
 <!-- <script src="https://code.jquery.com/jquery-3.3.1.js"></script>  -->
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 
 <script>
+    $("#myModal").modal('show');
     $(document).ready(function() {
+        
+
         $('#myTable').DataTable(
         {
             "language": {
