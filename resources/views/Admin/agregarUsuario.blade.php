@@ -8,33 +8,16 @@
 
            <form action="{{url('nuevoUsuario')}}" method="post">
             @if ($errors->any())
-              <!-- <script >$('#myModal').modal('show');</script>  -->
-              <div class="alert alert-danger">Hay Errores</div>
-              <!-- Modal -->
-                <!-- <div class="modal" tabindex="-1" role="dialog" id="myModal">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title">Modal title</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <p>Modal body text goes here.</p>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                  </div>
-                </div>
-              </div> -->
-              <!-- Button trigger modal -->
-               <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#MyMod">
-                Launch demo modal
-                </button> -->
-              <!-- <script> $('#MyModal').show();</script> -->
+            <div class="alert alert-danger">
+              <h3>Hay Errores</h3>
+             <ul>
+              @foreach ($errors->all() as $error)
+                <li>
+                  {{$error}}
+                </li>
+              @endforeach   
+             </ul>
+            </div>
            @endif            
               {{csrf_field()}}
           	  <div class="form-group">
