@@ -30,21 +30,25 @@ class AdminController extends Controller
         $data = request()->validate([
             'nombre' => 'required',
             'apellido' => 'required',
-            'dni' => 'bail|required|max:8|min:7|numeric',
-            'email' => 'required',
-            'password' => 'required',
-            'comfirmpassword' => 'required'
+            'dni' => 'bail|required|numeric|digits_between:6,8|unique:users,dni',
+            'email' => 'bail|required|email|unique:users,email',
+            'password' => 'bail|required|min:6|confirmed',
+            'password_confirmation' => 'required'
         ],
         [
-            'nombre.required' => 'El campo Nombre es obligatorio.',
-            'apellido.required' => 'El campo Apellido es obligatorio.',
-            'dni.required' => 'El campo DNI es obligatorio.',
-            'dni.max' => 'El numero maximo para el DNI es de 8 digitos.',
-            'dni.min' => 'El numero minimo para el DNI es de 7 digitos.',
-            'dni.numeric' => 'El DNI debe ser solo numerico.',
-            'email.required' => 'El campo Email es obligatorio.',
-            'password.required' => 'El campo Password es obligatorio.',
-            'comfirmpassword.required' => 'El campo Comfirmar Password es obligatorio.'
+            'nombre.required' => '* El campo Nombre es obligatorio.',
+            'apellido.required' => '* El campo Apellido es obligatorio.',
+            'dni.required' => '* El campo DNI es obligatorio.',
+            'dni.numeric' => '* El DNI debe ser solo numerico.',
+            'dni.digits_between' => '* El número de DNI debe contener entre 6 y 8 dígitos.',
+            'dni.unique' => '* Ya existe un usuario registrado con ese DNI.',
+            'email.required' => '* El campo Email es obligatorio.',
+            'email.email' => '* Debe ingresar un Email válido.',
+            'email.unique' => '* Ya existe un usuario registrado con ese EMAIL.',
+            'password.required' => '* El campo Password es obligatorio.',
+            'password.min' => '* La contraseña debe contener al menos 6 dígitos.',
+            'password.confirmed' => '* La contraseña no coindice con la anterior.',
+            'password_confirmation.required' => '* El campo Confirmar Password es obligatorio.'
         ]
         );
         //$data = request()->all();
