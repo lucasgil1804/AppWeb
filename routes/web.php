@@ -51,3 +51,7 @@ Route::post('/nuevoUsuario', 'AdminController@store');
 
 Route::get('/prueba', 'MyController@pruebaForm')
 	->name('prueba');
+
+Route::get('/verDetalle/{id_usuario}', 'AdminController@detalles')
+    ->where('id_usuario', '[0-9]+')
+    ->name('adminVerDetalle');
