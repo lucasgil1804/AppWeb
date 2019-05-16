@@ -87,7 +87,9 @@
                 <td>
                     <div class="table-data-feature">
                         <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <a href="{{ route('adminVerDetalle', [$user->id_usuario]) }}">
                             <i class="zmdi zmdi-eye"></i>
+                            </a>
                         </button>
                         <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
                             <i class="zmdi zmdi-edit"></i>
