@@ -25,7 +25,7 @@
                           Apellido
                       </div>
                       <!-- <input type="text" id="username" name="apellido" placeholder="Apellido" class="form-control" required> -->
-                      <input type="text" id="username" name="apellido" placeholder="Apellido" class="form-control" value="{{ old('apellido') }}">
+                      <input type="text" id="userapellido" name="apellido" placeholder="Apellido" class="form-control" value="{{ old('apellido') }}">
                      <!--  <div class="invalid-feedback">
                          Por favor, ingrese el Apellido. 
                       </div> -->
