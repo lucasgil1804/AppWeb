@@ -3,11 +3,6 @@
 
 @section('contenidoAdmin')
 
-@endsection
-
-
-
-@section('scripts')
 
 
 @endsection
