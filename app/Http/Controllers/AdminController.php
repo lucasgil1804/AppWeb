@@ -67,11 +67,11 @@ class AdminController extends Controller
         return redirect()->route('adminListaUsuario');
     }
 
-    public function detalles() {
-        //$user = User::find($id);
+    public function detalles($id) {
+        $user = User::find($id);
 
-        //return view('Admin.verDetalle', compact('user'));
-        return view('Admin.verDetalle');
+        return view('Admin.verDetalle', compact('user'));
+        // return view('Admin.verDetalle');
     }
 
 }
