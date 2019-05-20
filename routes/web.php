@@ -56,3 +56,8 @@ Route::get('/verDetalle/{id}', 'AdminController@detalles')
 //Route::get('/verDetalle', 'AdminController@detalles')	
     ->where('id', '[0-9]+')
     ->name('adminVerDetalle');
+
+Route::get('/editarUsuario/{id}', 'AdminController@editar')
+//Route::get('/verDetalle', 'AdminController@detalles')	
+    ->where('id', '[0-9]+')
+    ->name('adminEditarUsuario');

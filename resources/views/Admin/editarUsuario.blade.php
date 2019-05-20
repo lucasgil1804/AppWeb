@@ -11,7 +11,7 @@
                       <div class="input-group-addon">
                           DNI
                       </div>
-                      <input type="text" id="validationCustom01" name="dni" placeholder="Nº de Documento" class="form-control" value="{{ old('dni') }}">>
+                      <input type="text" id="validationCustom01" name="dni" placeholder="Nº de Documento" class="form-control" value="{{ old('dni',$user->dni) }}">
                   </div>
                   @if ($errors->has('dni'))
                     <p class="text-danger small">{{ $errors->first('dni') }}</p>
@@ -22,7 +22,7 @@
                       <div class="input-group-addon">
                           Apellido
                       </div>
-                      <input type="text" id="username" name="apellido" placeholder="Apellido" class="form-control" value="{{ old('apellido') }}">
+                      <input type="text" id="username" name="apellido" placeholder="Apellido" class="form-control" value="{{ old('apellido',$user->apellido) }}">
                   </div>
                   @if ($errors->has('apellido'))
                     <p class="text-danger small">{{ $errors->first('apellido') }}</p>
@@ -33,7 +33,7 @@
                       <div class="input-group-addon">
                           Nombre
                       </div>
-                     <input type="text" id="username" name="nombre" placeholder="Nombre" class="form-control" value="{{ old('nombre') }}">
+                     <input type="text" id="username" name="nombre" placeholder="Nombre" class="form-control" value="{{ old('nombre',$user->nombre) }}">
                   </div>
                   @if ($errors->has('nombre'))
                     <p class="text-danger small">{{ $errors->first('nombre') }}</p>
@@ -44,7 +44,7 @@
                       <div class="input-group-addon">
                           <i class="fa fa-envelope"></i>
                       </div>
-                      <input type="text" id="email" name="email" placeholder="Email" class="form-control" value="{{ old('email') }}">
+                      <input type="text" id="email" name="email" placeholder="Email" class="form-control" value="{{ old('email',$user->email) }}">
                   </div>
                   @if ($errors->has('email'))
                     <p class="text-danger small">{{ $errors->first('email') }}</p>

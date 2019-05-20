@@ -87,11 +87,12 @@
                 <td>
                     <div class="table-data-feature">
                         <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
-                            <a href="{{action('AdminController@detalles',['id' => $user->id_usuario])}}">
+                            <a href="{{route('adminVerDetalle',['id' => $user->id_usuario])}}">
                             <i class="zmdi zmdi-eye"></i>
                             </a>
                         </button>
                         <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                            <a href="{{route('adminEditarUsuario',['id' => $user->id_usuario])}}">
                             <i class="zmdi zmdi-edit"></i>
                         </button>
                         <button class="item" data-toggle="tooltip" data-placement="top" title="Borrar">

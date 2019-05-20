@@ -71,7 +71,12 @@ class AdminController extends Controller
         $user = User::find($id);
 
         return view('Admin.verDetalle', compact('user'));
-        // return view('Admin.verDetalle');
+    }
+
+    public function editar($id) {
+        $user = User::find($id);
+
+        return view('Admin.editarUsuario', compact('user'));
     }
 
 }
