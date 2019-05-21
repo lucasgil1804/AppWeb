@@ -1,8 +1,9 @@
-
 @extends('layouts.estiloAdmin')
 
 
 @section('contenidoAdmin')
+
+
 <div class="card" style="margin-right: 20px; margin-left: 20px;" >
 	<div class="card-header"><h3>Detalle de Usuario</h3></div>
 		<div class="card-body card-block">
@@ -15,10 +16,10 @@
 			@else
 				<p class="mb-3"><b>Estado:</b> Inactivo</p>
 			@endif
-			<button class="btn btn-primary" type="submit" title="Regresar">
-				<a href="{{ url()->previous() }}"></a>
+			<button class="btn btn-primary" type="button" title="Regresar">
+				<a style="color: white;" href="{{ url()->previous() }}">
 				<i class="fa fa-arrow-circle-left"></i>
-				Regresar
+				Regresar</a>
 			</button>
 			
 		</div>
