@@ -52,12 +52,16 @@ Route::post('/nuevoUsuario', 'AdminController@store');
 Route::get('/prueba', 'MyController@pruebaForm')
 	->name('prueba');
 
-Route::get('/verDetalle/{id}', 'AdminController@detalles')
+Route::get('/verDetalle/{user}', 'AdminController@detalles')
 //Route::get('/verDetalle', 'AdminController@detalles')	
-    ->where('id', '[0-9]+')
+    ->where('user', '[0-9]+')
     ->name('adminVerDetalle');
 
-Route::get('/editarUsuario/{id}', 'AdminController@editar')
+Route::get('/editarUsuario/{user}', 'AdminController@editar')
 //Route::get('/verDetalle', 'AdminController@detalles')	
-    ->where('id', '[0-9]+')
+    ->where('user', '[0-9]+')
     ->name('adminEditarUsuario');
+
+Route::put('/editarUsuario/{user}', 'AdminController@update')
+	->where('user', '[0-9]+')
+	->name('adminUpdateUser');

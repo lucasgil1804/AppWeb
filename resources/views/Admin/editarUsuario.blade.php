@@ -2,10 +2,14 @@
 
 @section('contenidoAdmin')
   <div class="card" style="margin-right: 20px; margin-left: 20px;" >
-    <div class="card-header"><h3>Nuevo Usuario</h3></div>
+    <div class="card-header"><h3>Editar Usuario</h3></div>
       <div class="card-body card-block">
-          <form action="{{url('nuevoUsuario')}}" method="post" class="needs-validation" novalidate=""> 
-              {{csrf_field()}}
+
+          <form method="post" class="needs-validation" novalidate="" action="{{ url('editarUsuario/'. $user->id_usuario) }}">
+
+              {{ method_field('PUT') }}
+              {{ csrf_field() }}
+
           	  <div class="form-group">
                   <div class="input-group">
                       <div class="input-group-addon">
