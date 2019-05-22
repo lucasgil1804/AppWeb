@@ -67,16 +67,50 @@ class AdminController extends Controller
         return redirect()->route('adminListaUsuario');
     }
 
-    public function detalles($id) {
-        $user = User::find($id);
+    public function detalles(User $user)
+    {
+        //$user = User::find($id);
 
         return view('Admin.verDetalle', compact('user'));
     }
 
-    public function editar($id) {
-        $user = User::find($id);
-
+    public function editar(User $user)
+    {
         return view('Admin.editarUsuario', compact('user'));
+    }
+
+    public function update(User $user)
+    {
+        $data = request()->validate([
+            'nombre' => 'required',
+            'apellido' => 'required',
+            'dni' => 'bail|required|numeric|digits_between:6,8',
+            'email' => 'bail|required|email',
+            'password' => 'bail|required|min:6|confirmed',
+            'password_confirmation' => 'required'
+        ],
+        [
+            'nombre.required' => '* El campo Nombre es obligatorio.',
+            'apellido.required' => '* El campo Apellido es obligatorio.',
+            'dni.required' => '* El campo DNI es obligatorio.',
+            'dni.numeric' => '* El DNI debe ser solo numerico.',
+            'dni.digits_between' => '* El número de DNI debe contener entre 6 y 8 dígitos.',
+            'dni.unique' => '* Ya existe un usuario registrado con ese DNI.',
+            'email.required' => '* El campo Email es obligatorio.',
+            'email.email' => '* Debe ingresar un Email válido.',
+            'email.unique' => '* Ya existe un usuario registrado con ese EMAIL.',
+            'password.required' => '* El campo Password es obligatorio.',
+            'password.min' => '* La contraseña debe contener al menos 6 dígitos.',
+            'password.confirmed' => '* La contraseña no coindice con la anterior.',
+            'password_confirmation.required' => '* El campo Confirmar Password es obligatorio.'
+        ]
+        );
+ 
+        $data['password'] = bcrypt($data['password']);
+ 
+        $user->update($data);
+
+        return redirect()->route('adminVerDetalle', ['user' => $user]);
     }
 
 }

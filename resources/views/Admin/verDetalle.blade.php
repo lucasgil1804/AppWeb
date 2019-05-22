@@ -17,7 +17,7 @@
 				<p class="mb-3"><b>Estado:</b> Inactivo</p>
 			@endif
 			<button class="btn btn-primary" type="button" title="Regresar">
-				<a style="color: white;" href="{{ url()->previous() }}">
+				<a style="color: white;" href="{{ route('adminListaUsuario') }}">
 				<i class="fa fa-arrow-circle-left"></i>
 				Regresar</a>
 			</button>
