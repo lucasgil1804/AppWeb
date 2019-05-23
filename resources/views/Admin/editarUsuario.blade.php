@@ -14,6 +14,11 @@
 
               {{ method_field('PUT') }}
               {{ csrf_field() }}
+         @if ($errors->has('password'))
+          <div class="alert alert-danger">
+            <p style="color: #800000;"><b>Ha ocurrido un error al cambiar la clave.</b></p>
+          </div>
+         @endif  
 
           	  <div class="form-group">
                   <div class="input-group">
@@ -59,7 +64,6 @@
                     <p class="text-danger small">{{ $errors->first('email') }}</p>
                   @endif
               </div>
-
               <button type="button" class="btn btn-link mb-2" data-toggle="collapse" data-target="#demo"><i class="fa fa-key"></i> Cambiar clave</button>
                 <div id="demo" class="collapse">
                   
@@ -68,7 +72,7 @@
                       <div class="input-group-addon">
                           <i class="fa fa-asterisk"></i>
                       </div>
-                      <input type="password" id="password" name="password" placeholder="Contraseña" class="form-control">
+                      <input type="password" id="password" name="password" placeholder="Contraseña" class="form-control" value="{{decrypt($user->password)}}">
                   </div>
                   @if ($errors->has('password'))
                     <p class="text-danger small">{{ $errors->first('password') }}</p>
@@ -79,7 +83,7 @@
                       <div class="input-group-addon">
                           <i class="fa fa-asterisk"></i>
                       </div>
-                      <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Confirmar Contraseña" class="form-control">
+                      <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Confirmar Contraseña" class="form-control" value="{{decrypt($user->password)}}">
                   </div>
                   @if ($errors->has('password_confirmation'))
                     <p class="text-danger small">{{ $errors->first('password_confirmation') }}</p>

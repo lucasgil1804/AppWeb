@@ -59,7 +59,7 @@ class AdminController extends Controller
          'apellido' => $data['apellido'],
          'dni' => $data['dni'],
          'email' => $data['email'],
-         'password' => bcrypt($data['password'])
+         'password' => encrypt($data['password'])
         ]);
 
         Session::flash('flash_message', 'El usuario se guardo correctamente.');
@@ -86,7 +86,7 @@ class AdminController extends Controller
             'apellido' => 'required',
             'dni' => 'required|numeric|digits_between:6,8',
             'email' => 'required|email',
-            'password' => 'confirmed',
+            'password' => 'confirmed|min:6',
             'password_confirmation' => ''
         ],
         [
@@ -99,13 +99,14 @@ class AdminController extends Controller
             'email.required' => '* El campo Email es obligatorio.',
             'email.email' => '* Debe ingresar un Email válido.',
             'email.unique' => '* Ya existe un usuario registrado con ese EMAIL.',
-            'password.confirmed' => '* La contraseña no coindice con la anterior.'
+            'password.confirmed' => '* La contraseña no coindice con la anterior.',
+            'password.min' => '* La contraseña debe contener al menos 6 dígitos.'
         ]
         );
 
         if ($data['password'] != null) 
         {
-            $data['password'] = bcrypt($data['password']);
+            $data['password'] = encrypt($data['password']);
         } 
         else {
             unset($data['password']);
