@@ -1,9 +1,6 @@
 @extends('layouts.estiloAdmin')
 
-<!-- <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-</head> -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
 @section('contenidoAdmin')
   <div class="card" style="margin-right: 20px; margin-left: 20px;" >
@@ -72,7 +69,10 @@
                       <div class="input-group-addon">
                           <i class="fa fa-asterisk"></i>
                       </div>
-                      <input type="password" id="password" name="password" placeholder="Contraseña" class="form-control" value="{{decrypt($user->password)}}">
+                      <input type="password" id="txtPassword" name="password" placeholder="Contraseña" class="form-control" value="{{decrypt($user->password)}}">
+                      <div class="input-group-append">
+                      <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
+                    </div>
                   </div>
                   @if ($errors->has('password'))
                     <p class="text-danger small">{{ $errors->first('password') }}</p>
@@ -83,7 +83,11 @@
                       <div class="input-group-addon">
                           <i class="fa fa-asterisk"></i>
                       </div>
-                      <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Confirmar Contraseña" class="form-control" value="{{decrypt($user->password)}}">
+                      <input type="password" id="txtPassword2" name="password_confirmation" placeholder="Confirmar Contraseña" class="form-control" value="{{decrypt($user->password)}}">
+                      <div class="input-group-append">
+                        <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
+                      </div>
+                      
                   </div>
                   @if ($errors->has('password_confirmation'))
                     <p class="text-danger small">{{ $errors->first('password_confirmation') }}</p>
@@ -110,8 +114,34 @@
 
 @section('scripts')
 
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
+<script type="text/javascript">
+  function mostrarPassword(){
+    var cambio = document.getElementById("txtPassword");
+    var cambio2 = document.getElementById("txtPassword2");
+
+    if(cambio.type == "password"){
+      cambio.type = "text";
+      $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+    }else{
+      cambio.type = "password";
+      $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+    }
+
+    if(cambio2.type == "password"){
+      cambio2.type = "text";
+      $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+    }else{
+      cambio2.type = "password";
+      $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+    }
+  }
+
+  $(document).ready(function () {
+  //CheckBox mostrar contraseña
+  $('#ShowPassword').click(function () {
+  $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
+  });
+  });
+</script>
 
 @endsection

@@ -100,7 +100,7 @@ class AdminController extends Controller
             'email.email' => '* Debe ingresar un Email válido.',
             'email.unique' => '* Ya existe un usuario registrado con ese EMAIL.',
             'password.confirmed' => '* La contraseña no coindice con la anterior.',
-            'password.min' => '* La contraseña debe contener al menos 6 dígitos.'
+            'password.min' => '* La nueva contraseña debe contener al menos 6 dígitos.'
         ]
         );
 
