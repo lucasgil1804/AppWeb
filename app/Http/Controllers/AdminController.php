@@ -30,9 +30,9 @@ class AdminController extends Controller
         $data = request()->validate([
             'nombre' => 'required',
             'apellido' => 'required',
-            'dni' => 'bail|required|numeric|digits_between:6,8|unique:users,dni',
-            'email' => 'bail|required|email|unique:users,email',
-            'password' => 'bail|required|min:6|confirmed',
+            'dni' => 'required|numeric|digits_between:6,8|unique:users,dni',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:6|confirmed',
             'password_confirmation' => 'required'
         ],
         [
@@ -84,10 +84,10 @@ class AdminController extends Controller
         $data = request()->validate([
             'nombre' => 'required',
             'apellido' => 'required',
-            'dni' => 'bail|required|numeric|digits_between:6,8',
-            'email' => 'bail|required|email',
-            'password' => 'bail|required|min:6|confirmed',
-            'password_confirmation' => 'required'
+            'dni' => 'required|numeric|digits_between:6,8',
+            'email' => 'required|email',
+            'password' => 'confirmed',
+            'password_confirmation' => ''
         ],
         [
             'nombre.required' => '* El campo Nombre es obligatorio.',
@@ -99,15 +99,18 @@ class AdminController extends Controller
             'email.required' => '* El campo Email es obligatorio.',
             'email.email' => '* Debe ingresar un Email válido.',
             'email.unique' => '* Ya existe un usuario registrado con ese EMAIL.',
-            'password.required' => '* El campo Password es obligatorio.',
-            'password.min' => '* La contraseña debe contener al menos 6 dígitos.',
-            'password.confirmed' => '* La contraseña no coindice con la anterior.',
-            'password_confirmation.required' => '* El campo Confirmar Password es obligatorio.'
+            'password.confirmed' => '* La contraseña no coindice con la anterior.'
         ]
         );
- 
-        $data['password'] = bcrypt($data['password']);
- 
+
+        if ($data['password'] != null) 
+        {
+            $data['password'] = bcrypt($data['password']);
+        } 
+        else {
+            unset($data['password']);
+        }
+
         $user->update($data);
 
         return redirect()->route('adminVerDetalle', ['user' => $user]);

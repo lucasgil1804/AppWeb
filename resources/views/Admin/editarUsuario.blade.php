@@ -1,5 +1,10 @@
 @extends('layouts.estiloAdmin')
 
+<!-- <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head> -->
+
 @section('contenidoAdmin')
   <div class="card" style="margin-right: 20px; margin-left: 20px;" >
     <div class="card-header"><h3>Editar Usuario</h3></div>
@@ -54,7 +59,11 @@
                     <p class="text-danger small">{{ $errors->first('email') }}</p>
                   @endif
               </div>
-              <div class="form-group">
+
+              <button type="button" class="btn btn-link mb-2" data-toggle="collapse" data-target="#demo"><i class="fa fa-key"></i> Cambiar clave</button>
+                <div id="demo" class="collapse">
+                  
+                  <div class="form-group">
                   <div class="input-group">
                       <div class="input-group-addon">
                           <i class="fa fa-asterisk"></i>
@@ -64,8 +73,8 @@
                   @if ($errors->has('password'))
                     <p class="text-danger small">{{ $errors->first('password') }}</p>
                   @endif
-              </div>
-               <div class="form-group">
+                  </div>
+                  <div class="form-group">
                   <div class="input-group">
                       <div class="input-group-addon">
                           <i class="fa fa-asterisk"></i>
@@ -75,7 +84,10 @@
                   @if ($errors->has('password_confirmation'))
                     <p class="text-danger small">{{ $errors->first('password_confirmation') }}</p>
                   @endif
-              </div>
+                  </div>
+
+                </div>
+
               <div class="form-actions form-group">
                   <button type="submit" class="btn btn-success">
                     <i class="fa fa-save"></i>  
@@ -90,6 +102,12 @@
     </div>
 </div>                         
 @endsection
+
+
 @section('scripts')
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
 
 @endsection
