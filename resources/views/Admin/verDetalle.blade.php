@@ -3,6 +3,28 @@
 
 @section('contenidoAdmin')
 
+@if(Session::has('flash_message'))
+    <!-- The Modal -->
+    <div class="modal" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Registro Exitoso</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p>{{Session::get('flash_message')}}</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color: #ff4000; border-color: white;">Aceptar</button>
+            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+        </div>
+    </div>
+    </div>
+@endif
 
 <div class="card" style="margin-right: 20px; margin-left: 20px;" >
 	<div class="card-header"><h3>Detalle de Usuario</h3></div>
@@ -25,5 +47,12 @@
 		</div>
 </div>
 
+@endsection
+
+@section('scripts')
+
+<script>
+	$("#myModal").modal('show');
+</script>
 
 @endsection

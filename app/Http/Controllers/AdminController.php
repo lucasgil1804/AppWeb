@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Validation\Rule;
 
 class AdminController extends Controller
 {
@@ -62,7 +63,7 @@ class AdminController extends Controller
          'password' => encrypt($data['password'])
         ]);
 
-        Session::flash('flash_message', 'El usuario se guardo correctamente.');
+        Session::flash('flash_message', 'El usuario se guardó correctamente.');
 
         return redirect()->route('adminListaUsuario');
     }
@@ -84,8 +85,17 @@ class AdminController extends Controller
         $data = request()->validate([
             'nombre' => 'required',
             'apellido' => 'required',
-            'dni' => 'required|numeric|digits_between:6,8',
-            'email' => 'required|email',
+            'dni' => [
+                'required',
+                'numeric',
+                'digits_between:6,8',
+                Rule::unique('users', 'dni')->ignore($user->id_usuario, 'id_usuario')
+            ],
+            'email' => [
+                'required',
+                'email',
+                Rule::unique('users', 'email')->ignore($user->id_usuario, 'id_usuario')
+            ],
             'password' => 'confirmed|min:6',
             'password_confirmation' => ''
         ],
@@ -114,6 +124,7 @@ class AdminController extends Controller
 
         $user->update($data);
 
+        Session::flash('flash_message', 'El usuario se editó correctamente.');
         return redirect()->route('adminVerDetalle', ['user' => $user]);
     }
 
