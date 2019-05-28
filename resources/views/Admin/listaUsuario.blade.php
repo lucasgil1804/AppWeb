@@ -52,7 +52,8 @@
          </div>
          </div>
      </div> -->
-@endif 
+@endif
+
 
 <div style="margin-left: 20px; margin-right: 20px;">
     <h3>Lista de Empleados</h3>
@@ -88,14 +89,13 @@
                     <div class="table-data-feature">
                         <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
                             <a href="{{route('adminVerDetalle',['id' => $user->id_usuario])}}">
-                            <i class="zmdi zmdi-eye"></i>
-                            </a>
+                            <i class="zmdi zmdi-eye"></i></a>
                         </button>
                         <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
                             <a href="{{route('adminEditarUsuario',['id' => $user->id_usuario])}}">
-                            <i class="zmdi zmdi-edit"></i>
+                            <i class="zmdi zmdi-edit"></i></a>
                         </button>
-                        <button class="item" data-toggle="tooltip" data-placement="top" title="Borrar">
+                        <button class="item" data-toggle="modal" data-placement="top" data-target="#deleteModal" title="Borrar">
                             <i class="zmdi zmdi-delete"></i>
                         </button>
                     </div>
@@ -115,6 +115,41 @@
         </tfoot>
     </table>
 </div>
+
+
+
+<!-- The Modal Delete -->
+    <div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Dar de baja</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p>¿Está seguro que desea dar de baja éste usuario?</p>
+        </div>
+        <div class="modal-footer">
+            <form method="POST" action="{{ url('bajaUsuario/'. $user->id_usuario) }}">
+
+                {{ method_field('PUT') }}
+                {{ csrf_field() }}
+
+            <div class="form-actions form-group">
+            <button type="submit" class="btn btn-primary" style="background-color: #ff4000; border-color: white;">Aceptar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+
+            </div>
+            </form>
+        </div>
+        </div>
+    </div>
+    </div>
+
+
+
 @endsection
 
 @section('scripts')
