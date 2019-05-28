@@ -128,10 +128,11 @@ class AdminController extends Controller
         return redirect()->route('adminVerDetalle', ['user' => $user]);
     }
 
-    public function delete($id)
+    public function delete(User $user)
     {
-        $user = User::find($id);
-        $user->nombre = 'fulano';
+        //$user = User::find($id);
+       // dd($user);
+        $user->nombre = 'mengano';
         $user->save();
         //$data = ['nombre' => 'cosme'];
         //$user->update($data);
