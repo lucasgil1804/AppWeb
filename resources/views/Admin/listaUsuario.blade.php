@@ -125,18 +125,30 @@
             <p>¿Está seguro que desea dar de baja éste usuario?</p>
         </div>
         <div class="modal-footer">
-            <!-- <form method="POST" action="{{ url('bajaUsuario/'. $user->id_usuario) }}"> -->
-
-             <!--    {{ method_field('PUT') }}
-                {{ csrf_field() }} -->
-
-           <!--  <div class="form-actions form-group"> -->
-            <!-- <button type="button" class="btn btn-primary" style="background-color: #ff4000; border-color: white;">Aceptar</button> -->
             <a class="btn btn-danger btn-ok" >Aceptar</a>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        </div>
+        </div>
+    </div>
+    </div>
 
-          <!--   </div>
-            </form> -->
+
+        <!-- The Modal Up -->
+    <div class="modal" tabindex="-1" role="dialog" id="upModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Dar de alta</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p>¿Está seguro que desea dar de alta éste usuario?</p>
+        </div>
+        <div class="modal-footer">
+            <a class="btn btn-danger btn-ok" >Aceptar</a>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
         </div>
         </div>
     </div>
@@ -156,14 +168,28 @@
 
 <script>
 
+    // Funcionalidad del modal DELETE
     $('#deleteModal').on('show.bs.modal', function(e) {
             $(this).find('.btn-ok').attr('href', 
     $(e.relatedTarget).data('href'));
 
     $('.debug-url').html('URL: <strong>' + 
     $(this).find('.btn-ok').attr('href') + '</strong>');
-        });        
+        });
+    // Funcionalidad del modal DELETE
+
+
+    // Funcionalidad del modal UP
+    $('#upModal').on('show.bs.modal', function(e) {
+            $(this).find('.btn-ok').attr('href', 
+    $(e.relatedTarget).data('href'));
+
+    $('.debug-url').html('URL: <strong>' + 
+    $(this).find('.btn-ok').attr('href') + '</strong>');
+        });
+    // Funcionalidad del modal UP
    
+
     $("#myModal").modal('show');
     $(document).ready(function() {
         
