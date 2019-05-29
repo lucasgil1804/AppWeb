@@ -66,6 +66,10 @@ Route::put('/editarUsuario/{user}', 'AdminController@update')
 	->where('user', '[0-9]+')
 	->name('adminUpdateUser');
 
-Route::get('/bajaUsuario/{user}', 'AdminController@delete')
+Route::get('/bajaUsuario/{user}', 'AdminController@cambioEstado')
 	->where('user', '[0-9]+')
 	->name('adminBajaUsuario');
+
+Route::get('/altaUsuario/{user}', 'AdminController@cambioEstado')
+	->where('user', '[0-9]+')
+	->name('adminAltaUsuario');
