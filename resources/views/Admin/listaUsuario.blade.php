@@ -72,12 +72,15 @@
                             <a href="{{route('adminEditarUsuario',['id' => $user->id_usuario])}}">
                             <i class="zmdi zmdi-edit"></i></a>
                         </button>
-                        <button class="item" data-toggle="modal" data-placement="top" data-target="#deleteModal" title="Borrar">
-                            <i class="zmdi zmdi-delete"></i>
-                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                            <a href="#" data-href="{{route('adminBajaUsuario',['id' => $user->id_usuario])}}" data-toggle="modal" data-target="#deleteModal">
+                            <i class="zmdi zmdi-delete"></i></a>
+                        </button> 
                     </div>
                 </td>
             </tr>
+
+
             @endforeach
         </tbody>
         <tfoot>
@@ -93,9 +96,7 @@
     </table>
 </div>
 
-
-
-<!-- The Modal Delete -->
+    <!-- The Modal Delete -->
     <div class="modal" tabindex="-1" role="dialog" id="deleteModal">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -109,23 +110,22 @@
             <p>¿Está seguro que desea dar de baja éste usuario?</p>
         </div>
         <div class="modal-footer">
-            <form method="POST" action="{{ url('bajaUsuario/'. $user->id_usuario) }}">
+            <!-- <form method="POST" action="{{ url('bajaUsuario/'. $user->id_usuario) }}"> -->
 
-                {{ method_field('PUT') }}
-                {{ csrf_field() }}
+             <!--    {{ method_field('PUT') }}
+                {{ csrf_field() }} -->
 
-            <div class="form-actions form-group">
-            <button type="submit" class="btn btn-primary" style="background-color: #ff4000; border-color: white;">Aceptar</button>
+           <!--  <div class="form-actions form-group"> -->
+            <!-- <button type="button" class="btn btn-primary" style="background-color: #ff4000; border-color: white;">Aceptar</button> -->
+            <a class="btn btn-danger btn-ok" >Aceptar</a>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
 
-            </div>
-            </form>
+          <!--   </div>
+            </form> -->
         </div>
         </div>
     </div>
     </div>
-
-
 
 @endsection
 
@@ -140,6 +140,15 @@
 <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 
 <script>
+
+    $('#deleteModal').on('show.bs.modal', function(e) {
+            $(this).find('.btn-ok').attr('href', 
+    $(e.relatedTarget).data('href'));
+
+    $('.debug-url').html('URL: <strong>' + 
+    $(this).find('.btn-ok').attr('href') + '</strong>');
+        });        
+   
     $("#myModal").modal('show');
     $(document).ready(function() {
         
