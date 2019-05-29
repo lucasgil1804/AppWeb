@@ -131,8 +131,8 @@ class AdminController extends Controller
     public function delete(User $user)
     {
         //$user = User::find($id);
-       // dd($user);
-        $user->nombre = 'mengano';
+        //dd($user);
+        $user->estado = 0;
         $user->save();
         //$data = ['nombre' => 'cosme'];
         //$user->update($data);

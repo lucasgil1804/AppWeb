@@ -95,11 +95,10 @@
                             <a href="{{route('adminEditarUsuario',['id' => $user->id_usuario])}}">
                             <i class="zmdi zmdi-edit"></i></a>
                         </button>
-                        <a href="#" data-href="{{route('adminBajaUsuario',['id' => $user->id_usuario])}}" data-toggle="modal" data-target="#deleteModal">
-                         <i class="zmdi zmdi-delete"></i></a>
-                       <!--  <button class="item" data-toggle="modal" data-placement="top" data-target="#deleteModal" title="Borrar">
-                            <i class="zmdi zmdi-delete"></i>
-                        </button> -->
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                            <a href="#" data-href="{{route('adminBajaUsuario',['id' => $user->id_usuario])}}" data-toggle="modal" data-target="#deleteModal">
+                            <i class="zmdi zmdi-delete"></i></a>
+                        </button> 
                     </div>
                 </td>
             </tr>
@@ -141,7 +140,7 @@
 
            <!--  <div class="form-actions form-group"> -->
             <!-- <button type="button" class="btn btn-primary" style="background-color: #ff4000; border-color: white;">Aceptar</button> -->
-            <a class="btn btn-danger btn-ok" >Delete</a>
+            <a class="btn btn-danger btn-ok" >Aceptar</a>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
 
           <!--   </div>
