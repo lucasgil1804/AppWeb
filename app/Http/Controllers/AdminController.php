@@ -140,9 +140,23 @@ class AdminController extends Controller
         return redirect()->route('adminListaUsuario');
     }
 
+
+  public function delete2(User $user)
+    {
+        //$user = User::find($id);
+        //dd($user);
+        $user->estado = 0;
+        $user->save();
+        //$data = ['nombre' => 'cosme'];
+        //$user->update($data);
+
+        return redirect()->route('adminListaUsuario');
+    }  
+
     public function editarPrueba(User $user)
     {
         return view('Admin.editarUsuario', compact('user'));
     }
+
 
 }
