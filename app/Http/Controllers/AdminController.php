@@ -140,4 +140,9 @@ class AdminController extends Controller
         return redirect()->route('adminListaUsuario');
     }
 
+    public function editarPrueba(User $user)
+    {
+        return view('Admin.editarUsuario', compact('user'));
+    }
+
 }
