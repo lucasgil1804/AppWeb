@@ -29,29 +29,6 @@
     </div>
 
      
-     <!-- <div class="modal fade" id="myModal">
-         <div class="modal-dialog modal-sm">
-         <div class="modal-content">
-       -->
-             <!-- Modal Header -->
-             <!-- <div class="modal-header">
-             <h4 class="modal-title">Registro Exitoso</h4>
-             <button type="button" class="close" data-dismiss="modal">&times;</button>
-             </div>
-        
-             Modal body
-             <div class="modal-body">
-                {{Session::get('flash_message')}}
-             </div> -->
-        
-             <!-- Modal footer -->
-             <!-- <div class="modal-footer">
-             <button type="button" class="btn btn-secondary" data-dismiss="modal" style="color: #ff4000;">Close</button>
-             </div>
-        
-         </div>
-         </div>
-     </div> -->
 @endif
 
 
