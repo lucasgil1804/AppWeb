@@ -35,7 +35,7 @@
 <div style="margin-left: 20px; margin-right: 20px;">
     <h3>Lista de Empleados</h3>
     @if(Session::has('flash_messageExito'))
-        <div class="alert alert-success">
+        <div class="alert alert-success mt-3">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
             <strong><i class="fa fa-check"></i></strong> {{Session::get('flash_messageExito')}}
         </div>
@@ -78,10 +78,19 @@
                             <a href="{{route('adminEditarUsuario',['id' => $user->id_usuario])}}">
                             <i class="zmdi zmdi-edit"></i></a>
                         </button>
-                        <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
-                            <a href="#" data-href="{{route('adminBajaUsuario',['id' => $user->id_usuario])}}" data-toggle="modal" data-target="#deleteModal">
-                            <i class="zmdi zmdi-delete"></i></a>
-                        </button> 
+
+                        @if($user->estado == 1)
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                                <a href="#" data-href="{{route('adminBajaUsuario',['id' => $user->id_usuario])}}" data-toggle="modal" data-target="#deleteModal">
+                                <i class="zmdi zmdi-delete"></i></a>
+                            </button>
+                        @else
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Alta">
+                                <a href="#" data-href="{{route('adminAltaUsuario',['id' => $user->id_usuario])}}" data-toggle="modal" data-target="#upModal">
+                                <i class="zmdi zmdi-account-add"></i></a>
+                            </button>
+                        @endif
+
                     </div>
                 </td>
             </tr>
