@@ -35,7 +35,7 @@
 <div style="margin-left: 20px; margin-right: 20px;">
     <h3>Lista de Empleados</h3>
     @if(Session::has('flash_messageExito'))
-        <div class="alert alert-success">
+        <div class="alert alert-success mt-3">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
             <strong><i class="fa fa-check"></i></strong> {{Session::get('flash_messageExito')}}
         </div>
@@ -78,10 +78,19 @@
                             <a href="{{route('adminEditarUsuario',['id' => $user->id_usuario])}}">
                             <i class="zmdi zmdi-edit"></i></a>
                         </button>
-                        <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
-                            <a href="#" data-href="{{route('adminBajaUsuario',['id' => $user->id_usuario])}}" data-toggle="modal" data-target="#deleteModal">
-                            <i class="zmdi zmdi-delete"></i></a>
-                        </button> 
+
+                        @if($user->estado == 1)
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                                <a href="#" data-href="{{route('adminBajaUsuario',['id' => $user->id_usuario])}}" data-toggle="modal" data-target="#deleteModal">
+                                <i class="zmdi zmdi-delete"></i></a>
+                            </button>
+                        @else
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Alta">
+                                <a href="#" data-href="{{route('adminAltaUsuario',['id' => $user->id_usuario])}}" data-toggle="modal" data-target="#upModal">
+                                <i class="zmdi zmdi-account-add"></i></a>
+                            </button>
+                        @endif
+
                     </div>
                 </td>
             </tr>
@@ -116,18 +125,30 @@
             <p>¿Está seguro que desea dar de baja éste usuario?</p>
         </div>
         <div class="modal-footer">
-            <!-- <form method="POST" action="{{ url('bajaUsuario/'. $user->id_usuario) }}"> -->
-
-             <!--    {{ method_field('PUT') }}
-                {{ csrf_field() }} -->
-
-           <!--  <div class="form-actions form-group"> -->
-            <!-- <button type="button" class="btn btn-primary" style="background-color: #ff4000; border-color: white;">Aceptar</button> -->
             <a class="btn btn-danger btn-ok" >Aceptar</a>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        </div>
+        </div>
+    </div>
+    </div>
 
-          <!--   </div>
-            </form> -->
+
+        <!-- The Modal Up -->
+    <div class="modal" tabindex="-1" role="dialog" id="upModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Dar de alta</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p>¿Está seguro que desea dar de alta éste usuario?</p>
+        </div>
+        <div class="modal-footer">
+            <a class="btn btn-danger btn-ok" >Aceptar</a>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
         </div>
         </div>
     </div>
@@ -147,14 +168,28 @@
 
 <script>
 
+    // Funcionalidad del modal DELETE
     $('#deleteModal').on('show.bs.modal', function(e) {
             $(this).find('.btn-ok').attr('href', 
     $(e.relatedTarget).data('href'));
 
     $('.debug-url').html('URL: <strong>' + 
     $(this).find('.btn-ok').attr('href') + '</strong>');
-        });        
+        });
+    // Funcionalidad del modal DELETE
+
+
+    // Funcionalidad del modal UP
+    $('#upModal').on('show.bs.modal', function(e) {
+            $(this).find('.btn-ok').attr('href', 
+    $(e.relatedTarget).data('href'));
+
+    $('.debug-url').html('URL: <strong>' + 
+    $(this).find('.btn-ok').attr('href') + '</strong>');
+        });
+    // Funcionalidad del modal UP
    
+
     $("#myModal").modal('show');
     $(document).ready(function() {
         
