@@ -140,6 +140,7 @@ class AdminController extends Controller
         return redirect()->route('adminListaUsuario');
     }
 
+
   public function delete2(User $user)
     {
         //$user = User::find($id);
@@ -151,5 +152,11 @@ class AdminController extends Controller
 
         return redirect()->route('adminListaUsuario');
     }  
+
+    public function editarPrueba(User $user)
+    {
+        return view('Admin.editarUsuario', compact('user'));
+    }
+
 
 }
