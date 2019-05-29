@@ -34,6 +34,12 @@
 
 <div style="margin-left: 20px; margin-right: 20px;">
     <h3>Lista de Empleados</h3>
+    @if(Session::has('flash_messageExito'))
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong><i class="fa fa-check"></i></strong> {{Session::get('flash_messageExito')}}
+        </div>
+    @endif    
     <div  style="margin-bottom: 15px;" align="right">
         <button type="button" class="btn btn-primary" onclick="location='{{ route('adminNuevoUsuario') }}'">
             <i class="fa fa-plus"></i>&nbsp; Añadir</button>
