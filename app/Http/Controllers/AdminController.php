@@ -128,16 +128,23 @@ class AdminController extends Controller
         return redirect()->route('adminVerDetalle', ['user' => $user]);
     }
 
-    public function delete(User $user)
+    public function cambioEstado(User $user)
     {
         //$user = User::find($id);
         //dd($user);
-        $user->estado = 0;
-        $user->save();
+        if ($user->estado == 1) 
+        {
+            $user->estado = 0;
+            $user->save();
+            Session::flash('flash_messageExito', 'El usuario se ha dado de baja correctamente.');
+        } 
+        else {
+            $user->estado = 1;
+            $user->save();
+            Session::flash('flash_messageExito', 'El usuario se ha dado de alta correctamente.');
+        }
         //$data = ['nombre' => 'cosme'];
         //$user->update($data);
-        Session::flash('flash_messageExito', 'El usuario se ha dado de baja correctamente.');
-
         return redirect()->route('adminListaUsuario');
     }
 
