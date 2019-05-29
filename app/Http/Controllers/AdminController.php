@@ -136,27 +136,9 @@ class AdminController extends Controller
         $user->save();
         //$data = ['nombre' => 'cosme'];
         //$user->update($data);
+        Session::flash('flash_messageExito', 'El usuario se ha dado de baja correctamente.');
 
         return redirect()->route('adminListaUsuario');
     }
-
-
-  public function delete2(User $user)
-    {
-        //$user = User::find($id);
-        //dd($user);
-        $user->estado = 0;
-        $user->save();
-        //$data = ['nombre' => 'cosme'];
-        //$user->update($data);
-
-        return redirect()->route('adminListaUsuario');
-    }  
-
-    public function editarPrueba(User $user)
-    {
-        return view('Admin.editarUsuario', compact('user'));
-    }
-
 
 }
