@@ -33,10 +33,11 @@
 			<p class="mb-3"><b>DNI:</b> {{ $user->dni }}</p>
 			<p class="mb-3"><b>Nombre y Apellido:</b> {{ $user->nombre. " " .$user->apellido }}</p>
 			<p class="mb-3"><b>Email:</b> {{ $user->email }}</p>
-			@if ( $user->estado == 1)
+			@if ( $user->deleted_at == null)
 				<p class="mb-3"><b>Estado:</b> Activo</p>
 			@else
 				<p class="mb-3"><b>Estado:</b> Inactivo</p>
+				<p class="mb-3"><b>Fecha de baja:</b> {{ date("d/m/Y", strtotime($user->deleted_at)) }}</p>
 			@endif
 			<button class="btn btn-primary" type="button" title="Regresar">
 				<a style="color: white;" href="{{ route('adminListaUsuario') }}">

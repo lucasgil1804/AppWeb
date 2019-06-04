@@ -64,7 +64,7 @@
                 <td>{{ $user->nombre }}</td>
                 <td>{{ $user->apellido }}</td>
                 <td>{{ $user->email }}</td>
-                @if ( $user->estado == 1)
+                @if ( $user->deleted_at == null)
                     <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
                 @else
                     <td><i style="color: red;" class="fa fa-arrow-circle-down" data-toggle="tooltip" data-placement="top" title="Inactivo"></i></td>
@@ -77,17 +77,21 @@
                             <a href="{{route('adminVerDetalle',['id' => $user->id_usuario])}}">
                             <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
                         </button>
-                        <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
-                            <a href="{{route('adminEditarUsuario',['id' => $user->id_usuario])}}">
-                            <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
-                        </button>
 
-                        @if($user->estado == 1)
-                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                        @if($user->deleted_at == null)
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                                <a href="{{route('adminEditarUsuario',['id' => $user->id_usuario])}}">
+                                <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
+                            </button>
+                            <button class="item" da
+                            ta-toggle="tooltip" data-placement="top" title="Dar de Baja">
                                 <a href="#" data-href="{{route('adminBajaUsuario',['id' => $user->id_usuario])}}" data-toggle="modal" data-target="#deleteModal">
                                 <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
                             </button>
                         @else
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="No se permite editar">
+                                <i class="zmdi zmdi-edit" style="color: grey;"></i>
+                            </button>
                             <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Alta">
                                 <a href="#" data-href="{{route('adminAltaUsuario',['id' => $user->id_usuario])}}" data-toggle="modal" data-target="#upModal">
                                 <i class="zmdi zmdi-account-add" style="color: grey;"></i></a>
