@@ -52,9 +52,9 @@ Route::post('/nuevoUsuario', 'AdminController@store');
 Route::get('/prueba', 'MyController@pruebaForm')
 	->name('prueba');
 
-Route::get('/verDetalle/{user}', 'AdminController@detalles')
+Route::get('/verDetalle/{id}', 'AdminController@detalles')
 //Route::get('/verDetalle', 'AdminController@detalles')	
-    ->where('user', '[0-9]+')
+    ->where('id', '[0-9]+')
     ->name('adminVerDetalle');
 
 Route::get('/editarUsuario/{user}', 'AdminController@editar')
@@ -66,10 +66,10 @@ Route::put('/editarUsuario/{user}', 'AdminController@update')
 	->where('user', '[0-9]+')
 	->name('adminUpdateUser');
 
-Route::get('/bajaUsuario/{user}', 'AdminController@cambioEstado')
+Route::get('/bajaUsuario/{user}', 'AdminController@bajaUsuario')
 	->where('user', '[0-9]+')
 	->name('adminBajaUsuario');
 
-Route::get('/altaUsuario/{user}', 'AdminController@cambioEstado')
-	->where('user', '[0-9]+')
+Route::get('/altaUsuario/{id}', 'AdminController@altaUsuario')
+	->where('id', '[0-9]+')
 	->name('adminAltaUsuario');

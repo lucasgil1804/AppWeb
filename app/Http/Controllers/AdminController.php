@@ -11,7 +11,7 @@ class AdminController extends Controller
 {
     public function listaUsuario()
     {
-        $users=User::all();
+        $users=User::withTrashed()->get();
 
     	return view('Admin.listaUsuario', compact('users'));
     }
@@ -68,9 +68,12 @@ class AdminController extends Controller
         return redirect()->route('adminListaUsuario');
     }
 
-    public function detalles(User $user)
+    public function detalles($id)
     {
-        //$user = User::find($id);
+        // $user = User::find($id);
+
+        $user = User::withTrashed()
+                ->find($id);
 
         return view('Admin.verDetalle', compact('user'));
     }
@@ -128,23 +131,22 @@ class AdminController extends Controller
         return redirect()->route('adminVerDetalle', ['user' => $user]);
     }
 
-    public function cambioEstado(User $user)
+    public function bajaUsuario(User $user)
     {
-        //$user = User::find($id);
-        //dd($user);
-        if ($user->estado == 1) 
-        {
-            $user->estado = 0;
-            $user->save();
-            Session::flash('flash_messageExito', 'El usuario se ha dado de baja correctamente.');
-        } 
-        else {
-            $user->estado = 1;
-            $user->save();
-            Session::flash('flash_messageExito', 'El usuario se ha dado de alta correctamente.');
-        }
-        //$data = ['nombre' => 'cosme'];
-        //$user->update($data);
+        $user->delete();
+
+        Session::flash('flash_messageExito', 'El usuario se ha dado de baja correctamente.');
+        return redirect()->route('adminListaUsuario');
+    }
+
+    public function altaUsuario($id)
+    {
+
+        $user = User::withTrashed()
+                    ->find($id);
+        $user->restore();
+
+        Session::flash('flash_messageExito', 'El usuario se ha dado de alta correctamente.');
         return redirect()->route('adminListaUsuario');
     }
 
