@@ -3,6 +3,7 @@
 <!-- Estilo Datatable -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
 <!-- Estilo Datatable -->
 
 @section('contenidoAdmin')
@@ -44,7 +45,8 @@
         <button type="button" class="btn btn-primary" onclick="location='{{ route('adminNuevoUsuario') }}'">
             <i class="fa fa-plus"></i>&nbsp; Añadir</button>
     </div>
-    <table id="myTable" class="table table-hover table-striped table-bordered" style="width:100%;text-align: center;">
+    <!-- <table id="myTable" class="table table-hover table-striped table-bordered" style="width:100%;text-align: center;"> -->
+        <table id="myTable" class="table table-striped table-bordered dt-responsive nowrap" style="width: 100%; text-align: center;">
         <thead>
             <tr>
                 <th>DNI</th>
@@ -69,25 +71,26 @@
                 @endif
                 <!-- <td>{{ $user->estado }}</td> -->
                 <td>
-                    <div class="table-data-feature">
+                    <!-- <div class="table-data-feature" style="position: relative;"> -->
+                    <div class="botones-accion" style="">
                         <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
                             <a href="{{route('adminVerDetalle',['id' => $user->id_usuario])}}">
-                            <i class="zmdi zmdi-eye"></i></a>
+                            <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
                         </button>
                         <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
                             <a href="{{route('adminEditarUsuario',['id' => $user->id_usuario])}}">
-                            <i class="zmdi zmdi-edit"></i></a>
+                            <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
                         </button>
 
                         @if($user->estado == 1)
                             <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
                                 <a href="#" data-href="{{route('adminBajaUsuario',['id' => $user->id_usuario])}}" data-toggle="modal" data-target="#deleteModal">
-                                <i class="zmdi zmdi-delete"></i></a>
+                                <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
                             </button>
                         @else
                             <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Alta">
                                 <a href="#" data-href="{{route('adminAltaUsuario',['id' => $user->id_usuario])}}" data-toggle="modal" data-target="#upModal">
-                                <i class="zmdi zmdi-account-add"></i></a>
+                                <i class="zmdi zmdi-account-add" style="color: grey;"></i></a>
                             </button>
                         @endif
 
@@ -162,9 +165,11 @@
     $("#myModal").modal('show');
   });
 </script> -->
-<!-- <script src="https://code.jquery.com/jquery-3.3.1.js"></script>  -->
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.js"></script> -->
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
 
 <script>
 
