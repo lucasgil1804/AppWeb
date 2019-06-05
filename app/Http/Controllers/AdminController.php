@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\TipoUsuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\Rule;
+
 
 class AdminController extends Controller
 {
@@ -14,6 +16,15 @@ class AdminController extends Controller
         $users=User::withTrashed()->get();
 
     	return view('Admin.listaUsuario', compact('users'));
+    }
+
+    public function listaEmpleado()
+    {
+        $empleados=tipoUsuario::find(1);
+
+        $listaEmpleados = $empleados->users;
+
+        return view('Admin.listaUsuario', compact('listaEmpleados'));
     }
 
     public function index()

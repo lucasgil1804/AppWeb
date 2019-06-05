@@ -117,7 +117,7 @@
                                 <i class="fas fa-users"></i>Usuarios</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="{{ route('adminListaUsuario') }}">
+                                    <a href="{{ route('adminListaEmpleados') }}">
                                         <i class="fas fa-user"></i>Empleados</a>
                                 </li>
                                 <li>
