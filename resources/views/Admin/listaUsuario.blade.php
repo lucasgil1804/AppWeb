@@ -53,23 +53,25 @@
                 <th>Nombre</th>
                 <th>Apellido</th>
                 <th>Email</th>
+                <th>Tipo Usuario</th>
                 <th>Estado</th>
                 <th>Acción</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($users as $user)
+            @foreach ($listaEmpleados as $empleado)
             <tr>
-                <td>{{ $user->dni }}</td>
-                <td>{{ $user->nombre }}</td>
-                <td>{{ $user->apellido }}</td>
-                <td>{{ $user->email }}</td>
-                @if ( $user->deleted_at == null)
+                <td>{{ $empleado->dni }}</td>
+                <td>{{ $empleado->nombre }}</td>
+                <td>{{ $empleado->apellido }}</td>
+                <td>{{ $empleado->email }}</td>
+                <td>{{ $empleado->tipoUsuario->descripcion }}</td>
+                @if ( $empleado->deleted_at == null)
                     <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
                 @else
                     <td><i style="color: red;" class="fa fa-arrow-circle-down" data-toggle="tooltip" data-placement="top" title="Inactivo"></i></td>
                 @endif
-                <!-- <td>{{ $user->estado }}</td> -->
+                
                 <td>
                     <!-- <div class="table-data-feature" style="position: relative;"> -->
                     <div class="botones-accion" style="">
@@ -78,7 +80,7 @@
                             <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
                         </button>
 
-                        @if($user->deleted_at == null)
+                        @if($empleado->deleted_at == null)
                             <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
                                 <a href="{{route('adminEditarUsuario',['id' => $user->id_usuario])}}">
                                 <i class="zmdi zmdi-edit" style="color: grey;"></i></a>

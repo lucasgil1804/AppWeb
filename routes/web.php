@@ -73,3 +73,6 @@ Route::get('/bajaUsuario/{user}', 'AdminController@bajaUsuario')
 Route::get('/altaUsuario/{id}', 'AdminController@altaUsuario')
 	->where('id', '[0-9]+')
 	->name('adminAltaUsuario');
+
+Route::get('/listaEmpleados', 'AdminController@listaEmpleado')
+	->name('adminListaEmpleados');
