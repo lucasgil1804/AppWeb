@@ -4438,12 +4438,16 @@ section {
     background: #fa4251;
 }
 
-.role.user {
+.role.employ {
     background: #00b5e9;
 }
 
-.role.member {
+.role.tech {
     background: #57b846;
+}
+
+.role.client {
+    background: #ff8f00;
 }
 
 .table-top-campaign.table td {
