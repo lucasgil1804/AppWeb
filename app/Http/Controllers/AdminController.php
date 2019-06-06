@@ -27,6 +27,15 @@ class AdminController extends Controller
         return view('Admin.listaEmpleados', compact('listaEmpleados'));
     }
 
+    public function listaTecnico()
+    {
+        $tecnicos=tipoUsuario::find(3);
+
+        $listaTecnicos = $tecnicos->users()->withTrashed()->get();
+
+        return view('Admin.listaTecnicos', compact('listaTecnicos'));
+    }
+
     public function index()
     {
         $users=User::withTrashed()->get();
