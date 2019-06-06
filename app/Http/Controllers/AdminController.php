@@ -24,7 +24,7 @@ class AdminController extends Controller
 
         $listaEmpleados = $empleados->users()->withTrashed()->get();
 
-        return view('Admin.listaUsuario', compact('listaEmpleados'));
+        return view('Admin.listaEmpleados', compact('listaEmpleados'));
     }
 
     public function index()
@@ -147,7 +147,7 @@ class AdminController extends Controller
         $user->delete();
 
         Session::flash('flash_messageExito', 'El usuario se ha dado de baja correctamente.');
-        return redirect()->route('adminListaUsuario');
+        return redirect()->route('adminListaEmpleados');
     }
 
     public function altaUsuario($id)
@@ -158,7 +158,7 @@ class AdminController extends Controller
         $user->restore();
 
         Session::flash('flash_messageExito', 'El usuario se ha dado de alta correctamente.');
-        return redirect()->route('adminListaUsuario');
+        return redirect()->route('adminListaEmpleados');
     }
 
 }
