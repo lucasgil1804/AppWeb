@@ -20,9 +20,9 @@ class AdminController extends Controller
 
     public function listaEmpleado()
     {
-        $empleados=tipoUsuario::find(1);
+        $empleados=tipoUsuario::find(2);
 
-        $listaEmpleados = $empleados->users;
+        $listaEmpleados = $empleados->users()->withTrashed()->get();
 
         return view('Admin.listaUsuario', compact('listaEmpleados'));
     }

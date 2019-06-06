@@ -59,14 +59,14 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($listaEmpleados as $empleado)
+            @foreach ($listaEmpleados as $user)
             <tr>
-                <td>{{ $empleado->dni }}</td>
-                <td>{{ $empleado->nombre }}</td>
-                <td>{{ $empleado->apellido }}</td>
-                <td>{{ $empleado->email }}</td>
-                <td>{{ $empleado->tipoUsuario->descripcion }}</td>
-                @if ( $empleado->deleted_at == null)
+                <td>{{ $user->dni }}</td>
+                <td>{{ $user->nombre }}</td>
+                <td>{{ $user->apellido }}</td>
+                <td>{{ $user->email }}</td>
+                <td>{{ $user->tipoUsuario->descripcion }}</td>
+                @if ( $user->deleted_at == null)
                     <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
                 @else
                     <td><i style="color: red;" class="fa fa-arrow-circle-down" data-toggle="tooltip" data-placement="top" title="Inactivo"></i></td>
@@ -80,7 +80,7 @@
                             <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
                         </button>
 
-                        @if($empleado->deleted_at == null)
+                        @if($user->deleted_at == null)
                             <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
                                 <a href="{{route('adminEditarUsuario',['id' => $user->id_usuario])}}">
                                 <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
