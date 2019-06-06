@@ -100,7 +100,7 @@
                     <i class="fa fa-save"></i>  
                      &nbsp;Guardar
                   </button>
-                  <button type="button" class="btn btn-danger" onclick="location='{{ route('adminListaUsuario') }}'">
+                  <button type="button" class="btn btn-danger" onclick="location='{{ route('adminListaEmpleados') }}'">
                     <i class="fa fa-times"></i>  
                      &nbsp;Cancelar
                   </button>

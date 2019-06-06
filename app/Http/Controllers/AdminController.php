@@ -38,7 +38,9 @@ class AdminController extends Controller
 
     public function index()
     {
-    	return view('Admin.index');
+        $users=User::withTrashed()->get();
+
+        return view('Admin.index', compact('users'));
     }
 
     public function nuevoUsuario()
