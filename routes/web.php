@@ -41,8 +41,8 @@ Route::get('/estadoEquipo', 'MyController@estadoEquipo')
 Route::get('/index', 'AdminController@index')
 	->name('adminIndex');
 
-Route::get('/listaUsuario', 'AdminController@listaUsuario')
-	->name('adminListaUsuario');
+// Route::get('/listaUsuario', 'AdminController@listaUsuario')
+// 	->name('adminListaUsuario');
 
 Route::get('/nuevoUsuario', 'AdminController@nuevoUsuario')
 	->name('adminNuevoUsuario');
