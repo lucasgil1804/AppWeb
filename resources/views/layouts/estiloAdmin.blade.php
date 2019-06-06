@@ -121,7 +121,7 @@
                                         <i class="fas fa-user"></i>Empleados</a>
                                 </li>
                                 <li>
-                                    <a href="index2.html">
+                                    <a href="{{ route('adminListaTecnicos') }}">
                                         <i class="fas fa-briefcase"></i>Técnicos</a>
                                 </li>
                                 <li>
