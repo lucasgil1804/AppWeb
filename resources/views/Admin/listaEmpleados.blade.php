@@ -43,7 +43,7 @@
     @endif    
     <div  style="margin-bottom: 15px;" align="right">
         <button type="button" class="btn btn-primary">
-             <a href="{{route('adminNuevoUsuario',['tipoUser' => 2])}}">
+             <a class="linkBlanco" href="{{route('adminNuevoUsuario',['tipoUser' => 2])}}">
              <i class="fa fa-plus"></i>&nbsp; Añadir</a>
         </button>
     </div>

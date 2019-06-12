@@ -66,7 +66,7 @@ class AdminController extends Controller
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:6|confirmed',
             'password_confirmation' => 'required',
-            'tipoUser' =>''
+            'tipoUser' => ''
         ],
         [
             'nombre.required' => '* El campo Nombre es obligatorio.',
@@ -98,7 +98,18 @@ class AdminController extends Controller
 
         Session::flash('flash_message', 'El usuario se guardó correctamente.');
 
-        return redirect()->route('adminListaEmpleados');
+        if ($data['tipoUser'] == 2) {
+            return redirect()->route('adminListaEmpleados');
+        }
+
+        elseif ($data['tipoUser'] == 3) {
+            return redirect()->route('adminListaTecnicos');
+        }
+
+        else {
+            return redirect()->route('adminListaClientes');
+        }
+        
     }
 
     public function detalles($id)
