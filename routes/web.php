@@ -44,7 +44,8 @@ Route::get('/index', 'AdminController@index')
 // Route::get('/listaUsuario', 'AdminController@listaUsuario')
 // 	->name('adminListaUsuario');
 
-Route::get('/nuevoUsuario', 'AdminController@nuevoUsuario')
+Route::get('/nuevoUsuario/{tipoUser}', 'AdminController@nuevoUsuario')
+    ->where('tipoUser', '[2-4]')
 	->name('adminNuevoUsuario');
 
 Route::post('/nuevoUsuario', 'AdminController@store');

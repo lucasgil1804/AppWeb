@@ -53,7 +53,6 @@
                 <th>Nombre</th>
                 <th>Apellido</th>
                 <th>Email</th>
-                <th>Tipo Usuario</th>
                 <th>Estado</th>
                 <th>Acción</th>
             </tr>
@@ -65,7 +64,6 @@
                 <td>{{ $user->nombre }}</td>
                 <td>{{ $user->apellido }}</td>
                 <td>{{ $user->email }}</td>
-                <td>{{ $user->tipoUsuario->descripcion }}</td>
                 @if ( $user->deleted_at == null)
                     <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
                 @else
