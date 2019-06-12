@@ -164,7 +164,7 @@
             <header class="header-desktop">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
-                        <div class="header-wrap">
+                        <div class="header-wrap" style="float: right;">
                             <div class="header-button">
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
@@ -217,13 +217,13 @@
                 
                 @yield('contenidoAdmin')
 
-                <!-- <div class="row"> -->
+                <div class="row">
                     <div class="col-md-12">
                         <div class="copyright">
                             <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | Ésta plantilla está diseñada por <a href="https://colorlib.com" target="_blank">F&G Web Design</a></p>
                         </div>
                     </div>
-                <!-- </div> -->
+                </div>
 
             </div>
             <!-- END MAIN CONTENT-->

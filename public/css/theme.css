@@ -14651,3 +14651,11 @@ section {
     height: 30px;
     width: 30px;
 }
+
+a.linkBlanco {
+    color: #ffffff;
+}
+
+a.linkBlanco:hover {
+    color: #ffffff;
+}
