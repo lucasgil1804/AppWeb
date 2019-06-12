@@ -66,29 +66,33 @@
                     <ul class="navbar-mobile__list list-unstyled">
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-tachometer-alt"></i>Usuarios</a>
+                                <i class="fas fa-users"></i>Usuarios</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="index.html">
-                                        <i class="fas fa-tachometer-alt"></i>Empleados</a>
+                                    <a href="{{ route('adminListaEmpleados') }}">
+                                        <i class="fas fa-user"></i>Empleados</a>
                                 </li>
                                 <li>
-                                    <a href="index2.html">Técnicos</a>
+                                    <a href="{{ route('adminListaTecnicos') }}">
+                                        <i class="fas fa-briefcase"></i>Técnicos</a>
                                 </li>
                                 <li>
-                                    <a href="index3.html">Clientes</a>
+                                    <a href="{{ route ('adminListaClientes') }}">
+                                        <i class="fas fa-male"></i>Clientes</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-tachometer-alt"></i>Reparaciones</a>
+                                <i class="fas fa-wrench"></i>Reparaciones</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="index.html">PCs Escritorio</a>
+                                    <a href="index.html">
+                                        <i class="fas fa-desktop"></i>PCs Escritorio</a>
                                 </li>
                                 <li>
-                                    <a href="index2.html">Notebooks</a>
+                                    <a href="index2.html">
+                                        <i class="fas fa-laptop"></i>Notebooks</a>
                                 </li>
                             </ul>
                         </li>
@@ -125,7 +129,7 @@
                                         <i class="fas fa-briefcase"></i>Técnicos</a>
                                 </li>
                                 <li>
-                                    <a href="index3.html">
+                                    <a href="{{ route ('adminListaClientes') }}">
                                         <i class="fas fa-male"></i>Clientes</a>
                                 </li>
                             </ul>
@@ -161,12 +165,6 @@
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="header-wrap">
-                            <form class="form-header" action="" method="POST">
-                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Buscar..." />
-                                <button class="au-btn--submit" type="submit" style="background-color: #ff4000;">
-                                    <i class="zmdi zmdi-search"></i>
-                                </button>
-                            </form>
                             <div class="header-button">
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
@@ -219,13 +217,13 @@
                 
                 @yield('contenidoAdmin')
 
-                <div class="row">
+                <!-- <div class="row"> -->
                     <div class="col-md-12">
                         <div class="copyright">
                             <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | Ésta plantilla está diseñada por <a href="https://colorlib.com" target="_blank">F&G Web Design</a></p>
                         </div>
                     </div>
-                </div>
+                <!-- </div> -->
 
             </div>
             <!-- END MAIN CONTENT-->
