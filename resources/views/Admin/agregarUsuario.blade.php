@@ -95,6 +95,13 @@
                     <p class="text-danger small">{{ $errors->first('password_confirmation') }}</p>
                   @endif
               </div>
+              <!-- Campo Oculto -->
+               <div class="form-group">
+                  <div class="input-group">
+                     <input type="hidden" id="tipoUser" name="tipoUser" class="form-control" value="{{$tipoUser}}">
+                  </div>
+              </div>
+              <!-- Campo Oculto -->
               <div class="form-actions form-group">
                   <button type="submit" class="btn btn-success">
                     <i class="fa fa-save"></i>  

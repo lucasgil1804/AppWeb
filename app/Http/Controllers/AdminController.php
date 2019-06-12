@@ -52,9 +52,9 @@ class AdminController extends Controller
         return view('Admin.index', compact('users'));
     }
 
-    public function nuevoUsuario()
+    public function nuevoUsuario($tipoUser)
     {
-    	return view('Admin.agregarUsuario');
+    	return view('Admin.agregarUsuario',compact('tipoUser'));
     }
 
      public function store()
@@ -65,7 +65,8 @@ class AdminController extends Controller
             'dni' => 'required|numeric|digits_between:6,8|unique:users,dni',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:6|confirmed',
-            'password_confirmation' => 'required'
+            'password_confirmation' => 'required',
+            'tipoUser' =>''
         ],
         [
             'nombre.required' => '* El campo Nombre es obligatorio.',
@@ -84,9 +85,10 @@ class AdminController extends Controller
         ]
         );
         //$data = request()->all();
+        
 
         User::create([
-         'id_tipoUsuario' => '2',   
+         'id_tipoUsuario' => $data['tipoUser'],   
          'nombre' => $data['nombre'],
          'apellido' => $data['apellido'],
          'dni' => $data['dni'],
@@ -96,7 +98,7 @@ class AdminController extends Controller
 
         Session::flash('flash_message', 'El usuario se guardó correctamente.');
 
-        return redirect()->route('adminListaUsuario');
+        return redirect()->route('adminListaEmpleados');
     }
 
     public function detalles($id)
@@ -167,7 +169,19 @@ class AdminController extends Controller
         $user->delete();
 
         Session::flash('flash_messageExito', 'El usuario se ha dado de baja correctamente.');
-        return redirect()->route('adminListaEmpleados');
+        if ($user->id_tipoUsuario == 2)
+        {
+            return redirect()->route('adminListaEmpleados');
+        }
+        elseif ($user->id_tipoUsuario == 3)
+        {
+            return redirect()->route('adminListaTecnicos');
+        }
+        else
+        {
+            return redirect()->route('adminListaClientes');
+        }
+        
     }
 
     public function altaUsuario($id)
@@ -178,7 +192,18 @@ class AdminController extends Controller
         $user->restore();
 
         Session::flash('flash_messageExito', 'El usuario se ha dado de alta correctamente.');
-        return redirect()->route('adminListaEmpleados');
+        if ($user->id_tipoUsuario == 2)
+        {
+            return redirect()->route('adminListaEmpleados');
+        }
+        elseif ($user->id_tipoUsuario == 3)
+        {
+            return redirect()->route('adminListaTecnicos');
+        }
+        else
+        {
+            return redirect()->route('adminListaClientes');
+        }
     }
 
 }
