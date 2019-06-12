@@ -79,3 +79,6 @@ Route::get('/listaEmpleados', 'AdminController@listaEmpleado')
 
 Route::get('/listaTecnicos', 'AdminController@listaTecnico')
 	->name('adminListaTecnicos');
+
+Route::get('/listaClientes', 'AdminController@listaCliente')
+	->name('adminListaClientes');

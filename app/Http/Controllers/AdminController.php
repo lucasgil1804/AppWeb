@@ -36,6 +36,15 @@ class AdminController extends Controller
         return view('Admin.listaTecnicos', compact('listaTecnicos'));
     }
 
+    public function listaCliente()
+    {
+        $clientes=tipoUsuario::find(4);
+
+        $listaClientes = $clientes->users()->withTrashed()->get();
+
+        return view('Admin.listaClientes', compact('listaClientes'));
+    }
+
     public function index()
     {
         $users=User::withTrashed()->get();
