@@ -34,7 +34,7 @@
 
 
 <div style="margin-left: 20px; margin-right: 20px;">
-    <h3>Lista de Empleados</h3>
+    <h3>Lista de Clientes</h3>
     @if(Session::has('flash_messageExito'))
         <div class="alert alert-success mt-3">
             <button type="button" class="close" data-dismiss="alert">&times;</button>

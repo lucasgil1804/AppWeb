@@ -27,7 +27,7 @@
 @endif
 
 <div class="card" style="margin-right: 20px; margin-left: 20px;" >
-	<div class="card-header"><h3>Detalle de Usuario</h3></div>
+	<div class="card-header"><h3>Detalle del {{ $user->tipoUsuario->descripcion }}</h3></div>
 		<div class="card-body card-block">
 
 			<p class="mb-3"><b>DNI:</b> {{ $user->dni }}</p>
