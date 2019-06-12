@@ -53,7 +53,7 @@
             </button>
             @else
               <button class="btn btn-primary" type="button" title="Regresar">
-                <a style="color: white;" href="{{ route('adminListaTecnicos') }}">
+                <a style="color: white;" href="{{ route('adminListaClientes') }}">
                 <i class="fa fa-arrow-circle-left"></i>
                 Regresar</a>
             </button>
