@@ -18,7 +18,7 @@ Route::get('/', function () {
 Route::get('/inicio', 'MyController@index')
 	->name('inicio');
 
-Route::get('/login', 'MyController@login');
+Route::get('/iniciarSesion', 'MyController@login');
 
 Route::get('/contacto', 'MyController@contacto')
 	->name('contacto');
@@ -83,3 +83,6 @@ Route::get('/listaTecnicos', 'AdminController@listaTecnico')
 
 Route::get('/listaClientes', 'AdminController@listaCliente')
 	->name('adminListaClientes');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
