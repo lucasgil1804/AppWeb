@@ -38,16 +38,31 @@
                     </span>
                 </div>
 
-                <form class="login100-form validate-form">
+                <form class="login100-form validate-form" method="POST" action="{{ route('login') }}">
+                    @csrf
                     <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
-                        <span class="label-input100">Usuario</span>
-                        <input class="input100" type="text" name="username" placeholder="Ingrese su email">
+                        <span class="label-input100">E-mail</span>
+                        <!-- <input class="input100" type="text" name="username" placeholder="Ingrese su email"> -->
+                        <input id="email" type="email" class="input100{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="Ingrese su email" required autofocus>
+
+                            @if ($errors->has('email'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                            @endif
                         <span class="focus-input100"></span>
                     </div>
 
                     <div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
                         <span class="label-input100">Contraseña</span>
-                        <input class="input100" type="password" name="pass" placeholder="Ingrese su contraseña">
+                        <!-- <input class="input100" type="password" name="pass" placeholder="Ingrese su contraseña"> -->
+                        <input id="password" type="password" class="input100{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="Ingrese su contraseña" required>
+                        
+                            @if ($errors->has('password'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('password') }}</strong>
+                                </span>
+                            @endif
                         <span class="focus-input100"></span>
                     </div>
 
@@ -67,7 +82,7 @@
                     </div>
 
                     <div class="container-login100-form-btn">
-                        <button class="login100-form-btn">
+                        <button class="login100-form-btn" type="submit">
                             Login
                         </button>
                     </div>
