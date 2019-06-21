@@ -19,7 +19,6 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color: #ff4000; border-color: white;">Aceptar</button>
-            <!-- <button type="button" onclick="location='{{ route('adminNuevoUsuario') }}'" class="btn btn-primary">Save changes</button> -->
         </div>
         </div>
     </div>

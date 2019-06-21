@@ -11,6 +11,11 @@ use Illuminate\Validation\Rule;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function listaUsuario()
     {
         $users=User::withTrashed()->get();
@@ -143,8 +148,11 @@ class AdminController extends Controller
                 'email',
                 Rule::unique('users', 'email')->ignore($user->id_usuario, 'id_usuario')
             ],
-            'password' => 'confirmed|min:6',
-            'password_confirmation' => ''
+            'password' => 'confirmed',
+            'password_confirmation' => '',
+            // TIPO USUARIO
+            'tipoUser' => ''
+            // TIPO USUARIO
         ],
         [
             'nombre.required' => '* El campo Nombre es obligatorio.',
@@ -157,13 +165,16 @@ class AdminController extends Controller
             'email.email' => '* Debe ingresar un Email válido.',
             'email.unique' => '* Ya existe un usuario registrado con ese EMAIL.',
             'password.confirmed' => '* La contraseña no coindice con la anterior.',
-            'password.min' => '* La nueva contraseña debe contener al menos 6 dígitos.'
+            // 'password.min' => '* La nueva contraseña debe contener al menos 6 dígitos.'
         ]
         );
+        // TIPO USUARIO
+        // unset($data['id_tipoUsuario']);
+        // TIPO USUARIO
 
         if ($data['password'] != null) 
         {
-            $data['password'] = encrypt($data['password']);
+            $data['password'] = bcrypt($data['password']);
         } 
         else {
             unset($data['password']);
