@@ -61,6 +61,15 @@
                     <p class="text-danger small">{{ $errors->first('email') }}</p>
                   @endif
               </div>
+
+              <!-- Campo Oculto -->
+               <div class="form-group">
+                  <div class="input-group">
+                     <input type="hidden" id="tipoUser" name="tipoUser" class="form-control" value="{{ old('id_tipoUsuario',$user->id_tipoUsuario) }}">
+                  </div>
+              </div>
+              <!-- Campo Oculto -->
+
               <button type="button" class="btn btn-link mb-2" data-toggle="collapse" data-target="#demo"><i class="fa fa-key"></i> Cambiar clave</button>
                 <div id="demo" class="collapse">
                   
@@ -69,7 +78,7 @@
                       <div class="input-group-addon">
                           <i class="fa fa-asterisk"></i>
                       </div>
-                      <input type="password" id="txtPassword" name="password" placeholder="Contraseña" class="form-control" value="{{decrypt($user->password)}}">
+                      <input type="password" id="txtPassword" name="password" placeholder="Contraseña" class="form-control">
                       <div class="input-group-append">
                       <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
                     </div>
@@ -83,7 +92,7 @@
                       <div class="input-group-addon">
                           <i class="fa fa-asterisk"></i>
                       </div>
-                      <input type="password" id="txtPassword2" name="password_confirmation" placeholder="Confirmar Contraseña" class="form-control" value="{{decrypt($user->password)}}">
+                      <input type="password" id="txtPassword2" name="password_confirmation" placeholder="Confirmar Contraseña" class="form-control">
                       <div class="input-group-append">
                         <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
                       </div>
@@ -112,7 +121,7 @@
                      &nbsp;Cancelar
                   </button>
                   @else
-                  <button type="button" class="btn btn-danger" onclick="location='{{ route('adminListaTecnicos') }}'">
+                  <button type="button" class="btn btn-danger" onclick="location='{{ route('adminListaClientes') }}'">
                     <i class="fa fa-times"></i>  
                      &nbsp;Cancelar
                   </button>
