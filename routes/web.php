@@ -18,7 +18,8 @@ Route::get('/', function () {
 Route::get('/inicio', 'MyController@index')
 	->name('inicio');
 
-Route::get('/iniciarSesion', 'MyController@login');
+Route::get('/iniciarSesion', 'MyController@login')
+->name('iniciarSesion');
 
 Route::get('/contacto', 'MyController@contacto')
 	->name('contacto');
