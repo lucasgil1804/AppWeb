@@ -4,7 +4,7 @@
 
 @section('contenidoAdmin')
   <div class="card" style="margin-right: 20px; margin-left: 20px;" >
-    <div class="card-header"><h3>Editar Usuario</h3></div>
+    <div class="card-header"><h3>Editar {{ $user->tipoUsuario->descripcion }}</h3></div>
       <div class="card-body card-block">
 
           <form method="post" class="needs-validation" novalidate="" action="{{ url('editarUsuario/'. $user->id_usuario) }}">
@@ -63,11 +63,11 @@
               </div>
 
               <!-- Campo Oculto -->
-               <div class="form-group">
+           
                   <div class="input-group">
                      <input type="hidden" id="tipoUser" name="tipoUser" class="form-control" value="{{ old('id_tipoUsuario',$user->id_tipoUsuario) }}">
                   </div>
-              </div>
+            
               <!-- Campo Oculto -->
 
               <button type="button" class="btn btn-link mb-2" data-toggle="collapse" data-target="#demo"><i class="fa fa-key"></i> Cambiar clave</button>
