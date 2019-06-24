@@ -30,7 +30,7 @@
                                 <div class="table-data__info">
                                     <h6>{{ $user->nombre. " " .$user->apellido }}</h6>
                                         <span>
-                                            {{ $user->email }}
+                                            <a href="{{route('adminVerDetalle',['id' => $user->id_usuario])}}">{{ $user->email }}</a>
                                         </span>
                                 </div>
                             </td>
