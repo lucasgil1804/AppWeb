@@ -190,12 +190,14 @@
                                             </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-account"></i>Perfil</a>
+                                                    <a href="{{route('adminVerDetalle',['id' => Auth::user()->id_usuario])}}">
+                                                        <i class="zmdi zmdi-account"></i>Perfil
+                                                    </a>
                                                 </div>
                                                 <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-settings"></i>Configuración</a>
+                                                    <a href="{{route('adminEditarUsuario',['id' => Auth::user()->id_usuario])}}">
+                                                        <i class="zmdi zmdi-settings"></i>Configuración
+                                                    </a>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__footer">
