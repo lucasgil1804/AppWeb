@@ -64,42 +64,83 @@ class AdminController extends Controller
 
      public function store()
     {
-        $data = request()->validate([
-            'nombre' => 'required',
-            'apellido' => 'required',
-            'dni' => 'required|numeric|digits_between:6,8|unique:users,dni',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:6|confirmed',
-            'password_confirmation' => 'required',
-            'tipoUser' => ''
-        ],
-        [
-            'nombre.required' => '* El campo Nombre es obligatorio.',
-            'apellido.required' => '* El campo Apellido es obligatorio.',
-            'dni.required' => '* El campo DNI es obligatorio.',
-            'dni.numeric' => '* El DNI debe ser solo numerico.',
-            'dni.digits_between' => '* El número de DNI debe contener entre 6 y 8 dígitos.',
-            'dni.unique' => '* Ya existe un usuario registrado con ese DNI.',
-            'email.required' => '* El campo Email es obligatorio.',
-            'email.email' => '* Debe ingresar un Email válido.',
-            'email.unique' => '* Ya existe un usuario registrado con ese EMAIL.',
-            'password.required' => '* El campo Password es obligatorio.',
-            'password.min' => '* La contraseña debe contener al menos 6 dígitos.',
-            'password.confirmed' => '* La contraseña no coindice con la anterior.',
-            'password_confirmation.required' => '* El campo Confirmar Password es obligatorio.'
-        ]
+        // Se realiza una consulta por los tipos de usuarios, y en el caso de que el usuario sea "cliente", se omite la validacion del campo de contraseña, porque un usuario NO puede loguearse.
+        $tipoUsuario = request()->input('tipoUser');
+        if ($tipoUsuario == 4) {
+            $validaciones = [
+                'nombre' => 'required',
+                'apellido' => 'required',
+                'dni' => 'required|numeric|digits_between:6,8|unique:users,dni',
+                'email' => 'required|email|unique:users,email',
+                'password' => '',
+                'password_confirmation' => '',
+                'tipoUser' => ''
+            ];
+
+            $restricciones = [
+                'nombre.required' => '* El campo Nombre es obligatorio.',
+                'apellido.required' => '* El campo Apellido es obligatorio.',
+                'dni.required' => '* El campo DNI es obligatorio.',
+                'dni.numeric' => '* El DNI debe ser solo numerico.',
+                'dni.digits_between' => '* El número de DNI debe contener entre 6 y 8 dígitos.',
+                'dni.unique' => '* Ya existe un usuario registrado con ese DNI.',
+                'email.required' => '* El campo Email es obligatorio.',
+                'email.email' => '* Debe ingresar un Email válido.',
+                'email.unique' => '* Ya existe un usuario registrado con ese EMAIL.',
+            ];
+        }
+        else {
+            $validaciones = [
+                'nombre' => 'required',
+                'apellido' => 'required',
+                'dni' => 'required|numeric|digits_between:6,8|unique:users,dni',
+                'email' => 'required|email|unique:users,email',
+                'password' => 'required|min:6|confirmed',
+                'password_confirmation' => 'required',
+                'tipoUser' => ''
+            ];
+
+            $restricciones = [
+                'nombre.required' => '* El campo Nombre es obligatorio.',
+                'apellido.required' => '* El campo Apellido es obligatorio.',
+                'dni.required' => '* El campo DNI es obligatorio.',
+                'dni.numeric' => '* El DNI debe ser solo numerico.',
+                'dni.digits_between' => '* El número de DNI debe contener entre 6 y 8 dígitos.',
+                'dni.unique' => '* Ya existe un usuario registrado con ese DNI.',
+                'email.required' => '* El campo Email es obligatorio.',
+                'email.email' => '* Debe ingresar un Email válido.',
+                'email.unique' => '* Ya existe un usuario registrado con ese EMAIL.',
+                'password.required' => '* El campo Password es obligatorio.',
+                'password.min' => '* La contraseña debe contener al menos 6 dígitos.',
+                'password.confirmed' => '* La contraseña no coindice con la anterior.',
+                'password_confirmation.required' => '* El campo Confirmar Password es obligatorio.'
+            ];
+        }
+
+        $data = request()->validate($validaciones,
+        $restricciones
         );
         //$data = request()->all();
         
-
-        User::create([
-         'id_tipoUsuario' => $data['tipoUser'],   
-         'nombre' => $data['nombre'],
-         'apellido' => $data['apellido'],
-         'dni' => $data['dni'],
-         'email' => $data['email'],
-         'password' => encrypt($data['password'])
-        ]);
+        if ($tipoUsuario == 4) {
+            User::create([
+            'id_tipoUsuario' => $data['tipoUser'],   
+            'nombre' => $data['nombre'],
+            'apellido' => $data['apellido'],
+            'dni' => $data['dni'],
+            'email' => $data['email'],
+            ]);
+        }
+        else {
+            User::create([
+            'id_tipoUsuario' => $data['tipoUser'],   
+            'nombre' => $data['nombre'],
+            'apellido' => $data['apellido'],
+            'dni' => $data['dni'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password'])
+            ]);
+        }
 
         Session::flash('flash_message', 'El usuario se guardó correctamente.');
 

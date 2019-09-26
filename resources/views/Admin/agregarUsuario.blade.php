@@ -74,8 +74,9 @@
                   @endif
               </div>
 
-
-              <div class="form-group">
+              <!-- Si el tipo de usuario es "cliente", el campo de contraseña no se muestra -->
+              @if ($tipoUser != 4)
+                <div class="form-group">
                   <div class="input-group">
                       <div class="input-group-addon">
                           <i class="fa fa-asterisk"></i>
@@ -104,8 +105,10 @@
                     <p class="text-danger small">{{ $errors->first('password_confirmation') }}</p>
                   @endif
                   </div>
+              @endif
+              <!-- Si el tipo de usuario es "cliente", el campo de contraseña no se muestra -->
 
-
+              
               <!-- Campo Oculto -->
                <div class="form-group">
                   <div class="input-group">
