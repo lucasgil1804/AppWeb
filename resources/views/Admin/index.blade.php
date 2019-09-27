@@ -30,7 +30,11 @@
                                 <div class="table-data__info">
                                     <h6>{{ $user->nombre. " " .$user->apellido }}</h6>
                                         <span>
-                                            <a href="{{route('adminVerDetalle',['id' => $user->id_usuario])}}">{{ $user->email }}</a>
+                                            @if (Auth::user()->id_tipoUsuario == 1)
+                                                <a href="{{route('adminVerDetalle',['id' => $user->id_usuario])}}">{{ $user->email }}</a>
+                                            @else
+                                                <a href="#">{{ $user->email }}</a>
+                                            @endif    
                                         </span>
                                 </div>
                             </td>
