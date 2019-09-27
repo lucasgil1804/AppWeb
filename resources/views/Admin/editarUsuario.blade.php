@@ -120,6 +120,11 @@
                     <i class="fa fa-times"></i>  
                      &nbsp;Cancelar
                   </button>
+                  @elseif ($user->id_tipoUsuario == 1)
+                   <button type="button" class="btn btn-danger" onclick="location='{{ route('adminIndex') }}'">
+                    <i class="fa fa-times"></i>  
+                     &nbsp;Cancelar
+                  </button>
                   @else
                   <button type="button" class="btn btn-danger" onclick="location='{{ route('adminListaClientes') }}'">
                     <i class="fa fa-times"></i>  
