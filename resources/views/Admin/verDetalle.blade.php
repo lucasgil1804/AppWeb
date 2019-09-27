@@ -32,24 +32,35 @@
 			<p class="mb-3"><b>DNI:</b> {{ $user->dni }}</p>
 			<p class="mb-3"><b>Nombre y Apellido:</b> {{ $user->nombre. " " .$user->apellido }}</p>
 			<p class="mb-3"><b>Email:</b> {{ $user->email }}</p>
+
 			@if ( $user->deleted_at == null)
 				<p class="mb-3"><b>Estado:</b> Activo</p>
 			@else
 				<p class="mb-3"><b>Estado:</b> Inactivo</p>
 				<p class="mb-3"><b>Fecha de baja:</b> {{ date("d/m/Y", strtotime($user->deleted_at)) }}</p>
 			@endif
-            @if ($user->id_tipoUsuario == 2)
+
+            @if ($user->id_tipoUsuario == 1)
+            <button class="btn btn-primary" type="button" title="Regresar">
+                <a style="color: white;" href="{{ route('adminIndex') }}">
+                <i class="fa fa-arrow-circle-left"></i>
+                Regresar</a>
+            </button>
+
+            @elseif ($user->id_tipoUsuario == 2)
 			<button class="btn btn-primary" type="button" title="Regresar">
 				<a style="color: white;" href="{{ route('adminListaEmpleados') }}">
 				<i class="fa fa-arrow-circle-left"></i>
 				Regresar</a>
 			</button>
+
             @elseif ($user->id_tipoUsuario == 3)
             <button class="btn btn-primary" type="button" title="Regresar">
                 <a style="color: white;" href="{{ route('adminListaTecnicos') }}">
                 <i class="fa fa-arrow-circle-left"></i>
                 Regresar</a>
             </button>
+
             @else
               <button class="btn btn-primary" type="button" title="Regresar">
                 <a style="color: white;" href="{{ route('adminListaClientes') }}">
