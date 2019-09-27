@@ -69,8 +69,11 @@
                   </div>
             
               <!-- Campo Oculto -->
-
-              <button type="button" class="btn btn-link mb-2" data-toggle="collapse" data-target="#demo"><i class="fa fa-key"></i> Cambiar clave</button>
+              
+              @if($user->id_tipoUsuario != 4)
+                <button type="button" class="btn btn-link mb-2" data-toggle="collapse" data-target="#demo"><i class="fa fa-key"></i> Cambiar clave
+                </button>
+              @endif
                 <div id="demo" class="collapse">
                   
                   <div class="form-group">

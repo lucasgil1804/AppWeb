@@ -35,6 +35,7 @@
 
 			@if ( $user->deleted_at == null)
 				<p class="mb-3"><b>Estado:</b> Activo</p>
+                <p class="mb-3"><b>Fecha de alta:</b> {{ date("d/m/Y", strtotime($user->created_at)) }}</p>
 			@else
 				<p class="mb-3"><b>Estado:</b> Inactivo</p>
 				<p class="mb-3"><b>Fecha de baja:</b> {{ date("d/m/Y", strtotime($user->deleted_at)) }}</p>
