@@ -84,8 +84,7 @@
                                 <a href="{{route('adminEditarUsuario',['id' => $user->id_usuario])}}">
                                 <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
                             </button>
-                            <button class="item" da
-                            ta-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
                                 <a href="#" data-href="{{route('adminBajaUsuario',['id' => $user->id_usuario])}}" data-toggle="modal" data-target="#deleteModal">
                                 <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
                             </button>

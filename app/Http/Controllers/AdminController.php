@@ -7,6 +7,7 @@ use App\Models\TipoUsuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 
 class AdminController extends Controller
@@ -25,20 +26,32 @@ class AdminController extends Controller
 
     public function listaEmpleado()
     {
-        $empleados=tipoUsuario::find(2);
+        if (Auth::user()->id_tipoUsuario == 1) {
+            $empleados=tipoUsuario::find(2);
 
-        $listaEmpleados = $empleados->users()->withTrashed()->get();
+            $listaEmpleados = $empleados->users()->withTrashed()->get();
 
-        return view('Admin.listaEmpleados', compact('listaEmpleados'));
+            return view('Admin.listaEmpleados', compact('listaEmpleados'));
+        }
+        else{
+            // $users=User::withTrashed()->get();
+            // return view('Admin.index', compact('users'));
+            return redirect()->route('adminIndex');
+            }
     }
 
     public function listaTecnico()
     {
+       if (Auth::user()->id_tipoUsuario == 1) {
         $tecnicos=tipoUsuario::find(3);
 
         $listaTecnicos = $tecnicos->users()->withTrashed()->get();
 
         return view('Admin.listaTecnicos', compact('listaTecnicos'));
+        }
+      else{
+        return redirect()->route('adminIndex');
+      }
     }
 
     public function listaCliente()

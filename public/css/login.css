@@ -177,7 +177,7 @@ iframe {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding: 15px;
+  padding: 0px;
   /*background: #ebeeef;*/
    background-color: #000000;
    background-image: url('../img/banner-bg.jpg');
