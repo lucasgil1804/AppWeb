@@ -20,6 +20,7 @@ class DetalleReparaciones extends Migration
             $table->unsignedInteger('id_estado');
             $table->foreign('id_estado')->references('id_estado')->on('estados');
             $table->string('descripcion',50);
+            $table->string('observacion',180)->nulable();
             $table->double('costo',7,2);
             $table->timestamps();
             $table->softDeletes();

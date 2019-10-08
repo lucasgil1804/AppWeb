@@ -19,7 +19,7 @@ class Equipos extends Migration
             $table->foreign('id_marca')->references('id_marca')->on('marcas');
             $table->unsignedInteger('id_tipoEquipo');
             $table->foreign('id_tipoEquipo')->references('id_tipoEquipo')->on('tipoequipos');
-            $table->string('modelo',30);
+            $table->string('modelo',30)->nulable();
             $table->timestamps();
             $table->softDeletes();
         });
