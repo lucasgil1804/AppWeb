@@ -16,7 +16,6 @@ class Estados extends Migration
         Schema::create('estados', function (Blueprint $table) {
             $table->increments('id_estado');
             $table->string('descripcion',30)->unique();
-            $table->string('observacion',120);
         });
     }
 
