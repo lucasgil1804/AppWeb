@@ -14,6 +14,6 @@ class Estado extends Model
 
     public function equipos()
     {
-    	return $this->hasMany(equipos::class, 'id_estado');
+    	return $this->hasMany(Equipo::class, 'id_estado');
     }
 }

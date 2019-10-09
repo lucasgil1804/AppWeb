@@ -19,11 +19,11 @@ class Detalle extends Model
 
     public function reparacion()
     {
-    	return $this->belongsTo(reparaciones::class, 'id_reparacion');
+    	return $this->belongsTo(reparacion::class, 'id_reparacion');
     }
 
     public function estado()
     {
-    	return $this->belongsTo(estados::class, 'id_estado');
+    	return $this->belongsTo(estado::class, 'id_estado');
     }
 }

@@ -10,10 +10,14 @@ class TipoEquipo extends Model
 
     protected $primaryKey = 'id_tipoEquipo';
 
+    protected $fillable = [
+    	'descripcion',
+    ];
+
     public $timestamps = false;
 
     public function equipos()
     {
-    	return $this->hasMany(equipos::class, 'id_tipoEquipo');
+    	return $this->hasMany(Equipo::class, 'id_tipoEquipo');
     }
 }
