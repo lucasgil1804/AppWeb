@@ -24,6 +24,6 @@ class Reparacion extends Model
 
     public function equipo()
     {
-    	return $this->belongsTo(equipos::class, 'id_equipo');
+    	return $this->belongsTo(Equipo::class, 'id_equipo');
     }
 }

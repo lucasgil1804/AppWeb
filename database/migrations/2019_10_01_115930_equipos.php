@@ -14,7 +14,7 @@ class Equipos extends Migration
     public function up()
     {
         Schema::create('equipos', function (Blueprint $table) {
-            $table->increments('id_equipos');
+            $table->increments('id_equipo');
             $table->unsignedInteger('id_marca');
             $table->foreign('id_marca')->references('id_marca')->on('marcas');
             $table->unsignedInteger('id_tipoEquipo');
