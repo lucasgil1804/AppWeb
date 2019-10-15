@@ -36,8 +36,15 @@ Route::get('/feedback', 'MyController@feedback')
 Route::get('/reparacionNotebook', 'MyController@reparacionNotebook')
 	->name('reparacionNotebook');
 
+/* Estado Equipo*/
 Route::get('/estadoEquipo', 'MyController@estadoEquipo')
 	->name('estadoEquipo');
+
+Route::post('/consultaEquipo','ReparacionController@consultaEquipo');
+
+Route::get('/estadoEquipo/consulta','ReparacionController@vistaConsulta')
+	->name('consultaReparacion');
+/* Estado Equipo*/
 
 Route::get('/index', 'AdminController@index')
 	->name('adminIndex');
@@ -87,3 +94,4 @@ Route::get('/listaClientes', 'AdminController@listaCliente')
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+

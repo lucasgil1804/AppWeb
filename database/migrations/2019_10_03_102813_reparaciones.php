@@ -20,7 +20,7 @@ class Reparaciones extends Migration
             $table->unsignedInteger('id_equipo');
             $table->foreign('id_equipo')->references('id_equipo')->on('equipos');
             $table->date('fecha_ingreso');
-            $table->date('fecha_egreso');
+            $table->date('fecha_egreso')->nullable();
             $table->integer('plazo_estimado');
             $table->double('total', 7, 2);
             $table->timestamps();
