@@ -77,9 +77,7 @@
 @endsection
 
 @section('scripts')
-
 <script>
 	$("#myModal").modal('show');
 </script>
-
 @endsection
