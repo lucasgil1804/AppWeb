@@ -4,7 +4,7 @@
 		<!-- Mobile Specific Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Favicon-->
-		<link rel="shortcut icon" href="img/favicon.ico">
+		<link rel="shortcut icon" href="{{asset('img/favicon.ico')}}">
 		<!-- Author Meta -->
 		<meta name="author" content="colorlib">
 		<!-- Meta Description -->
@@ -52,13 +52,13 @@
 			    <div class="container main-menu">
 			    	<div class="row align-items-center justify-content-between d-flex">
 				      <div id="logo">
-				        <a href="{{ route('inicio') }}"><img src="img/logo.png" alt="" title="Quick Fix" /></a>
+				        <a href="{{ route('inicio') }}"><img src="{{asset('img/logo.png')}}" alt="" title="Quick Fix" /></a>
 				      </div>
 				      <nav id="nav-menu-container">
 				        <ul class="nav-menu">
 				          <li class="menu-active"><a href="{{ route('inicio') }}">Home</a></li>
 				          <li><a href="{{ route('quienessomos') }}">Quienes somos</a></li>
-				          <li class="menu-has-children"><a href="">Servicio</a>
+				          <li class="menu-has-children"><a href="">Servicios</a>
 				            <ul>
 				              <li><a href="{{ route('reparacionPC') }}">Reparacion de Pc</a></li>
 				              <li><a href="{{ route('reparacionNotebook') }}">Reparacion de Notebook</a></li>
@@ -99,21 +99,21 @@
 				</footer>
 				<!-- End footer Area -->
 
-				<script src="js/vendor/jquery-2.2.4.min.js"></script>
+				<script src="{{asset('js/vendor/jquery-2.2.4.min.js')}}"></script>
 				<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-				<script src="js/vendor/bootstrap.min.js"></script>			
+				<script src="{{asset('js/vendor/bootstrap.min.js')}}"></script>			
 				<!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script> -->
-  				<script src="js/easing.min.js"></script>			
-				<script src="js/hoverIntent.js"></script>
-				<script src="js/superfish.min.js"></script>	
-				<script src="js/mn-accordion.js"></script>
-				<script src="js/jquery.ajaxchimp.min.js"></script>
-				<script src="js/jquery.magnific-popup.min.js"></script>	
-				<script src="js/owl.carousel.min.js"></script>						
-				<script src="js/jquery.nice-select.min.js"></script>	
-    			<script src="js/jquery.circlechart.js"></script>								
-				<script src="js/mail-script.js"></script>	
-				<script src="js/main.js"></script>
+  				<script src="{{asset('js/easing.min.js')}}"></script>			
+				<script src="{{asset('js/hoverIntent.js')}}"></script>
+				<script src="{{asset('js/superfish.min.js')}}"></script>	
+				<script src="{{asset('js/mn-accordion.js')}}"></script>
+				<script src="{{asset('js/jquery.ajaxchimp.min.js')}}"></script>
+				<script src="{{asset('js/jquery.magnific-popup.min.js')}}"></script><!-- ESTILO DE MENU DESPLEGABLE -->
+				<script src="{{asset('js/owl.carousel.min.js')}}"></script>						
+				<script src="{{asset('js/jquery.nice-select.min.js')}}"></script>	
+    			<script src="{{asset('js/jquery.circlechart.js')}}"></script>
+				<script src="{{asset('js/mail-script.js')}}"></script>	
+				<script src="{{asset('js/main.js')}}"></script>
 
 			</body>
 	</html>

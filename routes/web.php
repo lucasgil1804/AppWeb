@@ -40,10 +40,10 @@ Route::get('/reparacionNotebook', 'MyController@reparacionNotebook')
 Route::get('/estadoEquipo', 'MyController@estadoEquipo')
 	->name('estadoEquipo');
 
-Route::post('/consultaEquipo','ReparacionController@consultaEquipo');
-
 Route::get('/estadoEquipo/consulta','ReparacionController@vistaConsulta')
 	->name('consultaReparacion');
+
+Route::post('/consultaEquipo','ReparacionController@consultaEquipo');
 /* Estado Equipo*/
 
 Route::get('/index', 'AdminController@index')

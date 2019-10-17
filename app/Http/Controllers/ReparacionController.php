@@ -11,4 +11,9 @@ class ReparacionController extends Controller
     	dd($idReparacion=request()->input('idReparacion'));
 
     }
+
+    public function vistaConsulta() 
+    {
+    	return view('consultaEstado');
+    }
 }
