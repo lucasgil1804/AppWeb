@@ -26,4 +26,9 @@ class Reparacion extends Model
     {
     	return $this->belongsTo(Equipo::class, 'id_equipo');
     }
+
+    public function detalles()
+    {
+        return $this->hasMany(Detalle::class, 'id_reparacion');
+    }
 }

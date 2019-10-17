@@ -131,8 +131,8 @@ class AdminController extends Controller
         }
 
         $data = request()->validate($validaciones,
-        $restricciones
-        );
+        $restricciones);
+        
         //$data = request()->all();
         
         if ($tipoUsuario == 4) {
