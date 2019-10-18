@@ -14,7 +14,7 @@ class Reparacion extends Model
     protected $primaryKey = 'id_reparacion';
 
     protected $fillable = [
-    	'id_usuario','id_equipo','fecha_ingreso','fecha_egreso','plazo_estimado','total',
+    	'id_usuario','id_equipo','id_estado','fecha_ingreso','fecha_egreso','plazo_estimado','total',
     ];
 
     public function usuario()

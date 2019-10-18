@@ -19,6 +19,8 @@ class Reparaciones extends Migration
             $table->foreign('id_usuario')->references('id_usuario')->on('users');
             $table->unsignedInteger('id_equipo');
             $table->foreign('id_equipo')->references('id_equipo')->on('equipos');
+            $table->unsignedInteger('id_estado');
+            $table->foreign('id_estado')->references('id_estado')->on('estados');
             $table->date('fecha_ingreso');
             $table->date('fecha_egreso')->nullable();
             $table->integer('plazo_estimado');

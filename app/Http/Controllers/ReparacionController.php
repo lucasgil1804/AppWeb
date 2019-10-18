@@ -12,7 +12,12 @@ class ReparacionController extends Controller
 
     	$idReparacion = request()->input('idReparacion');
     	$reparacion =  Reparacion::find($idReparacion);
-    	dd($detalles = $reparacion->detalles()->withTrashed()->get()); 
+        if (is_null($reparacion)) {
+            return redirect()->route('estadoEquipo');
+        }
+        
+    	$detalles = $reparacion->detalles()->withTrashed()->get();
+    	return view('consultaEstado', compact('reparacion','detalles')); 
 
     }
 
