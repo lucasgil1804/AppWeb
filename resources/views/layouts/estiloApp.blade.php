@@ -58,10 +58,10 @@
 				        <ul class="nav-menu">
 				          <li class="menu-active"><a href="{{ route('inicio') }}">Home</a></li>
 				          <li><a href="{{ route('quienessomos') }}">Quienes somos</a></li>
-				          <li class="menu-has-children"><a href="">Servicios</a>
+				          <li class="menu-has-children"><a style="color: black;">Servicios</a>
 				            <ul>
-				              <li><a href="{{ route('reparacionPC') }}">Reparacion de Pc</a></li>
-				              <li><a href="{{ route('reparacionNotebook') }}">Reparacion de Notebook</a></li>
+				              <li><a href="{{ route('reparacionPC') }}">REPARACIÓN DE PC</a></li>
+				              <li><a href="{{ route('reparacionNotebook') }}">REPARACIÓN DE NOTEBOOK</a></li>
 				            </ul>
 				          </li>	
 				          <li><a href="{{ route('estadoEquipo') }}">Estado De Mi Equipo</a></li>	
@@ -114,6 +114,8 @@
     			<script src="{{asset('js/jquery.circlechart.js')}}"></script>
 				<script src="{{asset('js/mail-script.js')}}"></script>	
 				<script src="{{asset('js/main.js')}}"></script>
+
+@yield('scripts')
 
 			</body>
 	</html>
