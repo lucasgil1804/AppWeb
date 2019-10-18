@@ -15,4 +15,9 @@ class ReparacionController extends Controller
     	dd($detalles = $reparacion->detalles()->withTrashed()->get()); 
 
     }
+
+    public function vistaConsulta() 
+    {
+    	return view('consultaEstado');
+    }
 }
