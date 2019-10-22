@@ -28,4 +28,11 @@ class ReparacionController extends Controller
     {
     	return view('consultaEstado');
     }
+
+    public function listaPCs() 
+    {
+        $reparaciones=Reparacion::withTrashed()->get();
+        return view('Admin.listaPCs', compact('reparaciones'));
+    }
+
 }
