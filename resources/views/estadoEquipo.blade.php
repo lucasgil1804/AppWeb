@@ -34,13 +34,13 @@
 											<div class="input-group-prepend">
 											<span class="input-group-text">#</span>
 											</div>
-											<input type="text" name="dni" placeholder="N° de seguimiento" onfocus="this.placeholder = ''" onblur="this.placeholder = 'N° de seguimiento'" required class="form-control" style="line-height:40px;border:none;outline:none;background:#f9f9ff;padding:0 20px;">
+											<input type="number" name="dni" placeholder="N° de seguimiento" onfocus="this.placeholder = ''" onblur="this.placeholder = 'N° de seguimiento'" required class="form-control" style="line-height:40px;border:none;outline:none;background:#f9f9ff;padding:0 20px;">
 
 										<!-- <div class="icon"><i class="fa fa-minus" aria-hidden="true" style="margin-top: 12px;"></i></div> -->
 											<div class="input-group-prepend">
 												<span class="input-group-text">/</span>
 											</div>
-											<input type="text" name="idReparacion" required class="form-control" style="line-height:40px;border:none;outline:none;background:#f9f9ff;padding:0 20px;">
+											<input type="number" name="idReparacion" required class="form-control" style="line-height:40px;border:none;outline:none;background:#f9f9ff;padding:0 20px;">
 										</div>
 										 @if(Session::has('message_error'))
         									<div class="alert alert-danger mt-3" align="left">
