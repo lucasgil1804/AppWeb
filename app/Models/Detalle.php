@@ -14,7 +14,7 @@ class Detalle extends Model
     protected $primaryKey = 'id_detalleReparacion';
 
     protected $fillable = [
-    	'id_reparacion','id_estado','descripcion','costo',
+    	'id_reparacion','descripcion','observacion','costo','realizado',
     ];
 
     public function reparacion()

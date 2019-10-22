@@ -11,11 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('Inicio');
-});
+// Route::get('/', function () {
+//     return view('Inicio');
+// });
 
-Route::get('/inicio', 'MyController@index')
+Route::get('/', 'MyController@index')
 	->name('inicio');
 
 Route::get('/iniciarSesion', 'MyController@login')
