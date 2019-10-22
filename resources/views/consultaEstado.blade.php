@@ -27,31 +27,66 @@
 								<h1>¿Ya está listo mi equipo?</h1>
 								
 								<div class="card bg-light text-dark mt-40">
-    								<div class="card-body mt-20" align="left">
-     									<div class="row">
-    										<h5 class="col card-title">Fernandez Juan Cruz</h5>
-    										<p class=" col card-text">Fecha: 17/10/2019.</p>
-        								</div>
-        								<div class="row">
-    										<h5 class="col card-title">Datos..</h5>
-    										<p class=" col card-text">Datos..</p>
-        								</div>
-        								<div class="progress mt-30 mb-30" style="height:12px">
-    										<div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" 	                        style="width:30%;height:12px"></div>
+									<!-- CONTENIDO-DETALLE REPARACION -->
+    									<div class="card-body mt-20" align="left">
+     										<div class="row">
+    											<h4 class="col card-title">{{ $reparacion->usuario->nombre. " " .$reparacion->usuario->apellido }}</h5>
+    											<h4 class=" col card-text">Ingreso: {{ date("d/m/Y", strtotime($reparacion->fecha_ingreso)) }}</h4>
+        									</div>
+        									<div class="row">
+    											<h4 class="col card-title">{{ $reparacion->usuario->dni }}</h4>
+    											<h4 class=" col card-text">Plazo: {{ $reparacion->plazo_estimado }}</h4>
+        									</div>
 
-   										</div>
-        
-        								<div class="mt-3 mb-20">Estado del Equipo:	  
-        									<button type="button" class="btn btn-warning btn-sm" data-toggle="collapse" data-target="#demo">En 								Diagnóstico</button>
-        								</div>
+   											@if( $reparacion->id_estado == 1 )
+   												<div class="progress mt-30 mb-30" style="height:12px">
+    											<div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" 	                        style="width:33%;height:12px"></div>
+   												</div>
+
+        										<div class="mt-3 mb-20">Estado del Equipo:	  
+        											<button type="button" class="btn btn-warning btn-sm" data-toggle="collapse" data-target="#demo"><h6>En Diagnóstico</h6></button>
+        										</div>
        
   	   
-       									<div id="demo" class="mt-3 collapse alert alert-warning">
-       										<p><strong><b style="color: #BA8B00;">Estamos Trabajando:</b></strong></p>
-											<p>Se está revisando su equipo para detectar el problema. Por favor, consulte mas tarde.</p>
-  	  									</div>
+       											<div id="demo" class="mt-3 collapse alert alert-warning">
+       												<p><strong><b style="color: #BA8B00;">Estamos Trabajando:</b></strong></p>
+													<p>Se está revisando su equipo para detectar el problema. Por favor, consulte mas tarde.</p>
+  	  											</div>
+
+  	  										@elseif( $reparacion->id_estado == 2 )
+  	  											<div class="progress mt-30 mb-30" style="height:12px">
+    											<div class="progress-bar bg-info progress-bar-striped progress-bar-animated" 	                        style="width:66%;height:12px"></div>
+   												</div>
+
+  	  											<div class="mt-3 mb-20">Estado del Equipo:	  
+        											<button type="button" class="btn btn-info btn-sm" data-toggle="collapse" data-target="#demo"><h6>En Reparación</h6></button>
+        										</div>
+
+        										<div id="demo" class="mt-3 collapse alert alert-info">
+       												<p><strong><b>Estamos Trabajando:</b></strong></p>
+													
+  	  											</div>
+
+  	  										@else
+  	  											<div class="progress mt-30 mb-30" style="height:12px">
+    											<div class="progress-bar bg-check progress-bar-striped progress-bar-animated" 	                        style="width:100%;height:12px"></div>
+   												</div>
+
+  	  											<div class="mt-3 mb-20">Estado del Equipo:	  
+        											<button type="button" class="btn btn-check btn-sm" data-toggle="collapse" data-target="#demo"><h6>Listo</h6></button>
+        										</div>
+
+        										<div id="demo" class="mt-3 collapse alert alert-check">
+       												<p><strong><b">¡Su equipo se encuentra reparado!</b></strong></p>
+													
+  	  											</div>
+
+  	  										@endif
   
-  									</div>
+  										</div>
+  									<!-- @foreach ($detalles as $detalleReparacion)
+  									@endforeach -->
+  									<!-- CONTENIDO-DETALLE REPARACION -->
 
 								</div>
 							</div>

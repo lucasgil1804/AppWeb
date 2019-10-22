@@ -31,4 +31,9 @@ class Reparacion extends Model
     {
         return $this->hasMany(Detalle::class, 'id_reparacion');
     }
+
+    public function estado()
+    {
+        return $this->belongsTo(Estado::class, 'id_estado');
+    }
 }
