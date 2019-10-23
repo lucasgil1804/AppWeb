@@ -46,6 +46,13 @@ Route::get('/estadoEquipo/consulta','ReparacionController@vistaConsulta')
 Route::post('/consultaEquipo','ReparacionController@consultaEquipo');
 /* Estado Equipo*/
 
+/* Lista Reparaciones */
+Route::get('/listaPCs', 'ReparacionController@listaPCs')
+	->name('listaPCs')
+	->middleware('auth');
+/* Lista Reparaciones */
+
+
 Route::get('/index', 'AdminController@index')
 	->name('adminIndex');
 

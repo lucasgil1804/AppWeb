@@ -87,7 +87,7 @@
                                 <i class="fas fa-wrench"></i>Reparaciones</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="index.html">
+                                    <a href="{{ route ('listaPCs') }}">
                                         <i class="fas fa-desktop"></i>PCs Escritorio</a>
                                 </li>
                                 <li>
@@ -139,7 +139,7 @@
                                 <i class="fas fa-wrench"></i>Reparaciones</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="index.html">
+                                    <a href="{{ route ('listaPCs') }}">
                                         <i class="fas fa-desktop"></i>PCs Escritorio</a>
                                 </li>
                                 <li>
