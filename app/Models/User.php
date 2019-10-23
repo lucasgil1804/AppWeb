@@ -45,4 +45,10 @@ class User extends Authenticatable
     {
         return $this->belongsTo(tipoUsuario::class, 'id_tipoUsuario');
     }
+
+    public function apeYNom()
+    {
+        $apeYNom = $this->apellido.", ".$this->nombre;
+        return $apeYNom;
+    }
 }

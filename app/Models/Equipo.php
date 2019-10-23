@@ -8,7 +8,7 @@ class Equipo extends Model
 {
     public $table = 'equipos';
 
-    protected $primaryKey = 'id_equipos';
+    protected $primaryKey = 'id_equipo';
 
     protected $fillable = [
     	'id_marca','id_tipoEquipo','modelo',
