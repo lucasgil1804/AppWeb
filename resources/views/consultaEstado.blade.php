@@ -43,15 +43,12 @@
     											<div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" 	                        style="width:33%;height:12px"></div>
    												</div>
 
-        										<!-- <div class="mt-3 mb-20">Estado del Equipo:	  
-        											<button type="button" class="btn btn-warning btn-sm" data-toggle="collapse" data-target="#demo"><h4 style="color: #f5f5f0;">En Diagnóstico</h4></button>
-        										</div> -->
-
         										<div class="row">
         											<div class="col card-title">
         												Estado del Equipo:	  
         												<button type="button" class="btn btn-warning btn-sm" data-toggle="collapse" data-target="#demo"><h4 style="color: #f5f5f0;">En Diagnóstico</h4></button>
         											</div>
+        											<h5 class="col card-text mt-1" style="color: black;">{{ $reparacion->equipo->marca->descripcion }} - {{ $reparacion->equipo->modelo }}</h5>
         										</div>
        
        											<div id="demo" class="mt-3 collapse alert alert-warning">
@@ -64,8 +61,12 @@
     											<div class="progress-bar bg-info progress-bar-striped progress-bar-animated" 	                        style="width:66%;height:12px"></div>
    												</div>
 
-  	  											<div class="mt-3 mb-20">Estado del Equipo:	  
-        											<button type="button" class="btn btn-info btn-sm" data-toggle="collapse" data-target="#demo"><h4 style="color: #f5f5f0;">En Reparación</h4></button>
+   												<div class="row">
+        											<div class="col card-title">
+  	  													Estado del Equipo:	  
+        												<button type="button" class="btn btn-info btn-sm" data-toggle="collapse" data-target="#demo"><h4 style="color: #f5f5f0;">En Reparación</h4></button>
+        											</div>
+        											<h5 class="col card-text mt-1" style="color: black;">{{ $reparacion->equipo->marca->descripcion }} - {{ $reparacion->equipo->modelo }}</h5>
         										</div>
 
         										<div id="demo" class="mt-3 collapse alert alert-info">
@@ -105,8 +106,12 @@
     											<div class="progress-bar bg-success progress-bar-striped progress-bar-animated" 	                        style="width:100%;height:12px"></div>
    												</div>
 
-  	  											<div class="mt-3 mb-20">Estado del Equipo:	  
-        											<button type="button" class="btn btn-success btn-sm" data-toggle="collapse" data-target="#demo"><h4 style="color: #f5f5f0;">Listo</h4></button>
+  	  											<div class="row">
+        											<div class="col card-title">
+        												Estado del Equipo:	  
+        												<button type="button" class="btn btn-success btn-sm" data-toggle="collapse" data-target="#demo"><h4 style="color: #f5f5f0;">Listo</h4></button>
+        											</div>
+        											<h5 class="col card-text mt-1" style="color: black;">{{ $reparacion->equipo->marca->descripcion }} - {{ $reparacion->equipo->modelo }}</h5>
         										</div>
 
         										<div id="demo" class="mt-3 collapse alert alert-success">
