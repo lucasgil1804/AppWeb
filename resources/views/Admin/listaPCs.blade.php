@@ -29,11 +29,27 @@
         <tbody>
             @foreach ($reparaciones as $reparacion)
             <tr>
-                <td>{{$reparacion->id_usuario}}</td>
-                <td>{{$reparacion->id_equipo }}</td>
-                <td>{{$reparacion->id_equipo }}</td>
+                <td>{{$reparacion->usuario->apeYNom()}}</td>
+                <td>{{$reparacion->equipo->marca->descripcion}}</td>
+                <td>{{$reparacion->equipo->modelo }}</td>
                 @if ( $reparacion->deleted_at == null)
-                    <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
+                    <td><!-- <i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i> -->
+                         @if( $reparacion->id_estado == 1 )
+                                    <span class="role client">
+                                        En Diagnóstico 
+                                        <i class="fa fa-stethoscope"></i>
+                                    </span>
+                                @elseif ( $reparacion->id_estado == 2 )
+                                    <span class="role employ">
+                                       En Reparación 
+                                       <i class="fa fa-cogs"></i>
+                                    </span>
+                                @else
+                                    <span class="role tech">
+                                        Listo
+                                    </span>
+                                @endif
+                    </td>
                 @else
                     <td><i style="color: red;" class="fa fa-arrow-circle-down" data-toggle="tooltip" data-placement="top" title="Inactivo"></i></td>
                 @endif
