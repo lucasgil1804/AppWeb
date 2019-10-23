@@ -30,12 +30,12 @@
 									<!-- CONTENIDO-DETALLE REPARACION -->
     									<div class="card-body mt-20" align="left">
      										<div class="row">
-    											<h4 class="col card-title">{{ $reparacion->usuario->nombre. " " .$reparacion->usuario->apellido }}</h5>
+    											<h4 class="col card-title">Cliente: {{ $reparacion->usuario->nombre. " " .$reparacion->usuario->apellido }}</h5>
     											<h4 class=" col card-text">Ingreso: {{ date("d/m/Y", strtotime($reparacion->fecha_ingreso)) }}</h4>
         									</div>
         									<div class="row">
-    											<h4 class="col card-title">{{ $reparacion->usuario->dni }}</h4>
-    											<h4 class=" col card-text">Plazo: {{ $reparacion->plazo_estimado }}</h4>
+    											<h4 class="col card-title">DNI: {{ $reparacion->usuario->dni }}</h4>
+    											<h4 class=" col card-text">Plazo: {{ $reparacion->plazo_estimado }} días</h4>
         									</div>
 
    											@if( $reparacion->id_estado == 1 )
@@ -43,14 +43,20 @@
     											<div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" 	                        style="width:33%;height:12px"></div>
    												</div>
 
-        										<div class="mt-3 mb-20">Estado del Equipo:	  
-        											<button type="button" class="btn btn-warning btn-sm" data-toggle="collapse" data-target="#demo"><h6>En Diagnóstico</h6></button>
+        										<!-- <div class="mt-3 mb-20">Estado del Equipo:	  
+        											<button type="button" class="btn btn-warning btn-sm" data-toggle="collapse" data-target="#demo"><h4 style="color: #f5f5f0;">En Diagnóstico</h4></button>
+        										</div> -->
+
+        										<div class="row">
+        											<div class="col card-title">
+        												Estado del Equipo:	  
+        												<button type="button" class="btn btn-warning btn-sm" data-toggle="collapse" data-target="#demo"><h4 style="color: #f5f5f0;">En Diagnóstico</h4></button>
+        											</div>
         										</div>
        
-  	   
        											<div id="demo" class="mt-3 collapse alert alert-warning">
-       												<p><strong><b style="color: #BA8B00;">Estamos Trabajando:</b></strong></p>
-													<p>Se está revisando su equipo para detectar el problema. Por favor, consulte mas tarde.</p>
+       												<p><strong><b style="color: #BA8B00; font-size: 16px;">Estamos Trabajando:</b></strong></p>
+													<p style="font-size: 16px;">Se está revisando su equipo para detectar el problema. Por favor, consulte mas tarde.</p>
   	  											</div>
 
   	  										@elseif( $reparacion->id_estado == 2 )
@@ -59,33 +65,83 @@
    												</div>
 
   	  											<div class="mt-3 mb-20">Estado del Equipo:	  
-        											<button type="button" class="btn btn-info btn-sm" data-toggle="collapse" data-target="#demo"><h6>En Reparación</h6></button>
+        											<button type="button" class="btn btn-info btn-sm" data-toggle="collapse" data-target="#demo"><h4 style="color: #f5f5f0;">En Reparación</h4></button>
         										</div>
 
         										<div id="demo" class="mt-3 collapse alert alert-info">
-       												<p><strong><b>Estamos Trabajando:</b></strong></p>
-													
+       												<p><strong><b style="color: #0066ff; font-size: 16px;">Estamos Trabajando:</b></strong></p>
+													<p style="font-size: 16px;">En éste momento, tu equipo está siendo reparado.</p>
+													<br>
+													<table class="table table-hover">
+  													<thead>
+    													<tr>
+      														<th scope="col" style="color: black;">#</th>
+      															<th scope="col" style="color: black;">Descripción</th>
+      															<th scope="col" style="color: black;">Observación</th>
+      															<th scope="col" style="color: black;">Realizado</th>
+      															<th scope="col" style="color: black;">Costo</th>
+    													</tr>
+  													</thead>
+  													<tbody>
+  														@foreach ($detalles as $detalleReparacion)
+  	  														<tr>
+      														<th scope="row" style="color: black;">{{ $detalleReparacion->id_detalleReparacion }}</th>
+      														<td style="color: black;">{{ $detalleReparacion->descripcion }}</td>
+      														<td style="color: black;">{{ $detalleReparacion->observacion }}</td>
+      														@if ( $detalleReparacion->realizado == 1 )
+      															<td align="center"><i style="color: green;" class="fa fa-check-circle" data-toggle="tooltip" data-placement="top" title="Realizado"></i></td>
+      														@else
+      															<td align="center"><i style="color: red;" class="fa fa-exclamation-circle" data-toggle="tooltip" data-placement="top" title="Pendiente"></i></td>
+      														@endif
+    														<td style="color: black;">{{ $detalleReparacion->costo }}</td>
+    														</tr>
+  														@endforeach
+  													</tbody>
+													</table>
   	  											</div>
 
   	  										@else
   	  											<div class="progress mt-30 mb-30" style="height:12px">
-    											<div class="progress-bar bg-check progress-bar-striped progress-bar-animated" 	                        style="width:100%;height:12px"></div>
+    											<div class="progress-bar bg-success progress-bar-striped progress-bar-animated" 	                        style="width:100%;height:12px"></div>
    												</div>
 
   	  											<div class="mt-3 mb-20">Estado del Equipo:	  
-        											<button type="button" class="btn btn-check btn-sm" data-toggle="collapse" data-target="#demo"><h6>Listo</h6></button>
+        											<button type="button" class="btn btn-success btn-sm" data-toggle="collapse" data-target="#demo"><h4 style="color: #f5f5f0;">Listo</h4></button>
         										</div>
 
-        										<div id="demo" class="mt-3 collapse alert alert-check">
-       												<p><strong><b">¡Su equipo se encuentra reparado!</b></strong></p>
-													
+        										<div id="demo" class="mt-3 collapse alert alert-success">
+       												<p><strong><b style="color: #009933; font-size: 16px;">¡Su equipo se encuentra reparado!</b></strong></p>
+													<table class="table table-hover">
+  													<thead>
+    													<tr>
+      														<th scope="col" style="color: black;">#</th>
+      															<th scope="col" style="color: black;">Descripción</th>
+      															<th scope="col" style="color: black;">Observación</th>
+      															<th scope="col" style="color: black;">Realizado</th>
+      															<th scope="col" style="color: black;">Costo</th>
+    													</tr>
+  													</thead>
+  													<tbody>
+  														@foreach ($detalles as $detalleReparacion)
+  	  														<tr>
+      														<th scope="row" style="color: black;">{{ $detalleReparacion->id_detalleReparacion }}</th>
+      														<td style="color: black;">{{ $detalleReparacion->descripcion }}</td>
+      														<td style="color: black;">{{ $detalleReparacion->observacion }}</td>
+      														@if ( $detalleReparacion->realizado == 1 )
+      															<td align="center"><i style="color: green;" class="fa fa-check-circle" data-toggle="tooltip" data-placement="top" title="Realizado"></i></td>
+      														@else
+      															<td align="center"><i style="color: red;" class="fa fa-exclamation-circle" data-toggle="tooltip" data-placement="top" title="Pendiente"></i></td>
+      														@endif
+    														<td style="color: black;">{{ $detalleReparacion->costo }}</td>
+    														</tr>
+  														@endforeach
+  													</tbody>
+													</table>
   	  											</div>
 
   	  										@endif
   
   										</div>
-  									<!-- @foreach ($detalles as $detalleReparacion)
-  									@endforeach -->
   									<!-- CONTENIDO-DETALLE REPARACION -->
 
 								</div>
@@ -94,4 +150,12 @@
 				<!-- </div> -->
 			</div>
 
+@endsection
+
+@section('scripts')
+	<script>
+		$(document).ready(function(){
+  		$('[data-toggle="tooltip"]').tooltip();   
+		});
+	</script>
 @endsection
