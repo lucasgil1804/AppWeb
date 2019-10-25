@@ -47,11 +47,17 @@
                                 @else
                                     <span class="role tech">
                                         Listo
+                                        <i class="fa fa-check"></i>
                                     </span>
                                 @endif
                     </td>
                 @else
-                    <td><i style="color: red;" class="fa fa-arrow-circle-down" data-toggle="tooltip" data-placement="top" title="Inactivo"></i></td>
+                    <td>
+                        <span class="role admin">
+                         Anulado 
+                         <i class="fa fa-times"></i>
+                        </span>
+                    </td>
                 @endif
                <!--  Campo Accion -->
                 <td>
@@ -68,7 +74,7 @@
                                 <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
                             </button>
                             <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
-                                <a href="#" data-href=" " data-toggle="modal" data-target="#deleteModal">
+                                <a href="#" data-href="{{route('adminBajaReparacion',['id' => $reparacion->id_reparacion])}} " data-toggle="modal" data-target="#deleteModal">
                                 <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
                             </button>
                         @else
@@ -112,7 +118,7 @@
             </button>
         </div>
         <div class="modal-body">
-            <p>¿Está seguro que desea dar de baja éste usuario?</p>
+            <p>¿Está seguro que desea dar de baja está reparación?</p>
         </div>
         <div class="modal-footer">
             <a class="btn btn-danger btn-ok" >Aceptar</a>

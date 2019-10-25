@@ -91,7 +91,7 @@
                                         <i class="fas fa-desktop"></i>PCs Escritorio</a>
                                 </li>
                                 <li>
-                                    <a href="index2.html">
+                                    <a href="{{ route ('listaNotebooks') }}">
                                         <i class="fas fa-laptop"></i>Notebooks</a>
                                 </li>
                             </ul>
@@ -143,7 +143,7 @@
                                         <i class="fas fa-desktop"></i>PCs Escritorio</a>
                                 </li>
                                 <li>
-                                    <a href="index2.html">
+                                    <a href="{{ route ('listaNotebooks') }}">
                                         <i class="fas fa-laptop"></i>Notebooks</a>
                                 </li>
                             </ul>
