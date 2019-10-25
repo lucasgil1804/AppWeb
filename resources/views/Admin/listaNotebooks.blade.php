@@ -9,7 +9,7 @@
 @section('contenidoAdmin')
 
 <div style="margin-left: 20px; margin-right: 20px;">
-    <h3>Lista de PCs</h3>   
+    <h3>Lista de Notebooks</h3>   
     <div  style="margin-bottom: 15px;" align="right">
         <button type="button" class="btn btn-primary">
             <a class="linkBlanco" href="{{route('adminNuevoUsuario',['tipoUser' => 4])}}">
@@ -52,12 +52,7 @@
                                 @endif
                     </td>
                 @else
-                    <td>
-                        <span class="role admin">
-                         Anulado 
-                         <i class="fa fa-times"></i>
-                        </span>
-                    </td>
+                    <td><i style="color: red;" class="fa fa-arrow-circle-down" data-toggle="tooltip" data-placement="top" title="Inactivo"></i></td>
                 @endif
                <!--  Campo Accion -->
                 <td>
@@ -74,7 +69,7 @@
                                 <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
                             </button>
                             <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
-                                <a href="#" data-href="{{route('adminBajaReparacion',['id' => $reparacion->id_reparacion])}} " data-toggle="modal" data-target="#deleteModal">
+                                <a href="#" data-href=" " data-toggle="modal" data-target="#deleteModal">
                                 <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
                             </button>
                         @else
@@ -118,7 +113,7 @@
             </button>
         </div>
         <div class="modal-body">
-            <p>¿Está seguro que desea dar de baja está reparación?</p>
+            <p>¿Está seguro que desea dar de baja éste usuario?</p>
         </div>
         <div class="modal-footer">
             <a class="btn btn-danger btn-ok" >Aceptar</a>
