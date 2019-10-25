@@ -30,8 +30,12 @@
 									<!-- CONTENIDO-DETALLE REPARACION -->
     									<div class="card-body mt-20" align="left">
      										<div class="row">
-    											<h4 class="col card-title">Cliente: {{ $reparacion->usuario->nombre. " " .$reparacion->usuario->apellido }}</h5>
-    											<h4 class=" col card-text">Ingreso: {{ date("d/m/Y", strtotime($reparacion->fecha_ingreso)) }}</h4>
+    											<h4 class="col card-title">Cliente: {{ $reparacion->usuario->nombre. " " .$reparacion->usuario->apellido }}</h4>
+    											@if ( $reparacion->id_estado == 3 )
+    												<h4 class=" col card-text">Ingreso: {{ date("d/m/Y", strtotime($reparacion->fecha_ingreso)). " - Egreso: " .date("d/m/Y", strtotime($reparacion->fecha_egreso))}}</h4>
+    											@else
+    												<h4 class=" col card-text">Ingreso: {{ date("d/m/Y", strtotime($reparacion->fecha_ingreso)) }}</h4>
+    											@endif
         									</div>
         									<div class="row">
     											<h4 class="col card-title">DNI: {{ $reparacion->usuario->dni }}</h4>
@@ -86,7 +90,7 @@
   													<tbody>
   														@foreach ($detalles as $detalleReparacion)
   	  														<tr>
-      														<th scope="row" style="color: black;">{{ $detalleReparacion->id_detalleReparacion }}</th>
+      														<th scope="row" style="color: black;">{{ $loop->iteration }}</th>
       														<td style="color: black;">{{ $detalleReparacion->descripcion }}</td>
       														<td style="color: black;">{{ $detalleReparacion->observacion }}</td>
       														@if ( $detalleReparacion->realizado == 1 )
@@ -94,10 +98,16 @@
       														@else
       															<td align="center"><i style="color: red;" class="fa fa-exclamation-circle" data-toggle="tooltip" data-placement="top" title="Pendiente"></i></td>
       														@endif
-    														<td style="color: black;">{{ $detalleReparacion->costo }}</td>
+    														<td style="color: black;">${{ $detalleReparacion->costo }}</td>
     														</tr>
   														@endforeach
   													</tbody>
+  													<tfoot>
+  														<tr>
+  															<th colspan="4" style="color: black; text-align: right;">Total: </th>
+  															<th style="color: black;">${{ $reparacion->total }}</th>
+  														</tr>
+  													</tfoot>
 													</table>
   	  											</div>
 
@@ -129,7 +139,7 @@
   													<tbody>
   														@foreach ($detalles as $detalleReparacion)
   	  														<tr>
-      														<th scope="row" style="color: black;">{{ $detalleReparacion->id_detalleReparacion }}</th>
+      														<th scope="row" style="color: black;">{{ $loop->iteration }}</th>
       														<td style="color: black;">{{ $detalleReparacion->descripcion }}</td>
       														<td style="color: black;">{{ $detalleReparacion->observacion }}</td>
       														@if ( $detalleReparacion->realizado == 1 )
@@ -137,10 +147,16 @@
       														@else
       															<td align="center"><i style="color: red;" class="fa fa-exclamation-circle" data-toggle="tooltip" data-placement="top" title="Pendiente"></i></td>
       														@endif
-    														<td style="color: black;">{{ $detalleReparacion->costo }}</td>
+    														<td style="color: black;">${{ $detalleReparacion->costo }}</td>
     														</tr>
   														@endforeach
   													</tbody>
+  													<tfoot>
+  														<tr>
+  															<th colspan="4" style="color: black; text-align: right;">Total: </th>
+  															<th style="color: black;">${{ $reparacion->total }}</th>
+  														</tr>
+  													</tfoot>
 													</table>
   	  											</div>
 
