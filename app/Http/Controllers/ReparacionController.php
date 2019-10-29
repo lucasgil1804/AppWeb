@@ -45,11 +45,29 @@ class ReparacionController extends Controller
         return view('Admin.listaNotebooks', compact('reparaciones'));
     }
 
-      public function bajaReparacion(Reparacion $reparacion)
+    public function bajaReparacion(Reparacion $reparacion)
     {
         $reparacion->delete();
 
         Session::flash('flash_messageExito', 'La reparación se ha dado de baja correctamente.');
+        if ($reparacion->equipo->id_tipoEquipo == 1)
+        {
+            return redirect()->route('listaPCs');
+        }
+        else
+        {
+            return redirect()->route('listaNotebooks');
+        }
+        
+    }
+
+    public function AltaReparacion($id)
+    {
+        $reparacion = Reparacion::withTrashed()
+                    ->find($id);
+        $reparacion->restore();
+
+        Session::flash('flash_messageExito', 'La reparación se ha dado de alta correctamente.');
         if ($reparacion->equipo->id_tipoEquipo == 1)
         {
             return redirect()->route('listaPCs');
