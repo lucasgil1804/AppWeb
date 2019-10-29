@@ -110,3 +110,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/detalleReparacion/{id}', 'ReparacionController@detallesReparacion')
+	->where('reparacion', '[0-9]+')
+	->middleware('auth')
+	->name('adminDetallesReparacion');
