@@ -70,7 +70,7 @@
                     <!-- <div class="table-data-feature" style="position: relative;"> -->
                     <div class="botones-accion" style="">
                         <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
-                            <!-- <a href="{{ route('adminDetallesReparacion', ['id' => ]) }}"> -->
+                            <a href="{{ route('adminDetallesReparacion', ['id' => $reparacion->id_reparacion]) }}">
                             <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
                         </button>
 
