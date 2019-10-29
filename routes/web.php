@@ -57,7 +57,13 @@ Route::get('/listaNotebooks', 'ReparacionController@listaNotebooks')
 
 Route::get('/bajaReparacion/{reparacion}', 'ReparacionController@bajaReparacion')
 	->where('reparacion', '[0-9]+')
-	->name('adminBajaReparacion');
+	->name('adminBajaReparacion')
+	->middleware('auth');
+
+Route::get('/altaReparacion/{id}', 'ReparacionController@altaReparacion')
+	->where('id', '[0-9]+')
+	->name('adminAltaReparacion')
+	->middleware('auth');
 /* Reparaciones */
 
 

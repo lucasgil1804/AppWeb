@@ -9,7 +9,13 @@
 @section('contenidoAdmin')
 
 <div style="margin-left: 20px; margin-right: 20px;">
-    <h3>Lista de PCs</h3>   
+    <h3>Lista de PCs</h3> 
+    @if(Session::has('flash_messageExito'))
+        <div class="alert alert-success mt-3">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong><i class="fa fa-check"></i></strong> {{Session::get('flash_messageExito')}}
+        </div>
+    @endif  
     <div  style="margin-bottom: 15px;" align="right">
         <button type="button" class="btn btn-primary">
             <a class="linkBlanco" href="{{route('adminNuevoUsuario',['tipoUser' => 4])}}">
@@ -82,7 +88,7 @@
                                 <i class="zmdi zmdi-edit" style="color: grey;"></i>
                             </button>
                             <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Alta">
-                                <a href="#" data-href=" " data-toggle="modal" data-target="#upModal">
+                                <a href="#" data-href="{{route('adminAltaReparacion',['id' => $reparacion->id_reparacion])}} " data-toggle="modal" data-target="#upModal">
                                 <i class="zmdi zmdi-account-add" style="color: grey;"></i></a>
                             </button>
                         @endif
@@ -140,7 +146,7 @@
             </button>
         </div>
         <div class="modal-body">
-            <p>¿Está seguro que desea dar de alta éste usuario?</p>
+            <p>¿Está seguro que desea dar de alta ésta reparación?</p>
         </div>
         <div class="modal-footer">
             <a class="btn btn-danger btn-ok" >Aceptar</a>
