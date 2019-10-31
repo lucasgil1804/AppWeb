@@ -82,8 +82,9 @@ class ReparacionController extends Controller
     public function detallesReparacion($id)
     {
     	$reparacion = Reparacion::withTrashed()->find($id);
-
-    	return view('Admin.detalleReparacion', compact('reparaciones'));
+    	$detalles = $reparacion->detalles()->withTrashed()->get();
+    	
+    	return view('Admin.detalleReparacion', compact('reparacion','detalles'));
     }
 
 }
