@@ -64,6 +64,11 @@ Route::get('/altaReparacion/{id}', 'ReparacionController@altaReparacion')
 	->where('id', '[0-9]+')
 	->name('adminAltaReparacion')
 	->middleware('auth');
+
+Route::get('/nuevaReparacion', 'ReparacionController@nuevaReparacion')
+	->name('adminNuevaReparacion')
+	->middleware('auth');
+
 /* Reparaciones */
 
 
