@@ -87,4 +87,10 @@ class ReparacionController extends Controller
     	return view('Admin.detalleReparacion', compact('reparacion','detalles'));
     }
 
+    public function nuevaReparacion()
+    {
+        return view('Admin.agregarReparacion');
+    }
+
+
 }

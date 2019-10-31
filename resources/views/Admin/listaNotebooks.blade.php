@@ -42,17 +42,17 @@
                     <td><!-- <i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i> -->
                          @if( $reparacion->id_estado == 1 )
                                     <span class="role client">
-                                        En Diagnóstico 
+                                        En Diagnóstico&nbsp; 
                                         <i class="fa fa-stethoscope"></i>
                                     </span>
                                 @elseif ( $reparacion->id_estado == 2 )
                                     <span class="role employ">
-                                       En Reparación 
+                                       En Reparación&nbsp; 
                                        <i class="fa fa-cogs"></i>
                                     </span>
                                 @else
                                     <span class="role tech">
-                                        Listo
+                                        Listo&nbsp;
                                         <i class="fa fa-check"></i>
                                     </span>
                                 @endif
@@ -60,7 +60,7 @@
                 @else
                     <td>
                         <span class="role admin">
-                         Anulado 
+                         Anulado&nbsp;
                          <i class="fa fa-times"></i>
                         </span>
                     </td>
