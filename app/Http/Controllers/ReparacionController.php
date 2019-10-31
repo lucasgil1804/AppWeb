@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Session;
 use App\Models\Reparacion;
 use App\Models\TipoEquipo;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 
@@ -85,11 +86,5 @@ class ReparacionController extends Controller
 
     	return view('Admin.detalleReparacion', compact('reparaciones'));
     }
-
-    public function nuevaReparacion()
-    {
-        return view('Admin.agregarReparacion');
-    }
-
 
 }
