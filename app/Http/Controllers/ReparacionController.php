@@ -88,4 +88,17 @@ class ReparacionController extends Controller
     	return view('Admin.detalleReparacion', compact('reparacion','detalles'));
     }
 
+    public function nuevaReparacion()
+    {
+        //$cliente=User::withTrashed()->find(1);
+        $cliente=null;
+        return view('Admin.agregarReparacion',compact('cliente'));
+    }
+
+    public function mostrarCliente($id)
+    {
+        $cliente=User::withTrashed()->find($id);
+        return view('Admin.mostrarCliente',compact('cliente'));
+    }
+
 }
