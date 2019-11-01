@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Session;
 use App\Models\Reparacion;
 use App\Models\TipoEquipo;
 use App\Models\User;
+use App\Models\TipoUsuario;
 use Illuminate\Http\Request;
 
 
@@ -92,7 +93,9 @@ class ReparacionController extends Controller
     {
         //$cliente=User::withTrashed()->find(1);
         $cliente=null;
-        return view('Admin.agregarReparacion',compact('cliente'));
+        $tipoUsuario = TipoUsuario::find(4);
+        $listaClientes = $tipoUsuario->users()->get();
+        return view('Admin.agregarReparacion',compact('cliente','listaClientes'));
     }
 
     public function mostrarCliente($id)
