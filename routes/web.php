@@ -69,6 +69,9 @@ Route::get('/nuevaReparacion', 'ReparacionController@nuevaReparacion')
 	->name('adminNuevaReparacion')
 	->middleware('auth');
 
+Route::get('/mostrarCliente/{id}', 'ReparacionController@mostrarCliente')
+	->where('id', '[0-9]+')
+	->middleware('auth');
 /* Reparaciones */
 
 
