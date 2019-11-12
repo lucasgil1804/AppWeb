@@ -58,7 +58,7 @@
 	function Mostrar(btn){
 		// $('#cliente').html('<div id="cliente" class="loading"><img src="img/ajax-loader.gif" alt="loading" /><br/>Cargando...</div>');
 		//$('#cliente').show();
-		$('#loading').show();
+    $('#loading').show();
 		var ruta="http://localhost:8000/mostrarCliente/"+btn.value;
 		$.ajax({
             type: "GET",
