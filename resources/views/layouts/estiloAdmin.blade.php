@@ -87,6 +87,10 @@
                                 <i class="fas fa-wrench"></i>Reparaciones</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
+                                    <a href="{{ route ('adminNuevaReparacion') }}">
+                                        <i class="fas fa-plus"></i>Nueva Reparación</a>
+                                </li>
+                                <li>
                                     <a href="{{ route ('listaPCs') }}">
                                         <i class="fas fa-desktop"></i>PCs Escritorio</a>
                                 </li>
@@ -138,6 +142,10 @@
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-wrench"></i>Reparaciones</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li>
+                                    <a href="{{ route ('adminNuevaReparacion') }}">
+                                        <i class="fas fa-plus"></i>Nueva Reparación</a>
+                                </li>
                                 <li>
                                     <a href="{{ route ('listaPCs') }}">
                                         <i class="fas fa-desktop"></i>PCs Escritorio</a>
