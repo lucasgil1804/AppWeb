@@ -19,11 +19,8 @@
 		<div class="card-header"><h3>Detalle de la Reparación</h3></div>
 			<div class="card-body mt-20" align="left">
 
-				<div id="cliente">
-				<div id="loading">
-					<img src="img/ajax-loader.gif" alt="loading" />
-					<br/>Cargando...
-				</div>
+				<!-- <div id="cliente"> -->
+				
 				<div style="display: inline-block; margin-bottom: 15px;">
 					<label style="margin-bottom: 5px;"><b>Fecha de Ingreso</b></label>
 					
@@ -41,52 +38,17 @@
 				</div>
 				<div style="display: inline-block; float: right; margin-bottom: 15px; width: 7%;">
 					<label style="margin-bottom: 5px;"><b>Plazo</b></label>
-					<input class="form-control" type="number" placeholder="">
+					<input class="form-control" value="0" min="0" max="30" type="number" placeholder="">
 				</div>
-  				@include('Admin.mostrarCliente')	
-				</div>
+  					
+				<!-- </div> -->
 
 				<div class="card bg-light">
 					
-					<div class="card-body">
-						<h4 class="card-title">Cliente</h4>
+					<div id="cliente" class="card-body">
+						
 						<div id="containerCliente" class="container" style="float: left;">
-  						<div style="display: inline-block; margin-bottom: 15px;">
-  							<input class="form-control" id="myInput" type="text" placeholder="Buscar...">
-  						</div>
-  						<div style="display: inline-block; float: right; margin-bottom: 15px;">
-        					<button type="button" class="btn btn-primary">
-            				<a class="linkBlanco" href="#">
-            				<i class="fa fa-plus"></i>&nbsp; Añadir</a>
-            				</button>
-    					</div>
-  						<br>
-  						<div class="table-responsive" style="height:150px;">
-  							<table class="table table-hover bg-white">
-    							<thead>
-      								<tr>
-        								<th>     </th>
-        								<th>Dni</th>
-        								<th>Apellido</th>
-        								<th>Nombre</th>
-      								</tr>
-    							</thead>
-    						<tbody id="myTable">
-      						@foreach($listaClientes as $client)
-      							<tr>
-      								<td>
-      								<button  id="agregarcliente" value="{{$client->id_usuario}}" onclick="Mostrar(this);">
-      								<i class="fa fa-plus-circle text-success"></i>
-      								</button>
-      								</td>
-        							<td>{{$client->dni}}</td>
-        							<td>{{$client->apellido}}</td>
-       	 							<td>{{$client->nombre}}</td>
-       							</tr>
-      						@endforeach
-    						</tbody>
-  							</table>
- 						</div>
+  						@include('Admin.tablaCliente')
  						</div>
 					</div>
 				</div>
@@ -140,6 +102,22 @@
         });
         return false;
 		// $('#cliente').load(ruta); 
+	}
+
+	function NuevoCliente(){
+	$('#loading').show();
+		var ruta="http://localhost:8000/formularioCliente/4";
+		$.ajax({
+            type: "GET",
+            url: ruta,
+            success: function(data) {
+                //Cargamos finalmente el contenido deseado
+                $('#cliente').fadeIn(1000).html(data);
+                $('#containerCliente').hide();
+            }
+
+        });
+        return false;
 	}
 </script>
 @endsection

@@ -104,4 +104,20 @@ class ReparacionController extends Controller
         return view('Admin.mostrarCliente',compact('cliente'));
     }
 
+    public function tablaCliente()
+    {
+        $cliente=null;
+        $tipoUsuario = TipoUsuario::find(4);
+        $listaClientes = $tipoUsuario->users()->get();
+
+        return view('Admin.tablaCliente', compact('listaClientes','cliente'));
+    }
+
+    public function nuevoCliente()
+    {
+        $tipoUser = 4;
+
+        return view('Admin.formularioCliente', compact('tipoUser'));
+    }
+
 }
