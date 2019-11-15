@@ -45,6 +45,7 @@
         <button type="button" class="btn btn-primary">
             <a class="linkBlanco" href="{{route('adminNuevoUsuario',['tipoUser' => 4])}}">
             <i class="fa fa-plus"></i>&nbsp; Añadir</a>
+        </button>
     </div>
     <!-- <table id="myTable" class="table table-hover table-striped table-bordered" style="width:100%;text-align: center;"> -->
         <table id="myTable" class="table table-striped table-bordered dt-responsive nowrap" style="width: 100%; text-align: center;">

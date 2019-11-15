@@ -72,6 +72,12 @@ Route::get('/nuevaReparacion', 'ReparacionController@nuevaReparacion')
 Route::get('/mostrarCliente/{id}', 'ReparacionController@mostrarCliente')
 	->where('id', '[0-9]+')
 	->middleware('auth');
+
+Route::get('/tablaCliente', 'ReparacionController@tablaCliente')
+	->middleware('auth');
+
+Route::get('/formularioCliente/4', 'ReparacionController@nuevoCliente')
+	->middleware('auth');
 /* Reparaciones */
 
 

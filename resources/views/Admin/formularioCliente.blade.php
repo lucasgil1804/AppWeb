@@ -1,18 +1,12 @@
-@extends('layouts.estiloAdmin')
+<div id="formularioCliente">
 
-@section('contenidoAdmin')
-  <div class="card" style="margin-right: 20px; margin-left: 20px;" >
-    
-    @if ($tipoUser == 2)
-      <div class="card-header"><h3>Nuevo Empleado</h3></div>
-    @elseif ($tipoUser == 3)
-      <div class="card-header"><h3>Nuevo Técnico</h3></div>
-    @else
-      <div class="card-header"><h3>Nuevo Cliente</h3></div>
-    @endif
-    
-      <div class="card-body card-block">
-          <form action="{{url('nuevoUsuario')}}" method="post" class="needs-validation" novalidate=""> 
+<h4 class="card-title">Nuevo Cliente</h4>
+
+@php
+  sleep(1);
+@endphp 
+
+<form action="{{url('nuevoUsuario')}}" method="post" class="needs-validation" novalidate=""> 
     
               {{csrf_field()}}
           	  <div class="form-group">
@@ -74,40 +68,6 @@
                   @endif
               </div>
 
-              <!-- Si el tipo de usuario es "cliente", el campo de contraseña no se muestra -->
-              @if ($tipoUser != 4)
-                <div class="form-group">
-                  <div class="input-group">
-                      <div class="input-group-addon">
-                          <i class="fa fa-asterisk"></i>
-                      </div>
-                      <input type="password" id="txtPassword" name="password" placeholder="Contraseña" class="form-control">
-                      <div class="input-group-append">
-                      <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
-                    </div>
-                  </div>
-                  @if ($errors->has('password'))
-                    <p class="text-danger small">{{ $errors->first('password') }}</p>
-                  @endif
-                  </div>
-                  <div class="form-group">
-                  <div class="input-group">
-                      <div class="input-group-addon">
-                          <i class="fa fa-asterisk"></i>
-                      </div>
-                      <input type="password" id="txtPassword2" name="password_confirmation" placeholder="Confirmar Contraseña" class="form-control">
-                      <div class="input-group-append">
-                        <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
-                      </div>
-                      
-                  </div>
-                  @if ($errors->has('password_confirmation'))
-                    <p class="text-danger small">{{ $errors->first('password_confirmation') }}</p>
-                  @endif
-                  </div>
-              @endif
-              <!-- Si el tipo de usuario es "cliente", el campo de contraseña no se muestra -->
-
               
               <!-- Campo Oculto -->
                <div class="form-group">
@@ -121,46 +81,29 @@
                     <i class="fa fa-save"></i>  
                      &nbsp;Guardar
                   </button>
-                  <button type="button" class="btn btn-danger" onclick="location='{{ route('adminListaEmpleados') }}'">
+                  <button type="button" class="btn btn-danger" onclick="Cancelar();">
                     <i class="fa fa-times"></i>  
                      &nbsp;Cancelar
                   </button>
               </div>
           </form>
+</div>
 
-    </div>
-</div>                         
-@endsection
-@section('scripts')
+<script>
+    function Cancelar(){
+      $('#formularioCliente').hide();
+      var ruta="http://localhost:8000/tablaCliente";
+      $.ajax({
+            type: "GET",
+            url: ruta,
+            success: function(data) {
+                //Cargamos finalmente el contenido deseado
+                $('#cliente').fadeIn(1000).html(data);
+                $('#loading').fadeOut(1000);
+                $('#containerCliente').show();
+            }
 
-<script type="text/javascript">
-  function mostrarPassword(){
-    var cambio = document.getElementById("txtPassword");
-    var cambio2 = document.getElementById("txtPassword2");
-
-    if(cambio.type == "password"){
-      cambio.type = "text";
-      $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
-    }else{
-      cambio.type = "password";
-      $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
-    }
-
-    if(cambio2.type == "password"){
-      cambio2.type = "text";
-      $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
-    }else{
-      cambio2.type = "password";
-      $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
-    }
+        });
+        return false;
   }
-
-  $(document).ready(function () {
-  //CheckBox mostrar contraseña
-  $('#ShowPassword').click(function () {
-  $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
-  });
-  });
 </script>
-
-@endsection
