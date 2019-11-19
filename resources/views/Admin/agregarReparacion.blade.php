@@ -14,6 +14,28 @@
 <!-- ESTILO DATEPICKER STYDE -->
 
 @section('contenidoAdmin')
+<!-- Mensaje el cliente se guardo correctamente -->
+	@if(Session::has('flash_messageExito'))
+    <div class="modal" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Registro Exitoso</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p>{{Session::get('flash_messageExito')}}</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color: #ff4000; border-color: white;">Aceptar</button>
+        </div>
+        </div>
+    </div>
+    </div>
+    @endif 
+<!-- Mensaje el cliente se guardo correctamente -->    
 <div class="container">
 	<div class="card bg-light text-dark mt-40">
 		<div class="card-header"><h3>Detalle de la Reparación</h3></div>
@@ -48,8 +70,12 @@
 					<div id="cliente" class="card-body">
 						
 						<div id="containerCliente" class="container" style="float: left;">
-  						@include('Admin.tablaCliente')
- 						</div>
+  						@if ($errors->any())
+  							@include('Admin.formularioCliente')
+  						@else
+  							@include('Admin.tablaCliente')
+  						@endif
+ 						</div>				
 					</div>
 				</div>
  			</div>
@@ -71,7 +97,9 @@
 @endsection
 
 @section('scripts')
-
+<script>
+	$("#myModal").modal('show');
+</script>
 <script type="text/javascript">
 	$(document).ready(function(){
 		

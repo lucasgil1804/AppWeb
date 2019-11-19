@@ -12,7 +12,8 @@ use Illuminate\Http\Request;
 
 class ReparacionController extends Controller
 {
-    public function consultaEquipo(){
+    public function consultaEquipo()
+    {
 
     	$idReparacion = request()->input('idReparacion');
     	$dni = request()->input('dni');
@@ -120,4 +121,45 @@ class ReparacionController extends Controller
         return view('Admin.formularioCliente', compact('tipoUser'));
     }
 
+    public function guardarCliente()
+    {
+            $validaciones = [
+                'nombre' => 'required',
+                'apellido' => 'required',
+                'dni' => 'required|numeric|digits_between:6,8|unique:users,dni',
+                'email' => 'required|email|unique:users,email',
+                'password' => '',
+                'password_confirmation' => '',
+                'tipoUser' => ''
+            ];
+
+            $restricciones = [
+                'nombre.required' => '* El campo Nombre es obligatorio.',
+                'apellido.required' => '* El campo Apellido es obligatorio.',
+                'dni.required' => '* El campo DNI es obligatorio.',
+                'dni.numeric' => '* El DNI debe ser solo numerico.',
+                'dni.digits_between' => '* El número de DNI debe contener entre 6 y 8 dígitos.',
+                'dni.unique' => '* Ya existe un usuario registrado con ese DNI.',
+                'email.required' => '* El campo Email es obligatorio.',
+                'email.email' => '* Debe ingresar un Email válido.',
+                'email.unique' => '* Ya existe un usuario registrado con ese EMAIL.',
+            ];
+        
+        $data = request()->validate($validaciones,
+        $restricciones);
+        
+        $data = request()->all();
+            User::create([
+            'id_tipoUsuario' => 4,   
+            'nombre' => $data['nombre'],
+            'apellido' => $data['apellido'],
+            'dni' => $data['dni'],
+            'email' => $data['email'],
+            ]);
+        
+
+        Session::flash('flash_messageExito', 'El cliente se guardó correctamente.');
+        
+        return redirect()->route('adminNuevaReparacion');
+    }
 }
