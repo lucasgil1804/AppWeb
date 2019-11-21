@@ -5,8 +5,7 @@
 @php
   sleep(1);
 @endphp 
-
-<form action="{{url('nuevoUsuario')}}" method="post" class="needs-validation" novalidate=""> 
+<form action="{{url('guardarCliente')}}" method="post" novalidate=""> 
     
               {{csrf_field()}}
           	  <div class="form-group">
@@ -14,7 +13,9 @@
                       <div class="input-group-addon">
                           DNI
                       </div>
-                      <input type="text" id="validationCustom01" name="dni" placeholder="Nº de Documento" class="form-control" value="{{ old('dni') }}">
+                      <input type="text" id="validationCustom01" name="dni" placeholder="Nº de Documento" class="form-control" value="{{ old('dni') }}" required pattern="[0-9]{7,8}" title="Ingrese un dni valido">
+                     <!--  <div class="valid-feedback">Valid.</div>
+                      <div class="invalid-feedback">Please fill out this field.</div> -->
                      <!--  <input type="text" id="validationCustom01" name="dni" placeholder="Nº de Documento" class="form-control" required pattern="[0-9]{7,8}" title="Ingrese solo números."> -->
                   </div>
                   @if ($errors->has('dni'))
@@ -67,16 +68,8 @@
                     <p class="text-danger small">{{ $errors->first('email') }}</p>
                   @endif
               </div>
-
               
-              <!-- Campo Oculto -->
-               <div class="form-group">
-                  <div class="input-group">
-                     <input type="hidden" id="tipoUser" name="tipoUser" class="form-control" value="{{$tipoUser}}">
-                  </div>
-              </div>
-              <!-- Campo Oculto -->
-              <div class="form-actions form-group">
+              <!-- <div class="form-actions form-group"> -->
                   <button type="submit" class="btn btn-success">
                     <i class="fa fa-save"></i>  
                      &nbsp;Guardar
@@ -85,13 +78,13 @@
                     <i class="fa fa-times"></i>  
                      &nbsp;Cancelar
                   </button>
-              </div>
+              <!-- </div> -->
           </form>
 </div>
 
 <script>
     function Cancelar(){
-      $('#formularioCliente').hide();
+     // $('#formularioCliente').hide();
       var ruta="http://localhost:8000/tablaCliente";
       $.ajax({
             type: "GET",

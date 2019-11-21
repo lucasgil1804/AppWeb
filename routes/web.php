@@ -77,6 +77,10 @@ Route::get('/tablaCliente', 'ReparacionController@tablaCliente')
 	->middleware('auth');
 
 Route::get('/formularioCliente/4', 'ReparacionController@nuevoCliente')
+	->middleware('auth')
+	->name('formularioCliente');
+
+Route::post('/guardarCliente', 'ReparacionController@guardarCliente');	
 	->middleware('auth');
 
 Route::get('/tablaEquipo', 'ReparacionController@tablaEquipo')
