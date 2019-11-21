@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Session;
 use App\Models\Reparacion;
 use App\Models\TipoEquipo;
+use App\Models\Equipo;
+use App\Models\Marca;
 use App\Models\User;
 use App\Models\TipoUsuario;
 use Illuminate\Http\Request;
@@ -93,9 +95,12 @@ class ReparacionController extends Controller
     {
         //$cliente=User::withTrashed()->find(1);
         $cliente=null;
+        $equipo = null;
         $tipoUsuario = TipoUsuario::find(4);
         $listaClientes = $tipoUsuario->users()->get();
-        return view('Admin.agregarReparacion',compact('cliente','listaClientes'));
+        $listaEquipos = Equipo::get();
+
+        return view('Admin.agregarReparacion',compact('cliente','listaClientes','equipo','listaEquipos'));
     }
 
     public function mostrarCliente($id)
@@ -118,6 +123,29 @@ class ReparacionController extends Controller
         $tipoUser = 4;
 
         return view('Admin.formularioCliente', compact('tipoUser'));
+    }
+
+    public function tablaEquipo()
+    {
+        $equipo = null;
+        $listaEquipos = Equipo::get();
+
+        return view('Admin.tablaEquipo', compact('listaEquipos','equipo'));
+    }
+
+    public function mostrarEquipo($id)
+    {
+        $equipo=Equipo::find($id);
+        return view('Admin.mostrarEquipo',compact('equipo'));
+    }
+
+    public function nuevoEquipo() 
+    {
+        $equipo = Equipo::get();
+        $marcas = Marca::get();
+        $tiposEquipo = TipoEquipo::get();
+
+        return view('Admin.formularioEquipo', compact('equipo','marcas','tiposEquipo'));
     }
 
 }

@@ -1,4 +1,4 @@
-<div id="formularioCliente">
+<div id="formularioCliente" class="container">
 
 <h4 class="card-title">Nuevo Cliente</h4>
 
