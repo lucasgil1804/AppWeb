@@ -7,7 +7,7 @@
 @endphp 
 
 <!-- VERIFICAR VALORES DEL FORMULARIO -->
-<form action="" method="post" class="" novalidate=""> 
+<form action="" method="post" class="was-validated"> 
     
               {{csrf_field()}}
           	  <div class="form-group">
@@ -15,8 +15,8 @@
                       <div class="input-group-addon">
                           Tipo
                       </div>
-                      <select name="selectTipo" id="selectTipo" class="form-control">
-                          <option value="0">Por favor, seleccione un tipo</option>
+                      <select name="selectTipo" id="selectTipo" class="form-control" required>
+                          <option value="">Por favor, seleccione un tipo</option>
                           @foreach ($tiposEquipo as $tipo)
                             <option value="{{ $tipo->id_tipoEquipo }}">{{ $tipo->descripcion }}</option>
                           @endforeach
@@ -29,8 +29,8 @@
                       <div class="input-group-addon">
                           Marca
                       </div>
-                      <select name="selectMarca" id="selectMarca" class="form-control">
-                          <option value="0">Por favor, seleccione una marca</option>
+                      <select name="selectMarca" id="selectMarca" class="form-control" required>
+                          <option value="">Por favor, seleccione una marca</option>
                           @foreach ($marcas as $marca)
                             <option value="{{ $marca->id_marca }}">{{ $marca->descripcion }}</option>
                           @endforeach
@@ -41,9 +41,9 @@
               <div class="form-group">
                   <div class="input-group">
                       <div class="input-group-addon">
-                          Marca
+                          Modelo
                       </div>
-                     <input type="text" id="marca" name="marca" placeholder="Marca del equipo" class="form-control" value="">
+                     <input type="text" id="modelo" name="modelo" placeholder="Modelo del equipo" class="form-control" value="" required>
                   </div>
               </div>
                             
