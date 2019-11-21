@@ -76,8 +76,20 @@
   							@include('Admin.tablaCliente')
   						@endif
  						</div>				
+
 					</div>
 				</div>
+
+				<div class="card bg-light">
+					
+					<div id="equipo" class="card-body">
+						
+						<div id="containerEquipo" class="container" style="float: left;">
+  							@include('Admin.tablaEquipo')
+ 						</div>
+					</div>
+				</div>
+				
  			</div>
 	</div>
 </div>
@@ -112,6 +124,18 @@
  		});
 
 	});
+
+	$(document).ready(function(){
+		
+		$('#loading2').hide();
+		$("#buscarEquipo").on("keyup", function() {
+    	var value = $(this).val().toLowerCase();
+   			 $("#myTableEquipo tr").filter(function() {
+      			$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    		});
+ 		});
+
+	});
 	
 	function Mostrar(btn){
 		// $('#cliente').html('<div id="cliente" class="loading"><img src="img/ajax-loader.gif" alt="loading" /><br/>Cargando...</div>');
@@ -125,6 +149,25 @@
                 //Cargamos finalmente el contenido deseado
                 $('#cliente').fadeIn(1000).html(data);
                 $('#containerCliente').hide();
+            }
+
+        });
+        return false;
+		// $('#cliente').load(ruta); 
+	}
+
+	function MostrarEquipo(btn){
+		// $('#cliente').html('<div id="cliente" class="loading"><img src="img/ajax-loader.gif" alt="loading" /><br/>Cargando...</div>');
+		//$('#cliente').show();
+    $('#loading2').show();
+		var ruta="http://localhost:8000/mostrarEquipo/"+btn.value;
+		$.ajax({
+            type: "GET",
+            url: ruta,
+            success: function(data) {
+                //Cargamos finalmente el contenido deseado
+                $('#equipo').fadeIn(1000).html(data);
+                $('#containerEquipo').hide();
             }
 
         });
@@ -147,5 +190,22 @@
         });
         return false;
 	}
+
+	function NuevoEquipo(){
+	$('#loading2').show();
+		var ruta="http://localhost:8000/formularioEquipo";
+		$.ajax({
+            type: "GET",
+            url: ruta,
+            success: function(data) {
+                //Cargamos finalmente el contenido deseado
+                $('#equipo').fadeIn(1000).html(data);
+                $('#containerEquipo').hide();
+            }
+
+        });
+        return false;
+	}
+
 </script>
 @endsection
