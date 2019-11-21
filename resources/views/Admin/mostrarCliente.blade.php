@@ -23,7 +23,7 @@
 <!-- </div> -->
 <script>
     function Editar(){
-      $('#datosCliente').hide();
+      // $('#datosCliente').hide();
       var ruta="http://localhost:8000/tablaCliente";
       $.ajax({
             type: "GET",

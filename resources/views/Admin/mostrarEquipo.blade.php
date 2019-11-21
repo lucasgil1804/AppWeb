@@ -24,7 +24,7 @@
 <!-- </div> -->
 <script>
     function EditarEquipo(){
-      $('#datosEquipo').hide();
+      // $('#datosEquipo').hide();
       var ruta="http://localhost:8000/tablaEquipo";
       $.ajax({
             type: "GET",
