@@ -92,6 +92,9 @@ Route::get('/mostrarEquipo/{id}', 'ReparacionController@mostrarEquipo')
 
 Route::get('/formularioEquipo', 'ReparacionController@nuevoEquipo')
 	->middleware('auth');
+
+Route::post('/guardarEquipo', 'ReparacionController@guardarEquipo')
+	->middleware('auth');
 /* Reparaciones */
 
 

@@ -7,7 +7,7 @@
 @endphp 
 
 <!-- VERIFICAR VALORES DEL FORMULARIO -->
-<form action="" method="post" class="was-validated"> 
+<form action="{{ url('guardarEquipo') }}" method="post" class="was-validated"> 
     
               {{csrf_field()}}
           	  <div class="form-group">

@@ -191,4 +191,18 @@ class ReparacionController extends Controller
         return view('Admin.formularioEquipo', compact('equipo','marcas','tiposEquipo'));
     }
 
+    public function guardarEquipo()
+    {
+        $data = request()->all();
+            Equipo::create([
+                'id_marca' => $data['selectMarca'],
+                'id_tipoEquipo' => $data['selectTipo'],
+                'modelo' => $data['modelo']
+            ]);
+
+        Session::flash('flash_messageExito', 'El equipo se guardó correctamente.');
+
+        return redirect()->route('adminNuevaReparacion');
+    }
+
 }
