@@ -38,7 +38,7 @@
 <!-- Mensaje el cliente se guardo correctamente -->    
 <div class="container">
 	<div class="card bg-light text-dark mt-40">
-		<div class="card-header"><h3>Detalle de la Reparación</h3></div>
+		<div class="card-header"><h3>Nueva Reparación</h3></div>
 			<div class="card-body mt-20" align="left">
 
 				<!-- <div id="cliente"> -->
@@ -65,7 +65,7 @@
   					
 				<!-- </div> -->
 
-				<div class="card bg-light">
+				<div class="container card bg-light">
 					
 					<div id="cliente" class="card-body">
 						
@@ -80,7 +80,7 @@
 					</div>
 				</div>
 
-				<div class="card bg-light">
+				<div class="container card bg-light">
 					
 					<div id="equipo" class="card-body">
 						
@@ -89,6 +89,32 @@
  						</div>
 					</div>
 				</div>
+
+				<div class="container card bg-light">
+					<div id="detalle" class="card-body">
+						
+						<div id="containerDetalle" class="container" style="float: left;">
+							<h4 class="card-title">Detalle</h4>
+  							<div class="dropdown">
+  								<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+   							 		Estado del Equipo
+  								</button>
+  								<div class="dropdown-menu">
+    								<button type="button" class="dropdown-item" onclick="enDiagnostico();">
+                                    En diagnóstico
+                                    </button>
+    								<div class="dropdown-divider"></div>
+    								<button type="button" class="dropdown-item" onclick="enReparacion();">
+                                    En Reparación
+                                    </button>
+  								</div>
+							</div>
+ 						</div>
+					</div>
+				</div>
+
+
+				
 				
  			</div>
 	</div>
@@ -206,6 +232,40 @@
         });
         return false;
 	}
+
+    function enDiagnostico(){
+    $('#loading3').show();
+        var ruta="http://localhost:8000/enDiagnostico";
+        $.ajax({
+            type: "GET",
+            url: ruta,
+            success: function(data) {
+                //Cargamos finalmente el contenido deseado
+                $('#detalle').fadeIn(1000).html(data);
+                $('#containerDetalle').hide();
+                $('#loading3').fadeOut(1500);
+            }
+
+        });
+        return false;
+    }
+
+    function enReparacion(){
+    $('#loading4').show();
+        var ruta="http://localhost:8000/enReparacion";
+        $.ajax({
+            type: "GET",
+            url: ruta,
+            success: function(data) {
+                //Cargamos finalmente el contenido deseado
+                $('#detalle').fadeIn(1000).html(data);
+                $('#containerDetalle').hide();
+                $('#loading4').fadeOut(1500);
+            }
+
+        });
+        return false;
+    }
 
 </script>
 @endsection

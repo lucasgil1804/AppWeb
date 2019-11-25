@@ -1,7 +1,7 @@
 <div id="loading" align="center">
-              <img src="img/ajax-loader.gif" alt="loading" height="5%" width="5%" />
-              <br/>Cargando...
-            </div>
+    <img src="img/ajax-loader.gif" alt="loading" height="5%" width="5%" />
+    <br/>Cargando...
+</div>
             <h4 class="card-title">Cliente</h4>
             @include('Admin.mostrarCliente')
 
