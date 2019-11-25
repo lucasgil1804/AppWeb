@@ -191,6 +191,16 @@ class ReparacionController extends Controller
         return view('Admin.formularioEquipo', compact('equipo','marcas','tiposEquipo'));
     }
 
+    public function enDiagnostico() 
+    {
+        return view('Admin.enDiagnostico');
+    }
+
+    public function enReparacion() 
+    {
+        return view('Admin.enReparacion');
+    }
+  
     public function guardarEquipo()
     {
         $data = request()->all();
