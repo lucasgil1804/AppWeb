@@ -99,6 +99,8 @@ Route::get('/enDiagnostico', 'ReparacionController@enDiagnostico')
 Route::get('/enReparacion', 'ReparacionController@enReparacion')
 	->middleware('auth');	
 
+Route::post('/guardarEquipo', 'ReparacionController@guardarEquipo')
+	->middleware('auth');
 /* Reparaciones */
 
 
