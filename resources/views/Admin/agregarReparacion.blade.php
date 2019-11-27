@@ -49,7 +49,7 @@
 					<!-- INPUT DATEPICKER -->
                 	<div class="form-group">
 					<div class="input-group date">
-                        <input type="text" class="form-control" name="date">
+                        <input type="text" class="form-control" name="date" readonly>
                         <div class="input-group-addon">
                             <span class="fa fa-calendar"></span>
                         </div>
@@ -112,7 +112,18 @@
  						</div>
 					</div>
 				</div>
-
+                <form action="">
+                     <div id="alerta" class="alert alert-danger alert-dismissible">
+                        
+                    </div>
+                     <div id="divIdCliente" class="form-group">
+                         <input type="text" class="form-control" id="inputIdCliente" required>
+                     </div>
+                     <div id="divIdEquipo" class="form-group">
+                          <input type="hidden" class="form-control" id="inputIdEquipo" required>
+                     </div>
+                     <button type="button" class="btn btn-primary" onclick="EnviarFormulario();">Submit</button>
+                </form>
 
 				
 				
@@ -154,6 +165,9 @@
 	$(document).ready(function(){
 		
 		$('#loading2').hide();
+        $('#alerta').hide();
+        $('#divIdCliente').hide();
+        $('#divIdEquipo').hide();
 		$("#buscarEquipo").on("keyup", function() {
     	var value = $(this).val().toLowerCase();
    			 $("#myTableEquipo tr").filter(function() {
@@ -265,6 +279,23 @@
 
         });
         return false;
+    }
+
+    function EnviarFormulario(){
+        var idCliente = $('#idCliente').val();
+        var idEquipo = $('#idEquipo').val();
+        if (idCliente == null) {
+           $('#alerta').show(); 
+           $('#alerta').html("Debe seleccionar un cliente.");
+        }
+        else if (idEquipo == null){
+            $('#alerta').show(); 
+            $('#alerta').html("Debe seleccionar un equipo.");
+        }
+        $('#inputIdCliente').val(idCliente);
+        $('#inputIdEquipo').val(idEquipo);
+
+
     }
 
 </script>
