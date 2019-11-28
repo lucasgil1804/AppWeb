@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Carbon;
 use App\Models\Reparacion;
 use App\Models\TipoEquipo;
 use App\Models\Equipo;
@@ -103,6 +104,26 @@ class ReparacionController extends Controller
 
         return view('Admin.agregarReparacion',compact('cliente','listaClientes','equipo','listaEquipos'));
     }
+
+    public function guardarReparacion()
+    {
+        $data = request()->only(['fecha_ingreso','plazo','id_cliente','id_equipo','id_estadoEquipo']);
+        
+        $fecha = Carbon::createFromFormat('d/m/Y',$data['fecha_ingreso'])->format('Y-m-d');
+        
+        $reparacion = Reparacion::create([
+            'id_usuario' => $data['id_cliente'],   
+            'id_equipo' => $data['id_equipo'],
+            'id_estado' => $data['id_estadoEquipo'],
+            'fecha_ingreso' => $fecha,
+            'plazo_estimado' => $data['plazo'],
+            'total' => '0'
+            ]);
+         Session::flash('flash_messageExito', 'La reparación se guardó correctamente.');
+        
+        return redirect()->route('adminNuevaReparacion');
+       
+    }    
 
     public function mostrarCliente($id)
     {
@@ -213,6 +234,14 @@ class ReparacionController extends Controller
         Session::flash('flash_messageExito', 'El equipo se guardó correctamente.');
 
         return redirect()->route('adminNuevaReparacion');
+    }
+
+    public function tablaDetalle()
+    {
+        $detalles = request()->all();
+
+        return view('Admin.tablaDetalle',compact('detalles'));
+
     }
 
 }
