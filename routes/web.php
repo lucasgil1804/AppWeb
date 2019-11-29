@@ -69,6 +69,9 @@ Route::get('/nuevaReparacion', 'ReparacionController@nuevaReparacion')
 	->name('adminNuevaReparacion')
 	->middleware('auth');
 
+Route::post('/guardarReparacion', 'ReparacionController@guardarReparacion')
+	->middleware('auth');	
+
 Route::get('/mostrarCliente/{id}', 'ReparacionController@mostrarCliente')
 	->where('id', '[0-9]+')
 	->middleware('auth');
@@ -101,6 +104,10 @@ Route::get('/enReparacion', 'ReparacionController@enReparacion')
 
 Route::post('/guardarEquipo', 'ReparacionController@guardarEquipo')
 	->middleware('auth');
+
+Route::get('/tablaDetalle', 'ReparacionController@tablaDetalle')
+	->middleware('auth');
+
 /* Reparaciones */
 
 

@@ -14,7 +14,7 @@
 <!-- ESTILO DATEPICKER STYDE -->
 
 @section('contenidoAdmin')
-<!-- Mensaje el cliente se guardo correctamente -->
+<!-- Mensaje se guardo correctamente -->
 	@if(Session::has('flash_messageExito'))
     <div class="modal" tabindex="-1" role="dialog" id="myModal">
     <div class="modal-dialog" role="document">
@@ -35,21 +35,22 @@
     </div>
     </div>
     @endif 
-<!-- Mensaje el cliente se guardo correctamente -->    
+<!-- Mensaje se guardo correctamente -->    
 <div class="container">
 	<div class="card bg-light text-dark mt-40">
 		<div class="card-header"><h3>Nueva Reparación</h3></div>
 			<div class="card-body mt-20" align="left">
 
 				<!-- <div id="cliente"> -->
-				
+			  <form action="{{url('guardarReparacion')}}" method="POST">
+                {{csrf_field()}}
 				<div style="display: inline-block; margin-bottom: 15px;">
 					<label style="margin-bottom: 5px;"><b>Fecha de Ingreso</b></label>
 					
 					<!-- INPUT DATEPICKER -->
                 	<div class="form-group">
 					<div class="input-group date">
-                        <input type="text" class="form-control" name="date" readonly>
+                        <input id="fechaIngreso" type="text" class="form-control" name="fecha_ingreso" readonly>
                         <div class="input-group-addon">
                             <span class="fa fa-calendar"></span>
                         </div>
@@ -60,7 +61,7 @@
 				</div>
 				<div style="display: inline-block; float: right; margin-bottom: 15px; width: 7%;">
 					<label style="margin-bottom: 5px;"><b>Plazo</b></label>
-					<input class="form-control" value="0" min="0" max="30" type="number" placeholder="">
+					<input id="plazo" name="plazo" class="form-control" value="0" min="0" max="30" type="number">
 				</div>
   					
 				<!-- </div> -->
@@ -112,18 +113,30 @@
  						</div>
 					</div>
 				</div>
-                <form action="">
+                
                      <div id="alerta" class="alert alert-danger alert-dismissible">
                         
                     </div>
                      <div id="divIdCliente" class="form-group">
-                         <input type="text" class="form-control" id="inputIdCliente" required>
+                         <input type="text" name="id_cliente" class="form-control" id="inputIdCliente" required>
                      </div>
                      <div id="divIdEquipo" class="form-group">
-                          <input type="hidden" class="form-control" id="inputIdEquipo" required>
+                          <input type="text" name="id_equipo" class="form-control" id="inputIdEquipo" required>
                      </div>
-                     <button type="button" class="btn btn-primary" onclick="EnviarFormulario();">Submit</button>
-                </form>
+                     <div id="divIdEstadoEquipo" class="form-group">
+                          <input type="text" name="id_estadoEquipo" class="form-control" id="inputIdEstadoEquipo" required>
+                     </div>
+                     <div align="center">
+                     <button type="Submit" class="btn btn-success" onclick="EnviarFormulario();">
+                        <i class="fa fa-save"></i>
+                        &nbsp;Guardar
+                     </button>
+                     <button type="button" class="btn btn-danger" onclick="location='{{route('adminIndex')}}'">
+                        <i class="fa fa-times"></i>
+                        &nbsp;Cancelar
+                     </button>
+                     </div>
+          </form>
 
 				
 				
@@ -168,6 +181,7 @@
         $('#alerta').hide();
         $('#divIdCliente').hide();
         $('#divIdEquipo').hide();
+        $('#divIdEstadoEquipo').hide();
 		$("#buscarEquipo").on("keyup", function() {
     	var value = $(this).val().toLowerCase();
    			 $("#myTableEquipo tr").filter(function() {
@@ -284,6 +298,7 @@
     function EnviarFormulario(){
         var idCliente = $('#idCliente').val();
         var idEquipo = $('#idEquipo').val();
+        var idEstado = $('#estadoEquipo').val(); 
         if (idCliente == null) {
            $('#alerta').show(); 
            $('#alerta').html("Debe seleccionar un cliente.");
@@ -292,8 +307,16 @@
             $('#alerta').show(); 
             $('#alerta').html("Debe seleccionar un equipo.");
         }
+        else if (idEstado == null){
+            $('#alerta').show(); 
+            $('#alerta').html("Debe seleccionar el estado del equipo.");
+        }
+
         $('#inputIdCliente').val(idCliente);
         $('#inputIdEquipo').val(idEquipo);
+        $('#inputIdEstadoEquipo').val(idEstado);
+
+
 
 
     }

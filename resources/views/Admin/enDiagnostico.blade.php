@@ -7,6 +7,7 @@
 @endphp 
 <h4 class="card-title">Detalle</h4>
   <div class="dropdown">
+      <input type="hidden" id="estadoEquipo" name="estado_equipo" value="1">
   		<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
    			En Diagnóstico
   		</button>

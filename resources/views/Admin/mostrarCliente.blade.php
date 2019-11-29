@@ -16,7 +16,7 @@
   	@php
      sleep(1);
     @endphp	
-    <input type="hidden" name="id_cliente" id="idCliente" value="{{$cliente->id_usuario}}">
+    <input type="hidden" name="idcliente" id="idCliente" value="{{$cliente->id_usuario}}">
     <p class="card-text ml-2"><strong>DNI:&nbsp;</strong>{{$cliente->dni}}</p>
 	  <p class="card-text ml-2"><strong>Apellido y Nombre:&nbsp;</strong>{{$cliente->apeYNom()}}</p>
   </div>

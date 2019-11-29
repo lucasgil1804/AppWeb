@@ -16,7 +16,7 @@
   	@php
      sleep(1);
     @endphp	
-  <input type="hidden" name="id_equipo" id="idEquipo" value="{{$equipo->id_equipo}}">
+  <input type="hidden" name="idequipo" id="idEquipo" value="{{$equipo->id_equipo}}">
   <br><p class="card-text ml-2"><strong>Tipo:&nbsp;</strong>{{$equipo->tipoEquipo->descripcion}}</p>
 	<p class="card-text ml-2"><strong>Marca:&nbsp;</strong>{{$equipo->marca->descripcion}}</p>
   <p class="card-text ml-2"><strong>Modelo:&nbsp;</strong>{{$equipo->modelo}}</p>

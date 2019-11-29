@@ -7,6 +7,7 @@
 @endphp 
 <h4 class="card-title">Detalle</h4>
   <div class="dropdown">
+      <input type="hidden" id="estadoEquipo" name="estado_equipo" value="2">
       <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
         En Reparación
       </button>
@@ -21,7 +22,7 @@
     <div id="demo" class="mt-3 alert alert-info">
       <p style="font-size: 16px; margin-bottom: 15px;">En ésta sección se deberá cargar al menos <b>un detalle</b> de la reparación.</p>
   
-    <form action="" method="post" class="was-validated"> 
+    <form method="post" class="was-validated"> 
     
               {{csrf_field()}}
               <div class="form-group">
@@ -29,7 +30,7 @@
                       <label style="width: 15%;">
                           <b>Descripción</b>&nbsp;
                       </label>
-                      <input type="text" id="" name="" placeholder="" class="form-control" value="" required>
+                      <input type="text" id="descripcion" name="descripcion" placeholder="" class="form-control" value="" required>
                   </div>
               </div>
 
@@ -38,7 +39,7 @@
                       <label style="width: 15%;">
                           <b>Observación</b>&nbsp;
                       </label>
-                      <textarea class="form-control" rows="3" required></textarea>
+                      <textarea class="form-control" rows="3" id="observacion" name="observacion" required></textarea>
                   </div>
               </div>
 
@@ -48,13 +49,13 @@
                           <b>Costo&nbsp;$</b>&nbsp;
                       </label>
                       <div style="width: 10%;">
-                        <input type="number" step="0.5" min="0" id="" name="" placeholder="" class="form-control" value="0.0" required>
+                        <input type="number" step="0.5" min="0" id="costo" name="costo" placeholder="" class="form-control" value="0.0" required>
                      </div>
                   </div>
               </div>
                             
               <div class="form-actions form-group">
-                  <button type="submit" class="btn btn-success">
+                  <button type="button" class="btn btn-success" onclick="guardarDetalle();">
                     <i class="fa fa-save"></i>  
                      &nbsp;Guardar
                   </button>
@@ -66,3 +67,22 @@
           </form>
       </div>
   </div>
+<script type="text/javascript">
+    function guardarDetalle(){
+    $('#loading4').show();
+        var ruta="http://localhost:8000/tablaDetalle";
+        $.ajax({
+            type: "GET",
+            url: ruta,
+            data: "descripcion="+$('#descripcion').val()+"&observacion="+$('#observacion').val()+"&costo="+$('#costo').val(),
+            success: function(data) {
+                //Cargamos finalmente el contenido deseado
+                $('#detalle').fadeIn(1000).html(data);
+                $('#containerDetalle').hide();
+                $('#loading4').fadeOut(1500);
+            }
+
+        });
+        return false;
+    }
+</script>
