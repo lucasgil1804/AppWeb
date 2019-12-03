@@ -108,6 +108,9 @@ Route::post('/guardarEquipo', 'ReparacionController@guardarEquipo')
 Route::get('/tablaDetalle', 'ReparacionController@tablaDetalle')
 	->middleware('auth');
 
+Route::get('/quitarUltimoDetalle', 'ReparacionController@quitarUltimo')
+	->middleware('auth');
+
 /* Reparaciones */
 
 
