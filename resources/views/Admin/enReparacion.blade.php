@@ -85,4 +85,21 @@
         });
         return false;
     }
+
+    function NuevoDetalle(){
+    $('#loading4').show();
+      var ruta="http://localhost:8000/enReparacion";
+      $.ajax({
+          type: "GET",
+          url: ruta,
+          success: function(data) {
+            //Cargamos finalmente el contenido deseado
+            $('#detalle').fadeIn(1000).html(data);
+            $('#containerDetalle').hide();
+            $('#loading4').fadeOut(1500);
+          }
+
+      });
+      return false;
+    }
 </script>

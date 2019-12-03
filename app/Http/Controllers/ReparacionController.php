@@ -11,6 +11,7 @@ use App\Models\Marca;
 use App\Models\User;
 use App\Models\TipoUsuario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 
 class ReparacionController extends Controller
@@ -238,10 +239,41 @@ class ReparacionController extends Controller
 
     public function tablaDetalle()
     {
-        $detalles = request()->all();
+        // Session()->pull('detalles');
+        $detalle = request()->all();
 
-        return view('Admin.tablaDetalle',compact('detalles'));
+        if (session()->has('detalles')) {
+            $arrayDetalles = Session('detalles');
+            $arrayDetalles->push($detalle);
+            Session(['detalles' => $arrayDetalles]);
+            // $arrayDetalles->pop();
+        }
 
+        else {
+            $arrayDetalles = collect([$detalle]);
+            Session(['detalles' => $arrayDetalles]);
+            // $arrayDetalles = Session('detalles');
+        }
+
+        $costoTotal = $arrayDetalles->sum('costo');
+        
+        // $arrayDetalles = $array->flatten();
+        // $arrayDetalles = $array->toArray();
+        // $detallesPlano = $arrayDetalles->all();
+        // dd($arrayDetalles);
+
+        return view('Admin.tablaDetalle',compact('arrayDetalles','costoTotal'));
+    }
+
+    public function quitarUltimo()
+    {
+        $arrayDetalles = Session('detalles');
+        $arrayDetalles->pop();
+        Session(['detalles' => $arrayDetalles]);
+
+        $costoTotal = $arrayDetalles->sum('costo');
+
+        return view('Admin.tablaDetalle',compact('arrayDetalles','costoTotal'));
     }
 
 }
