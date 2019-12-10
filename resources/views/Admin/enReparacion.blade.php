@@ -31,7 +31,7 @@
                           <b>Descripción</b>&nbsp;
                       </label>
                       <!-- <input type="text" id="descripcion" name="descripcion" placeholder="" class="form-control" value="" required> -->
-                      <select name="selectDescripcion" id="selectDescripcion" class="form-control custom-select" required>
+                      <select name="selectDescripcion" id="descripcion" class="form-control custom-select" required>
                           <option value="">Por favor, seleccione un problema</option>
                           @foreach ($problemas as $descripcion)
                             <option value="{{ $descripcion->id_problema }}">{{ $descripcion->descripcion }}</option>

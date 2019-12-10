@@ -11,6 +11,7 @@ use App\Models\TipoUsuario;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Session;
 
@@ -241,8 +242,10 @@ class ReparacionController extends Controller
 
     public function tablaDetalle()
     {
-        // Session()->pull('detalles');
-        $detalle = request()->all();
+         //Session()->pull('detalles');
+        $inputs = request()->all();
+        $problema=Problema::find($inputs['descripcion'])->descripcion;
+        $detalle = Arr::add($inputs, 'detalleDescripcion',$problema);
 
         if (session()->has('detalles')) {
             $arrayDetalles = Session('detalles');
@@ -258,6 +261,7 @@ class ReparacionController extends Controller
         }
 
         $costoTotal = $arrayDetalles->sum('costo');
+
         
         // $arrayDetalles = $array->flatten();
         // $arrayDetalles = $array->toArray();
