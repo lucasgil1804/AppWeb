@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Carbon;
-use App\Models\Reparacion;
-use App\Models\TipoEquipo;
 use App\Models\Equipo;
 use App\Models\Marca;
-use App\Models\User;
+use App\Models\Problema;
+use App\Models\Reparacion;
+use App\Models\TipoEquipo;
 use App\Models\TipoUsuario;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Session;
 
 
 class ReparacionController extends Controller
@@ -207,7 +208,7 @@ class ReparacionController extends Controller
     public function nuevoEquipo() 
     {
         $equipo = Equipo::get();
-        $marcas = Marca::get();
+        $marcas = Marca::get()->sortBy('id_marca');
         $tiposEquipo = TipoEquipo::get();
 
         return view('Admin.formularioEquipo', compact('equipo','marcas','tiposEquipo'));
@@ -220,7 +221,8 @@ class ReparacionController extends Controller
 
     public function enReparacion() 
     {
-        return view('Admin.enReparacion');
+        $problemas = Problema::get()->sortBy('id_problema');
+        return view('Admin.enReparacion',compact('problemas'));
     }
   
     public function guardarEquipo()

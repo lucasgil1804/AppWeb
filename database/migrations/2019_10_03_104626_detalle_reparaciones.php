@@ -17,7 +17,8 @@ class DetalleReparaciones extends Migration
             $table->increments('id_detalleReparacion');
             $table->unsignedInteger('id_reparacion');
             $table->foreign('id_reparacion')->references('id_reparacion')->on('reparaciones');
-            $table->string('descripcion',50);
+            $table->unsignedInteger('id_problema');
+            $table->foreign('id_problema')->references('id_problema')->on('problemas');
             $table->string('observacion',180)->nulable();
             $table->double('costo',7,2);
             $table->boolean('realizado')->default(0);

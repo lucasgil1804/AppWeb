@@ -15,7 +15,7 @@
                       <div class="input-group-addon">
                           Tipo
                       </div>
-                      <select name="selectTipo" id="selectTipo" class="form-control" required>
+                      <select name="selectTipo" id="selectTipo" class="form-control custom-select" required>
                           <option value="">Por favor, seleccione un tipo</option>
                           @foreach ($tiposEquipo as $tipo)
                             <option value="{{ $tipo->id_tipoEquipo }}">{{ $tipo->descripcion }}</option>
@@ -29,7 +29,7 @@
                       <div class="input-group-addon">
                           Marca
                       </div>
-                      <select name="selectMarca" id="selectMarca" class="form-control" required>
+                      <select name="selectMarca" id="selectMarca" class="form-control custom-select" required>
                           <option value="">Por favor, seleccione una marca</option>
                           @foreach ($marcas as $marca)
                             <option value="{{ $marca->id_marca }}">{{ $marca->descripcion }}</option>
