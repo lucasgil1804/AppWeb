@@ -23,7 +23,7 @@
           <i class="fa fa-plus"></i>&nbsp; Añadir
       </button>
       @if ($arrayDetalles->isEmpty())
-        <button type="button" disabled class="btn btn-secondary" title="Quitar último elemento" onclick="QuitarUltimo();">
+        <button type="button" disabled class="btn btn-secondary" title="La tabla detalle se encuentra vacia" onclick="QuitarUltimo();">
           <i class="fa fa-times"></i>&nbsp; Quitar
         </button>
       @else
@@ -47,7 +47,7 @@
         @foreach($arrayDetalles as $detalles)
           <tr>
             <td>{{ $loop->iteration }}</td>
-            <td>{{ $detalles["descripcion"] }}</td>
+            <td>{{ $detalles["detalleDescripcion"] }}</td>
             <td>{{ $detalles["observacion"] }}</td>
             <td>{{ $detalles["costo"] }}</td>
           </tr>
