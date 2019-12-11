@@ -33,6 +33,13 @@
       @endif
       </div>
 
+      @if(Session::has('flash_messageAvisoDetalle'))
+        <div class="alert alert-info alert-dismissible mt-3">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <p>El estado <b>En Reparación</b> debe contener al menos un detalle. Si no desea guardar detalles, cambie el estado a <b>En Diagnóstico</b>.</p>
+        </div>
+      @endif
+
   <div class="mt-3 alert alert-info">
  	<table class="table table-hover">
   		<thead>
