@@ -14,7 +14,7 @@ class Detalle extends Model
     protected $primaryKey = 'id_detalleReparacion';
 
     protected $fillable = [
-    	'id_reparacion','descripcion','observacion','costo','realizado',
+    	'id_reparacion','id_problema','observacion','costo','realizado',
     ];
 
     public function reparacion()
@@ -25,5 +25,10 @@ class Detalle extends Model
     public function estado()
     {
     	return $this->belongsTo(estado::class, 'id_estado');
+    }
+
+    public function problema()
+    {
+        return $this->belongsTo(problema::class, 'id_problema');
     }
 }

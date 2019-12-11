@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Detalle;
 use App\Models\Equipo;
 use App\Models\Marca;
 use App\Models\Problema;
@@ -115,14 +116,32 @@ class ReparacionController extends Controller
         $fecha = Carbon::createFromFormat('d/m/Y',$data['fecha_ingreso'])->format('Y-m-d');
         
         $reparacion = Reparacion::create([
-            'id_usuario' => $data['id_cliente'],   
-            'id_equipo' => $data['id_equipo'],
-            'id_estado' => $data['id_estadoEquipo'],
-            'fecha_ingreso' => $fecha,
-            'plazo_estimado' => $data['plazo'],
-            'total' => '0'
+                'id_usuario' => $data['id_cliente'],   
+                'id_equipo' => $data['id_equipo'],
+                'id_estado' => $data['id_estadoEquipo'],
+                'fecha_ingreso' => $fecha,
+                'plazo_estimado' => $data['plazo'],
+                'total' => '0'
             ]);
-         Session::flash('flash_messageExito', 'La reparación se guardó correctamente.');
+
+        if ($data['id_estadoEquipo'] == 2) {
+            $detalles = Session('detalles');
+
+            foreach ($detalles as $key => $detalle) {
+                $detalleReparacion = Detalle::create([
+                    'id_reparacion' => $reparacion->id_reparacion,
+                    'id_problema' => $detalle['descripcion'],
+                    'observacion' => $detalle['observacion'],
+                    'costo' => $detalle['costo']
+                ]);
+            }
+
+            $costoTotal = $detalles->sum('costo');
+            $reparacion->update(['total' => $costoTotal]);
+            Session()->pull('detalles');
+        }
+        
+        Session::flash('flash_messageExito', 'La reparación se guardó correctamente.');
         
         return redirect()->route('adminNuevaReparacion');
        
@@ -274,8 +293,14 @@ class ReparacionController extends Controller
     public function quitarUltimo()
     {
         $arrayDetalles = Session('detalles');
-        $arrayDetalles->pop();
-        Session(['detalles' => $arrayDetalles]);
+
+        if ($arrayDetalles->count() > 1) {
+            $arrayDetalles->pop();
+            Session(['detalles' => $arrayDetalles]);
+        }
+        else {
+            Session::flash('flash_messageAvisoDetalle', '');
+        }
 
         $costoTotal = $arrayDetalles->sum('costo');
 

@@ -19,7 +19,7 @@ class DetalleReparaciones extends Migration
             $table->foreign('id_reparacion')->references('id_reparacion')->on('reparaciones');
             $table->unsignedInteger('id_problema');
             $table->foreign('id_problema')->references('id_problema')->on('problemas');
-            $table->string('observacion',180)->nulable();
+            $table->string('observacion',180)->nullable();
             $table->double('costo',7,2);
             $table->boolean('realizado')->default(0);
             $table->timestamps();

@@ -79,7 +79,7 @@
 													<br>
 													<table class="table table-hover">
   													<thead>
-    													<tr>
+    													<tr align="center">
       														<th scope="col" style="color: black;">#</th>
       															<th scope="col" style="color: black;">Descripción</th>
       															<th scope="col" style="color: black;">Observación</th>
@@ -89,9 +89,9 @@
   													</thead>
   													<tbody>
   														@foreach ($detalles as $detalleReparacion)
-  	  														<tr>
+  	  														<tr align="center">
       														<th scope="row" style="color: black;">{{ $loop->iteration }}</th>
-      														<td style="color: black;">{{ $detalleReparacion->descripcion }}</td>
+      														<td style="color: black;">{{ $detalleReparacion->problema->descripcion }}</td>
       														<td style="color: black;">{{ $detalleReparacion->observacion }}</td>
       														@if ( $detalleReparacion->realizado == 1 )
       															<td align="center"><i style="color: green;" class="fa fa-check-circle" data-toggle="tooltip" data-placement="top" title="Realizado"></i></td>
@@ -128,7 +128,7 @@
        												<p><strong><b style="color: #009933; font-size: 16px;">¡Su equipo se encuentra reparado!</b></strong></p>
 													<table class="table table-hover">
   													<thead>
-    													<tr>
+    													<tr align="center">
       														<th scope="col" style="color: black;">#</th>
       															<th scope="col" style="color: black;">Descripción</th>
       															<th scope="col" style="color: black;">Observación</th>
@@ -138,14 +138,14 @@
   													</thead>
   													<tbody>
   														@foreach ($detalles as $detalleReparacion)
-  	  														<tr>
+  	  														<tr align="center">
       														<th scope="row" style="color: black;">{{ $loop->iteration }}</th>
-      														<td style="color: black;">{{ $detalleReparacion->descripcion }}</td>
+      														<td style="color: black;">{{ $detalleReparacion->problema->descripcion }}</td>
       														<td style="color: black;">{{ $detalleReparacion->observacion }}</td>
       														@if ( $detalleReparacion->realizado == 1 )
-      															<td align="center"><i style="color: green;" class="fa fa-check-circle" data-toggle="tooltip" data-placement="top" title="Realizado"></i></td>
+      															<td align="center"><i style="color: green; float: center;" class="fa fa-check-circle" data-toggle="tooltip" data-placement="top" title="Realizado"></i></td>
       														@else
-      															<td align="center"><i style="color: red;" class="fa fa-exclamation-circle" data-toggle="tooltip" data-placement="top" title="Pendiente"></i></td>
+      															<td><i style="color: red; float: center;" class="fa fa-exclamation-circle" data-toggle="tooltip" data-placement="top" title="Pendiente"></i></td>
       														@endif
     														<td style="color: black;">${{ $detalleReparacion->costo }}</td>
     														</tr>
