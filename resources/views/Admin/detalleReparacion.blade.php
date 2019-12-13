@@ -26,7 +26,8 @@
 			<div class="row">
 				<div class="col card-title">
 					Estado del Equipo:	  
-					<button type="button" class="btn btn-warning btn-sm" data-toggle="collapse" data-target="#demo"><h4 style="color: #f5f5f0;">En Diagnóstico</h4></button>
+					<button type="button" class="btn btn-warning btn-sm" data-toggle="collapse" data-target="#demo"><h4 style="color: #f5f5f0;">En Diagnóstico &nbsp;<i class="fa fa-chevron-down"></i></h4>
+          </button>
         		</div>
         		<h5 class="col card-text mt-1" style="color: black;">{{ $reparacion->equipo->marca->descripcion }} - {{ $reparacion->equipo->modelo }}</h5>
         	</div>
@@ -41,7 +42,8 @@
    			<div class="row">
         		<div class="col card-title">
   	  				Estado del Equipo:	  
-        			<button type="button" class="btn btn-info btn-sm" data-toggle="collapse" data-target="#demo"><h4 style="color: #f5f5f0;">En Reparación</h4></button>
+        			<button type="button" class="btn btn-info btn-sm" data-toggle="collapse" data-target="#demo"><h4 style="color: #f5f5f0;">En Reparación &nbsp;<i class="fa fa-chevron-down"></i></h4>
+              </button>
         		</div>
         		<h5 class="col card-text mt-1" style="color: black;">{{ $reparacion->equipo->marca->descripcion }} - {{ $reparacion->equipo->modelo }}</h5>
         	</div>
@@ -88,7 +90,8 @@
   	  		<div class="row">
         		<div class="col card-title">
         			Estado del Equipo:	  
-        			<button type="button" class="btn btn-success btn-sm" data-toggle="collapse" data-target="#demo"><h4 style="color: #f5f5f0;">Listo</h4></button>
+        			<button type="button" class="btn btn-success btn-sm" data-toggle="collapse" data-target="#demo"><h4 style="color: #f5f5f0;">Listo &nbsp;<i class="fa fa-chevron-down"></i></h4>
+              </button>
         		</div>
         		<h5 class="col card-text mt-1" style="color: black;">{{ $reparacion->equipo->marca->descripcion }} - {{ $reparacion->equipo->modelo }}</h5>
         	</div>
