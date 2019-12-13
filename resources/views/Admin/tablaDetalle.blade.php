@@ -22,8 +22,8 @@
           <!-- <a class="linkBlanco" href=""> -->
           <i class="fa fa-plus"></i>&nbsp; Añadir
       </button>
-      @if ($arrayDetalles->isEmpty())
-        <button type="button" disabled class="btn btn-secondary" title="La tabla detalle se encuentra vacia" onclick="QuitarUltimo();">
+      @if (Session::has('flash_messageAvisoDetalle'))
+        <button type="button" disabled class="btn btn-secondary" title="La tabla debe contener al menos un detalle" onclick="QuitarUltimo();">
           <i class="fa fa-times"></i>&nbsp; Quitar
         </button>
       @else

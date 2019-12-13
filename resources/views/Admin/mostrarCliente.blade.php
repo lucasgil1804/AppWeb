@@ -1,7 +1,7 @@
 @if(!is_null($cliente))
 <!-- <div class="card ml-5 mr-5"> -->
   <!-- <div class="card-header"><h4>Datos del Cliente</h4></div> -->
-  <div id="datosCliente" class="card bg-white" style="margin-bottom: 3px;">
+  <div id="datosCliente" class="card bg-white shadow" style="margin-bottom: 3px;">
   <div class="card-body ">
   	 <div class="" style="display: inline-block;">
   	 	 <h4 class="card-title mb-1">Cliente</h4>
