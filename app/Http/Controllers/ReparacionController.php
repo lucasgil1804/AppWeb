@@ -141,7 +141,7 @@ class ReparacionController extends Controller
             Session()->pull('detalles');
         }
         
-        Session::flash('flash_messageExito', 'La reparación se guardó correctamente.');
+        Session::flash('flash_ExitoReparacion', 'La reparación se guardó correctamente.');
         
         return redirect()->route('adminNuevaReparacion');
        
@@ -207,8 +207,11 @@ class ReparacionController extends Controller
         
 
         Session::flash('flash_messageExito', 'El cliente se guardó correctamente.');
-        
+        $cliente = null;
+        $tipoUsuario = TipoUsuario::find(4);
+        $listaClientes = $tipoUsuario->users()->get();
         return redirect()->route('adminNuevaReparacion');
+        //return view('Admin.tablaCliente',compact('cliente','listaClientes'));
     }
   
     public function tablaEquipo()

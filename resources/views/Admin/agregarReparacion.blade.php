@@ -15,7 +15,7 @@
 
 @section('contenidoAdmin')
 <!-- Mensaje se guardo correctamente -->
-	@if(Session::has('flash_messageExito'))
+    @if(Session::has('flash_ExitoReparacion'))
     <div class="modal" tabindex="-1" role="dialog" id="myModal">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -26,7 +26,7 @@
             </button>
         </div>
         <div class="modal-body">
-            <p>{{Session::get('flash_messageExito')}}</p>
+            <p>{{Session::get('flash_ExitoReparacion')}}</p>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color: #ff4000; border-color: white;">Aceptar</button>
@@ -42,15 +42,13 @@
 			<div class="card-body mt-20" align="left">
 
 				<!-- <div id="cliente"> -->
-			  <form action="{{url('guardarReparacion')}}" method="POST">
-                {{csrf_field()}}
 				<div style="display: inline-block; margin-bottom: 15px;">
 					<label style="margin-bottom: 5px;"><b>Fecha de Ingreso</b></label>
 					
 					<!-- INPUT DATEPICKER -->
                 	<div class="form-group">
 					<div class="input-group date">
-                        <input id="fechaIngreso" type="text" class="form-control" name="fecha_ingreso" readonly>
+                        <input id="fechaIngresoFormulario" type="text" class="form-control" name="fecha_ingreso_formulario" readonly>
                         <div class="input-group-addon">
                             <span class="fa fa-calendar"></span>
                         </div>
@@ -61,7 +59,7 @@
 				</div>
 				<div style="display: inline-block; float: right; margin-bottom: 15px; width: 7%;">
 					<label style="margin-bottom: 5px;"><b>Plazo</b></label>
-					<input id="plazo" name="plazo" class="form-control" value="0" min="0" max="30" type="number">
+					<input id="plazoFormulario" name="plazo_formulario" class="form-control" value="0" min="0" max="30" type="number">
 				</div>
   					
 				<!-- </div> -->
@@ -113,10 +111,19 @@
  						</div>
 					</div>
 				</div>
-                
-                     <div id="alerta" class="alert alert-danger alert-dismissible">
+                 <form action="{{url('guardarReparacion')}}" method="POST">
+                    {{csrf_field()}}
+                    <div id="alerta" class="alert alert-danger alert-dismissible">
                         
                     </div>
+                    <div id="divFechaIngreso" class="form-group">
+                         <input type="text" name="fecha_ingreso" class="form-control" id="inputFechaIngreso">
+                     </div>
+
+                     <div id="divPlazo" class="form-group">
+                         <input type="text" name="plazo" class="form-control" id="inputPlazo">
+                     </div>
+
                      <div id="divIdCliente" class="form-group">
                          <input type="text" name="id_cliente" class="form-control" id="inputIdCliente" required>
                      </div>
@@ -182,6 +189,8 @@
         $('#divIdCliente').hide();
         $('#divIdEquipo').hide();
         $('#divIdEstadoEquipo').hide();
+        $('#divFechaIngreso').hide();
+        $('#divPlazo').hide();
 		$("#buscarEquipo").on("keyup", function() {
     	var value = $(this).val().toLowerCase();
    			 $("#myTableEquipo tr").filter(function() {
@@ -298,7 +307,9 @@
     function EnviarFormulario(){
         var idCliente = $('#idCliente').val();
         var idEquipo = $('#idEquipo').val();
-        var idEstado = $('#estadoEquipo').val(); 
+        var idEstado = $('#estadoEquipo').val();
+        var fechaIngreso = $('#fechaIngresoFormulario').val();
+        var plazo = $('#plazoFormulario').val();  
         if (idCliente == null) {
            $('#alerta').show(); 
            $('#alerta').html("Debe seleccionar un cliente.");
@@ -315,6 +326,8 @@
         $('#inputIdCliente').val(idCliente);
         $('#inputIdEquipo').val(idEquipo);
         $('#inputIdEstadoEquipo').val(idEstado);
+        $('#inputFechaIngreso').val(fechaIngreso);
+        $('#inputPlazo').val(plazo);
 
 
 
