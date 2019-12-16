@@ -133,6 +133,9 @@
                      <div id="divIdEstadoEquipo" class="form-group">
                           <input type="text" name="id_estadoEquipo" class="form-control" id="inputIdEstadoEquipo" required>
                      </div>
+                     <div id="validarDetalles" class="form-group">
+                          <input type="text" name="validarDetalles" class="form-control" id="inputValidarDetalles" value="1" required>
+                     </div>
                      <div align="center">
                      <button type="Submit" class="btn btn-success" onclick="EnviarFormulario();">
                         <i class="fa fa-save"></i>
@@ -191,6 +194,7 @@
         $('#divIdEstadoEquipo').hide();
         $('#divFechaIngreso').hide();
         $('#divPlazo').hide();
+        $('#validarDetalles').hide();
 		$("#buscarEquipo").on("keyup", function() {
     	var value = $(this).val().toLowerCase();
    			 $("#myTableEquipo tr").filter(function() {
@@ -321,6 +325,15 @@
         else if (idEstado == null){
             $('#alerta').show(); 
             $('#alerta').html("Debe seleccionar el estado del equipo.");
+        }
+        else if ((idEstado == 2) && ($('#inputCantDetalles').val()== 0) )
+        {
+            $('#inputValidarDetalles').val(null);
+            $('#alerta').show(); 
+            $('#alerta').html("En el estado En Reparación, debe contener al menos un detalle.");
+        }
+        else{
+            $('#inputValidarDetalles').val(1);
         }
 
         $('#inputIdCliente').val(idCliente);
