@@ -22,7 +22,7 @@
           <!-- <a class="linkBlanco" href=""> -->
           <i class="fa fa-plus"></i>&nbsp; Añadir
       </button>
-      @if (Session::has('flash_messageAvisoDetalle'))
+      @if ($arrayDetalles->isEmpty())
         <button type="button" disabled class="btn btn-secondary" title="La tabla debe contener al menos un detalle" onclick="QuitarUltimo();">
           <i class="fa fa-times"></i>&nbsp; Quitar
         </button>
@@ -66,10 +66,16 @@
   				<th style="color: black;">{{ $costoTotal }}</th>
   			</tr>
   		</tfoot>
-	</table> 
+	</table>
+  <div id="divCantidadDetalles" class="form-group">
+    <input type="text" name="cantDetalles" class="form-control" id="inputCantDetalles" value="{{Session('detalles')->count()}}">
+  </div> 
  </div>
 
  <script type="text/javascript">
+  $(document).ready(function(){
+    $('#divCantidadDetalles').hide();
+  });
    function QuitarUltimo(){
     $('#loading4').show();
         var ruta="http://localhost:8000/quitarUltimoDetalle";

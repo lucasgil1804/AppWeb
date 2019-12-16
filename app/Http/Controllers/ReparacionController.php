@@ -302,6 +302,7 @@ class ReparacionController extends Controller
             Session(['detalles' => $arrayDetalles]);
         }
         else {
+            $arrayDetalles->pop();
             Session::flash('flash_messageAvisoDetalle', '');
         }
 
