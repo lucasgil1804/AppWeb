@@ -15,6 +15,12 @@
                     </button>
               </div>
               <br>
+@if(Session::has('flash_messageExitoEquipo'))
+  <div class="alert alert-success alert-dismissible mt-3">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <p>{{Session::get('flash_messageExitoEquipo')}}</p>
+  </div>
+ @endif
 
 <div class="table-responsive" style="height:150px;">
   <table class="table table-hover bg-white">

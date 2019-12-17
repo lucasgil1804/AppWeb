@@ -60,14 +60,10 @@
                   </div>
               </div>
                             
-              <div class="form-actions form-group">
-                  <button type="button" class="btn btn-success" onclick="guardarDetalle();">
-                    <i class="fa fa-save"></i>  
-                     &nbsp;Guardar
-                  </button>
-                  <button type="button" class="btn btn-danger" onclick="Cancelar();">
-                    <i class="fa fa-times"></i>  
-                     &nbsp;Cancelar
+              <div class="form-actions form-group mt-3" align="center">
+                  <button type="submit" class="btn btn-success" onclick="guardarDetalle();">
+                    <i class="fa fa-arrow-circle-up"></i>  
+                     &nbsp;Cargar Detalle
                   </button>
               </div>
           </form>

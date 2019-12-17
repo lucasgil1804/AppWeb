@@ -9,25 +9,20 @@
 @section('contenidoAdmin')
 
 <div style="margin-left: 20px; margin-right: 20px;">
-    <h3>Lista de PCs</h3> 
+    <h3 style="margin-bottom: 30px;">Lista de PCs</h3> 
     @if(Session::has('flash_messageExito'))
         <div class="alert alert-success mt-3">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
             <strong><i class="fa fa-check"></i></strong> {{Session::get('flash_messageExito')}}
         </div>
     @endif  
-    <div  style="margin-bottom: 15px;" align="right">
-        <button type="button" class="btn btn-primary">
-            <a class="linkBlanco" href="{{route('adminNuevoUsuario',['tipoUser' => 4])}}">
-            <i class="fa fa-plus"></i>&nbsp; Añadir</a>
-    </div>
-    <!-- <table id="myTable" class="table table-hover table-striped table-bordered" style="width:100%;text-align: center;"> -->
+    
         <table id="myTable" class="table table-striped table-bordered dt-responsive nowrap" style="width: 100%; text-align: center;">
         <thead>
             <tr>
+                <th>Ingreso</th>
                 <th>Cliente</th>
                 <th>Equipo</th>
-                <th>Modelo</th>
                 <th>Estado</th>
                 <th>Acción</th>
             </tr>
@@ -35,9 +30,9 @@
         <tbody>
             @foreach ($reparaciones as $reparacion)
             <tr>
+                <td>{{date("d/m/Y", strtotime($reparacion->fecha_ingreso))}}</td>
                 <td>{{$reparacion->usuario->apeYNom()}}</td>
-                <td>{{$reparacion->equipo->marca->descripcion}}</td>
-                <td>{{$reparacion->equipo->modelo }}</td>
+                <td>{{$reparacion->equipo->marca->descripcion. "-" .$reparacion->equipo->modelo}}</td>
                 @if ( $reparacion->deleted_at == null)
                     <td><!-- <i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i> -->
                          @if( $reparacion->id_estado == 1 )
@@ -103,9 +98,9 @@
         </tbody>
         <tfoot>
             <tr>
+                <th>Ingreso</th>
                 <th>Cliente</th>
                 <th>Equipo</th>
-                <th>Modelo</th>
                 <th>Estado</th>
                 <th>Acción</th>
             </tr>

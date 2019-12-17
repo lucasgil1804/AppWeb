@@ -257,7 +257,7 @@ class ReparacionController extends Controller
                 'modelo' => $data['modelo']
             ]);
 
-        Session::flash('flash_messageExito', 'El equipo se guardó correctamente.');
+        Session::flash('flash_messageExitoEquipo', 'El equipo se guardó correctamente.');
 
         return redirect()->route('adminNuevaReparacion');
     }
