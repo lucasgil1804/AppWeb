@@ -1,5 +1,5 @@
 <div id="loading3" align="center">
-    <img src="img/ajax-loader.gif" alt="loading" height="5%" width="5%" />
+    <img src="{{asset('img/ajax-loader.gif')}}" alt="loading" height="5%" width="5%" />
     <br/>Cargando...
 </div>
 @php
