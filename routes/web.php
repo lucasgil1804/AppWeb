@@ -69,6 +69,10 @@ Route::get('/nuevaReparacion', 'ReparacionController@nuevaReparacion')
 	->name('adminNuevaReparacion')
 	->middleware('auth');
 
+Route::get('/editarReparacion/{reparacion}', 'ReparacionController@EditarReparacion')
+	->name('adminEditarReparacion')
+	->middleware('auth');
+
 Route::post('/guardarReparacion', 'ReparacionController@guardarReparacion')
 	->middleware('auth');	
 

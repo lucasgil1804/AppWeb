@@ -146,7 +146,14 @@ class ReparacionController extends Controller
         return redirect()->route('adminNuevaReparacion');
        
     }    
-
+    
+    public function editarReparacion(Reparacion $reparacion)
+    {
+        $cliente = $reparacion->usuario;
+        $equipo = $reparacion->equipo;
+        return view('Admin.editarReparacion', compact('reparacion','cliente','equipo')); 
+    }
+    
     public function mostrarCliente($id)
     {
         $cliente=User::withTrashed()->find($id);
