@@ -53,7 +53,7 @@
 				<p style="font-size: 16px;">En éste momento, tu equipo está siendo reparado.</p><br>
 				<table class="table table-hover">
   					<thead>
-    					<tr>
+    					<tr align="center">
       						<th scope="col" style="color: black;">#</th>
       						<th scope="col" style="color: black;">Descripción</th>
       						<th scope="col" style="color: black;">Observación</th>
@@ -63,7 +63,7 @@
   					</thead>
   					<tbody>
   						@foreach ($detalles as $detalleReparacion)
-  	  						<tr>
+  	  						<tr align="center">
       							<th scope="row" style="color: black;">{{ $loop->iteration }}</th>
       							<td style="color: black;">{{ $detalleReparacion->problema->descripcion }}</td>
       							<td style="color: black;">{{ $detalleReparacion->observacion }}</td>
@@ -100,7 +100,7 @@
        		<p><strong><b style="color: #009933; font-size: 16px;">¡Su equipo se encuentra reparado!</b></strong></p>
 			<table class="table table-hover">
   				<thead>
-    				<tr>
+    				<tr align="center">
       					<th scope="col" style="color: black;">#</th>
       					<th scope="col" style="color: black;">Descripción</th>
       					<th scope="col" style="color: black;">Observación</th>
@@ -110,7 +110,7 @@
   				</thead>
   				<tbody>
   					@foreach ($detalles as $detalleReparacion)
-  	  					<tr>
+  	  					<tr align="center">
       						<th scope="row" style="color: black;">{{ $loop->iteration }}</th>
       							<td style="color: black;">{{ $detalleReparacion->problema->descripcion }}</td>
       							<td style="color: black;">{{ $detalleReparacion->observacion }}</td>

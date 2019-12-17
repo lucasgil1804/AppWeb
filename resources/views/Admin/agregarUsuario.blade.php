@@ -121,10 +121,24 @@
                     <i class="fa fa-save"></i>  
                      &nbsp;Guardar
                   </button>
+                  
+                  @if ($tipoUser == 2)
                   <button type="button" class="btn btn-danger" onclick="location='{{ route('adminListaEmpleados') }}'">
                     <i class="fa fa-times"></i>  
                      &nbsp;Cancelar
                   </button>
+                  @elseif ($tipoUser == 3)
+                  <button type="button" class="btn btn-danger" onclick="location='{{ route('adminListaTecnicos') }}'">
+                    <i class="fa fa-times"></i>  
+                     &nbsp;Cancelar
+                  </button>
+                  @else
+                  <button type="button" class="btn btn-danger" onclick="location='{{ route('adminListaClientes') }}'">
+                    <i class="fa fa-times"></i>  
+                     &nbsp;Cancelar
+                  </button>
+                  @endif
+
               </div>
           </form>
 
