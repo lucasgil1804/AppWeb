@@ -48,7 +48,7 @@
 					<!-- INPUT DATEPICKER -->
                 	<div class="form-group">
 					<div class="input-group date">
-                        <input id="fechaIngresoFormulario" type="text" class="form-control" name="fecha_ingreso_formulario" readonly>
+                        <input id="fechaIngresoFormulario" type="text" class="form-control" name="fecha_ingreso_formulario" value="{{ date('d/m/Y', strtotime($reparacion->fecha_ingreso)) }}" readonly>
                         <div class="input-group-addon">
                             <span class="fa fa-calendar"></span>
                         </div>
@@ -149,8 +149,6 @@
     autoclose: true,
     todayHighlight: true
 	});
-
-	$('.input-group.date').datepicker("setDate", new Date());
 </script>
 <!-- SCRIPT DATEPICKER -->
 @endsection
