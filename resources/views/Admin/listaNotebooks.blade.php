@@ -71,7 +71,7 @@
 
                         @if($reparacion->deleted_at == null)
                             <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
-                                <a href="">
+                                <a href="{{ route('adminEditarReparacion', ['id' => $reparacion->id_reparacion]) }}">
                                 <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
                             </button>
                             <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
