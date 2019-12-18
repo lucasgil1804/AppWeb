@@ -1,5 +1,5 @@
 <div id="loading4" align="center">
-    <img src="img/ajax-loader.gif" alt="loading" height="5%" width="5%" />
+    <img src="{{asset('img/ajax-loader.gif')}}" alt="loading" height="5%" width="5%" />
     <br/>Cargando...
 </div>
 @php
@@ -22,7 +22,7 @@
     <div id="demo" class="mt-3 alert alert-info">
       <p style="font-size: 16px; margin-bottom: 15px;">En ésta sección se deberá cargar al menos <b>un detalle</b> de la reparación.</p>
   
-    <form method="post" class="was-validated"> 
+    <form method="get" class="was-validated"> 
     
               {{csrf_field()}}
               <div class="form-group">
@@ -61,7 +61,7 @@
               </div>
                             
               <div class="form-actions form-group mt-3" align="center">
-                  <button type="submit" class="btn btn-success" onclick="guardarDetalle();">
+                  <button type="button" class="btn btn-success" onclick="guardarDetalle();">
                     <i class="fa fa-arrow-circle-up"></i>  
                      &nbsp;Cargar Detalle
                   </button>

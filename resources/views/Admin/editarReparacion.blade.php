@@ -96,7 +96,6 @@
               @endif
 						</div>
  						</div>
-					</div>
 				</div>
                  <form action="{{url('guardarReparacion')}}" method="POST">
                     {{csrf_field()}}
