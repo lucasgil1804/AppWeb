@@ -115,6 +115,13 @@ Route::get('/tablaDetalle', 'ReparacionController@tablaDetalle')
 Route::get('/quitarUltimoDetalle', 'ReparacionController@quitarUltimo')
 	->middleware('auth');
 
+Route::get('/editarDetalle', 'ReparacionController@editarDetalle')
+	->middleware('auth');
+
+Route::get('/updateCheck/{id_detalle}', 'ReparacionController@updateCheck')
+	->where('id_detalle', '[0-9]+')
+	->middleware('auth');
+
 /* Reparaciones */
 
 

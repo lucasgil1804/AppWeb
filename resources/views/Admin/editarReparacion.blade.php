@@ -90,13 +90,15 @@
 						
 						<div id="containerDetalle" class="container" style="float: left;">
 							@if ($reparacion->id_estado == 1)
-                @include('Admin.EnDiagnostico')
-              @else
-                @include('Admin.tablaDetalle')
-              @endif
+                                @include('Admin.EnDiagnostico')
+                            @else
+                                @include('Admin.editarDetalle')
+                            @endif
 						</div>
- 						</div>
+ 					</div>
 				</div>
+
+            </div>
                  <form action="{{url('guardarReparacion')}}" method="POST">
                     {{csrf_field()}}
                     <div id="alerta" class="alert alert-danger alert-dismissible">
@@ -133,10 +135,6 @@
                      </button>
                      </div>
           </form>
-
-				
-				
- 			</div>
 	</div>
 </div>
 
@@ -172,7 +170,8 @@
 	$(document).ready(function(){
 		
 		$('#loading2').hide();
-    $('#loading3').hide();
+        $('#loading3').hide();
+        $('#loading4').hide();
         $('#alerta').hide();
         $('#divIdCliente').hide();
         $('#divIdEquipo').hide();

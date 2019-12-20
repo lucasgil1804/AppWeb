@@ -151,7 +151,11 @@ class ReparacionController extends Controller
     {
         $cliente = $reparacion->usuario;
         $equipo = $reparacion->equipo;
-        return view('Admin.editarReparacion', compact('reparacion','cliente','equipo')); 
+
+        if ($reparacion->id_estado == 2) {
+            $detalles = $reparacion->detalles;
+        }
+        return view('Admin.editarReparacion', compact('reparacion','cliente','equipo','detalles')); 
     }
     
     public function mostrarCliente($id)
@@ -316,6 +320,37 @@ class ReparacionController extends Controller
         $costoTotal = $arrayDetalles->sum('costo');
 
         return view('Admin.tablaDetalle',compact('arrayDetalles','costoTotal'));
+    }
+
+    public function updateCheck($id_detalle)
+    {
+        $detalle = Detalle::find($id_detalle);
+
+        if ($detalle->realizado == 1) {
+            $detalle->realizado = 0;
+            $detalle->save();
+
+            Session::flash('flash_messageUpdateCheck', 'El estado se actualizó a "Pendiente"');
+        }
+
+        else {
+            $detalle->realizado = 1;
+            $detalle->save();
+
+            Session::flash('flash_messageUpdateCheck', 'El estado se actualizó a "Realizado"');
+        }
+
+        $reparacion = Reparacion::find($detalle->id_reparacion);
+        $cliente = $reparacion->usuario;
+        $equipo = $reparacion->equipo;
+        $detalles = $reparacion->detalles;
+
+        return view('Admin.editarReparacion', compact('reparacion','cliente','equipo','detalles'));
+    }
+
+    public function editarDetalle()
+    {
+
     }
 
 }
