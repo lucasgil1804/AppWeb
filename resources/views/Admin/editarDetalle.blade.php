@@ -1,4 +1,4 @@
-<div id="loading4" align="center">
+<div id="loading5" align="center">
     <img src="{{asset('img/ajax-loader.gif')}}" alt="loading" height="5%" width="5%" />
     <br/>Cargando...
 </div>
@@ -22,7 +22,7 @@
           <!-- <a class="linkBlanco" href=""> -->
           <i class="fa fa-plus"></i>&nbsp; Añadir
       </button>
-      @if ($arrayDetalles->isEmpty())
+      @if ($detalles->isEmpty())
         <button type="button" disabled class="btn btn-secondary" title="La tabla debe contener al menos un detalle" onclick="QuitarUltimo();">
           <i class="fa fa-times"></i>&nbsp; Quitar
         </button>
@@ -40,6 +40,13 @@
         </div>
       @endif
 
+      @if(Session::has('flash_messageUpdateCheck'))
+        <div class="alert alert-info alert-dismissible mt-3">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <p>{{ Session::get('flash_messageUpdateCheck') }}</p>
+        </div>
+      @endif
+
   <div class="mt-3 alert alert-info">
  	<table class="table table-hover">
   		<thead>
@@ -47,37 +54,54 @@
       		<th scope="col" style="color: black;">#</th>
       		<th scope="col" style="color: black;">Descripción</th>
       		<th scope="col" style="color: black;">Observación</th>
+          <th scope="col" style="color: black;">Realizado</th>
       		<th scope="col" style="color: black;">Costo</th>
     		</tr>
   		</thead>
   		<tbody>
-        @foreach($arrayDetalles as $detalles)
+        @foreach($detalles as $detalle)
           <tr>
             <td>{{ $loop->iteration }}</td>
-            <td>{{ $detalles["detalleDescripcion"] }}</td>
-            <td>{{ $detalles["observacion"] }}</td>
-            <td>{{ $detalles["costo"] }}</td>
+            <td>{{ $detalle->problema->descripcion }}</td>
+            <td>{{ $detalle->observacion }}</td>
+            @if ( $detalle->realizado == 1 )
+              <td align="center">
+                <label class="switch switch-text switch-success switch-pill">
+                      <input type="checkbox" class="switch-input" id="checkRealizado" value="{{ $detalle->id_detalleReparacion }}" onclick="DetalleRealizado(this);" checked="true">
+                      <span data-on="SI" data-off="NO" class="switch-label"></span>
+                      <span class="switch-handle"></span>
+                    </label>
+              </td>
+            @else
+              <td align="center">
+                      <label class="switch switch-text switch-success switch-pill"> 
+                      <input type="checkbox" class="switch-input" id="checkRealizado" value="{{ $detalle->id_detalleReparacion }}" onclick="DetalleRealizado(this);">
+                      <span data-on="SI" data-off="NO" class="switch-label"></span>
+                      <span class="switch-handle"></span>
+                    </label>
+              </td>
+            @endif
+
+            <td>{{ $detalle->costo }}</td>
           </tr>
         @endforeach
   		</tbody>
   		<tfoot>
   			<tr>
-  				<th colspan="3" style="color: black; text-align: right;">Total: $</th>
-  				<th style="color: black;">{{ $costoTotal }}</th>
+  				<th colspan="4" style="color: black; text-align: right;">Total: $</th>
+  				<th style="color: black;">{{ $reparacion->total }}</th>
   			</tr>
   		</tfoot>
 	</table>
-  <div id="divCantidadDetalles" class="form-group">
-    <input type="text" name="cantDetalles" class="form-control" id="inputCantDetalles" value="{{Session('detalles')->count()}}">
-  </div> 
- </div>
-
+   
  <script type="text/javascript">
   $(document).ready(function(){
+    $('#loading5').hide();
     $('#divCantidadDetalles').hide();
   });
+
    function QuitarUltimo(){
-    $('#loading4').show();
+    $('#loading5').show();
         var ruta="http://localhost:8000/quitarUltimoDetalle";
         $.ajax({
             type: "GET",
@@ -85,11 +109,29 @@
             success: function(data) {
                 //Cargamos finalmente el contenido deseado
                 $('#detalle').fadeIn(1000).html(data);
-                // $('#containerDetalle').hide();
+                $('#containerDetalle').hide();
                 $('#loading4').fadeOut(1500);
             }
 
         });
         return false;
+    }
+
+    function DetalleRealizado(id){
+      // var idDetalle = $('#checkRealizado').val();
+      $('#loading5').show();
+      var ruta="http://localhost:8000/updateCheck/"+id.value;
+
+      $.ajax({
+            type: "GET",
+            url: ruta,
+            success: function(data) {
+                //Cargamos finalmente el contenido deseado
+                $('#detalle').fadeIn(1000).html(data);
+                $('#loading5').hide();
+                // $('#containerCliente').hide();
+            }
+
+        });
     }
  </script>
