@@ -1,4 +1,4 @@
-<div id="loading5" align="center">
+<div id="loading4" align="center">
     <img src="{{asset('img/ajax-loader.gif')}}" alt="loading" height="5%" width="5%" />
     <br/>Cargando...
 </div>
@@ -22,7 +22,7 @@
           <!-- <a class="linkBlanco" href=""> -->
           <i class="fa fa-plus"></i>&nbsp; Añadir
       </button>
-      @if ($detalles->isEmpty())
+      @if ($reparacion->detalles->isEmpty())
         <button type="button" disabled class="btn btn-secondary" title="La tabla debe contener al menos un detalle" onclick="QuitarUltimo();">
           <i class="fa fa-times"></i>&nbsp; Quitar
         </button>
@@ -59,7 +59,7 @@
     		</tr>
   		</thead>
   		<tbody>
-        @foreach($detalles as $detalle)
+        @foreach($reparacion->detalles as $detalle)
           <tr>
             <td>{{ $loop->iteration }}</td>
             <td>{{ $detalle->problema->descripcion }}</td>
@@ -96,13 +96,28 @@
    
  <script type="text/javascript">
   $(document).ready(function(){
-    $('#loading5').hide();
+    //$('#loading4').hide();
     $('#divCantidadDetalles').hide();
   });
-
-   function QuitarUltimo(){
-    $('#loading5').show();
+ function QuitarUltimo(){
+    $('#loading4').show();
         var ruta="http://localhost:8000/quitarUltimoDetalle";
+        $.ajax({
+            type: "GET",
+            url: ruta,
+            success: function(data) {
+                //Cargamos finalmente el contenido deseado
+                $('#detalle').fadeIn(1000).html(data);
+                // $('#containerDetalle').hide();
+                $('#loading4').fadeOut(1500);
+            }
+
+        });
+        return false;
+    }
+    function DetalleRealizado(btn){
+       $('#loading4').show();
+        var ruta="http://localhost:8000/updateCheck/"+btn.value;
         $.ajax({
             type: "GET",
             url: ruta,
@@ -115,23 +130,6 @@
 
         });
         return false;
-    }
+    } 
 
-    function DetalleRealizado(id){
-      // var idDetalle = $('#checkRealizado').val();
-      $('#loading5').show();
-      var ruta="http://localhost:8000/updateCheck/"+id.value;
-
-      $.ajax({
-            type: "GET",
-            url: ruta,
-            success: function(data) {
-                //Cargamos finalmente el contenido deseado
-                $('#detalle').fadeIn(1000).html(data);
-                $('#loading5').hide();
-                // $('#containerCliente').hide();
-            }
-
-        });
-    }
  </script>

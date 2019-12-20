@@ -91,10 +91,10 @@ class ReparacionController extends Controller
   
     public function detallesReparacion($id)
     {
-    	$reparacion = Reparacion::withTrashed()->find($id);
-    	$detalles = $reparacion->detalles()->withTrashed()->get();
+        $reparacion = Reparacion::withTrashed()->find($id);
+        $detalles = $reparacion->detalles()->withTrashed()->get();
     	
-    	return view('Admin.detalleReparacion', compact('reparacion','detalles'));
+        return view('Admin.detalleReparacion', compact('reparacion','detalles'));
     }
 
     public function nuevaReparacion()
@@ -341,16 +341,16 @@ class ReparacionController extends Controller
         }
 
         $reparacion = Reparacion::find($detalle->id_reparacion);
-        $cliente = $reparacion->usuario;
-        $equipo = $reparacion->equipo;
-        $detalles = $reparacion->detalles;
+        // $cliente = $reparacion->usuario;
+        // $equipo = $reparacion->equipo;
+        // $detalles = $reparacion->detalles;
 
-        return view('Admin.editarReparacion', compact('reparacion','cliente','equipo','detalles'));
+        return view('Admin.editarDetalle',compact('reparacion'));
     }
 
     public function editarDetalle()
     {
-
+        return view('Admin.editarDetalle');
     }
 
 }
