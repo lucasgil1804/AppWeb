@@ -116,11 +116,17 @@ Route::get('/quitarUltimoDetalle', 'ReparacionController@quitarUltimo')
 	->middleware('auth');
 
 Route::get('/editarDetalle', 'ReparacionController@editarDetalle')
-	->middleware('auth');
+	->middleware('auth')
+	->name('adminEditarDetalle');
 
 Route::get('/updateCheck/{id_detalle}', 'ReparacionController@updateCheck')
 	->where('id_detalle', '[0-9]+')
 	->middleware('auth');
+
+Route::get('/detalleReparacion/{id}', 'ReparacionController@detallesReparacion')
+	->where('reparacion', '[0-9]+')
+	->middleware('auth')
+	->name('adminDetallesReparacion');	
 
 /* Reparaciones */
 
@@ -173,8 +179,3 @@ Route::get('/listaClientes', 'AdminController@listaCliente')
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/detalleReparacion/{id}', 'ReparacionController@detallesReparacion')
-	->where('reparacion', '[0-9]+')
-	->middleware('auth')
-	->name('adminDetallesReparacion');
