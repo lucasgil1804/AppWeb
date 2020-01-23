@@ -65,22 +65,33 @@
 				<!-- </div> -->
 
 				<div class="container card bg-light">
-					
 					<div id="cliente" class="card-body">
-						
-						<div id="containerCliente" class="container" style="float: left;">
-                @include('Admin.mostrarCliente')
- 						</div>				
-
+                            <div id="datosCliente" class="card bg-white shadow" style="margin-bottom: 3px;">
+                            <div class="card-body ">
+                                <div class="" style="display: inline-block;">
+                                    <h4 class="card-title mb-1">Cliente</h4>
+                                </div>
+                                <input type="hidden" name="idcliente" id="idCliente" value="{{$cliente->id_usuario}}">
+                                <p class="card-text ml-2"><strong>DNI:&nbsp;</strong>{{$cliente->dni}}</p>
+                                <p class="card-text ml-2"><strong>Apellido y Nombre:&nbsp;</strong>{{$cliente->apeYNom()}}</p>
+                             </div>
+                            </div>  
 					</div>
 				</div>
 
 				<div class="container card bg-light">
 					
-					<div id="equipo" class="card-body">
-						
-						<div id="containerEquipo" class="container" style="float: left;">
-  							@include('Admin.mostrarEquipo')
+				    <div id="equipo" class="card-body">
+  						<div id="datosEquipo" class="card bg-white shadow" style="margin-bottom: 3px;">
+                            <div class="card-body ">
+                                <div class="" style="display: inline-block;">
+                                    <h4 class="card-title mb-1">Equipo</h4>
+                                </div>
+                                <input type="hidden" name="idequipo" id="idEquipo" value="{{$equipo->id_equipo}}">
+                                <br><p class="card-text ml-2"><strong>Tipo:&nbsp;</strong>{{$equipo->tipoEquipo->descripcion}}</p>
+                                    <p class="card-text ml-2"><strong>Marca:&nbsp;</strong>{{$equipo->marca->descripcion}}</p>
+                                <p class="card-text ml-2"><strong>Modelo:&nbsp;</strong>{{$equipo->modelo}}</p>
+                            </div>
  						</div>
 					</div>
 				</div>
