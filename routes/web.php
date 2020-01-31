@@ -104,7 +104,15 @@ Route::get('/enDiagnostico', 'ReparacionController@enDiagnostico')
 	->middleware('auth');
 
 Route::get('/enReparacion', 'ReparacionController@enReparacion')
+	->middleware('auth');
+
+Route::get('/agregarDetalle/{id_reparacion}', 'ReparacionController@agregarDetalle')
+	->where('id_reparacion', '[0-9]+')
+	->middleware('auth');
+
+Route::get('/guardarDetalle', 'ReparacionController@guardarDetalle')
 	->middleware('auth');	
+
 
 Route::post('/guardarEquipo', 'ReparacionController@guardarEquipo')
 	->middleware('auth');
