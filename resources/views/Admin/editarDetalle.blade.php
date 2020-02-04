@@ -50,7 +50,7 @@
   <div class="mt-3 alert alert-info">
  	<table class="table table-hover">
   		<thead>
-    		<tr>
+    		<tr align="center">
       		<th scope="col" style="color: black;">#</th>
       		<th scope="col" style="color: black;">Descripción</th>
       		<th scope="col" style="color: black;">Observación</th>
@@ -60,12 +60,25 @@
   		</thead>
   		<tbody>
         @foreach($reparacion->detalles as $detalle)
-          <tr>
+          <tr align="center">
             <td>{{ $loop->iteration }}</td>
-            <td>{{ $detalle->problema->descripcion }}</td>
-            <td>{{ $detalle->observacion }}</td>
+            <td style="width: 30%;">
+
+              <!-- SELECT PRUEBA -->
+                <select type="hidden" name="selectDescripcion" id="descripcion" class="form-control custom-select" required>
+                          <option value=""></option>
+                          @foreach ($problemas as $descripcion)
+                            <option value="{{ $descripcion->id_problema }}">{{ $descripcion->descripcion }}</option>
+                          @endforeach
+                      </select>
+              <!-- SELECT PRUEBA -->
+
+            </td>
+            <td style="width: 30%;">
+              <input type="text" id="{{ $detalle->id_detalleReparacion }}" value="{{ $detalle->observacion }}" class="form-control-plaintext" readonly="" style="text-align: center; padding: 0px;">
+            </td>
             @if ( $detalle->realizado == 1 )
-              <td align="center">
+              <td align="center" style="width: 20%;">
                 <label class="switch switch-text switch-success switch-pill">
                       <input type="checkbox" class="switch-input" id="checkRealizado" value="{{ $detalle->id_detalleReparacion }}" onclick="DetalleRealizado(this);" checked="true">
                       <span data-on="SI" data-off="NO" class="switch-label"></span>
@@ -73,7 +86,7 @@
                     </label>
               </td>
             @else
-              <td align="center">
+              <td align="center" style="width: 20%;">
                       <label class="switch switch-text switch-success switch-pill"> 
                       <input type="checkbox" class="switch-input" id="checkRealizado" value="{{ $detalle->id_detalleReparacion }}" onclick="DetalleRealizado(this);">
                       <span data-on="SI" data-off="NO" class="switch-label"></span>
@@ -82,7 +95,13 @@
               </td>
             @endif
 
-            <td>{{ $detalle->costo }}</td>
+            <td style="width: 15%;">
+              <input type="text" id="{{ 'costo'.$detalle->id_detalleReparacion }}" value="{{ $detalle->costo }}" class="form-control-plaintext" readonly style="text-align: center; padding: 0px;"></td>
+            <td>
+              <button type="button" class="item" data-toggle="tooltip" data-placement="top" title="Editar fila" id="editarDetalle" value="{{ $detalle->id_detalleReparacion }}" onclick="EditarFila(this);">
+                <i style="font-size: 25px; background-color: white;" class="fa fa-pen-square text-success"></i>
+              </button>
+            </td>
           </tr>
         @endforeach
   		</tbody>
@@ -130,6 +149,21 @@
 
         });
         return false;
+    }
+
+    function EditarFila(btn){
+      // var idDescripcion = $('#'+btn.value);
+      var idObservacion = $('#'+btn.value);
+      var idCosto = $('#costo'+btn.value);
+
+      // idDescripcion.attr('readonly', false);
+      idObservacion.attr('class', 'form-control');
+      idObservacion.attr('readonly', false);
+
+      idCosto.attr('class', 'form-control');
+      idCosto.attr('type', 'number');
+      idCosto.attr('readonly', false);
+      
     } 
 
  </script>

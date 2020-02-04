@@ -126,7 +126,11 @@ Route::get('/updateCheck/{id_detalle}', 'ReparacionController@updateCheck')
 Route::get('/detalleReparacion/{id}', 'ReparacionController@detallesReparacion')
 	->where('reparacion', '[0-9]+')
 	->middleware('auth')
-	->name('adminDetallesReparacion');	
+	->name('adminDetallesReparacion');
+
+Route::get('/editarFila/{id_detalle}', 'ReparacionController@editarFila')
+	->where('id_detalle', '[0-9]+')
+	->middleware('auth');
 
 /* Reparaciones */
 
