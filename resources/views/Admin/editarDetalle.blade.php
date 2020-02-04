@@ -18,7 +18,7 @@
       </div>
   </div>
   <div style="display: inline-block; float: right;">
-      <button type="button" class="btn btn-primary" onclick="NuevoDetalle();">
+      <button type="button" value="{{$reparacion->id_reparacion}}" class="btn btn-primary" onclick="NuevoDetalle(this);">
           <!-- <a class="linkBlanco" href=""> -->
           <i class="fa fa-plus"></i>&nbsp; Añadir
       </button>
@@ -144,6 +144,23 @@
                 //Cargamos finalmente el contenido deseado
                 $('#detalle').fadeIn(1000).html(data);
                 $('#containerDetalle').hide();
+                $('#loading4').fadeOut(1500);
+            }
+
+        });
+        return false;
+    }
+
+  function NuevoDetalle(btn){
+    $('#loading4').show();
+        var ruta="http://localhost:8000/agregarDetalle/"+btn.value;
+        $.ajax({
+            type: "GET",
+            url: ruta,
+            success: function(data) {
+                //Cargamos finalmente el contenido deseado
+                $('#detalle').fadeIn(1000).html(data);
+                // $('#containerDetalle').hide();
                 $('#loading4').fadeOut(1500);
             }
 

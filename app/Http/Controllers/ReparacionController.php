@@ -258,6 +258,12 @@ class ReparacionController extends Controller
         $problemas = Problema::get()->sortBy('id_problema');
         return view('Admin.enReparacion',compact('problemas'));
     }
+
+    public function agregarDetalle($id_reparacion) 
+    {
+        $problemas = Problema::get()->sortBy('id_problema');
+        return view('Admin.agregarDetalle',compact('problemas','id_reparacion'));
+    }
   
     public function guardarEquipo()
     {
@@ -348,9 +354,24 @@ class ReparacionController extends Controller
         return view('Admin.editarDetalle',compact('reparacion'));
     }
 
-    public function editarDetalle()
+    // public function editarDetalle()
+    // {
+    //     return view('Admin.editarDetalle');
+    // }
+
+     public function guardarDetalle()
     {
-        return view('Admin.editarDetalle');
+        $inputs = request()->all();
+        $detalle = Detalle::create([
+                    'id_reparacion' => $inputs['id_reparacion'],
+                    'id_problema' => $inputs['descripcion'],
+                    'observacion' => $inputs['observacion'],
+                    'costo' => $inputs['costo']
+                ]);
+        $reparacion = Reparacion::find($inputs['id_reparacion']);
+        $costoTotal = $reparacion->detalles->sum('costo');
+        $reparacion->update(['total' => $costoTotal]);  
+        return view('Admin.editarDetalle',compact('reparacion'));
     }
 
 }
