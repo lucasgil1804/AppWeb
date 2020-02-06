@@ -63,19 +63,20 @@
           <tr align="center">
             <td>{{ $loop->iteration }}</td>
             <td style="width: 30%;">
+              <span id="{{ 'idSpanDescripcion'.$detalle->id_detalleReparacion }}">{{ $detalle->problema->descripcion }}</span>
 
               <!-- SELECT PRUEBA -->
-                <select type="hidden" name="selectDescripcion" id="descripcion" class="form-control custom-select" required>
-                          <option value=""></option>
-                          @foreach ($problemas as $descripcion)
-                            <option value="{{ $descripcion->id_problema }}">{{ $descripcion->descripcion }}</option>
-                          @endforeach
-                      </select>
+                <select name="selectDescripcion" id="{{ 'descripcion'.$detalle->id_detalleReparacion }}" class="form-control custom-select" style="height: 26px;" required>
+                  <option value="{{ $detalle->problema->id_problema }}">{{ $detalle->problema->descripcion }}</option>
+                  @foreach ($problemas as $descripcion)
+                    <option value="{{ $descripcion->id_problema }}">{{ $descripcion->descripcion }}</option>
+                  @endforeach
+                </select>
               <!-- SELECT PRUEBA -->
 
             </td>
             <td style="width: 30%;">
-              <input type="text" id="{{ $detalle->id_detalleReparacion }}" value="{{ $detalle->observacion }}" class="form-control-plaintext" readonly="" style="text-align: center; padding: 0px;">
+              <input type="text" id="{{ 'observacion'.$detalle->id_detalleReparacion }}" value="{{ $detalle->observacion }}" class="form-control-plaintext" readonly="" style="text-align: center; padding: 0px;">
             </td>
             @if ( $detalle->realizado == 1 )
               <td align="center" style="width: 20%;">
@@ -99,10 +100,15 @@
               <input type="text" id="{{ 'costo'.$detalle->id_detalleReparacion }}" value="{{ $detalle->costo }}" class="form-control-plaintext" readonly style="text-align: center; padding: 0px;"></td>
             <td>
               <button type="button" class="item" data-toggle="tooltip" data-placement="top" title="Editar fila" id="editarDetalle" value="{{ $detalle->id_detalleReparacion }}" onclick="EditarFila(this);">
-                <i style="font-size: 25px; background-color: white;" class="fa fa-pen-square text-success"></i>
+                <i id="{{ 'boton'.$detalle->id_detalleReparacion }}" style="font-size: 25px; background-color: white;" class="fa fa-pen-square text-success"></i>
+              </button>
+
+              <button type="button" class="item" data-toggle="tooltip" data-placement="top" title="Guardar cambios" id="{{ 'guardarCambios'.$detalle->id_detalleReparacion }}" value="{{ $detalle->id_detalleReparacion }}" onclick="GuardarFila(this)">
+                <i style="font-size: 25px; background-color: white;" class="fa fa-check-square text-success"></i>
               </button>
             </td>
           </tr>
+          <input type="hidden" id="totalIteracion" value="{{ $loop->count }}">
         @endforeach
   		</tbody>
   		<tfoot>
@@ -116,8 +122,17 @@
  <script type="text/javascript">
   $(document).ready(function(){
     //$('#loading4').hide();
+    var hasta = $('#totalIteracion').val() + 1;
+
+    for (var i = 0; i < hasta; i++) {
+      $('#descripcion'+i).hide();
+      $('#guardarCambios'+i).hide();
+    }
+
     $('#divCantidadDetalles').hide();
+
   });
+
  function QuitarUltimo(){
     $('#loading4').show();
         var ruta="http://localhost:8000/quitarUltimoDetalle";
@@ -169,18 +184,55 @@
     }
 
     function EditarFila(btn){
-      // var idDescripcion = $('#'+btn.value);
-      var idObservacion = $('#'+btn.value);
+      var idDescripcion = $('#descripcion'+btn.value);
+      var idSpanDescripcion = $('#idSpanDescripcion'+btn.value);
+      var idObservacion = $('#observacion'+btn.value);
       var idCosto = $('#costo'+btn.value);
+      var idBoton = $('#boton'+btn.value);
+      var idGuardarCambios = $('#guardarCambios'+btn.value);
 
       // idDescripcion.attr('readonly', false);
+      idDescripcion.show();
+      idSpanDescripcion.hide();
+
       idObservacion.attr('class', 'form-control');
       idObservacion.attr('readonly', false);
 
       idCosto.attr('class', 'form-control');
       idCosto.attr('type', 'number');
       idCosto.attr('readonly', false);
+
+      idGuardarCambios.show();
+      idBoton.hide();
       
-    } 
+    }
+
+    function GuardarFila(btn){
+      $('#loading4').show();
+
+      var idBoton = $('#boton'+btn.value);
+      var idGuardarCambios = $('#guardarCambios'+btn.value);
+      idGuardarCambios.hide();
+      idBoton.show();
+
+        var idDescripcion = $('#descripcion'+btn.value);
+        var idObservacion = $('#observacion'+btn.value);
+        var idCosto = $('#costo'+btn.value);
+
+        var ruta="http://localhost:8000/guardarFila/"+btn.value;
+        $.ajax({
+            type: "GET",
+            url: ruta,
+            data: "descripcion="+idDescripcion.val()+"&observacion="+idObservacion.val()+"&costo="+idCosto.val(),
+            success: function(data) {
+                //Cargamos finalmente el contenido deseado
+                $('#detalle').fadeIn(1000).html(data);
+                // $('#containerDetalle').hide();
+                $('#loading4').fadeOut(1500);
+            }
+
+        });
+        return false;
+    }
 
  </script>

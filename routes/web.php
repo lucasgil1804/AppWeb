@@ -123,9 +123,9 @@ Route::get('/tablaDetalle', 'ReparacionController@tablaDetalle')
 Route::get('/quitarUltimoDetalle', 'ReparacionController@quitarUltimo')
 	->middleware('auth');
 
-Route::get('/editarDetalle', 'ReparacionController@editarDetalle')
-	->middleware('auth')
-	->name('adminEditarDetalle');
+// Route::get('/editarDetalle', 'ReparacionController@editarDetalle')
+// 	->middleware('auth')
+// 	->name('adminEditarDetalle');
 
 Route::get('/updateCheck/{id_detalle}', 'ReparacionController@updateCheck')
 	->where('id_detalle', '[0-9]+')
@@ -137,6 +137,10 @@ Route::get('/detalleReparacion/{id}', 'ReparacionController@detallesReparacion')
 	->name('adminDetallesReparacion');
 
 Route::get('/editarFila/{id_detalle}', 'ReparacionController@editarFila')
+	->where('id_detalle', '[0-9]+')
+	->middleware('auth');
+
+Route::get('/guardarFila/{id_detalle}', 'ReparacionController@guardarFila')
 	->where('id_detalle', '[0-9]+')
 	->middleware('auth');
 

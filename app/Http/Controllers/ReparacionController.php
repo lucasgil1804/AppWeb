@@ -150,12 +150,13 @@ class ReparacionController extends Controller
     public function editarReparacion(Reparacion $reparacion)
     {
         $cliente = $reparacion->usuario;
+        $problemas = Problema::get()->sortBy('id_problema');
         $equipo = $reparacion->equipo;
 
         if ($reparacion->id_estado == 2) {
             $detalles = $reparacion->detalles;
         }
-        return view('Admin.editarReparacion', compact('reparacion','cliente','equipo','detalles')); 
+        return view('Admin.editarReparacion', compact('reparacion','cliente','equipo','detalles','problemas')); 
     }
     
     public function mostrarCliente($id)
@@ -347,11 +348,13 @@ class ReparacionController extends Controller
         }
 
         $reparacion = Reparacion::find($detalle->id_reparacion);
+        $problemas = Problema::get()->sortBy('id_problema');
+
         // $cliente = $reparacion->usuario;
         // $equipo = $reparacion->equipo;
         // $detalles = $reparacion->detalles;
 
-        return view('Admin.editarDetalle',compact('reparacion'));
+        return view('Admin.editarDetalle',compact('reparacion','problemas'));
     }
 
     // public function editarDetalle()
@@ -370,8 +373,29 @@ class ReparacionController extends Controller
                 ]);
         $reparacion = Reparacion::find($inputs['id_reparacion']);
         $costoTotal = $reparacion->detalles->sum('costo');
-        $reparacion->update(['total' => $costoTotal]);  
-        return view('Admin.editarDetalle',compact('reparacion'));
+        $reparacion->update(['total' => $costoTotal]);
+        $problemas = Problema::get()->sortBy('id_problema');
+
+        return view('Admin.editarDetalle',compact('reparacion','problemas'));
+    }
+
+    public function guardarFila($id_detalle)
+    {
+        $detalle = Detalle::find($id_detalle);
+        
+        $inputs = request()->all();
+        $detalle->update([
+            'id_problema' => $inputs['descripcion'],
+            'observacion' => $inputs['observacion'],
+            'costo' => $inputs['costo']
+        ]);
+
+        $reparacion = Reparacion::find($detalle->id_reparacion);
+        $costoTotal = $reparacion->detalles->sum('costo');
+        $reparacion->update(['total' => $costoTotal]);
+        $problemas = Problema::get()->sortBy('id_problema');
+
+        return view('Admin.editarDetalle',compact('reparacion','problemas'));
     }
 
 }
