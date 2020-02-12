@@ -70,7 +70,17 @@ class ReparacionController extends Controller
         }
         
     }
+    
+    public function bajaDetalle(Reparacion $reparacion)
+    {
+        $detalles=$reparacion->detalles()->get();
+        $ultimoDetalle=$detalles->last();
+        $ultimoDetalle->delete();
 
+        Session::flash('flash_messageExitoDelete', 'El detalle se eliminó correctamente.');
+        $problemas = Problema::get()->sortBy('id_problema');
+        return view('Admin.editarDetalle',compact('reparacion','problemas'));
+    }
 
     public function AltaReparacion($id)
     {
@@ -376,6 +386,7 @@ class ReparacionController extends Controller
         $reparacion->update(['total' => $costoTotal]);
         $problemas = Problema::get()->sortBy('id_problema');
 
+        Session::flash('flash_messageDetalleGuardado', 'El detalle se agrego correctamente');
         return view('Admin.editarDetalle',compact('reparacion','problemas'));
     }
 
@@ -394,6 +405,8 @@ class ReparacionController extends Controller
         $costoTotal = $reparacion->detalles->sum('costo');
         $reparacion->update(['total' => $costoTotal]);
         $problemas = Problema::get()->sortBy('id_problema');
+
+        Session::flash('flash_messageFilaActalizada', 'Los cambios se guaradaron correctamente');
 
         return view('Admin.editarDetalle',compact('reparacion','problemas'));
     }
