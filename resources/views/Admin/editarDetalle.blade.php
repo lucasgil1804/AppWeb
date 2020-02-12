@@ -23,11 +23,11 @@
           <i class="fa fa-plus"></i>&nbsp; Añadir
       </button>
       @if ($reparacion->detalles->isEmpty())
-        <button type="button" disabled class="btn btn-secondary" title="La tabla debe contener al menos un detalle" onclick="QuitarUltimo();">
+        <button type="button" disabled class="btn btn-secondary" title="La tabla debe contener al menos un detalle" onclick="QuitarDetalle(this);">
           <i class="fa fa-times"></i>&nbsp; Quitar
         </button>
       @else
-        <button type="button" class="btn btn-primary" title="Quitar último elemento" onclick="QuitarUltimo();">
+        <button type="button" value="{{$reparacion->id_reparacion}}" class="btn btn-primary" title="Quitar último elemento" onclick="QuitarDetalle(this);">
           <i class="fa fa-times"></i>&nbsp; Quitar
         </button>
       @endif
@@ -46,6 +46,28 @@
           <p>{{ Session::get('flash_messageUpdateCheck') }}</p>
         </div>
       @endif
+
+      @if(Session::has('flash_messageDetalleGuardado'))
+        <div class="alert alert-info alert-dismissible mt-3">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <p>{{ Session::get('flash_messageDetalleGuardado') }}</p>
+        </div>
+      @endif
+
+      @if(Session::has('flash_messageFilaActalizada'))
+        <div class="alert alert-info alert-dismissible mt-3">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <p>{{ Session::get('flash_messageFilaActalizada') }}</p>
+        </div>
+      @endif
+
+      @if(Session::has('flash_messageExitoDelete'))
+        <div class="alert alert-info alert-dismissible mt-3">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <p>{{ Session::get('flash_messageExitoDelete') }}</p>
+        </div>
+      @endif
+
 
   <div class="mt-3 alert alert-info">
  	<table class="table table-hover">
@@ -66,7 +88,7 @@
               <span id="{{ 'idSpanDescripcion'.$detalle->id_detalleReparacion }}">{{ $detalle->problema->descripcion }}</span>
 
               <!-- SELECT PRUEBA -->
-                <select name="selectDescripcion" id="{{ 'descripcion'.$detalle->id_detalleReparacion }}" class="form-control custom-select" style="height: 26px;" required>
+                <select name="selectDescripcion" id="{{ 'descripcion'.$detalle->id_detalleReparacion }}" class="form-control-sm custom-select" required>
                   <option value="{{ $detalle->problema->id_problema }}">{{ $detalle->problema->descripcion }}</option>
                   @foreach ($problemas as $descripcion)
                     <option value="{{ $descripcion->id_problema }}">{{ $descripcion->descripcion }}</option>
@@ -133,9 +155,9 @@
 
   });
 
- function QuitarUltimo(){
+ function QuitarDetalle(btn){
     $('#loading4').show();
-        var ruta="http://localhost:8000/quitarUltimoDetalle";
+        var ruta="http://localhost:8000/bajaDetalle/"+btn.value;
         $.ajax({
             type: "GET",
             url: ruta,

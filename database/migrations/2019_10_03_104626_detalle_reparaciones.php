@@ -23,7 +23,7 @@ class DetalleReparaciones extends Migration
             $table->double('costo',7,2);
             $table->boolean('realizado')->default(0);
             $table->timestamps();
-            $table->softDeletes();
+            //$table->softDeletes();
         });
     }
 
