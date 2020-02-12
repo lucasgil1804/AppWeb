@@ -84,7 +84,7 @@
                             </button>
                             <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Alta">
                                 <a href="#" data-href="{{route('adminAltaReparacion',['id' => $reparacion->id_reparacion])}}" data-toggle="modal" data-target="#upModal">
-                                <i class="zmdi zmdi-account-add" style="color: grey;"></i></a>
+                                <i class="zmdi zmdi-plus" style="color: grey;"></i></a>
                             </button>
                         @endif
 

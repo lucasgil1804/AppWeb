@@ -21,7 +21,23 @@
 			<h4 class=" col card-text">Plazo: {{ $reparacion->plazo_estimado }} días</h4>
 		</div>
 
-		@if( $reparacion->id_estado == 1 )
+    @if( $reparacion->deleted_at != NULL )
+      <div class="row">
+        <div class="col card-title">
+          Estado del Equipo:    
+          <button type="button" class="btn btn-danger btn-sm" data-toggle="collapse" data-target="#demo"><h4 style="color: #f5f5f0;">Anulado &nbsp;<i class="fa fa-chevron-down"></i></h4>
+          </button>
+            </div>
+            <h5 class="col card-text mt-1" style="color: black;">{{ $reparacion->equipo->marca->descripcion }} - {{ $reparacion->equipo->modelo }}</h5>
+          </div>
+       
+          <div id="demo" class="mt-3 collapse alert alert-danger">
+            <p><strong><b style="color: red; font-size: 16px;">Reparación Anulada</b></strong></p>
+        <p style="font-size: 16px;">Para visualizar el detalle, debe Dar de Alta la reparación.</p><br>
+        <p style="font-size: 16px;"><strong>Fecha de anulación:</strong> {{ date("d/m/Y", strtotime($reparacion->deleted_at)) }} </p>
+          </div>
+
+		@elseif( $reparacion->id_estado == 1 )
 
 			<div class="row">
 				<div class="col card-title">
