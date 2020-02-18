@@ -149,6 +149,10 @@ Route::get('/guardarFila/{id_detalle}', 'ReparacionController@guardarFila')
 	->where('id_detalle', '[0-9]+')
 	->middleware('auth');
 
+Route::put('/updateReparacion/{reparacion}', 'ReparacionController@updateReparacion')
+	->where('reparacion', '[0-9]+')
+	->middleware('auth');
+
 /* Reparaciones */
 
 
