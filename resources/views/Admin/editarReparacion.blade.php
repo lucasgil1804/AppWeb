@@ -42,13 +42,17 @@
 			<div class="card-body mt-20" align="left">
 
 				<!-- <div id="cliente"> -->
+
+            <form method="POST" action="{{ url('updateReparacion/'. $reparacion->id_reparacion) }}">
+                {{ method_field('PUT') }}
+                {{ csrf_field() }}
 				<div style="display: inline-block; margin-bottom: 15px;">
 					<label style="margin-bottom: 5px;"><b>Fecha de Ingreso</b></label>
 					
 					<!-- INPUT DATEPICKER -->
                 	<div class="form-group">
 					<div class="input-group date">
-                        <input id="fechaIngresoFormulario" type="text" class="form-control" name="fecha_ingreso_formulario" value="{{ date('d/m/Y', strtotime($reparacion->fecha_ingreso)) }}" readonly>
+                        <input id="fechaIngresoFormulario" type="text" class="form-control" name="fecha_ingreso" value="{{ date('d/m/Y', strtotime($reparacion->fecha_ingreso)) }}" readonly>
                         <div class="input-group-addon">
                             <span class="fa fa-calendar"></span>
                         </div>
@@ -59,7 +63,7 @@
 				</div>
 				<div style="display: inline-block; float: right; margin-bottom: 15px; width: 7%;">
 					<label style="margin-bottom: 5px;"><b>Plazo</b></label>
-					<input id="plazoFormulario" name="plazo_formulario" class="form-control" value="{{$reparacion->plazo_estimado}}" min="0" max="30" type="number">
+					<input id="plazoFormulario" name="plazo" class="form-control" value="{{$reparacion->plazo_estimado}}" min="0" max="30" type="number">
 				</div>
   					
 				<!-- </div> -->
@@ -110,33 +114,9 @@
 				</div>
 
             </div>
-                 <form action="{{url('guardarReparacion')}}" method="POST">
-                    {{csrf_field()}}
-                    <div id="alerta" class="alert alert-danger alert-dismissible">
-                        
-                    </div>
-                    <div id="divFechaIngreso" class="form-group">
-                         <input type="text" name="fecha_ingreso" class="form-control" id="inputFechaIngreso">
-                     </div>
-
-                     <div id="divPlazo" class="form-group">
-                         <input type="text" name="plazo" class="form-control" id="inputPlazo">
-                     </div>
-
-                     <div id="divIdCliente" class="form-group">
-                         <input type="text" name="id_cliente" class="form-control" id="inputIdCliente" required>
-                     </div>
-                     <div id="divIdEquipo" class="form-group">
-                          <input type="text" name="id_equipo" class="form-control" id="inputIdEquipo" required>
-                     </div>
-                     <div id="divIdEstadoEquipo" class="form-group">
-                          <input type="text" name="id_estadoEquipo" class="form-control" id="inputIdEstadoEquipo" required>
-                     </div>
-                     <div id="validarDetalles" class="form-group">
-                          <input type="text" name="validarDetalles" class="form-control" id="inputValidarDetalles" value="1" required>
-                     </div>
+                 
                      <div align="center">
-                     <button type="Submit" class="btn btn-success" onclick="EnviarFormulario();">
+                     <button type="Submit" class="btn btn-success">
                         <i class="fa fa-save"></i>
                         &nbsp;Guardar
                      </button>

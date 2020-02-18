@@ -8,6 +8,27 @@
 	<div class="card-header"><h3>Detalle de la Reparación</h3></div>
 	<div class="card-body mt-20" align="left">
 
+    @if(Session::has('flash_ExitoUpdate'))
+    <div class="modal" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Registro Exitoso</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p>{{Session::get('flash_ExitoUpdate')}}</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color: #ff4000; border-color: white;">Aceptar</button>
+        </div>
+        </div>
+    </div>
+    </div>
+    @endif 
+
 		<div class="row">
 			<h4 class="col card-title">Cliente: {{ $reparacion->usuario->nombre. " " .$reparacion->usuario->apellido }}</h4>
 			@if ( $reparacion->id_estado == 3 )
@@ -157,6 +178,10 @@
 @endsection
 
 @section('scripts')
+<script>
+  $("#myModal").modal('show');
+</script>
+
 	<script>
 		$(document).ready(function(){
   		$('[data-toggle="tooltip"]').tooltip();   

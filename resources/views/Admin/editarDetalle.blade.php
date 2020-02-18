@@ -22,7 +22,7 @@
           <!-- <a class="linkBlanco" href=""> -->
           <i class="fa fa-plus"></i>&nbsp; Añadir
       </button>
-      @if ($reparacion->detalles->isEmpty())
+      @if ( Session::has('flash_messageAvisoDetalle') )
         <button type="button" disabled class="btn btn-secondary" title="La tabla debe contener al menos un detalle" onclick="QuitarDetalle(this);">
           <i class="fa fa-times"></i>&nbsp; Quitar
         </button>
@@ -38,6 +38,7 @@
           <button type="button" class="close" data-dismiss="alert">&times;</button>
           <p>El estado <b>En Reparación</b> debe contener al menos un detalle. Si no desea guardar detalles, cambie el estado a <b>En Diagnóstico</b>.</p>
         </div>
+        @php Session::forget('flash_messageAvisoDetalle'); @endphp
       @endif
 
       @if(Session::has('flash_messageUpdateCheck'))
@@ -45,6 +46,7 @@
           <button type="button" class="close" data-dismiss="alert">&times;</button>
           <p>{{ Session::get('flash_messageUpdateCheck') }}</p>
         </div>
+        @php Session::forget('flash_messageUpdateCheck'); @endphp
       @endif
 
       @if(Session::has('flash_messageDetalleGuardado'))
@@ -52,13 +54,15 @@
           <button type="button" class="close" data-dismiss="alert">&times;</button>
           <p>{{ Session::get('flash_messageDetalleGuardado') }}</p>
         </div>
+        @php Session::forget('flash_messageDetalleGuardado'); @endphp
       @endif
 
-      @if(Session::has('flash_messageFilaActalizada'))
+      @if(Session::has('flash_messageFilaActualizada'))
         <div class="alert alert-info alert-dismissible mt-3">
           <button type="button" class="close" data-dismiss="alert">&times;</button>
-          <p>{{ Session::get('flash_messageFilaActalizada') }}</p>
+          <p>{{ Session::get('flash_messageFilaActualizada') }}</p>
         </div>
+        @php Session::forget('flash_messageFilaActualizada'); @endphp
       @endif
 
       @if(Session::has('flash_messageExitoDelete'))
@@ -66,6 +70,7 @@
           <button type="button" class="close" data-dismiss="alert">&times;</button>
           <p>{{ Session::get('flash_messageExitoDelete') }}</p>
         </div>
+        @php Session::forget('flash_messageExitoDelete'); @endphp
       @endif
 
 

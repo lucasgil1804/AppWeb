@@ -74,11 +74,21 @@ class ReparacionController extends Controller
     public function bajaDetalle(Reparacion $reparacion)
     {
         $detalles=$reparacion->detalles()->get();
-        $ultimoDetalle=$detalles->last();
-        $ultimoDetalle->delete();
 
-        Session::flash('flash_messageExitoDelete', 'El detalle se eliminó correctamente.');
+        if ( $detalles->count() > 1) {
+            $ultimoDetalle=$detalles->last();
+            $ultimoDetalle->delete();
+            $costoTotal = $reparacion->detalles->sum('costo');
+            $reparacion->update(['total' => $costoTotal]);
+
+            Session::flash('flash_messageExitoDelete', 'El detalle se eliminó correctamente.');
+        }
+        else {
+            Session::flash('flash_messageAvisoDetalle', '');
+        }
+        
         $problemas = Problema::get()->sortBy('id_problema');
+
         return view('Admin.editarDetalle',compact('reparacion','problemas'));
     }
 
@@ -102,7 +112,7 @@ class ReparacionController extends Controller
     public function detallesReparacion($id)
     {
         $reparacion = Reparacion::withTrashed()->find($id);
-        $detalles = $reparacion->detalles()->withTrashed()->get();
+        $detalles = $reparacion->detalles()->get();
     	
         return view('Admin.detalleReparacion', compact('reparacion','detalles'));
     }
@@ -155,7 +165,22 @@ class ReparacionController extends Controller
         
         return redirect()->route('adminNuevaReparacion');
        
-    }    
+    }
+
+    public function updateReparacion(Reparacion $reparacion)
+    {
+        $data = request()->all();
+        $fecha = Carbon::createFromFormat('d/m/Y',$data['fecha_ingreso'])->format('Y-m-d');
+        $detalles = $reparacion->detalles()->get();
+
+        $reparacion->update([
+            'fecha_ingreso' => $fecha,
+            'plazo_estimado' => $data['plazo']
+        ]);
+
+        Session::flash('flash_ExitoUpdate', 'La reparación se editó correctamente.');
+        return view('Admin.detalleReparacion', compact('reparacion', 'detalles'));
+    }
     
     public function editarReparacion(Reparacion $reparacion)
     {
@@ -347,14 +372,14 @@ class ReparacionController extends Controller
             $detalle->realizado = 0;
             $detalle->save();
 
-            Session::flash('flash_messageUpdateCheck', 'El estado se actualizó a "Pendiente"');
+            Session::flash('flash_messageUpdateCheck', 'El estado se actualizó a "Pendiente".');
         }
 
         else {
             $detalle->realizado = 1;
             $detalle->save();
 
-            Session::flash('flash_messageUpdateCheck', 'El estado se actualizó a "Realizado"');
+            Session::flash('flash_messageUpdateCheck', 'El estado se actualizó a "Realizado".');
         }
 
         $reparacion = Reparacion::find($detalle->id_reparacion);
@@ -386,7 +411,8 @@ class ReparacionController extends Controller
         $reparacion->update(['total' => $costoTotal]);
         $problemas = Problema::get()->sortBy('id_problema');
 
-        Session::flash('flash_messageDetalleGuardado', 'El detalle se agrego correctamente');
+        Session::flash('flash_messageDetalleGuardado', 'El detalle se agregó correctamente.');
+
         return view('Admin.editarDetalle',compact('reparacion','problemas'));
     }
 
@@ -406,7 +432,7 @@ class ReparacionController extends Controller
         $reparacion->update(['total' => $costoTotal]);
         $problemas = Problema::get()->sortBy('id_problema');
 
-        Session::flash('flash_messageFilaActalizada', 'Los cambios se guaradaron correctamente');
+        Session::flash('flash_messageFilaActualizada', 'Los cambios se guardaron correctamente.');
 
         return view('Admin.editarDetalle',compact('reparacion','problemas'));
     }
