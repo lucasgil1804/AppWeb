@@ -42,7 +42,9 @@
 			<div class="card-body mt-20" align="left">
 
 				<!-- <div id="cliente"> -->
-
+         <!-- Campo oculto utilizado para el metodo EnReparacio() -->
+          <input id="IdReparacion" type="hidden" value="{{$reparacion->id_reparacion}}" name="">
+          <!-- Campo oculto utilizado para el metodo EnReparacio() -->
             <form method="POST" action="{{ url('updateReparacion/'. $reparacion->id_reparacion) }}">
                 {{ method_field('PUT') }}
                 {{ csrf_field() }}
@@ -216,37 +218,6 @@
 		// $('#cliente').load(ruta); 
 	}
 
-	function NuevoCliente(){
-	$('#loading').show();
-		var ruta="http://localhost:8000/formularioCliente/4";
-		$.ajax({
-            type: "GET",
-            url: ruta,
-            success: function(data) {
-                //Cargamos finalmente el contenido deseado
-                $('#cliente').fadeIn(1000).html(data);
-                $('#containerCliente').hide();
-            }
-
-        });
-        return false;
-	}
-
-	function NuevoEquipo(){
-	$('#loading2').show();
-		var ruta="http://localhost:8000/formularioEquipo";
-		$.ajax({
-            type: "GET",
-            url: ruta,
-            success: function(data) {
-                //Cargamos finalmente el contenido deseado
-                $('#equipo').fadeIn(1000).html(data);
-                $('#containerEquipo').hide();
-            }
-
-        });
-        return false;
-	}
 
     function enDiagnostico(){
     $('#loading3').show();
@@ -267,7 +238,8 @@
 
     function enReparacion(){
     $('#loading4').show();
-        var ruta="http://localhost:8000/enReparacion";
+    var IdReparacion=$('#IdReparacion').val();
+        var ruta="http://localhost:8000/agregarDetalle/"+IdReparacion;
         $.ajax({
             type: "GET",
             url: ruta,
