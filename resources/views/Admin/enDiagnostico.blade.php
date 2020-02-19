@@ -12,7 +12,7 @@
    			En Diagnóstico
   		</button>
   		<div class="dropdown-menu">
-    		<button type="button" class="dropdown-item" onclick="enReparacion();">
+    		<button type="button"  class="dropdown-item" onclick="enReparacion();">
           En Reparación
         </button>
   		</div>
