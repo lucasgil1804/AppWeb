@@ -407,6 +407,10 @@ class ReparacionController extends Controller
                     'costo' => $inputs['costo']
                 ]);
         $reparacion = Reparacion::find($inputs['id_reparacion']);
+        if ($reparacion->id_estado == 1) {
+            $reparacion->id_estado = 2;
+            $reparacion->save();
+        }
         $costoTotal = $reparacion->detalles->sum('costo');
         $reparacion->update(['total' => $costoTotal]);
         $problemas = Problema::get()->sortBy('id_problema');
