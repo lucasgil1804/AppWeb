@@ -112,8 +112,6 @@
 						</div>
  					</div>
 				</div>
-
-            </div>
                  
                      <div align="center">
                      <button type="Submit" class="btn btn-success">
@@ -126,6 +124,7 @@
                      </button>
                      </div>
           </form>
+        </div>
 	</div>
 </div>
 
