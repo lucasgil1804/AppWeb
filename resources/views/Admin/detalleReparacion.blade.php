@@ -2,6 +2,13 @@
 
 @section('contenidoAdmin')
 
+@if(Session::has('flash_ReparacionLista'))
+  <div class="alert alert-success alert-dismissible mr-3 ml-3">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <p><b>¡ El equipo se encuentra reparado !</b></p>
+  </div>
+@endif
+
 <div class="container">
 <div class="card bg-light text-dark mt-40">
 <!-- CONTENIDO-DETALLE REPARACION -->

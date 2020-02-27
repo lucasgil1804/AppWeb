@@ -171,14 +171,41 @@ class ReparacionController extends Controller
     {
         $data = request()->all();
         $fecha = Carbon::createFromFormat('d/m/Y',$data['fecha_ingreso'])->format('Y-m-d');
+        $fechaHoy = Carbon::now()->format('Y-m-d');
         $detalles = $reparacion->detalles()->get();
 
-        $reparacion->update([
-            'fecha_ingreso' => $fecha,
-            'plazo_estimado' => $data['plazo']
-        ]);
+        $acumCheck = $reparacion->detalles->sum('realizado');
+        $contDetalle = $reparacion->detalles->count();
+
+        if ( $acumCheck == $contDetalle && $reparacion->id_estado != 1 ) {
+            $reparacion->update([
+                'fecha_ingreso' => $fecha,
+                'fecha_egreso' => $fechaHoy,
+                'plazo_estimado' => $data['plazo'],
+                'id_estado' => 3
+            ]);
+            
+            Session::flash('flash_ReparacionLista', '');
+        }
+
+        elseif ( $reparacion->id_estado == 3 ) {
+            $reparacion->update([
+                'fecha_ingreso' => $fecha,
+                'fecha_egreso' => null,
+                'plazo_estimado' => $data['plazo'],
+                'id_estado' => 2
+            ]);
+        }
+
+        else {
+            $reparacion->update([
+                'fecha_ingreso' => $fecha,
+                'plazo_estimado' => $data['plazo']
+            ]);
+        }
 
         Session::flash('flash_ExitoUpdate', 'La reparación se editó correctamente.');
+
         return view('Admin.detalleReparacion', compact('reparacion', 'detalles'));
     }
     
