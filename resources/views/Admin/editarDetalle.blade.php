@@ -6,7 +6,7 @@
 
 
 <h4 class="card-title">Detalle</h4>
-  <div class="dropdown" style="display: inline-block;">
+ <!--  <div class="dropdown" style="display: inline-block;">
       <input type="hidden" id="estadoEquipo" name="estado_equipo" value="2">
       <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
         En Reparación
@@ -16,6 +16,21 @@
           En Diagnóstico
         </button>
       </div>
+  </div> -->
+  <div style="display: inline-block;">
+    @if ($reparacion->id_estado == 2)
+      Estado del Equipo: 
+      <span class=" btn btn-primary">
+         En Reparación&nbsp;
+        <i class="fa fa-cogs"></i>
+      </span>
+    @else
+      Estado del Equipo: 
+      <span class="btn btn-success">
+        Listo&nbsp;
+        <i class="fa fa-check"></i>
+      </span>
+    @endif 
   </div>
   <div style="display: inline-block; float: right;">
       <button type="button" value="{{$reparacion->id_reparacion}}" class="btn btn-primary" onclick="NuevoDetalle(this);">

@@ -412,9 +412,13 @@ class ReparacionController extends Controller
         $reparacion = Reparacion::find($detalle->id_reparacion);
         $problemas = Problema::get()->sortBy('id_problema');
 
-        // $cliente = $reparacion->usuario;
-        // $equipo = $reparacion->equipo;
-        // $detalles = $reparacion->detalles;
+        $acumCheck = $reparacion->detalles->sum('realizado');
+        $contDetalle = $reparacion->detalles->count();
+
+        if ( $acumCheck != $contDetalle && $reparacion->id_estado == 3 ) {
+            $reparacion->id_estado = 2;
+            $reparacion->save();
+        }
 
         return view('Admin.editarDetalle',compact('reparacion','problemas'));
     }
