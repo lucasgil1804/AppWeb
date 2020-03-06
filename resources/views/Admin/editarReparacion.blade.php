@@ -41,6 +41,12 @@
 		<div class="card-header"><h3>Editar Reparación</h3></div>
 			<div class="card-body mt-20" align="left">
 
+                <!-- LINK PARA GENERAR PDF -->
+                <div align="right">
+                    <a href="{{route('customer.printpdf')}}">Generar comprobante</a>
+                </div>
+                <!-- LINK PARA GENERAR PDF -->
+
 				<!-- <div id="cliente"> -->
          <!-- Campo oculto utilizado para el metodo EnReparacio() -->
           <input id="IdReparacion" type="hidden" value="{{$reparacion->id_reparacion}}" name="">
@@ -48,6 +54,7 @@
             <form method="POST" action="{{ url('updateReparacion/'. $reparacion->id_reparacion) }}">
                 {{ method_field('PUT') }}
                 {{ csrf_field() }}
+
 				<div style="display: inline-block; margin-bottom: 15px;">
 					<label style="margin-bottom: 5px;"><b>Fecha de Ingreso</b></label>
 					
@@ -64,7 +71,7 @@
 
 				</div>
 				<div style="display: inline-block; float: right; margin-bottom: 15px; width: 7%;">
-					<label style="margin-bottom: 5px;"><b>Plazo</b></label>
+                    <label style="margin-bottom: 5px;"><b>Plazo</b></label>
 					<input id="plazoFormulario" name="plazo" class="form-control" value="{{$reparacion->plazo_estimado}}" min="0" max="30" type="number">
 				</div>
   					
