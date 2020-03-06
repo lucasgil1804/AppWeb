@@ -204,3 +204,10 @@ Route::get('/listaClientes', 'AdminController@listaCliente')
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/customer/print-pdf', [ 'as' => 'customer.printpdf', 'uses' => 'CustomerController@printPDF']);
+
+// Route::get('/print-pdf', function() {
+// 	return view('Admin.pdf_view');
+// });
+	
