@@ -28,8 +28,11 @@
         <div class="modal-body">
             <p>{{Session::get('flash_ExitoReparacion')}}</p>
         </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color: #ff4000; border-color: white;">Aceptar</button>
+        <div class="p-3" style="display: inline-block; border-top: 1px solid #e9ecef;border-radius: 0px 0px 15px 15px;">
+            <div style="float: left;">
+                    <a  class="mt-1" href="{{route('customer.printpdf',['id'=>session('idReparacion')])}}" target="_blank">Generar comprobante</a>
+             </div>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color: #ff4000; border-color: white;float: right;">Aceptar</button>
         </div>
         </div>
     </div>

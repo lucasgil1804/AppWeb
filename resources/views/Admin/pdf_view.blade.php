@@ -10,17 +10,18 @@
 			<img src="img/logo.png" alt="QuickFix" />
 		</div>
 		<div style="display: inline-block; margin-bottom: 15px;">
-			<p><b>Cliente:</b> Juan Carlos Meza</p>
-			<p><b>DNI:</b> 38308485</p>
+			<p><b>Cliente:</b> {{$cliente}}</p>
+			<p><b>DNI:</b> {{$dni}}</p>
 		</div>
 		<div style="display: inline-block; float: right; margin-bottom: 15px;">
-			<p><b>Fecha Ingreso:</b> 05/03/2020</p>
-			<p><b>Equipo:</b> ASUS-G10</p>
+			<p><b>Fecha Ingreso:</b> {{date("d/m/Y",strtotime($fecha))}}</p>
+			<p><b>Equipo:</b> {{$marca}}-{{$modelo}}</p>
 		</div>
 		<br>
 		<div align="center" style="border: 1px solid #000;">
-			<p><b>Código de Seguimiento:</b> 38308485/01</p>
+			<p><b>Código de Seguimiento:</b> {{$dni}}/{{$id}}</p>
 		</div>
+		<p align="center" style="font-size: 10px;margin-top:0px; ">(*) Con este código podrá consultar el estado de su equipo en nuestro sitio web.</p>
 	</div>
 </body>
 
