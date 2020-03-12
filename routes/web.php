@@ -205,7 +205,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/customer/print-pdf', [ 'as' => 'customer.printpdf', 'uses' => 'CustomerController@printPDF']);
+Route::get('/customer/print-pdf/{id}', [ 'as' => 'customer.printpdf', 'uses' => 'CustomerController@printPDF'])
+	->where('id', '[0-9]+');
 
 // Route::get('/print-pdf', function() {
 // 	return view('Admin.pdf_view');

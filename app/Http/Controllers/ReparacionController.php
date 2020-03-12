@@ -162,8 +162,14 @@ class ReparacionController extends Controller
         }
         
         Session::flash('flash_ExitoReparacion', 'La reparación se guardó correctamente.');
+
+
         
+         $idReparacion=$reparacion->id_reparacion;
+         session(['idReparacion' => $idReparacion]);
         return redirect()->route('adminNuevaReparacion');
+        
+        // return view('Admin.agregarReparacion',compact('idReparacion'));
        
     }
 
