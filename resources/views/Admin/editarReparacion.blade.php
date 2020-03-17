@@ -43,7 +43,7 @@
 
                 <!-- LINK PARA GENERAR PDF -->
                 <div align="right">
-                    <a href="{{route('customer.printpdf',['id'=>$id_reparacio])}}" target="_blank">Generar comprobante</a>
+                    <a href="{{route('customer.printpdf',['id'=>$reparacion->id_reparacion])}}" target="_blank">Generar comprobante</a>
                 </div>
                 <!-- LINK PARA GENERAR PDF -->
 
