@@ -208,6 +208,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/customer/print-pdf/{id}', [ 'as' => 'customer.printpdf', 'uses' => 'CustomerController@printPDF'])
 	->where('id', '[0-9]+');
 
+// Route::get('/customer/pdf-factura/{id}', [ 'as' => 'customer.printpdf', 'uses' => 'CustomerController@printFacturaPDF'])
+// 	->where('id', '[0-9]+');
+
+Route::get('/customer/pdf-factura/{id}', 'CustomerController@printFacturaPDF')
+	->where('id', '[0-9]+')
+	->name('adminFacturaPDF');
+
 // Route::get('/print-pdf', function() {
 // 	return view('Admin.pdf_view');
 // });
