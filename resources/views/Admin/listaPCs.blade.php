@@ -88,6 +88,13 @@
                             </button>
                         @endif
 
+                        @if ($reparacion->deleted_at == null && $reparacion->id_estado == 3)
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Ver Factura">
+                                <a href="{{ route('adminFacturaPDF', ['id' => $reparacion->id_reparacion]) }}" target="_blank">
+                                <i class="zmdi zmdi-file-text" style="color: grey;"></i></a>
+                            </button>
+                        @endif
+
                     </div>
                 </td>
                 <!-- Fin Campo Accion -->

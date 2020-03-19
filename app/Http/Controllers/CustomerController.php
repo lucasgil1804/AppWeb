@@ -31,15 +31,18 @@ class CustomerController extends Controller
     public function printFacturaPDF($id)
     {
     	$reparacion = Reparacion::find($id);
-    	//$detalles = $reparacion->detalles()->get();
+    	$detalles = $reparacion->detalles()->get();
   
     	$data = [
     				'cliente' => $reparacion->usuario->apeYNom(),
                     'id'    => $reparacion->id_reparacion,
     				'fecha' => $reparacion->fecha_ingreso,
+    				'fecha_egreso' => $reparacion->fecha_egreso,
                     'dni'   => $reparacion->usuario->dni,
     				'marca' => $reparacion->equipo->marca->descripcion,
-                    'modelo'=> $reparacion->equipo->modelo        
+                    'modelo'=> $reparacion->equipo->modelo,
+                    'total' => $reparacion->total,
+                    'detalles' => $detalles
             	];
         
         // $pdf = PDF::loadView('Admin.pdf_view', $data);

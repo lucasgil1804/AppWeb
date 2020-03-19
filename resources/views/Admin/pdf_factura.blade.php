@@ -18,6 +18,30 @@
 		clear: both;
 		display: table;
 	}
+
+	/*ESTILO TABLA*/
+	.tabla-factura{
+		width:100%;
+	}
+	td ,th, .tabla-factura{
+	 border: 2px double #000;
+	 margin: -23px -5px;
+	 margin-bottom: 5px;
+	 text-align: center;
+   	 border-collapse: collapse;
+   	 padding: 5px;
+	}
+	.total{
+		/*width: 78%;*/
+		/*margin: 0 -1% 0 0.7%;*/
+		border: 2px double #000;
+		padding: 10px;
+	}
+	th{
+		background-color: #999;
+		color: #fff;
+	}
+	/*ESTILO TABLA*/
 </style>
 
 <body>
@@ -30,9 +54,9 @@
 
 			<div class="box" style="margin-left: 1px; margin-bottom: 1px;">
 				<h1 style="margin-left: 10px;">FACTURA</h1>
-				<p style="margin-left: 10px;">N° 0001-00000597</p>
+				<p style="margin-left: 10px;">N° 0001-0000{{ $id }}</p>
 				<p style="margin-left: 10px;"><b>CUIT:</b> 30-38308485-8</p>
-				<p style="margin-left: 10px;">25/05/2100</p>
+				<p style="margin-left: 10px;">{{ date("d/m/Y",strtotime($fecha_egreso)) }}</p>
 			</div>
 		</div>
 
@@ -48,10 +72,28 @@
 		</div>
 
 		<br>
-		<div align="center" style="clear: both; border: 1px solid #000;">
-			<p><b>Código de Seguimiento:</b> {{$dni}}/{{$id}}</p>
-		</div>
-		<p align="center" style="font-size: 10px;margin-top:0px; ">(*) Con este código podrá consultar el estado de su equipo en nuestro sitio web.</p>
+
+		<table class="tabla-factura">
+			<tr>
+		    	<th>Descripción</th>
+
+		    	<th>Observacion</th>
+
+		    	<th>Costo</th>
+			</tr>
+
+			@foreach ($detalles as $detalle)
+				<tr>
+	    			<td>{{ $detalle->problema->descripcion }}</td>
+
+	    			<td>{{ $detalle->observacion }}</td>
+
+	   				<td>$ {{ $detalle->costo }}</td>
+				</tr>
+			@endforeach
+		</table>
+
+	<div class="total" align="right"><b>Total:</b> $ {{ $total }} </div>
 	
 </body>
 
