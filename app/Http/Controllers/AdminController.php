@@ -26,32 +26,42 @@ class AdminController extends Controller
 
     public function listaEmpleado()
     {
-        if (Auth::user()->id_tipoUsuario == 1) {
-            $empleados=tipoUsuario::find(2);
+        // if (Auth::user()->id_tipoUsuario == 1) {
+        //     $empleados=tipoUsuario::find(2);
 
-            $listaEmpleados = $empleados->users()->withTrashed()->get();
+        //     $listaEmpleados = $empleados->users()->withTrashed()->get();
 
-            return view('Admin.listaEmpleados', compact('listaEmpleados'));
-        }
-        else{
-            // $users=User::withTrashed()->get();
-            // return view('Admin.index', compact('users'));
-            return redirect()->route('adminIndex');
-            }
+        //     return view('Admin.listaEmpleados', compact('listaEmpleados'));
+        // }
+        // else{
+        //     // $users=User::withTrashed()->get();
+        //     // return view('Admin.index', compact('users'));
+        //     return redirect()->route('adminIndex');
+        //     }
+        $empleados=tipoUsuario::find(2);
+
+        $listaEmpleados = $empleados->users()->withTrashed()->get();
+
+        return view('Admin.listaEmpleados', compact('listaEmpleados'));
     }
 
     public function listaTecnico()
     {
-       if (Auth::user()->id_tipoUsuario == 1) {
+      //  if (Auth::user()->id_tipoUsuario == 1) {
+      //   $tecnicos=tipoUsuario::find(3);
+
+      //   $listaTecnicos = $tecnicos->users()->withTrashed()->get();
+
+      //   return view('Admin.listaTecnicos', compact('listaTecnicos'));
+      //   }
+      // else{
+      //   return redirect()->route('adminIndex');
+      // }
         $tecnicos=tipoUsuario::find(3);
 
         $listaTecnicos = $tecnicos->users()->withTrashed()->get();
 
         return view('Admin.listaTecnicos', compact('listaTecnicos'));
-        }
-      else{
-        return redirect()->route('adminIndex');
-      }
     }
 
     public function listaCliente()
