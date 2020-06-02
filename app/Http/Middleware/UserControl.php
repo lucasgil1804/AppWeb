@@ -13,8 +13,11 @@ class UserControl
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, $role)
     {
+        if (! $request->user()->hasRole($role)) {
+             return redirect('login');
+        }
         return $next($request);
     }
 }

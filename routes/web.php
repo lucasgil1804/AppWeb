@@ -159,6 +159,9 @@ Route::put('/updateReparacion/{reparacion}', 'ReparacionController@updateReparac
 Route::get('/index', 'AdminController@index')
 	->name('adminIndex');
 
+// Route::get('/index', 'AdminController@index')
+// 	->name('adminIndex')->middleware('role:Administrador');
+
 // Route::get('/listaUsuario', 'AdminController@listaUsuario')
 // 	->name('adminListaUsuario');
 
