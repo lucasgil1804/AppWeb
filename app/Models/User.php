@@ -51,4 +51,14 @@ class User extends Authenticatable
         $apeYNom = $this->apellido.", ".$this->nombre;
         return $apeYNom;
     }
+
+    public function hasRole($role)
+    {
+        if($this->tipoUsuario->descripcion == $role){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }
