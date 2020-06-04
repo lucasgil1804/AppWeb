@@ -52,9 +52,10 @@ class User extends Authenticatable
         return $apeYNom;
     }
 
-    public function hasRole($role)
+    public function hasRole($idRole)
     {
-        if($this->tipoUsuario->descripcion == $role){
+        // dd($role);
+        if($this->tipoUsuario->id_tipoUsuario <= $idRole){
             return true;
         }
         else{

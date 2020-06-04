@@ -72,7 +72,7 @@ Route::get('/altaReparacion/{id}', 'ReparacionController@altaReparacion')
 
 Route::get('/nuevaReparacion', 'ReparacionController@nuevaReparacion')
 	->name('adminNuevaReparacion')
-	->middleware('auth');
+	->middleware('auth','role: 2');
 
 Route::get('/editarReparacion/{reparacion}', 'ReparacionController@EditarReparacion')
 	->name('adminEditarReparacion')
@@ -167,43 +167,52 @@ Route::get('/index', 'AdminController@index')
 
 Route::get('/nuevoUsuario/{tipoUser}', 'AdminController@nuevoUsuario')
     ->where('tipoUser', '[2-4]')
-	->name('adminNuevoUsuario');
+	->name('adminNuevoUsuario')
+	->middleware('role: 2');
 
 Route::post('/nuevoUsuario', 'AdminController@store');
 
-Route::get('/prueba', 'MyController@pruebaForm')
-	->name('prueba');
+// Route::get('/prueba', 'MyController@pruebaForm')
+// 	->name('prueba');
 
 Route::get('/verDetalle/{id}', 'AdminController@detalles')
 //Route::get('/verDetalle', 'AdminController@detalles')	
     ->where('id', '[0-9]+')
-    ->name('adminVerDetalle');
+    ->name('adminVerDetalle')
+    ->middleware('role: 2');
 
 Route::get('/editarUsuario/{user}', 'AdminController@editar')
 //Route::get('/verDetalle', 'AdminController@detalles')	
     ->where('user', '[0-9]+')
-    ->name('adminEditarUsuario');
+    ->name('adminEditarUsuario')
+    ->middleware('role: 2');
 
 Route::put('/editarUsuario/{user}', 'AdminController@update')
 	->where('user', '[0-9]+')
-	->name('adminUpdateUser');
+	->name('adminUpdateUser')
+	->middleware('role: 2');
 
 Route::get('/bajaUsuario/{user}', 'AdminController@bajaUsuario')
 	->where('user', '[0-9]+')
-	->name('adminBajaUsuario');
+	->name('adminBajaUsuario')
+	->middleware('role: 2');
 
 Route::get('/altaUsuario/{id}', 'AdminController@altaUsuario')
 	->where('id', '[0-9]+')
-	->name('adminAltaUsuario');
+	->name('adminAltaUsuario')
+	->middleware('role: 2');
 
 Route::get('/listaEmpleados', 'AdminController@listaEmpleado')
-	->name('adminListaEmpleados')->middleware('role:Administrador');
+	->name('adminListaEmpleados')
+	->middleware('role: 1');
 
 Route::get('/listaTecnicos', 'AdminController@listaTecnico')
-	->name('adminListaTecnicos');
+	->name('adminListaTecnicos')
+	->middleware('role: 1');
 
 Route::get('/listaClientes', 'AdminController@listaCliente')
-	->name('adminListaClientes');
+	->name('adminListaClientes')
+	->middleware('role: 2');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
