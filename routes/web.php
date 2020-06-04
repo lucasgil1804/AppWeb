@@ -160,7 +160,7 @@ Route::get('/index', 'AdminController@index')
 	->name('adminIndex');
 
 // Route::get('/index', 'AdminController@index')
-// 	->name('adminIndex')->middleware('role:Administrador');
+// 	->name('adminIndex')->middleware('auth','role:Administrador');
 
 // Route::get('/listaUsuario', 'AdminController@listaUsuario')
 // 	->name('adminListaUsuario');
@@ -197,7 +197,7 @@ Route::get('/altaUsuario/{id}', 'AdminController@altaUsuario')
 	->name('adminAltaUsuario');
 
 Route::get('/listaEmpleados', 'AdminController@listaEmpleado')
-	->name('adminListaEmpleados');
+	->name('adminListaEmpleados')->middleware('role:Administrador');
 
 Route::get('/listaTecnicos', 'AdminController@listaTecnico')
 	->name('adminListaTecnicos');
