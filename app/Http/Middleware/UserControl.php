@@ -13,9 +13,9 @@ class UserControl
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next, $role)
+    public function handle($request, Closure $next, $idRole)
     {
-        if (! $request->user()->hasRole($role)) {
+        if (! $request->user()->hasRole($idRole)) {
             return redirect('index');
         }
         return $next($request);
