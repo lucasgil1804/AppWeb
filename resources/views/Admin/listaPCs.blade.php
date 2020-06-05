@@ -74,21 +74,33 @@
                                 <a href="{{ route('adminEditarReparacion', ['id' => $reparacion->id_reparacion]) }}">
                                 <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
                             </button>
-                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
-                                <a href="#" data-href="{{route('adminBajaReparacion',['id' => $reparacion->id_reparacion])}} " data-toggle="modal" data-target="#deleteModal">
-                                <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
-                            </button>
+                            @if (Auth::user()->id_tipoUsuario == 3)
+                                <button class="item" data-toggle="tooltip" data-placement="top" title="Función no permitida">
+                                    <i class="zmdi zmdi-delete" style="color: grey;"></i>
+                                </button>
+                            @else
+                                <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                                    <a href="#" data-href="{{route('adminBajaReparacion',['id' => $reparacion->id_reparacion])}} " data-toggle="modal" data-target="#deleteModal">
+                                    <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
+                                </button>
+                            @endif
                         @else
                             <button class="item" data-toggle="tooltip" data-placement="top" title="No se permite editar">
                                 <i class="zmdi zmdi-edit" style="color: grey;"></i>
                             </button>
-                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Alta">
-                                <a href="#" data-href="{{route('adminAltaReparacion',['id' => $reparacion->id_reparacion])}} " data-toggle="modal" data-target="#upModal">
-                                <i class="zmdi zmdi-plus" style="color: grey;"></i></a>
-                            </button>
+                            @if (Auth::user()->id_tipoUsuario == 3)
+                                <button class="item" data-toggle="tooltip" data-placement="top" title="Función no permitida">
+                                    <i class="zmdi zmdi-plus" style="color: grey;"></i>
+                                </button>
+                            @else
+                                <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Alta">
+                                    <a href="#" data-href="{{route('adminAltaReparacion',['id' => $reparacion->id_reparacion])}} " data-toggle="modal" data-target="#upModal">
+                                    <i class="zmdi zmdi-plus" style="color: grey;"></i></a>
+                                </button>
+                            @endif
                         @endif
 
-                        @if ($reparacion->deleted_at == null && $reparacion->id_estado == 3)
+                        @if ($reparacion->deleted_at == null && $reparacion->id_estado == 3 && Auth::user()->id_tipoUsuario != 3)
                             <button class="item" data-toggle="tooltip" data-placement="top" title="Ver Factura">
                                 <a href="{{ route('adminFacturaPDF', ['id' => $reparacion->id_reparacion]) }}" target="_blank">
                                 <i class="zmdi zmdi-file-text" style="color: grey;"></i></a>
