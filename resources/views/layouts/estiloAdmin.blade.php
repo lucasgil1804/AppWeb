@@ -68,25 +68,55 @@
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-users"></i>Usuarios</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="{{ route('adminListaEmpleados') }}">
-                                        <i class="fas fa-user"></i>Empleados</a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('adminListaTecnicos') }}">
-                                        <i class="fas fa-briefcase"></i>Técnicos</a>
-                                </li>
-                                <li>
-                                    <a href="{{ route ('adminListaClientes') }}">
-                                        <i class="fas fa-male"></i>Clientes</a>
-                                </li>
+                                @if (Auth::user()->id_tipoUsuario == 3)
+                                    <li>
+                                        <a class="btn disabled" style="text-align: left;" href="{{ route('adminListaEmpleados') }}">
+                                            <i class="fas fa-user"></i>Empleados</a>
+                                    </li>
+                                    <li>
+                                        <a class="btn disabled" style="text-align: left;" href="{{ route('adminListaTecnicos') }}">
+                                            <i class="fas fa-briefcase"></i>Técnicos</a>
+                                    </li>
+                                    <li>
+                                        <a class="btn disabled" style="text-align: left;" href="{{ route ('adminListaClientes') }}">
+                                            <i class="fas fa-male"></i>Clientes</a>
+                                    </li>
+
+                                @elseif (Auth::user()->id_tipoUsuario == 2)
+                                    <li>
+                                        <a class="btn disabled" style="text-align: left;" href="{{ route('adminListaEmpleados') }}">
+                                            <i class="fas fa-user"></i>Empleados</a>
+                                    </li>
+                                    <li>
+                                        <a class="btn disabled" style="text-align: left;" href="{{ route('adminListaTecnicos') }}">
+                                            <i class="fas fa-briefcase"></i>Técnicos</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route ('adminListaClientes') }}">
+                                            <i class="fas fa-male"></i>Clientes</a>
+                                    </li>
+
+                                @else
+                                    <li>
+                                        <a href="{{ route('adminListaEmpleados') }}">
+                                            <i class="fas fa-user"></i>Empleados</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('adminListaTecnicos') }}">
+                                            <i class="fas fa-briefcase"></i>Técnicos</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route ('adminListaClientes') }}">
+                                            <i class="fas fa-male"></i>Clientes</a>
+                                    </li>
+                                @endif
                             </ul>
                         </li>
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-wrench"></i>Reparaciones</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
+                                <!-- <li>
                                     <a href="{{ route ('adminNuevaReparacion') }}">
                                         <i class="fas fa-plus"></i>Nueva Reparación</a>
                                 </li>
@@ -97,13 +127,49 @@
                                 <li>
                                     <a href="{{ route ('listaNotebooks') }}">
                                         <i class="fas fa-laptop"></i>Notebooks</a>
-                                </li>
+                                </li> -->
+                                @if (Auth::user()->id_tipoUsuario == 3)
+                                    <li>
+                                        <a class="btn disabled" style="text-align: left;" href="{{ route ('adminNuevaReparacion') }}">
+                                            <i class="fas fa-plus"></i>Nueva Reparación</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route ('listaPCs') }}">
+                                            <i class="fas fa-desktop"></i>PCs Escritorio</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route ('listaNotebooks') }}">
+                                            <i class="fas fa-laptop"></i>Notebooks</a>
+                                    </li>
+                                    
+                                @else
+                                    <li>
+                                        <a href="{{ route ('adminNuevaReparacion') }}">
+                                            <i class="fas fa-plus"></i>Nueva Reparación</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route ('listaPCs') }}">
+                                            <i class="fas fa-desktop"></i>PCs Escritorio</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route ('listaNotebooks') }}">
+                                            <i class="fas fa-laptop"></i>Notebooks</a>
+                                    </li>
+                                @endif
                             </ul>
                         </li>
-                        <li>
-                            <a href="chart.html">
-                                <i class="fas fa-chart-bar"></i>Reportes</a>
-                        </li>
+                        @if (Auth::user()->id_tipoUsuario == 1)
+                            <li>
+                                <a href="chart.html">
+                                    <i class="fas fa-chart-bar"></i>Reportes</a>
+                            </li>
+
+                        @else
+                            <li>
+                                <a class="btn disabled" style="text-align: left;" href="chart.html">
+                                    <i class="fas fa-chart-bar"></i>Reportes</a>
+                            </li>
+                        @endif
                     </ul>
                 </div>
             </nav>
@@ -124,7 +190,7 @@
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-users"></i>Usuarios</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
+                                <!-- <li>
                                     <a href="{{ route('adminListaEmpleados') }}">
                                         <i class="fas fa-user"></i>Empleados</a>
                                 </li>
@@ -135,31 +201,97 @@
                                 <li>
                                     <a href="{{ route ('adminListaClientes') }}">
                                         <i class="fas fa-male"></i>Clientes</a>
-                                </li>
+                                </li> -->
+                                @if (Auth::user()->id_tipoUsuario == 3)
+                                    <li>
+                                        <a class="btn disabled" style="text-align: left;" href="{{ route('adminListaEmpleados') }}">
+                                            <i class="fas fa-user"></i>Empleados</a>
+                                    </li>
+                                    <li>
+                                        <a class="btn disabled" style="text-align: left;" href="{{ route('adminListaTecnicos') }}">
+                                            <i class="fas fa-briefcase"></i>Técnicos</a>
+                                    </li>
+                                    <li>
+                                        <a class="btn disabled" style="text-align: left;" href="{{ route ('adminListaClientes') }}">
+                                            <i class="fas fa-male"></i>Clientes</a>
+                                    </li>
+
+                                @elseif (Auth::user()->id_tipoUsuario == 2)
+                                    <li>
+                                        <a class="btn disabled" style="text-align: left;" href="{{ route('adminListaEmpleados') }}">
+                                            <i class="fas fa-user"></i>Empleados</a>
+                                    </li>
+                                    <li>
+                                        <a class="btn disabled" style="text-align: left;" href="{{ route('adminListaTecnicos') }}">
+                                            <i class="fas fa-briefcase"></i>Técnicos</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route ('adminListaClientes') }}">
+                                            <i class="fas fa-male"></i>Clientes</a>
+                                    </li>
+
+                                @else
+                                    <li>
+                                        <a href="{{ route('adminListaEmpleados') }}">
+                                            <i class="fas fa-user"></i>Empleados</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('adminListaTecnicos') }}">
+                                            <i class="fas fa-briefcase"></i>Técnicos</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route ('adminListaClientes') }}">
+                                            <i class="fas fa-male"></i>Clientes</a>
+                                    </li>
+                                @endif
                             </ul>
                         </li>
                         <li class="active has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-wrench"></i>Reparaciones</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="{{ route ('adminNuevaReparacion') }}">
-                                        <i class="fas fa-plus"></i>Nueva Reparación</a>
-                                </li>
-                                <li>
-                                    <a href="{{ route ('listaPCs') }}">
-                                        <i class="fas fa-desktop"></i>PCs Escritorio</a>
-                                </li>
-                                <li>
-                                    <a href="{{ route ('listaNotebooks') }}">
-                                        <i class="fas fa-laptop"></i>Notebooks</a>
-                                </li>
+                                @if (Auth::user()->id_tipoUsuario == 3)
+                                    <li>
+                                        <a class="btn disabled" style="text-align: left;" href="{{ route ('adminNuevaReparacion') }}">
+                                            <i class="fas fa-plus"></i>Nueva Reparación</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route ('listaPCs') }}">
+                                            <i class="fas fa-desktop"></i>PCs Escritorio</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route ('listaNotebooks') }}">
+                                            <i class="fas fa-laptop"></i>Notebooks</a>
+                                    </li>
+
+                                @else
+                                    <li>
+                                        <a href="{{ route ('adminNuevaReparacion') }}">
+                                            <i class="fas fa-plus"></i>Nueva Reparación</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route ('listaPCs') }}">
+                                            <i class="fas fa-desktop"></i>PCs Escritorio</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route ('listaNotebooks') }}">
+                                            <i class="fas fa-laptop"></i>Notebooks</a>
+                                    </li>
+                                @endif
                             </ul>
                         </li>
-                        <li>
-                            <a href="chart.html">
-                                <i class="fas fa-chart-bar"></i>Reportes</a>
-                        </li>
+                        @if (Auth::user()->id_tipoUsuario == 1)
+                            <li>
+                                <a href="chart.html">
+                                    <i class="fas fa-chart-bar"></i>Reportes</a>
+                            </li>
+                            
+                        @else
+                            <li>
+                                <a class="btn disabled" style="text-align: left;" href="chart.html">
+                                    <i class="fas fa-chart-bar"></i>Reportes</a>
+                            </li>
+                        @endif
                     </ul>
                 </nav>
             </div>
