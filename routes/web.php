@@ -231,3 +231,4 @@ Route::get('/customer/pdf-factura/{id}', 'CustomerController@printFacturaPDF')
 // 	return view('Admin.pdf_view');
 // });
 	
+Route::get('/pruebaReportes', 'ReportesController@reporteReparacion');
