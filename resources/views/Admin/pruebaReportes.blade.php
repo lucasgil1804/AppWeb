@@ -19,9 +19,13 @@
 
     $(function () { 
 
-        var data_click = <?php echo $click; ?>;
+        var data_listos = <?php echo $listos; ?>;
 
-        var data_viewer = <?php echo $viewer; ?>;
+        var data_pendientes = <?php echo $pendientes; ?>;
+
+        var data_meses = <?php echo $meses; ?>;
+
+        console.log(Object.values(data_meses));
 
     $('.container').highcharts({
 
@@ -39,7 +43,15 @@
 
         xAxis: {
 
-            categories: ['2013','2014','2015', '2016']
+            // categories: Object.values(data_meses)
+            // categories: [{
+
+            // 	name: 'Meses',
+
+            // 	data: data_meses
+
+            // }]
+            categories: ['Febrero', 'Marzo']
 
         },
 
@@ -47,7 +59,7 @@
 
             title: {
 
-                text: 'Rate'
+                text: 'Número de Reparaciones'
 
             }
 
@@ -55,15 +67,15 @@
 
         series: [{
 
-            name: 'Click',
+            name: 'Listos',
 
-            data: data_click
+            data: data_listos
 
         }, {
 
-            name: 'View',
+            name: 'Pendientes',
 
-            data: data_viewer
+            data: data_pendientes
 
         }]
 
