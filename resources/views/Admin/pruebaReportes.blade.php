@@ -25,7 +25,7 @@
 
         var data_meses = <?php echo $meses; ?>;
 
-        console.log(Object.values(data_meses));
+       // console.log(Object.values(data_meses));
 
     $('.container').highcharts({
 
@@ -37,7 +37,7 @@
 
         title: {
 
-            text: 'Yearly Website Ratio'
+            text: 'Estado de las Reparaciones por Mes'
 
         },
 
@@ -51,7 +51,7 @@
             // 	data: data_meses
 
             // }]
-            categories: ['Febrero', 'Marzo']
+            categories: data_meses
 
         },
 
