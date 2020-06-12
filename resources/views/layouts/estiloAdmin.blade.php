@@ -281,9 +281,19 @@
                             </ul>
                         </li>
                         @if (Auth::user()->id_tipoUsuario == 1)
-                            <li>
+                            <!-- <li>
                                 <a href="chart.html">
                                     <i class="fas fa-chart-bar"></i>Reportes</a>
+                            </li> -->
+                            <li class="active has-sub">
+                                <a class="js-arrow" href="#">
+                                    <i class="fas fa-chart-line"></i>Reportes</a>
+                                <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                    <li>
+                                        <a style="text-align: left;" href="{{ route ('adminReporteBarras') }}">
+                                            <i class="fas fa-chart-bar"></i>Barras</a>
+                                    </li>
+                                </ul>
                             </li>
                             
                         @else
