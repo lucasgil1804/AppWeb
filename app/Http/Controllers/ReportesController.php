@@ -23,18 +23,34 @@ class ReportesController extends Controller
     								from reparaciones
     								where (deleted_at IS NULL) and (id_estado = 3)
     								group by month(fecha_ingreso)');
+        
+        // $listos = DB::table('reparaciones')
+        //                     ->select(DB::Raw('count(*) as Reparaciones_listas'))
+        //                     ->where([
+        //                         ['deleted_at','=', null],
+        //                         ['id_estado', 3]
+        //                     ])
+        //                     ->groupBy(DB::raw('month(fecha_ingreso)'))
+        //                     ->get()->toArray();
+
+        $listos= array_column($listos, 'Reparaciones_listas');
+
 
     	$pendientes = DB::select('select count(*) as Reparaciones_pendientes
     								from reparaciones
     								where (deleted_at IS NULL) and (id_estado < 3)
     								group by month(fecha_ingreso)');
 
-    	$meses = DB::select('select distinct date_format(fecha_ingreso, "%M")
+    	$pendientes = array_column($pendientes, 'Reparaciones_pendientes');
+
+        $meses = DB::select('select distinct date_format(fecha_ingreso, "%M") as Meses
     							from reparaciones
     							where deleted_at IS NULL');
 
-    	$listos->toArray();
-    	dd($listos);
+        $meses = array_column($meses,'Meses');
+        //$meses->plunk('Meses');
+        
+    	// dd($listos);
     	// dd($meses);
 
     	return view('Admin.pruebaReportes')
