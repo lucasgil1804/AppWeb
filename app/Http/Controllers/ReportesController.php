@@ -10,7 +10,7 @@ class ReportesController extends Controller
 	// Este grafico muestra la cantidad de reparaciones listas y pendientes en el sistema
 	// y agrupados por mes de un año especifico.
 
-    public function reparacionesMes()
+    public function reparacionesMes($anio)
     {
     	// $usuarios = DB::select('select count(*) as Cantidad_usuarios
     	// 						from users
@@ -20,8 +20,8 @@ class ReportesController extends Controller
 
     	$this->listos = DB::select('select count(*) as Reparaciones_listas
     								from reparaciones
-    								where (deleted_at IS NULL) and (id_estado = 3)
-    								group by month(fecha_ingreso)');
+    								where (deleted_at IS NULL) and (id_estado = 3) and (year(fecha_ingreso) = ?)
+    								group by month(fecha_ingreso)', [$anio]);
 
         // $listos = DB::table('reparaciones')
         //                     ->select(DB::Raw('count(*) as Reparaciones_listas'))
@@ -37,8 +37,8 @@ class ReportesController extends Controller
 
     	$this->pendientes = DB::select('select count(*) as Reparaciones_pendientes
     								from reparaciones
-    								where (deleted_at IS NULL) and (id_estado < 3)
-    								group by month(fecha_ingreso)');
+    								where (deleted_at IS NULL) and (id_estado < 3) and (year(fecha_ingreso) = ?)
+    								group by month(fecha_ingreso)', [$anio]);
 
     	$this->pendientes = array_column($this->pendientes, 'Reparaciones_pendientes');
 
@@ -47,6 +47,18 @@ class ReportesController extends Controller
     							where deleted_at IS NULL');
 
         $this->meses = array_column($this->meses,'Meses');
+
+        $this->anios = DB::select('select distinct date_format(fecha_ingreso, "%Y") as Anios
+    							from reparaciones
+    							where deleted_at IS NULL');
+
+        $this->anios = array_column($this->anios,'Anios');
+
+        return view('Admin.reportesBarras')
+    		->with('listos',json_encode($this->listos,JSON_NUMERIC_CHECK))
+    		->with('pendientes',json_encode($this->pendientes,JSON_NUMERIC_CHECK))
+    		->with('meses',json_encode($this->meses))
+    		->with('anios', $this->anios);
 
     }
 
@@ -74,13 +86,14 @@ class ReportesController extends Controller
 
     public function mostrarBarras()
     {
-    	$this->reparacionesMes();
+    	$this->reparacionesMes('2020');
     	$this->reparacionesAnio();
 
     	return view('Admin.reportesBarras')
     		->with('listos',json_encode($this->listos,JSON_NUMERIC_CHECK))
     		->with('pendientes',json_encode($this->pendientes,JSON_NUMERIC_CHECK))
     		->with('meses',json_encode($this->meses))
+    		->with('anios', $this->anios)
     		->with('listosPC',json_encode($this->listosPC,JSON_NUMERIC_CHECK))
     		->with('listosNotebook',json_encode($this->listosNotebook,JSON_NUMERIC_CHECK));
     }
