@@ -233,3 +233,6 @@ Route::get('/customer/pdf-factura/{id}', 'CustomerController@printFacturaPDF')
 	
 Route::get('/reportesBarras', 'ReportesController@mostrarBarras')
 	->name('adminReporteBarras');
+
+Route::get('/reparacionesMes/{anio}', 'ReportesController@reparacionesMes')
+	->where('anio', '[0-9]+');

@@ -3,7 +3,16 @@
 
 @section('contenidoAdmin')
 
-<div id="barraMes" class="container"></div>
+<div class="container mx-3 bg-white pt-3">
+	<div class="mx-5">
+		<select id="anios" name="anioGrafico">
+			@foreach ($anios as $anio)
+				<option value="{{ $anio }}">{{ $anio }}</option>
+			@endforeach
+		</select>
+	</div>
+	<div id="barraMes" class="container"></div>
+</div>
 
 <div id="barraAnio" class="container mt-3"></div>
 
@@ -14,6 +23,23 @@
 @section('scripts')
 
 <script src="https://code.highcharts.com/highcharts.js"></script>
+
+<script type="text/javascript">
+	
+	$( "#anios" ).change(function() {
+    //validamos las fechass
+    var anio = $('#anios').val();
+    var ruta = "reparacionesMes/"+anio;
+    console.log(ruta);
+
+        $.ajax({
+        // url: "reparacionesMes/"+anio.value(),
+        url: ruta,
+        method: "GET"
+      })
+    });
+
+</script>
 
 <script type="text/javascript">
 
