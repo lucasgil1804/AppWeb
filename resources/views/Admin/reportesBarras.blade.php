@@ -3,7 +3,7 @@
 
 @section('contenidoAdmin')
 
-<div class="container mx-3 bg-white pt-3">
+<div class="mx-3 bg-white pt-3">
 	<div class="mx-5">
 		<select id="anios" name="anioGrafico">
 			@foreach ($anios as $anio)
@@ -30,13 +30,18 @@
     //validamos las fechass
     var anio = $('#anios').val();
     var ruta = "reparacionesMes/"+anio;
-    console.log(ruta);
-
-        $.ajax({
+      $.ajax({
         // url: "reparacionesMes/"+anio.value(),
         url: ruta,
         method: "GET"
-      })
+      }).done(function(data) {
+         //  //aqui esta la linea magica
+         // chart.series[0].setData();
+         console.log(data);
+         $('#barraMes').highcharts().series[0].setData(data[0])
+         $('#barraMes').highcharts().series[1].setData(data[1])
+         // $('#barraMes').highcharts().xAxis[0].update({categories: ['febrero','marzo']});  
+      });
     });
 
 </script>

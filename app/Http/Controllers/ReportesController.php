@@ -53,14 +53,19 @@ class ReportesController extends Controller
     							where deleted_at IS NULL');
 
         $this->anios = array_column($this->anios,'Anios');
+        
+       
 
-        return view('Admin.reportesBarras')
-    		->with('listos',json_encode($this->listos,JSON_NUMERIC_CHECK))
-    		->with('pendientes',json_encode($this->pendientes,JSON_NUMERIC_CHECK))
-    		->with('meses',json_encode($this->meses))
-    		->with('anios', $this->anios);
+
+        return [$this->listos,$this->pendientes];
+      //   return view('Admin.reportesBarras')
+    		// ->with('listos',json_encode($this->listos,JSON_NUMERIC_CHECK))
+    		// ->with('pendientes',json_encode($this->pendientes,JSON_NUMERIC_CHECK))
+    		// ->with('meses',json_encode($this->meses))
+    		// ->with('anios', $this->anios);
 
     }
+
 
     public function reparacionesAnio()
     {
@@ -86,7 +91,7 @@ class ReportesController extends Controller
 
     public function mostrarBarras()
     {
-    	$this->reparacionesMes('2020');
+    	$this->reparacionesMes('2019');
     	$this->reparacionesAnio();
 
     	return view('Admin.reportesBarras')
