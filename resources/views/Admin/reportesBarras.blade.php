@@ -50,11 +50,9 @@
 
     $(function () { 
 
-        var data_listos = <?php echo $listos; ?>;
+        var data_PC = <?php echo $PC; ?>;
 
-        var data_pendientes = <?php echo $pendientes; ?>;
-
-        var data_meses = <?php echo $meses; ?>;
+        var data_Notebook = <?php echo $Notebook; ?>;
 
        // console.log(Object.values(data_meses));
 
@@ -82,7 +80,8 @@
             // 	data: data_meses
 
             // }]
-            categories: data_meses
+            // categories: data_meses
+            categories: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre']
 
         },
 
@@ -98,15 +97,15 @@
 
         series: [{
 
-            name: 'Listos',
+            name: 'PC Escritorio',
 
-            data: data_listos
+            data: data_PC
 
         }, {
 
-            name: 'Pendientes',
+            name: 'Notebook',
 
-            data: data_pendientes
+            data: data_Notebook
 
         }]
 
