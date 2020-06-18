@@ -42,29 +42,41 @@ class ReportesController extends Controller
 
     	// $this->pendientes = array_column($this->pendientes, 'Reparaciones_pendientes');
 
-    	$this->PC = DB::select('select count(*) as ReparacionesPC_listas
+    	$consultaPC = DB::select('select month(R.fecha_egreso) as Mes, count(*) as Cantidad_Reparaciones
     								from reparaciones R inner join equipos E
     								on R.id_equipo = E.id_equipo
     								where (R.deleted_at IS NULL) and (R.id_estado = 3) and
     								(E.id_tipoEquipo = 1) and (year(R.fecha_egreso) = ?)
     								group by month(R.fecha_egreso)', [$anio]);
-    	// dd($this->PC);
+    	 
 
-    	$this->PC = array_column($this->PC, 'ReparacionesPC_listas');
-    	// dd($this->PC);
-    	$this->PC = ['0','1','0','0','0','1','0','0','0','0','0','0'];
+        $consultaPC = array_combine(array_column($consultaPC, 'Mes'),array_column($consultaPC, 'Cantidad_Reparaciones'));
+    	
+        $this->PC = ['0','0','0','0','0','0','0','0','0','0','0','0'];
 
+        foreach ($consultaPC as $mes => $cantidad) {
 
-    	$this->Notebook = DB::select('select count(*) as ReparacionesNotebook_listas
+            $this->PC[$mes-1] = $cantidad;
+
+        }
+
+    	$consultaNotebook = DB::select('select month(R.fecha_egreso) as Mes, count(*) as Cantidad_Reparaciones
     								from reparaciones R inner join equipos E
     								on R.id_equipo = E.id_equipo
     								where (R.deleted_at IS NULL) and (R.id_estado = 3) and
     								(E.id_tipoEquipo = 2) and (year(R.fecha_egreso) = ?)
     								group by month(R.fecha_egreso)', [$anio]);
 
-    	$this->Notebook = array_column($this->Notebook, 'ReparacionesNotebook_listas');
-    	// dd($this->Notebook);
-    	$this->Notebook = ['0','0','1','0','0','0','0','0','0','0','0','0'];
+        $consultaNotebook = array_combine(array_column($consultaNotebook, 'Mes'),array_column($consultaNotebook, 'Cantidad_Reparaciones'));
+        
+    	$this->Notebook = ['0','0','0','0','0','0','0','0','0','0','0','0'];
+
+        foreach ($consultaNotebook as $mes => $cantidad) {
+
+            $this->Notebook[$mes-1] = $cantidad;
+
+        }
+
 
         // $this->meses = DB::select('select distinct date_format(fecha_egreso, "%M") as Meses
     				// 			from reparaciones
@@ -110,15 +122,17 @@ class ReportesController extends Controller
 
     public function mostrarBarras()
     {
-    	$this->anios = DB::select('select distinct date_format(fecha_ingreso, "%Y") as Anios
+    	$this->anios = DB::select('select distinct date_format(fecha_egreso, "%Y") as Anios
     							from reparaciones
-    							where deleted_at IS NULL
-    							order by Anios desc');
+    							where deleted_at IS NULL and fecha_egreso IS NOT NULL
+    							order by Anios');
 
         $this->anios = array_column($this->anios,'Anios');
 
     	$this->reparacionesAnio();
     	$this->reparacionesMes(reset($this->anios));
+
+        //$this->reparacionesMes('2019');
     	// dd($this->anios);
 
 
