@@ -30,16 +30,20 @@
     //validamos las fechass
     var anio = $('#anios').val();
     var ruta = "reparacionesMes/"+anio;
+    console.log(ruta);
       $.ajax({
         // url: "reparacionesMes/"+anio.value(),
         url: ruta,
         method: "GET"
       }).done(function(data) {
-         //  //aqui esta la linea magica
-         // chart.series[0].setData();
-         console.log(data);
-         $('#barraMes').highcharts().series[0].setData(data[0])
-         $('#barraMes').highcharts().series[1].setData(data[1])
+          //aqui esta la linea magica
+          //chart.series[0].setData();
+          $('#barraMes').highcharts().series[0].setData()
+          $('#barraMes').highcharts().series[1].setData()
+        // $('#barraMes').highcharts().series[0].setData({})
+        // $('#barraMes').highcharts().series[1].setData({})
+        $('#barraMes').highcharts().series[0].setData(data[0],true)
+        $('#barraMes').highcharts().series[1].setData(data[1],true)
          // $('#barraMes').highcharts().xAxis[0].update({categories: ['febrero','marzo']});  
       });
     });
