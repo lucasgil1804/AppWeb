@@ -70,7 +70,7 @@
 
         title: {
 
-            text: 'Estado de las Reparaciones por Mes'
+            text: 'Cantidad de Reparaciones por Mes'
 
         },
 
@@ -127,6 +127,8 @@
 
         var data_listosNotebook = <?php echo $listosNotebook; ?>;
 
+        var data_anios = <?php echo $aniosgrafico; ?>;
+
        // console.log(Object.values(data_meses));
 
     $('#barraAnio').highcharts({
@@ -139,7 +141,7 @@
 
         title: {
 
-            text: 'Estado de las Reparaciones por Año'
+            text: 'Cantidad de Reparaciones por Año'
 
         },
 
@@ -153,7 +155,7 @@
             // 	data: data_meses
 
             // }]
-            categories: ['2020']
+            categories: data_anios
 
         },
 

@@ -85,7 +85,7 @@
 <script>
     function Cancelar(){
      // $('#formularioCliente').hide();
-      var ruta="http://localhost:8000/tablaCliente";
+      var ruta="tablaCliente";
       $.ajax({
             type: "GET",
             url: ruta,

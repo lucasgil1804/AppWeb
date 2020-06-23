@@ -100,24 +100,26 @@ class ReportesController extends Controller
 
     public function reparacionesAnio()
     {
-    	$this->listosPC = DB::select('select count(*) as ReparacionesPC_listas
+        $this->listosPC = DB::select('select count(*) as ReparacionesPC_listas
     								from reparaciones R inner join equipos E
     								on R.id_equipo = E.id_equipo
     								where (R.deleted_at IS NULL) and (R.id_estado = 3) and
     								(E.id_tipoEquipo = 1)
-    								group by year(fecha_ingreso)');
+                                    group by year(fecha_egreso)');
 
-    	$this->listosPC = array_column($this->listosPC, 'ReparacionesPC_listas');
+        $this->listosPC = array_column($this->listosPC, 'ReparacionesPC_listas');
+        
 
-
-    	$this->listosNotebook = DB::select('select count(*) as ReparacionesNotebook_listas
+        $this->listosNotebook = DB::select('select count(*) as ReparacionesNotebook_listas
     								from reparaciones R inner join equipos E
     								on R.id_equipo = E.id_equipo
     								where (R.deleted_at IS NULL) and (R.id_estado = 3) and
     								(E.id_tipoEquipo = 2)
-    								group by year(fecha_ingreso)');
-
+    								group by year(fecha_egreso)
+                                    order by year(fecha_egreso)');
+ 
     	$this->listosNotebook = array_column($this->listosNotebook, 'ReparacionesNotebook_listas');
+
     }
 
     public function mostrarBarras()
@@ -125,22 +127,25 @@ class ReportesController extends Controller
     	$this->anios = DB::select('select distinct date_format(fecha_egreso, "%Y") as Anios
     							from reparaciones
     							where deleted_at IS NULL and fecha_egreso IS NOT NULL
-    							order by Anios');
+    							order by Anios Desc');
 
         $this->anios = array_column($this->anios,'Anios');
+
+        $aniosgrafico = array_reverse($this->anios);
 
     	$this->reparacionesAnio();
     	$this->reparacionesMes(reset($this->anios));
 
         //$this->reparacionesMes('2019');
-    	// dd($this->anios);
+    	 // dd($this->anios);
 
 
     	return view('Admin.reportesBarras')
     		->with('PC',json_encode($this->PC,JSON_NUMERIC_CHECK))
     		->with('Notebook',json_encode($this->Notebook,JSON_NUMERIC_CHECK))
     		// ->with('meses',json_encode($this->meses))
-    		->with('anios', $this->anios)
+            ->with('aniosgrafico',json_encode($aniosgrafico,JSON_NUMERIC_CHECK))
+    		->with('anios',$this->anios)
     		->with('listosPC',json_encode($this->listosPC,JSON_NUMERIC_CHECK))
     		->with('listosNotebook',json_encode($this->listosNotebook,JSON_NUMERIC_CHECK));
     }

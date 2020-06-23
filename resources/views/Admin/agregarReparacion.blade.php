@@ -211,7 +211,7 @@
 		// $('#cliente').html('<div id="cliente" class="loading"><img src="img/ajax-loader.gif" alt="loading" /><br/>Cargando...</div>');
 		//$('#cliente').show();
     $('#loading').show();
-		var ruta="http://localhost:8000/mostrarCliente/"+btn.value;
+		var ruta="mostrarCliente/"+btn.value;
 		$.ajax({
             type: "GET",
             url: ruta,
@@ -230,7 +230,7 @@
 		// $('#cliente').html('<div id="cliente" class="loading"><img src="img/ajax-loader.gif" alt="loading" /><br/>Cargando...</div>');
 		//$('#cliente').show();
     $('#loading2').show();
-		var ruta="http://localhost:8000/mostrarEquipo/"+btn.value;
+		var ruta="mostrarEquipo/"+btn.value;
 		$.ajax({
             type: "GET",
             url: ruta,
@@ -247,7 +247,7 @@
 
 	function NuevoCliente(){
 	$('#loading').show();
-		var ruta="http://localhost:8000/formularioCliente/4";
+		var ruta="formularioCliente/4";
 		$.ajax({
             type: "GET",
             url: ruta,
@@ -263,7 +263,7 @@
 
 	function NuevoEquipo(){
 	$('#loading2').show();
-		var ruta="http://localhost:8000/formularioEquipo";
+		var ruta="formularioEquipo";
 		$.ajax({
             type: "GET",
             url: ruta,
@@ -279,7 +279,7 @@
 
     function enDiagnostico(){
     $('#loading3').show();
-        var ruta="http://localhost:8000/enDiagnostico";
+        var ruta="enDiagnostico";
         $.ajax({
             type: "GET",
             url: ruta,
@@ -296,7 +296,7 @@
 
     function enReparacion(){
     $('#loading4').show();
-        var ruta="http://localhost:8000/enReparacion";
+        var ruta="enReparacion";
         $.ajax({
             type: "GET",
             url: ruta,
