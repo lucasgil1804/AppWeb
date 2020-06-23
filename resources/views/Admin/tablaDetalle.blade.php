@@ -78,7 +78,7 @@
   });
    function QuitarUltimo(){
     $('#loading4').show();
-        var ruta="http://localhost:8000/quitarUltimoDetalle";
+        var ruta="quitarUltimoDetalle";
         $.ajax({
             type: "GET",
             url: ruta,

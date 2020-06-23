@@ -74,7 +74,7 @@
 <script type="text/javascript">
     function guardarDetalle(){
     $('#loading4').show();
-        var ruta="http://localhost:8000/tablaDetalle";
+        var ruta="tablaDetalle";
         $.ajax({
             type: "GET",
             url: ruta,
@@ -92,7 +92,7 @@
 
     function NuevoDetalle(){
     $('#loading4').show();
-      var ruta="http://localhost:8000/enReparacion";
+      var ruta="enReparacion";
       $.ajax({
           type: "GET",
           url: ruta,

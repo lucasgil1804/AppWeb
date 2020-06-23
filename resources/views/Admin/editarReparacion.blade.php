@@ -191,7 +191,7 @@
 		// $('#cliente').html('<div id="cliente" class="loading"><img src="img/ajax-loader.gif" alt="loading" /><br/>Cargando...</div>');
 		//$('#cliente').show();
     $('#loading').show();
-		var ruta="http://localhost:8000/mostrarCliente/"+btn.value;
+		var ruta="mostrarCliente/"+btn.value;
 		$.ajax({
             type: "GET",
             url: ruta,
@@ -210,7 +210,7 @@
 		// $('#cliente').html('<div id="cliente" class="loading"><img src="img/ajax-loader.gif" alt="loading" /><br/>Cargando...</div>');
 		//$('#cliente').show();
     $('#loading2').show();
-		var ruta="http://localhost:8000/mostrarEquipo/"+btn.value;
+		var ruta="mostrarEquipo/"+btn.value;
 		$.ajax({
             type: "GET",
             url: ruta,
@@ -228,7 +228,7 @@
 
     function enDiagnostico(){
     $('#loading3').show();
-        var ruta="http://localhost:8000/enDiagnostico";
+        var ruta="enDiagnostico";
         $.ajax({
             type: "GET",
             url: ruta,
@@ -246,7 +246,7 @@
     function enReparacion(){
     $('#loading4').show();
     var IdReparacion=$('#IdReparacion').val();
-        var ruta="http://localhost:8000/agregarDetalle/"+IdReparacion;
+        var ruta="agregarDetalle/"+IdReparacion;
         $.ajax({
             type: "GET",
             url: ruta,

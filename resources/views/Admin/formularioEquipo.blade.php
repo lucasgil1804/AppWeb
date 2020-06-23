@@ -63,7 +63,7 @@
 <script>
     function Cancelar(){
       $('#formularioEquipo').hide();
-      var ruta="http://localhost:8000/tablaEquipo";
+      var ruta="tablaEquipo";
       $.ajax({
             type: "GET",
             url: ruta,
