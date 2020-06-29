@@ -149,4 +149,9 @@ class ReportesController extends Controller
     		->with('listosPC',json_encode($this->listosPC,JSON_NUMERIC_CHECK))
     		->with('listosNotebook',json_encode($this->listosNotebook,JSON_NUMERIC_CHECK));
     }
+
+    public function mostrarTorta()
+    {
+    	return view('Admin.reportesTorta');
+    }
 }

@@ -236,3 +236,5 @@ Route::get('/reportesBarras', 'ReportesController@mostrarBarras')
 
 Route::get('/reparacionesMes/{anio}', 'ReportesController@reparacionesMes')
 	->where('anio', '[0-9]+');
+
+Route::get('/reportesTorta', 'ReportesController@mostrarTorta');
