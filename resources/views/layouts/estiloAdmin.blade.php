@@ -162,6 +162,17 @@
                             <li>
                                 <a href="chart.html">
                                     <i class="fas fa-chart-bar"></i>Reportes</a>
+                                <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                    <li>
+                                        <a style="text-align: left;" href="{{ route ('adminReporteBarras') }}">
+                                            <i class="fas fa-chart-bar"></i>Barras</a>
+                                    </li>
+
+                                    <li>
+                                        <a style="text-align: left;" href="{{ route ('adminReporteTorta') }}">
+                                            <i class="fas fa-chart-pie"></i>Torta</a>
+                                    </li>
+                                </ul>
                             </li>
 
                         @else
@@ -292,6 +303,11 @@
                                     <li>
                                         <a style="text-align: left;" href="{{ route ('adminReporteBarras') }}">
                                             <i class="fas fa-chart-bar"></i>Barras</a>
+                                    </li>
+
+                                    <li>
+                                        <a style="text-align: left;" href="{{ route ('adminReporteTorta') }}">
+                                            <i class="fas fa-chart-pie"></i>Torta</a>
                                     </li>
                                 </ul>
                             </li>
