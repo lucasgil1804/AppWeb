@@ -149,9 +149,27 @@ class ReportesController extends Controller
     		->with('listosPC',json_encode($this->listosPC,JSON_NUMERIC_CHECK))
     		->with('listosNotebook',json_encode($this->listosNotebook,JSON_NUMERIC_CHECK));
     }
+    
+    public function problemasReparaciones()
+    {
+        $this->tiposProblemas = DB::select('select P.descripcion as descripcion, count(*) as  cantidad_problema
+                                    from detallereparaciones D inner join problemas P
+                                    on D.id_problema = P.id_problema
+                                    inner join reparaciones R 
+                                    on D.id_reparacion = R.id_reparacion                                    
+                                    where (R.deleted_at IS NULL)
+                                    group by P.descripcion
+                                    order by (cantidad_problema) Desc');
+
+
+    }
 
     public function mostrarTorta()
     {
-    	return view('Admin.reportesTorta');
+    	$this->problemasReparaciones();
+        dd($this->tiposProblemas);
+        return view('Admin.reportesTorta');
     }
+
+
 }

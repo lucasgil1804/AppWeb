@@ -2,6 +2,70 @@
 
 
 @section('contenidoAdmin')
+<div class="row mx-3">
+    <div class="col-12 col-sm-3" style="max-height: 100px;">
+        <div class="overview-item overview-item--c3">
+            <div class="overview__inner">
+                <div class="overview-box clearfix">
+                    <div class="icon">
+                        <i class="zmdi zmdi-account-o"></i>
+                    </div>
+                    <div class="text pb-3">
+                        <h2>1,086</h2>
+                        <span>Cantidad de clientes</span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-3">
+        <div class="overview-item overview-item--c3">
+            <div class="overview__inner">
+                <div class="overview-box clearfix">
+                    <div class="icon">
+                        <i class="zmdi zmdi-shopping-cart"></i>
+                    </div>
+                    <div class="text pb-3">
+                        <h2>1,086</h2>
+                        <span>Cantidad de reparaciones</span>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-3 h-5">
+        <div class="overview-item overview-item--c3">
+            <div class="overview__inner">
+                <div class="overview-box clearfix">
+                    <div class="icon">
+                        <i class="zmdi zmdi-money"></i>
+                    </div>
+                    <div class="text pb-3">
+                        <h2>1,086</h2>
+                        <span>Esta semana</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-3">
+        <div class="overview-item overview-item--c3">
+            <div class="overview__inner">
+                <div class="overview-box clearfix">
+                    <div class="icon">
+                        <i class="zmdi zmdi-calendar-note"></i>
+                    </div>
+                    <div class="text pb-3">
+                        <h2>1,086</h2>
+                        <span>Total ganancias</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="mx-3 bg-white pt-3">
 	<div class="mx-5">
