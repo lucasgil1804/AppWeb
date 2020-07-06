@@ -18,7 +18,9 @@
 
 <script type="text/javascript">
 	$(function () {
-	// Build the chart
+	var datos = <?php echo $consultaProblemas ?>;
+	var datosEstaticos = [{name:'Chrome', y:60.20, sliced:true}, {name:'Mozilla', y:49.80}];
+	console.log(datos);
 	$('#tortaReparaciones').highcharts({
 	    chart: {
 	        plotBackgroundColor: null,
@@ -27,7 +29,7 @@
 	        type: 'pie'
 	    },
 	    title: {
-	        text: 'Browser market shares in January, 2018'
+	        text: 'Historial de problemas'
 	    },
 	    tooltip: {
 	        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -50,27 +52,30 @@
 	    series: [{
 	        name: 'Brands',
 	        colorByPoint: true,
-	        data: [{
-	            name: 'Chrome',
-	            y: 61.41,
-	            sliced: true,
-	            selected: true
-	        }, {
-	            name: 'Internet Explorer',
-	            y: 11.84
-	        }, {
-	            name: 'Firefox',
-	            y: 10.85
-	        }, {
-	            name: 'Edge',
-	            y: 4.67
-	        }, {
-	            name: 'Safari',
-	            y: 4.18
-	        }, {
-	            name: 'Other',
-	            y: 7.05
-	        }]
+	        // data: [{
+	        //     name: 'Chrome',
+	        //     y: 61.41,
+	        //     sliced: true,
+	        //     selected: true
+	        // }, {
+	        //     name: 'Internet Explorer',
+	        //     y: 11.84
+	        // }, {
+	        //     name: 'Firefox',
+	        //     y: 10.85
+	        // }, {
+	        //     name: 'Edge',
+	        //     y: 4.67
+	        // }, {
+	        //     name: 'Safari',
+	        //     y: 4.18
+	        // }, {
+	        //     name: 'Other',
+	        //     y: 7.05
+	        // }]
+
+	        data: datos
+	        
 	    }]
 	});
 
