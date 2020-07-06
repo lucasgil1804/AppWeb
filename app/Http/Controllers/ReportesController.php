@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class ReportesController extends Controller
 {
@@ -152,23 +153,36 @@ class ReportesController extends Controller
     
     public function problemasReparaciones()
     {
-        $this->tiposProblemas = DB::select('select P.descripcion as descripcion, count(*) as  cantidad_problema
+        $consultaProblemas = DB::select('select P.descripcion as name, count(*) as y
                                     from detallereparaciones D inner join problemas P
                                     on D.id_problema = P.id_problema
                                     inner join reparaciones R 
                                     on D.id_reparacion = R.id_reparacion                                    
                                     where (R.deleted_at IS NULL)
                                     group by P.descripcion
-                                    order by (cantidad_problema) Desc');
+                                    order by (y) Desc');
 
+        // dd($consultaProblemas);
+        // $consultaProblemas = array_combine(array_column($consultaProblemas, 'name'),array_column($consultaProblemas, 'y'));
+        // dd($consultaProblemas);
 
+        $total = array_sum($consultaProblemas);
+
+        // foreach ($consultaProblemas as $descripcion => $cantidad) {
+
+        //     $consultaProblemas[$descripcion] = ($cantidad * 100)/$total;
+
+        // }
+
+        return $consultaProblemas;
     }
 
     public function mostrarTorta()
     {
-    	$this->problemasReparaciones();
-        dd($this->tiposProblemas);
-        return view('Admin.reportesTorta');
+    	$consultaProblemas = $this->problemasReparaciones();
+
+        return view('Admin.reportesTorta')
+        	->with('consultaProblemas',json_encode($consultaProblemas));
     }
 
 
