@@ -2,9 +2,10 @@
 
 @section('contenidoAdmin')
 
+@include('layouts.tableros')
 <div class="mx-3 bg-white pt-3">
-	<div class="mx-5">
-	</div>
+	<!-- <div class="mx-5">
+	</div> -->
 	<div id="tortaReparaciones" class="container"></div>
 </div>
 
@@ -20,6 +21,8 @@
 	$(function () {
 	var datos = <?php echo $consultaProblemas ?>;
 	var datosEstaticos = [{name:'Chrome', y:60.20, sliced:true}, {name:'Mozilla', y:49.80}];
+	datos[0].sliced = true;
+	datos[0].selected = true;
 	console.log(datos);
 	$('#tortaReparaciones').highcharts({
 	    chart: {
@@ -50,7 +53,7 @@
 	        }
 	    },
 	    series: [{
-	        name: 'Brands',
+	        name: 'Porcentaje',
 	        colorByPoint: true,
 	        // data: [{
 	        //     name: 'Chrome',
