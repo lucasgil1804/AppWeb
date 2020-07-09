@@ -161,7 +161,7 @@
                         @if (Auth::user()->id_tipoUsuario == 1)
                             <li>
                                 <a href="chart.html">
-                                    <i class="fas fa-chart-bar"></i>Reportes</a>
+                                    <i class="fas fa-chart-area"></i>Reportes</a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                                     <li>
                                         <a style="text-align: left;" href="{{ route ('adminReporteBarras') }}">
@@ -172,6 +172,11 @@
                                         <a style="text-align: left;" href="{{ route ('adminReporteTorta') }}">
                                             <i class="fas fa-chart-pie"></i>Torta</a>
                                     </li>
+                                    <li>
+                                        <a style="text-align: left;" href="{{ route ('adminReporteLinea') }}">
+                                            <i class="fas fa-chart-line"></i>Linea</a>
+                                    </li>
+
                                 </ul>
                             </li>
 
@@ -298,7 +303,7 @@
                             </li> -->
                             <li class="active has-sub">
                                 <a class="js-arrow" href="#">
-                                    <i class="fas fa-chart-line"></i>Reportes</a>
+                                    <i class="fas fa-chart-area"></i>Reportes</a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                                     <li>
                                         <a style="text-align: left;" href="{{ route ('adminReporteBarras') }}">
@@ -308,6 +313,11 @@
                                     <li>
                                         <a style="text-align: left;" href="{{ route ('adminReporteTorta') }}">
                                             <i class="fas fa-chart-pie"></i>Torta</a>
+                                    </li>
+
+                                    <li>
+                                        <a style="text-align: left;" href="{{ route ('adminReporteLinea') }}">
+                                            <i class="fas fa-chart-line"></i>Linea</a>
                                     </li>
                                 </ul>
                             </li>
