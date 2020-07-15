@@ -177,12 +177,64 @@ class ReportesController extends Controller
         return $consultaProblemas;
     }
 
+    public function ingresosMensuales()
+    {
+        $consultaPC = DB::select('select month(R.fecha_egreso) as Mes, sum(R.total) as Total
+                                    from reparaciones R inner join equipos E
+                                    on R.id_equipo = E.id_equipo
+                                    where (R.deleted_at IS NULL) and (R.id_estado = 3) and
+                                    (E.id_tipoEquipo = 1) and (year(R.fecha_egreso) = ?)
+                                    group by month(R.fecha_egreso)', ['2020']);
+
+
+        $consultaPC = array_combine(array_column($consultaPC, 'Mes'),array_column($consultaPC, 'Total'));
+        
+        $this->ingresosPC = ['0','0','0','0','0','0','0','0','0','0','0','0'];
+
+        foreach ($consultaPC as $mes => $cantidad) {
+
+            $this->ingresosPC[$mes-1] = $cantidad;
+
+        }
+        
+        $consultaNotebook = DB::select('select month(R.fecha_egreso) as Mes, sum(R.total) as Total
+                                    from reparaciones R inner join equipos E
+                                    on R.id_equipo = E.id_equipo
+                                    where (R.deleted_at IS NULL) and (R.id_estado = 3) and
+                                    (E.id_tipoEquipo = 2) and (year(R.fecha_egreso) = ?)
+                                    group by month(R.fecha_egreso)', ['2020']);
+
+        $consultaNotebook = array_combine(array_column($consultaNotebook, 'Mes'),array_column($consultaNotebook, 'Total'));
+        
+        $this->ingresosNotebook = ['0','0','0','0','0','0','0','0','0','0','0','0'];
+
+        foreach ($consultaNotebook as $mes => $cantidad) {
+
+            $this->ingresosNotebook[$mes-1] = $cantidad;
+
+        }
+
+        // return $this->ingresosPC;
+    }
+
     public function mostrarTorta()
     {
     	$consultaProblemas = $this->problemasReparaciones();
 
         return view('Admin.reportesTorta')
         	->with('consultaProblemas',json_encode($consultaProblemas));
+    }
+
+    public function mostrarLinea()
+    {
+        // $consultaProblemas = $this->problemasReparaciones();
+
+        $this->ingresosMensuales();
+
+        return view('Admin.reportesLinea')
+        ->with('ingresosPC',json_encode($this->ingresosPC,JSON_NUMERIC_CHECK))
+        ->with('ingresosNotebook',json_encode($this->ingresosNotebook,JSON_NUMERIC_CHECK));;
+            
     }
 
 

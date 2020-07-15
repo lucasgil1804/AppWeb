@@ -239,3 +239,6 @@ Route::get('/reparacionesMes/{anio}', 'ReportesController@reparacionesMes')
 
 Route::get('/reportesTorta', 'ReportesController@mostrarTorta')
 	->name('adminReporteTorta');
+
+Route::get('/reportesLinea', 'ReportesController@mostrarLinea')
+	->name('adminReporteLinea');	
