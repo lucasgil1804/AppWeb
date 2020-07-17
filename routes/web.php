@@ -241,4 +241,7 @@ Route::get('/reportesTorta', 'ReportesController@mostrarTorta')
 	->name('adminReporteTorta');
 
 Route::get('/reportesLinea', 'ReportesController@mostrarLinea')
-	->name('adminReporteLinea');	
+	->name('adminReporteLinea');
+
+Route::get('/ingresosMensuales/{anio}', 'ReportesController@ingresosMensuales')
+	->where('anio', '[0-9]+');

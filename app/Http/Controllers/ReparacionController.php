@@ -30,7 +30,7 @@ class ReparacionController extends Controller
             return redirect()->route('estadoEquipo');
         }
         
-    	$detalles = $reparacion->detalles()->withTrashed()->get();
+    	$detalles = $reparacion->detalles()->get();
     	return view('consultaEstado', compact('reparacion','detalles')); 
 
     }
