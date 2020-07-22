@@ -178,7 +178,7 @@
 
  function QuitarDetalle(btn){
     $('#loading4').show();
-        var ruta="bajaDetalle/"+btn.value;
+        var ruta="/bajaDetalle/"+btn.value;
         $.ajax({
             type: "GET",
             url: ruta,
@@ -194,7 +194,7 @@
     }
     function DetalleRealizado(btn){
        $('#loading4').show();
-        var ruta="updateCheck/"+btn.value;
+        var ruta="/updateCheck/"+btn.value;
         $.ajax({
             type: "GET",
             url: ruta,
@@ -211,7 +211,7 @@
 
   function NuevoDetalle(btn){
     $('#loading4').show();
-        var ruta="agregarDetalle/"+btn.value;
+        var ruta="/agregarDetalle/"+btn.value;
         $.ajax({
             type: "GET",
             url: ruta,
@@ -262,7 +262,7 @@
         var idObservacion = $('#observacion'+btn.value);
         var idCosto = $('#costo'+btn.value);
 
-        var ruta="guardarFila/"+btn.value;
+        var ruta="/guardarFila/"+btn.value;
         $.ajax({
             type: "GET",
             url: ruta,
