@@ -56,7 +56,7 @@
 <script type="text/javascript">
     function guardarDetalle(){
     $('#loading4').show();
-        var ruta="guardarDetalle";
+        var ruta="/guardarDetalle";
         $.ajax({
             type: "GET",
             url: ruta,
