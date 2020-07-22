@@ -6,9 +6,15 @@
 @include('layouts.tableros')
 
 <div class="mx-3 bg-white pt-3">
+    <div class="d-flex justify-content-end mr-2">
+        <select id="ingresoAnio" name="ingresoAnio">
+            @foreach ($anios as $anio)
+                <option value="{{ $anio }}">{{ $anio }}</option>
+            @endforeach
+        </select>
+    </div>
 
-	<div id="container"></div>
-
+    <div id="containerLinea" class="pr-3"></div>
 </div>
 
 @endsection
@@ -16,11 +22,22 @@
 @section('scripts')
 
 <script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<!-- <script src="https://code.highcharts.com/modules/series-label.js"></script> -->
 
 <script type="text/javascript">
 	var data_ingresosPC = <?php echo $ingresosPC; ?>;
 	var data_ingresosNotebook = <?php echo $ingresosNotebook; ?>;
-	Highcharts.chart('container', {
+	// Highcharts.chart('containerLinea', {
+
+    $('#containerLinea').highcharts({
+
+    chart: {
+        type: 'line'
+    },
+
     title: {
 
             text: 'Ingresos Mensuales'
@@ -46,6 +63,34 @@
         data: data_ingresosNotebook
     }]
 	});
+
+</script>
+
+<script type="text/javascript">
+    
+    $( "#ingresoAnio" ).change(function() {
+    //validamos las fechass
+    var anio = $('#ingresoAnio').val();
+    var ruta = "ingresosMensuales/"+anio;
+    console.log(ruta);
+      $.ajax({
+        // url: "reparacionesMes/"+anio.value(),
+        url: ruta,
+        method: "GET"
+      }).done(function(data) {
+          //aqui esta la linea magica
+          //chart.series[0].setData();
+        console.log(data)
+        $('#containerLinea').highcharts().series[0].setData()
+        $('#containerLinea').highcharts().series[1].setData()
+        // $('#barraMes').highcharts().series[0].setData({})
+        // $('#barraMes').highcharts().series[1].setData({})
+        $('#containerLinea').highcharts().series[0].setData(data[0],true)
+        $('#containerLinea').highcharts().series[1].setData(data[1],true)
+        // $('#containerLinea').highcharts().redraw()
+         // $('#barraMes').highcharts().xAxis[0].update({categories: ['febrero','marzo']});  
+      });
+    });
 
 </script>
 

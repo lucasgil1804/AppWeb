@@ -160,13 +160,14 @@ class ReportesController extends Controller
                                     on D.id_reparacion = R.id_reparacion                                    
                                     where (R.deleted_at IS NULL)
                                     group by P.descripcion
-                                    order by (y) Desc');
+                                    order by (y) Desc
+                                    limit 5');
 
         // dd($consultaProblemas);
         // $consultaProblemas = array_combine(array_column($consultaProblemas, 'name'),array_column($consultaProblemas, 'y'));
         // dd($consultaProblemas);
 
-        $total = array_sum($consultaProblemas);
+        // $total = array_sum($consultaProblemas);
 
         // foreach ($consultaProblemas as $descripcion => $cantidad) {
 
@@ -177,19 +178,36 @@ class ReportesController extends Controller
         return $consultaProblemas;
     }
 
-    public function ingresosMensuales()
+    public function marcasReparadas()
+    {
+    	$consultaMarcas = DB::select('select M.descripcion as name, count(*) as y
+                                    from Reparaciones R inner join Equipos E
+                                    on R.id_equipo = E.id_equipo
+                                    inner join Marcas M 
+                                    on M.id_marca = E.id_marca                                    
+                                    where (R.deleted_at IS NULL)
+                                    group by M.descripcion
+                                    order by (y) Desc
+                                    limit 5');
+
+    	return $consultaMarcas;
+    }
+
+    public function ingresosMensuales($anio)
     {
         $consultaPC = DB::select('select month(R.fecha_egreso) as Mes, sum(R.total) as Total
                                     from reparaciones R inner join equipos E
                                     on R.id_equipo = E.id_equipo
                                     where (R.deleted_at IS NULL) and (R.id_estado = 3) and
                                     (E.id_tipoEquipo = 1) and (year(R.fecha_egreso) = ?)
-                                    group by month(R.fecha_egreso)', ['2020']);
+                                    group by month(R.fecha_egreso)', [$anio]);
 
 
         $consultaPC = array_combine(array_column($consultaPC, 'Mes'),array_column($consultaPC, 'Total'));
         
-        $this->ingresosPC = ['0','0','0','0','0','0','0','0','0','0','0','0'];
+        // $this->ingresosPC = ['0','0','0','0','0','0','0','0','0','0','0','0'];
+
+        $this->ingresosPC = [0,0,0,0,0,0,0,0,0,0,0,0];
 
         foreach ($consultaPC as $mes => $cantidad) {
 
@@ -202,38 +220,53 @@ class ReportesController extends Controller
                                     on R.id_equipo = E.id_equipo
                                     where (R.deleted_at IS NULL) and (R.id_estado = 3) and
                                     (E.id_tipoEquipo = 2) and (year(R.fecha_egreso) = ?)
-                                    group by month(R.fecha_egreso)', ['2020']);
+                                    group by month(R.fecha_egreso)', [$anio]);
 
         $consultaNotebook = array_combine(array_column($consultaNotebook, 'Mes'),array_column($consultaNotebook, 'Total'));
         
-        $this->ingresosNotebook = ['0','0','0','0','0','0','0','0','0','0','0','0'];
+        $this->ingresosNotebook = [0,0,0,0,0,0,0,0,0,0,0,0];
 
         foreach ($consultaNotebook as $mes => $cantidad) {
 
             $this->ingresosNotebook[$mes-1] = $cantidad;
 
         }
+        // dd($this->ingresosPC);
 
-        // return $this->ingresosPC;
+        // return [json_encode($this->ingresosPC,JSON_NUMERIC_CHECK), json_encode($this->ingresosNotebook,JSON_NUMERIC_CHECK)];
+        return [$this->ingresosPC, $this->ingresosNotebook];
     }
 
     public function mostrarTorta()
     {
     	$consultaProblemas = $this->problemasReparaciones();
+    	$consultaMarcas = $this->marcasReparadas();
 
         return view('Admin.reportesTorta')
-        	->with('consultaProblemas',json_encode($consultaProblemas));
+        	->with('consultaProblemas',json_encode($consultaProblemas))
+        	->with('consultaMarcas',json_encode($consultaMarcas));
     }
 
     public function mostrarLinea()
     {
         // $consultaProblemas = $this->problemasReparaciones();
 
-        $this->ingresosMensuales();
+        $this->anios = DB::select('select distinct date_format(fecha_egreso, "%Y") as Anios
+    							from reparaciones
+    							where deleted_at IS NULL and fecha_egreso IS NOT NULL
+    							order by Anios Desc');
+
+        $this->anios = array_column($this->anios,'Anios');
+
+        $aniosgrafico = array_reverse($this->anios);
+
+        $this->ingresosMensuales(reset($this->anios));
 
         return view('Admin.reportesLinea')
+        ->with('aniosgrafico',json_encode($aniosgrafico,JSON_NUMERIC_CHECK))
+    	->with('anios',$this->anios)
         ->with('ingresosPC',json_encode($this->ingresosPC,JSON_NUMERIC_CHECK))
-        ->with('ingresosNotebook',json_encode($this->ingresosNotebook,JSON_NUMERIC_CHECK));;
+        ->with('ingresosNotebook',json_encode($this->ingresosNotebook,JSON_NUMERIC_CHECK));
             
     }
 
