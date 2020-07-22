@@ -237,6 +237,16 @@ class ReportesController extends Controller
         return [$this->ingresosPC, $this->ingresosNotebook];
     }
 
+    public function ingresosAnuales()
+    {
+    	$this->ingresoAnual = DB::select('select sum(total) as IngresoAnual
+    								from reparaciones
+    								where (deleted_at IS NULL) and (id_estado = 3)
+                                    group by year(fecha_egreso)');
+
+        $this->ingresoAnual = array_column($this->ingresoAnual, 'IngresoAnual');
+    }
+
     public function mostrarTorta()
     {
     	$consultaProblemas = $this->problemasReparaciones();
@@ -262,11 +272,14 @@ class ReportesController extends Controller
 
         $this->ingresosMensuales(reset($this->anios));
 
+        $this->ingresosAnuales();
+
         return view('Admin.reportesLinea')
         ->with('aniosgrafico',json_encode($aniosgrafico,JSON_NUMERIC_CHECK))
     	->with('anios',$this->anios)
         ->with('ingresosPC',json_encode($this->ingresosPC,JSON_NUMERIC_CHECK))
-        ->with('ingresosNotebook',json_encode($this->ingresosNotebook,JSON_NUMERIC_CHECK));
+        ->with('ingresosNotebook',json_encode($this->ingresosNotebook,JSON_NUMERIC_CHECK))
+        ->with('IngresoAnual',json_encode($this->ingresoAnual,JSON_NUMERIC_CHECK));
             
     }
 

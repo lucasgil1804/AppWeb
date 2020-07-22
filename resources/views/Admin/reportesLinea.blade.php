@@ -17,6 +17,8 @@
     <div id="containerLinea" class="pr-3"></div>
 </div>
 
+<div id="containerLineaAnio" class="mt-3 mx-3"></div>
+
 @endsection
 
 @section('scripts')
@@ -63,6 +65,41 @@
         data: data_ingresosNotebook
     }]
 	});
+
+</script>
+
+<script type="text/javascript">
+    var data_ingresoAnual = <?php echo $IngresoAnual; ?>;
+    var data_anios = <?php echo $aniosgrafico; ?>;
+
+    $('#containerLineaAnio').highcharts({
+
+    chart: {
+        type: 'line'
+    },
+
+    title: {
+
+            text: 'Ingresos Anuales'
+
+        },
+    xAxis: {
+        categories: data_anios
+    },
+
+    yAxis:{
+        title: {
+
+                text: 'Cantidad en Pesos'
+
+            }
+    },
+
+    series: [{
+        name:"Ingresos",
+        data: data_ingresoAnual
+    }]
+    });
 
 </script>
 
