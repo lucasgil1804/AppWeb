@@ -165,12 +165,20 @@
  <script type="text/javascript">
   $(document).ready(function(){
     //$('#loading4').hide();
-    var hasta = $('#totalIteracion').val() + 1;
+    var arrayDetalles = <?php echo $idDetalles; ?>;
+    // console.log(idDetalles);
+    var hasta = $('#totalIteracion').val();
+    console.log(hasta);
 
-    for (var i = 0; i < hasta; i++) {
-      $('#descripcion'+i).hide();
-      $('#guardarCambios'+i).hide();
-    }
+    // for (var i = 1; i <= hasta; i++) {
+    //   $('#descripcion'+i).hide();
+    //   $('#guardarCambios'+i).hide();
+    // }
+
+    arrayDetalles.forEach( function(valor, indice, array) {
+      $('#descripcion'+valor).hide();
+      $('#guardarCambios'+valor).hide();
+    });
 
     $('#divCantidadDetalles').hide();
 
@@ -256,6 +264,7 @@
       var idBoton = $('#boton'+btn.value);
       var idGuardarCambios = $('#guardarCambios'+btn.value);
       idGuardarCambios.hide();
+      console.log(btn.value);
       idBoton.show();
 
         var idDescripcion = $('#descripcion'+btn.value);
@@ -268,6 +277,7 @@
             url: ruta,
             data: "descripcion="+idDescripcion.val()+"&observacion="+idObservacion.val()+"&costo="+idCosto.val(),
             success: function(data) {
+                console.log(data);
                 //Cargamos finalmente el contenido deseado
                 $('#detalle').fadeIn(1000).html(data);
                 // $('#containerDetalle').hide();

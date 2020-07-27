@@ -223,8 +223,13 @@ class ReparacionController extends Controller
 
         if ($reparacion->id_estado == 2) {
             $detalles = $reparacion->detalles;
+            $idConsulta = $reparacion->detalles->toArray();
         }
-        return view('Admin.editarReparacion', compact('reparacion','cliente','equipo','detalles','problemas')); 
+
+        $idDetalles = array_column($idConsulta, 'id_detalleReparacion');
+        $idDetalles = json_encode($idDetalles,JSON_NUMERIC_CHECK);
+
+        return view('Admin.editarReparacion', compact('reparacion','cliente','equipo','detalles','problemas','idDetalles')); 
     }
     
     public function mostrarCliente($id)
@@ -473,9 +478,13 @@ class ReparacionController extends Controller
         $reparacion->update(['total' => $costoTotal]);
         $problemas = Problema::get()->sortBy('id_problema');
 
+        $idConsulta = $reparacion->detalles->toArray();
+        $idDetalles = array_column($idConsulta, 'id_detalleReparacion');
+        $idDetalles = json_encode($idDetalles,JSON_NUMERIC_CHECK);
+
         Session::flash('flash_messageFilaActualizada', 'Los cambios se guardaron correctamente.');
 
-        return view('Admin.editarDetalle',compact('reparacion','problemas'));
+        return view('Admin.editarDetalle',compact('reparacion','problemas','idDetalles'));
     }
 
 }
