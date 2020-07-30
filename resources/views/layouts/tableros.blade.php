@@ -6,7 +6,7 @@
                     <i class="zmdi zmdi-account-o"></i>
                 </div>
                 <div class="text">
-                    <h2>1,086</h2>
+                    <h2>{{ Session()->get('tableros')[0] }}</h2>
                     <span>Cantidad de clientes</span>
                 </div>
             </div>   
@@ -17,10 +17,10 @@
         <div class="overview__inner">
             <div class="overview-box clearfix">
                 <div class="icon">
-                    <i class="zmdi zmdi-shopping-cart"></i>
+                    <i class="zmdi zmdi-wrench"></i>
                 </div>
                 <div class="text">
-                    <h2>1,086</h2>
+                    <h2>{{ Session()->get('tableros')[1] }}</h2>
                     <span>Cantidad de reparaciones</span>
                 </div>
             </div>  
@@ -31,11 +31,11 @@
         <div class="overview__inner">
             <div class="overview-box clearfix">
                 <div class="icon">
-                    <i class="zmdi zmdi-money"></i>
+                    <i class="zmdi zmdi-alert-circle"></i>
                 </div>
                 <div class="text">
-                    <h2>1,086</h2>
-                    <span>Esta semana</span>
+                    <h2>{{ Session()->get('tableros')[2] }}</h2>
+                    <span>Reparaciones Pendientes</span>
                 </div>
             </div>
         </div>
@@ -45,11 +45,11 @@
         <div class="overview__inner">
             <div class="overview-box clearfix">
                 <div class="icon">
-                    <i class="zmdi zmdi-calendar-note"></i>
+                    <i class="zmdi zmdi-time"></i>
                 </div>
                 <div class="text">
-                    <h2>1,086</h2>
-                    <span>Total ganancias</span>
+                    <h2>{{ floor(Session()->get('tableros')[3]) }}</h2>
+                    <span>Promedio de tiempo de reparación</span>
                 </div>
             </div>
         </div>

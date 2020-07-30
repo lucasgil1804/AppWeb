@@ -12,8 +12,13 @@ class Estado extends Model
 
     public $timestamps = false;
 
-    public function equipos()
+    // public function equipos()
+    // {
+    // 	return $this->hasMany(Equipo::class, 'id_estado');
+    // }
+
+    public function reparaciones()
     {
-    	return $this->hasMany(Equipo::class, 'id_estado');
+    	return $this->hasMany(Reparacion::class, 'id_estado');
     }
 }

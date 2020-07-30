@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\TipoUsuario;
+use App\Models\Reparacion;
+use App\Models\Estado;
 
 class ReportesController extends Controller
 {
@@ -125,6 +128,8 @@ class ReportesController extends Controller
 
     public function mostrarBarras()
     {
+    	$valoresTableros = $this->valoresTableros();
+
     	$this->anios = DB::select('select distinct date_format(fecha_egreso, "%Y") as Anios
     							from reparaciones
     							where deleted_at IS NULL and fecha_egreso IS NOT NULL
@@ -136,6 +141,8 @@ class ReportesController extends Controller
 
     	$this->reparacionesAnio();
     	$this->reparacionesMes(reset($this->anios));
+
+       	// dd($valoresTableros);
 
         //$this->reparacionesMes('2019');
     	 // dd($this->anios);
@@ -249,6 +256,8 @@ class ReportesController extends Controller
 
     public function mostrarTorta()
     {
+    	$valoresTableros = $this->valoresTableros();
+
     	$consultaProblemas = $this->problemasReparaciones();
     	$consultaMarcas = $this->marcasReparadas();
 
@@ -260,6 +269,7 @@ class ReportesController extends Controller
     public function mostrarLinea()
     {
         // $consultaProblemas = $this->problemasReparaciones();
+        $valoresTableros = $this->valoresTableros();
 
         $this->anios = DB::select('select distinct date_format(fecha_egreso, "%Y") as Anios
     							from reparaciones
@@ -283,5 +293,30 @@ class ReportesController extends Controller
             
     }
 
+// TABLEROS
+
+    public function valoresTableros()
+    {
+    	$clientes = tipoUsuario::find(4);
+        $consultaClientes = $clientes->users()->count();
+
+        $consultaReparaciones = Reparacion::count();
+
+        $estados1 = Estado::find(1);
+        $consultaDiagnostico = $estados1->reparaciones()->count();
+
+		$estados2 = Estado::find(2);
+        $consultaEnReparacion = $estados2->reparaciones()->count();
+        $pendientes = $consultaDiagnostico + $consultaEnReparacion;
+
+        $plazosEstimados = Reparacion::sum('plazo_estimado');
+        $promedioPlazo = $plazosEstimados / $consultaReparaciones;
+
+        $arrayTablero = [$consultaClientes, $consultaReparaciones, $pendientes, $promedioPlazo];
+
+        Session(['tableros' => $arrayTablero]);
+        // dd(Session()->get('tableros')[0]);
+        // return $arrayTablero;
+    }
 
 }
