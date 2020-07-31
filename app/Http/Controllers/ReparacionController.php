@@ -89,7 +89,11 @@ class ReparacionController extends Controller
         
         $problemas = Problema::get()->sortBy('id_problema');
 
-        return view('Admin.editarDetalle',compact('reparacion','problemas'));
+        $idConsulta = $reparacion->detalles->toArray();
+        $idDetalles = array_column($idConsulta, 'id_detalleReparacion');
+        $idDetalles = json_encode($idDetalles,JSON_NUMERIC_CHECK);
+
+        return view('Admin.editarDetalle',compact('reparacion','problemas','idDetalles'));
     }
 
     public function AltaReparacion($id)
@@ -221,13 +225,15 @@ class ReparacionController extends Controller
         $problemas = Problema::get()->sortBy('id_problema');
         $equipo = $reparacion->equipo;
 
+        
         if ($reparacion->id_estado == 2) {
-            $detalles = $reparacion->detalles;
-            $idConsulta = $reparacion->detalles->toArray();
+            $detalles = $reparacion->detalles;    
         }
-
+        $idConsulta = $reparacion->detalles->toArray();
         $idDetalles = array_column($idConsulta, 'id_detalleReparacion');
         $idDetalles = json_encode($idDetalles,JSON_NUMERIC_CHECK);
+
+       
 
         return view('Admin.editarReparacion', compact('reparacion','cliente','equipo','detalles','problemas','idDetalles')); 
     }
@@ -431,7 +437,11 @@ class ReparacionController extends Controller
             $reparacion->save();
         }
 
-        return view('Admin.editarDetalle',compact('reparacion','problemas'));
+        $idConsulta = $reparacion->detalles->toArray();
+        $idDetalles = array_column($idConsulta, 'id_detalleReparacion');
+        $idDetalles = json_encode($idDetalles,JSON_NUMERIC_CHECK);
+
+        return view('Admin.editarDetalle',compact('reparacion','problemas','idDetalles'));
     }
 
     // public function editarDetalle()
@@ -459,7 +469,11 @@ class ReparacionController extends Controller
 
         Session::flash('flash_messageDetalleGuardado', 'El detalle se agregó correctamente.');
 
-        return view('Admin.editarDetalle',compact('reparacion','problemas'));
+        $idConsulta = $reparacion->detalles->toArray();
+        $idDetalles = array_column($idConsulta, 'id_detalleReparacion');
+        $idDetalles = json_encode($idDetalles,JSON_NUMERIC_CHECK);
+
+        return view('Admin.editarDetalle',compact('reparacion','problemas','idDetalles'));
     }
 
     public function guardarFila($id_detalle)
