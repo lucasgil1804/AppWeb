@@ -246,7 +246,7 @@
     function enReparacion(){
     $('#loading4').show();
     var IdReparacion=$('#IdReparacion').val();
-        var ruta="agregarDetalle/"+IdReparacion;
+        var ruta="/agregarDetalle/"+IdReparacion;
         $.ajax({
             type: "GET",
             url: ruta,
