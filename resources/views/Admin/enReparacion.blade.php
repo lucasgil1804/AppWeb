@@ -33,13 +33,18 @@
                           <b>Descripción</b>&nbsp;
                       </label>
                       <!-- <input type="text" id="descripcion" name="descripcion" placeholder="" class="form-control" value="" required> -->
+                     <!--  <div> -->
                       <select name="selectDescripcion" id="descripcion" class="form-control custom-select" required>
                           <option value="">Por favor, seleccione un problema</option>
                           @foreach ($problemas as $descripcion)
                             <option value="{{ $descripcion->id_problema }}">{{ $descripcion->descripcion }}</option>
                           @endforeach
                       </select>
+                      
+                        <!-- <p class="text-danger small" >*Debe selecionar un problema</p> -->
+                     <!--  </div> -->
                   </div>
+                  <p  id="errorDescripcion"style="margin-left: 15%;" class="text-danger small invisible"  >*Debe selecionar un problema</p>
               </div>
 
               <div class="form-group">
@@ -47,7 +52,7 @@
                       <label style="width: 15%;">
                           <b>Observación</b>&nbsp;
                       </label>
-                      <textarea class="form-control" rows="3" id="observacion" name="observacion" required></textarea>
+                      <textarea class="form-control" rows="3" id="observacion" name="observacion"></textarea>
                   </div>
               </div>
 
@@ -72,7 +77,13 @@
       </div>
   </div>
 <script type="text/javascript">
-    function guardarDetalle(){
+   function guardarDetalle(){
+    if ($('#descripcion').val() == "") {
+
+      $('#errorDescripcion').attr('class', 'text-danger small');
+      return false;
+    }
+
     $('#loading4').show();
         var ruta="tablaDetalle";
         $.ajax({
