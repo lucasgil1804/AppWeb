@@ -22,6 +22,7 @@
                           @endforeach
                       </select>
                   </div>
+                   <p  id="errorDescripcion"style="margin-left: 15%;" class="text-danger small invisible"  >*Debe selecionar un problema</p>
               </div>
 
               <div class="form-group">
@@ -29,7 +30,7 @@
                       <label style="width: 15%;">
                           <b>Observación</b>&nbsp;
                       </label>
-                      <textarea class="form-control" rows="3" id="observacion" name="observacion" required></textarea>
+                      <textarea class="form-control" rows="3" id="observacion" name="observacion"></textarea>
                   </div>
               </div>
 
@@ -56,6 +57,11 @@
 <script type="text/javascript">
     function guardarDetalle(){
     $('#loading4').show();
+     if ($('#descripcion').val() == "") {
+
+      $('#errorDescripcion').attr('class', 'text-danger small');
+      return false;
+     }
         var ruta="/guardarDetalle";
         $.ajax({
             type: "GET",
