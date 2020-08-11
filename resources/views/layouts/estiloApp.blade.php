@@ -58,7 +58,7 @@
 				        <ul class="nav-menu">
 				          <li class="menu-active"><a href="{{ route('inicio') }}">Home</a></li>
 				          <li><a href="{{ route('quienessomos') }}">Quienes somos</a></li>
-				          <li class="menu-has-children"><a style="color: black;">Servicios</a>
+				          <li class="menu-has-children"><a>Servicios</a>
 				            <ul>
 				              <li><a href="{{ route('reparacionPC') }}">REPARACIÓN DE PC</a></li>
 				              <li><a href="{{ route('reparacionNotebook') }}">REPARACIÓN DE NOTEBOOK</a></li>
