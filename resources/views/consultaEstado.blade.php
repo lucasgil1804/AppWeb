@@ -80,6 +80,7 @@
        												<p><strong><b style="color: #0066ff; font-size: 16px;">Estamos Trabajando:</b></strong></p>
 													<p style="font-size: 16px;">En éste momento, tu equipo está siendo reparado.</p>
 													<br>
+                          <div class="table-responsive">
 													<table class="table table-hover">
   													<thead>
     													<tr align="center">
@@ -112,6 +113,7 @@
   														</tr>
   													</tfoot>
 													</table>
+                        </div>
   	  											</div>
 
   	  										@else

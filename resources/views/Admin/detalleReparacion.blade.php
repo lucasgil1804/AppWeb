@@ -142,7 +142,9 @@
 
         <div id="demo" class="mt-3 collapse alert alert-success">
        		<p><strong><b style="color: #009933; font-size: 16px;">¡Su equipo se encuentra reparado!</b></strong></p>
-			<table class="table table-hover">
+
+        <div class="table-responsive">
+			   <table class="table table-hover">
   				<thead>
     				<tr align="center">
       					<th scope="col" style="color: black;">#</th>
@@ -174,6 +176,7 @@
   				</tr>
   			</tfoot>
 			</table>
+    </div>
   	  	</div>
 
   	  	@endif

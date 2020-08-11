@@ -90,7 +90,8 @@
 
 
   <div class="mt-3 alert alert-info">
- 	<table class="table table-hover">
+    <div class="table-responsive">
+      <table class="table table-hover">
   		<thead>
     		<tr align="center">
       		<th scope="col" style="color: black;">#</th>
@@ -160,6 +161,7 @@
   			</tr>
   		</tfoot>
 	</table>
+  </div>
 </div>
    
  <script type="text/javascript">
