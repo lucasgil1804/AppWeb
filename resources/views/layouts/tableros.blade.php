@@ -1,4 +1,4 @@
-<div class="row card-deck mx-3 mb-5">
+<div class="row card-deck mx-3 mb-3">
     <div class="card overview-item overview-item--c3">
         <div class="overview__inner">
             <div class="overview-box clearfix">

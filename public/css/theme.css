@@ -48,6 +48,24 @@ Notes:	decreasing heading by 0.4em with every subsequent heading level
     box-sizing: border-box;
 }
 
+#desktop {
+  display:none;
+}
+#mobile {
+  display:block;
+  /*max-width: 450px;*/
+}
+@media screen and (min-width:450px) {
+  #desktop {
+    display:block; 
+  }
+  #mobile {
+    display:none;
+  }
+
+}
+
+
 ul {
     margin: 0;
 }

@@ -3,13 +3,19 @@
 @section('contenidoAdmin')
 
 @include('layouts.tableros')
-<div class="mx-3 bg-white pt-3">
-	<!-- <div class="mx-5">
-	</div> -->
-	<div id="tortaReparaciones" class="container"></div>
+<div id="desktop" class="mt-5">
+	<div class="mx-3 bg-white pt-3">
+		<!-- <div class="mx-5">
+		</div> -->
+		<div id="tortaReparaciones" class="container"></div>
+	</div>
+
+	<div id="tortaMarcas" class="container mt-3"></div>
 </div>
 
-<div id="tortaMarcas" class="container mt-3"></div>
+<div id="mobile" class="alert alert-info mb-3 mx-3">
+    No es posible visualizar la sección <strong>Reportes</strong> desde la vista móvil. Por favor ingrese desde un dispositivo con mayor resolución.
+</div>
 
 @endsection
 
