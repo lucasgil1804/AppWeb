@@ -65,6 +65,31 @@ Notes:	decreasing heading by 0.4em with every subsequent heading level
 
 }
 
+#desktop2 {
+  display:none;
+}
+#mobile2 {
+  display:block;
+  /*max-width: 450px;*/
+}
+@media screen and (min-width:775px) {
+  #desktop2 {
+    display:block; 
+  }
+  #mobile2 {
+    display:none;
+  }
+
+}
+
+@media screen and (max-width:500px) {
+  .desktopLetra h4{
+    display:block;
+    font-size: 15px;
+    }
+
+}
+
 
 ul {
     margin: 0;
