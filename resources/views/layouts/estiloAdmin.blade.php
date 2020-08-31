@@ -401,14 +401,15 @@
             <div class="main-content">
                 
                 @yield('contenidoAdmin')
-
+                <footer class="footer">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-12">
                         <div class="copyright">
                             <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | Ésta plantilla está diseñada por <a href="https://colorlib.com" target="_blank">F&G Web Design</a></p>
                         </div>
                     </div>
                 </div>
+                </footer>
 
             </div>
             <!-- END MAIN CONTENT-->
