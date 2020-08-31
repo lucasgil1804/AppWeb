@@ -4,18 +4,25 @@
 @section('contenidoAdmin')
 
 @include('layouts.tableros')
-<div class="mx-3 bg-white pt-3">
-	<div class="d-flex justify-content-end mr-2">
-		<select id="anios" name="anioGrafico">
-			@foreach ($anios as $anio)
-				<option value="{{ $anio }}">{{ $anio }}</option>
-			@endforeach
-		</select>
-	</div>
-	<div id="barraMes" class="container pr-3"></div>
+<div id="desktop" class="mt-5">
+    <div class="mx-3 bg-white pt-3">
+    	<div class="d-flex justify-content-end mr-2">
+    		<select id="anios" name="anioGrafico">
+    			@foreach ($anios as $anio)
+    				<option value="{{ $anio }}">{{ $anio }}</option>
+    			@endforeach
+    		</select>
+    	</div>
+    	<div id="barraMes" class="container pr-3"></div>
+    </div>
+
+    <div id="barraAnio" class="mt-3 mx-3"></div>
+
 </div>
 
-<div id="barraAnio" class="container mt-3 pr-3"></div>
+<div id="mobile" class="alert alert-info mb-3 mx-3">
+    No es posible visualizar la sección <strong>Reportes</strong> desde la vista móvil. Por favor ingrese desde un dispositivo con mayor resolución.
+</div>
 
 @endsection
 
