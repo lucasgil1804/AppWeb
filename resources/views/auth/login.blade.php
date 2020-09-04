@@ -50,7 +50,7 @@
 <body>
 <div class="limiter">
         <div class="container-login100">
-            <div class="wrap-login100">
+            <div class="wrap-login100 mx-4">
                 <div class="login100-form-title" style="background-image: url(../img/bg-01.jpg);">
                     <span class="login100-form-title-1">
                        <b>Quick Fix - Iniciar Sesión</b>

@@ -300,6 +300,7 @@ section {
 @media (max-width: 991px) {
     .section__content--p30 {
         padding: 0;
+        top: 1% !important;
     }
 }
 
@@ -1245,8 +1246,14 @@ section {
         position: relative;
         top: 0;
         left: 0;
-        height: 85px;/*Tamaño del header en la vista mobile*/
+        height: 50px;/*Tamaño del header en la vista mobile*/
     }
+}
+
+div.dataTables_wrapper div.dataTables_filter input {
+    margin-left: 0.5em;
+    display: inline-block;
+    width: 250px !important;
 }
 
 .header-desktop .mess-dropdown {
