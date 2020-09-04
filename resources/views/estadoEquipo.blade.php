@@ -25,7 +25,7 @@
 								<h1>¿Ya está listo mi equipo?</h1>
 								<h3 class="mb-30 mt-20" style="color: grey;">Ingresá tu código</h3>
 								<form action="{{url('consultaEquipo')}}" method="post">
-									{{csrf_field()}}
+									{{ csrf_field() }} {{ method_field('POST') }}
 
 									<!-- <div class="input-group-icon mt-10"> -->
 										<!-- <div class="icon"><i class="fa fa-hashtag" aria-hidden="true" style="margin-top: 12px;"></i></div> -->

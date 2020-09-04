@@ -15,7 +15,7 @@
 						<p class="text-white">
 							Somos una empresa que se caracteriza porque no descansa hasta encontrar la solución a tu problema. Con atención personalizada en el menor lapso de tiempo..
 						</p>
-						<a href="#" class="primary-btn header-btn text-uppercase mt-10">Empezar</a>
+						<a href="{{ route('estadoEquipo') }}" class="primary-btn header-btn text-uppercase mt-10">Consultar</a>
 					</div>	
 						<div class="banner-img col-lg-5 col-md-6 align-self-end">
 							<img class="img-fluid" src="img/banner-img.png" alt="">
@@ -128,16 +128,17 @@
 
 			
 	<!-- Start work-process Area -->
-		<section class="work-process-area pt-120">
-			<div class="container">
-				<div class="row d-flex justify-content-center">
-					<div class="menu-content pb-60 col-lg-7">
-						<div class="title text-center">
-							<h1 class="mb-10">Nuestro Proceso de trabajo</h1>
-							<p>Nos capacitamos continuamente para ofrecerte un servicio de calidad, confiable y seguro; acompañado de los mejores profesionales.</p>
-						</div>
-					</div>
-				</div>	
+	<div class="col-12 col-lg-7 col-sm-7 mx-auto" style="padding-top: 120px;">
+		<!-- <div class="menu-content pb-60 col-lg-7"> -->
+			<div class="title text-center">
+				<h1 class="mb-10">Nuestro Proceso de trabajo</h1>
+				<p>Nos capacitamos continuamente para ofrecerte un servicio de calidad, confiable y seguro; acompañado de los mejores profesionales.</p>
+			</div>
+		<!-- </div> -->
+	</div>
+		<section class="work-process-area pb-120">
+
+			<div class="container">	
 				<div class="total-work-process d-flex flex-wrap justify-content-around align-items-center">
 					<div class="single-work-process">
 						<div class="work-icon-box">

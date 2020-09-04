@@ -42,7 +42,7 @@
 <div class="container">
 	<div class="card bg-light text-dark mt-40">
 		<div class="card-header"><h3>Nueva Reparación</h3></div>
-			<div class="card-body mt-20" align="left">
+			<div id="desktop" class="card-body mt-20" align="left">
 
 				<!-- <div id="cliente"> -->
 				<div style="display: inline-block; margin-bottom: 15px;">
@@ -154,6 +154,9 @@
 				
 				
  			</div>
+      <div id="mobile" class="alert alert-info mt-3 mb-3 mx-3">
+          No es posible visualizar la sección <strong>Nueva Reparación</strong> desde la vista móvil. Por favor ingrese desde un dispositivo con mayor resolución.
+      </div>
 	</div>
 </div>
 
