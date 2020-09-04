@@ -19,7 +19,7 @@
 			</section>
 			<!-- End banner Area -->
 
-			<section class="feedback-area-area pt-120">
+			<section class="feedback-area-area pt-4">
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-4">

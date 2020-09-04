@@ -29,7 +29,7 @@
 								<div class="card bg-light text-dark mt-40">
 									<!-- CONTENIDO-DETALLE REPARACION -->
     									<div class="card-body mt-20" align="left">
-     										<div class="row">
+     										<div class="desktopLetra row">
     											<h4 class="col card-title">Cliente: {{ $reparacion->usuario->nombre. " " .$reparacion->usuario->apellido }}</h4>
     											@if ( $reparacion->id_estado == 3 )
     												<h4 class=" col card-text">Ingreso: {{ date("d/m/Y", strtotime($reparacion->fecha_ingreso)). " - Egreso: " .date("d/m/Y", strtotime($reparacion->fecha_egreso))}}</h4>
@@ -37,7 +37,7 @@
     												<h4 class=" col card-text">Ingreso: {{ date("d/m/Y", strtotime($reparacion->fecha_ingreso)) }}</h4>
     											@endif
         									</div>
-        									<div class="row">
+        									<div class="desktopLetra row">
     											<h4 class="col card-title">DNI: {{ $reparacion->usuario->dni }}</h4>
     											<h4 class=" col card-text">Plazo: {{ $reparacion->plazo_estimado }} días</h4>
         									</div>
@@ -54,7 +54,7 @@
                                   <h4 style="color: #f5f5f0;">En Diagnóstico &nbsp;<i class="fa fa-chevron-down"></i></h4>
                                 </button>
         											</div>
-        											<h5 class="col card-text mt-1" style="color: black;">{{ $reparacion->equipo->marca->descripcion }} - {{ $reparacion->equipo->modelo }}</h5>
+        											<h5 class="desktopLetra col card-text mt-1" style="color: black;">{{ $reparacion->equipo->marca->descripcion }} - {{ $reparacion->equipo->modelo }}</h5>
         										</div>
        
        											<div id="demo" class="mt-3 collapse alert alert-warning">
@@ -73,7 +73,7 @@
         												<button type="button" class="btn btn-info btn-sm" data-toggle="collapse" data-target="#demo"><h4 style="color: #f5f5f0;">En Reparación &nbsp;<i class="fa fa-chevron-down"></i></h4>
                                 </button>
         											</div>
-        											<h5 class="col card-text mt-1" style="color: black;">{{ $reparacion->equipo->marca->descripcion }} - {{ $reparacion->equipo->modelo }}</h5>
+        											<h5 class="desktopLetra col card-text mt-1" style="color: black;">{{ $reparacion->equipo->marca->descripcion }} - {{ $reparacion->equipo->modelo }}</h5>
         										</div>
 
         										<div id="demo" class="mt-3 collapse alert alert-info">
@@ -127,7 +127,7 @@
         												<button type="button" class="btn btn-success btn-sm" data-toggle="collapse" data-target="#demo"><h4 style="color: #f5f5f0;">Listo &nbsp;<i class="fa fa-chevron-down"></i></h4>
                                 </button>
         											</div>
-        											<h5 class="col card-text mt-1" style="color: black;">{{ $reparacion->equipo->marca->descripcion }} - {{ $reparacion->equipo->modelo }}</h5>
+        											<h5 class="desktopLetra col card-text mt-1" style="color: black;">{{ $reparacion->equipo->marca->descripcion }} - {{ $reparacion->equipo->modelo }}</h5>
         										</div>
 
         										<div id="demo" class="mt-3 collapse alert alert-success">
