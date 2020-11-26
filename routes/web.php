@@ -1,4 +1,6 @@
 <?php
+use App\Exports\ExportCliente;
+use Maatwebsite\Excel\Facades\Excel;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,9 @@
 // Route::get('/', function () {
 //     return view('Inicio');
 // });
+Route::get('/excel', function () {
+    return Excel::download(new ExportCliente, 'clientes.xlsx');
+});
 
 Route::get('/', 'MyController@index')
 	->name('inicio');
