@@ -9,8 +9,10 @@ use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\FromView;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithTitle;
+use Maatwebsite\Excel\Concerns\WithEvents;
+use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 
-class ExportCliente implements FromCollection, WithHeadings, WithTitle
+class ExportCliente implements FromCollection, WithHeadings, WithTitle, WithEvents
 {
    use Exportable;
 
@@ -20,10 +22,10 @@ class ExportCliente implements FromCollection, WithHeadings, WithTitle
     public function headings(): array
     {
         return [
-            'DNI N°',
-            'Apellido',
-            'Nombre',
-            'Correo Electronico'
+            '    DNI N°',
+            '    Apellido',
+            '    Nombre',
+            '    Correo Electronico'
         ];
     }
 
@@ -41,6 +43,20 @@ class ExportCliente implements FromCollection, WithHeadings, WithTitle
         $clientes=tipoUsuario::find(4);
 
         return $clientes->users()->withTrashed()->get(['dni','apellido','nombre','email']);
+    }
+
+    /**
+     * @return array
+     */
+    public function registerEvents(): array
+    {
+         return [
+            AfterSheet::class => function(AfterSheet $event) {
+                $event->getSheet()->autoSize();
+                $event->getSheet()->getDelegate()->getStyle('A1:C11')
+                    ->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
+            }
+        ];
     }
 }
 
