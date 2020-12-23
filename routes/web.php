@@ -1,5 +1,6 @@
 <?php
 use App\Exports\ExportCliente;
+use App\Exports\ExportEmpleado;
 use Maatwebsite\Excel\Facades\Excel;
 
 /*
@@ -24,6 +25,19 @@ Route::get('/exportClientePdf', function () {
     return Excel::download(new ExportCliente, 'clientes.pdf');
 })
 ->name('clientePdf');
+
+// Rutas para exportar Empleados en EXCEL y PDF
+
+Route::get('/exportEmpleadoExcel', function () {
+    return Excel::download(new ExportEmpleado, 'empleados.xlsx');
+})->name('empleadoExcel');
+
+Route::get('/exportEmpleadoPdf', function () {
+    return Excel::download(new ExportEmpleado, 'empleado.pdf');
+})
+->name('empleadoPdf');
+
+// Rutas para exportar Empleados en EXCEL y PDF
 
 Route::get('/', 'MyController@index')
 	->name('inicio');
