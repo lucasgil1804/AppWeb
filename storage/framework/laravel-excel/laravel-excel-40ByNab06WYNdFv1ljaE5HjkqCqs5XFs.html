@@ -1,0 +1,1481 @@
+<!-- Estilo Datatable -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
+<!-- Estilo Datatable -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="au theme template">
+    <meta name="author" content="Hau Nguyen">
+    <meta name="keywords" content="au theme template">
+
+
+    <!-- Title Page-->
+    <title>Quick Fix - Administrador</title>
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="http://localhost:8000/img/icons/admin.ico">
+    <!-- Fontfaces CSS-->
+    <link href="http://localhost:8000/css/font-face.css" rel="stylesheet" media="all">
+    <link href="http://localhost:8000/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="http://localhost:8000/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="http://localhost:8000/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="http://localhost:8000/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="http://localhost:8000/vendor/animsition-2/animsition.min.css" rel="stylesheet" media="all">
+    <!-- <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all"> -->
+    <link href="http://localhost:8000/vendor/wow/animate.css&quot; rel=&quot;stylesheet" media="all">
+    <link href="http://localhost:8000/vendor/css-hamburgers-2/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="http://localhost:8000/vendor/slick/slick.css&quot; rel=&quot;stylesheet" media="all">
+    <link href="http://localhost:8000/vendor/select2-2/select2.min.css" rel="stylesheet" media="all">
+    <link href="http://localhost:8000/vendor/perfect-scrollbar-2/perfect-scrollbar.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="http://localhost:8000/css/theme.css" rel="stylesheet" media="all">
+
+    <!-- CSS Datatable -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"> -->
+    <!-- CSS Datatable -->
+
+</head>
+
+<body class="animsition">
+    <div class="page-wrapper">
+        <!-- HEADER MOBILE-->
+        <header class="header-mobile d-block d-lg-none">
+            <div class="header-mobile__bar">
+                <div class="container-fluid">
+                    <div class="header-mobile-inner">
+                        <a class="logo" href="http://localhost:8000/index">
+                            <img src="http://localhost:8000/img/logo.png" alt="QuickFix" />
+                        </a>
+                        <button class="hamburger hamburger--slider" type="button">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar-mobile">
+                <div class="container-fluid">
+                    <ul class="navbar-mobile__list list-unstyled">
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-users"></i>Usuarios</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                                                    <li>
+                                        <a href="http://localhost:8000/listaEmpleados">
+                                            <i class="fas fa-user"></i>Empleados</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://localhost:8000/listaTecnicos">
+                                            <i class="fas fa-briefcase"></i>Técnicos</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://localhost:8000/listaClientes">
+                                            <i class="fas fa-male"></i>Clientes</a>
+                                    </li>
+                                                            </ul>
+                        </li>
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-wrench"></i>Reparaciones</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <!-- <li>
+                                    <a href="http://localhost:8000/nuevaReparacion">
+                                        <i class="fas fa-plus"></i>Nueva Reparación</a>
+                                </li>
+                                <li>
+                                    <a href="http://localhost:8000/listaPCs">
+                                        <i class="fas fa-desktop"></i>PCs Escritorio</a>
+                                </li>
+                                <li>
+                                    <a href="http://localhost:8000/listaNotebooks">
+                                        <i class="fas fa-laptop"></i>Notebooks</a>
+                                </li> -->
+                                                                    <li>
+                                        <a href="http://localhost:8000/nuevaReparacion">
+                                            <i class="fas fa-plus"></i>Nueva Reparación</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://localhost:8000/listaPCs">
+                                            <i class="fas fa-desktop"></i>PCs Escritorio</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://localhost:8000/listaNotebooks">
+                                            <i class="fas fa-laptop"></i>Notebooks</a>
+                                    </li>
+                                                            </ul>
+                        </li>
+                                                    <li class="active has-sub">
+                                <a class="js-arrow" href="#">
+                                    <i class="fas fa-chart-area"></i>Reportes</a>
+                                <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                    <li>
+                                        <a style="text-align: left;" href="http://localhost:8000/reportesBarras">
+                                            <i class="fas fa-chart-bar"></i>Barras</a>
+                                    </li>
+
+                                    <li>
+                                        <a style="text-align: left;" href="http://localhost:8000/reportesTorta">
+                                            <i class="fas fa-chart-pie"></i>Torta</a>
+                                    </li>
+
+                                    <li>
+                                        <a style="text-align: left;" href="http://localhost:8000/reportesLinea">
+                                            <i class="fas fa-chart-line"></i>Linea</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                                            </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- END HEADER MOBILE-->
+
+        <!-- MENU SIDEBAR-->
+        <aside class="menu-sidebar d-none d-lg-block">
+            <div class="logo">
+                <a href="http://localhost:8000/index">
+                    <img src="http://localhost:8000/img/logo.png" alt="QuickFix" title="QuickFix" />
+                </a>
+            </div>
+            <div class="menu-sidebar__content js-scrollbar1">
+                <nav class="navbar-sidebar">
+                    <ul class="list-unstyled navbar__list">
+                        <li class="active has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-users"></i>Usuarios</a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <!-- <li>
+                                    <a href="http://localhost:8000/listaEmpleados">
+                                        <i class="fas fa-user"></i>Empleados</a>
+                                </li>
+                                <li>
+                                    <a href="http://localhost:8000/listaTecnicos">
+                                        <i class="fas fa-briefcase"></i>Técnicos</a>
+                                </li>
+                                <li>
+                                    <a href="http://localhost:8000/listaClientes">
+                                        <i class="fas fa-male"></i>Clientes</a>
+                                </li> -->
+                                                                    <li>
+                                        <a href="http://localhost:8000/listaEmpleados">
+                                            <i class="fas fa-user"></i>Empleados</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://localhost:8000/listaTecnicos">
+                                            <i class="fas fa-briefcase"></i>Técnicos</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://localhost:8000/listaClientes">
+                                            <i class="fas fa-male"></i>Clientes</a>
+                                    </li>
+                                                            </ul>
+                        </li>
+                        <li class="active has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-wrench"></i>Reparaciones</a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                                                    <li>
+                                        <a href="http://localhost:8000/nuevaReparacion">
+                                            <i class="fas fa-plus"></i>Nueva Reparación</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://localhost:8000/listaPCs">
+                                            <i class="fas fa-desktop"></i>PCs Escritorio</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://localhost:8000/listaNotebooks">
+                                            <i class="fas fa-laptop"></i>Notebooks</a>
+                                    </li>
+                                                            </ul>
+                        </li>
+                                                    <!-- <li>
+                                <a href="chart.html">
+                                    <i class="fas fa-chart-bar"></i>Reportes</a>
+                            </li> -->
+                            <li class="active has-sub">
+                                <a class="js-arrow" href="#">
+                                    <i class="fas fa-chart-area"></i>Reportes</a>
+                                <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                    <li>
+                                        <a style="text-align: left;" href="http://localhost:8000/reportesBarras">
+                                            <i class="fas fa-chart-bar"></i>Barras</a>
+                                    </li>
+
+                                    <li>
+                                        <a style="text-align: left;" href="http://localhost:8000/reportesTorta">
+                                            <i class="fas fa-chart-pie"></i>Torta</a>
+                                    </li>
+
+                                    <li>
+                                        <a style="text-align: left;" href="http://localhost:8000/reportesLinea">
+                                            <i class="fas fa-chart-line"></i>Linea</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            
+                                            </ul>
+                </nav>
+            </div>
+        </aside>
+        <!-- END MENU SIDEBAR-->
+
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+            <!-- HEADER DESKTOP-->
+            <header class="header-desktop">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="header-wrap" style="float: right;">
+                            <div class="header-button">
+                                <div class="account-wrap">
+                                    <div class="account-item clearfix js-item-menu">
+                                        <div class="image">
+                                            <img src="http://localhost:8000/img/icons/user.png" alt="John Doe" />
+                                        </div>
+                                        <div class="content">
+                                            <a class="js-acc-btn" href="#">Juan Cruz</a>
+                                        </div>
+                                        <div class="account-dropdown js-dropdown">
+                                            <div class="info clearfix">
+                                                <div class="image">
+                                                    <a href="#">
+                                                        <img src="http://localhost:8000/img/icons/user.png" alt="John Doe" />
+                                                    </a>
+                                                </div>
+                                                <div class="content">
+                                                    <h5 class="name">
+                                                        <a href="#">Juan Cruz</a>
+                                                    </h5>
+                                                    <span class="email">juancruzf017@gmail.com</span>
+                                                </div>
+                                            </div>
+                                            <div class="account-dropdown__body">
+                                                <div class="account-dropdown__item">
+                                                    <a href="http://localhost:8000/verDetalle/1">
+                                                        <i class="zmdi zmdi-account"></i>Perfil
+                                                    </a>
+                                                </div>
+                                                <div class="account-dropdown__item">
+                                                    <a href="http://localhost:8000/editarUsuario/1">
+                                                        <i class="zmdi zmdi-settings"></i>Configuración
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="account-dropdown__footer">
+                                                <a href="http://localhost:8000/logout"
+                                                    onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                                    <i class="zmdi zmdi-power"></i>Salir</a>
+
+                                                    <form id="logout-form" action="http://localhost:8000/logout" method="POST" style="display: none;">
+                                                    <input type="hidden" name="_token" value="T88wmovdWQ5FA53lvIudZu00CYlVKJfRLp5X2OAm">                                                    </form>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- HEADER DESKTOP-->
+
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                
+                
+
+<div style="margin-left: 20px; margin-right: 20px;">
+    <h3>Lista de Clientes</h3>
+        
+    <div  style="margin-bottom: 15px;" align="right">
+        <button type="button" class="btn btn-primary">
+            <a class="linkBlanco" href="http://localhost:8000/nuevoUsuario/4">
+            <i class="fa fa-plus"></i>&nbsp; Añadir</a>
+        </button>
+    </div>
+    <!-- <table id="myTable" class="table table-hover table-striped table-bordered" style="width:100%;text-align: center;"> -->
+        <table id="myTable" class="table table-striped table-bordered dt-responsive nowrap" style="width: 100%; text-align: center;">
+        <thead>
+            <tr>
+                <th>DNI</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Estado</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+                        <tr>
+                <td>21128258</td>
+                <td>Carla</td>
+                <td>Mascareñas</td>
+                <td>montero.juan@example.org</td>
+                                    <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
+                                
+                <td>
+                    <!-- <div class="table-data-feature" style="position: relative;"> -->
+                    <div class="botones-accion" style="">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <a href="http://localhost:8000/verDetalle/67">
+                            <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
+                        </button>
+
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                                <a href="http://localhost:8000/editarUsuario/67">
+                                <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                                <a href="#" data-href="http://localhost:8000/bajaUsuario/67" data-toggle="modal" data-target="#deleteModal">
+                                <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
+                            </button>
+                        
+                    </div>
+                </td>
+            </tr>
+
+
+                        <tr>
+                <td>13163062</td>
+                <td>Delfina</td>
+                <td>Alva</td>
+                <td>leonardo14@example.com</td>
+                                    <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
+                                
+                <td>
+                    <!-- <div class="table-data-feature" style="position: relative;"> -->
+                    <div class="botones-accion" style="">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <a href="http://localhost:8000/verDetalle/68">
+                            <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
+                        </button>
+
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                                <a href="http://localhost:8000/editarUsuario/68">
+                                <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                                <a href="#" data-href="http://localhost:8000/bajaUsuario/68" data-toggle="modal" data-target="#deleteModal">
+                                <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
+                            </button>
+                        
+                    </div>
+                </td>
+            </tr>
+
+
+                        <tr>
+                <td>93796600</td>
+                <td>Juana</td>
+                <td>Montalvo</td>
+                <td>mariafernanda.betancourt@example.net</td>
+                                    <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
+                                
+                <td>
+                    <!-- <div class="table-data-feature" style="position: relative;"> -->
+                    <div class="botones-accion" style="">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <a href="http://localhost:8000/verDetalle/69">
+                            <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
+                        </button>
+
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                                <a href="http://localhost:8000/editarUsuario/69">
+                                <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                                <a href="#" data-href="http://localhost:8000/bajaUsuario/69" data-toggle="modal" data-target="#deleteModal">
+                                <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
+                            </button>
+                        
+                    </div>
+                </td>
+            </tr>
+
+
+                        <tr>
+                <td>55864617</td>
+                <td>Mariana</td>
+                <td>Carrera</td>
+                <td>echevarria.matias@example.net</td>
+                                    <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
+                                
+                <td>
+                    <!-- <div class="table-data-feature" style="position: relative;"> -->
+                    <div class="botones-accion" style="">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <a href="http://localhost:8000/verDetalle/70">
+                            <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
+                        </button>
+
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                                <a href="http://localhost:8000/editarUsuario/70">
+                                <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                                <a href="#" data-href="http://localhost:8000/bajaUsuario/70" data-toggle="modal" data-target="#deleteModal">
+                                <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
+                            </button>
+                        
+                    </div>
+                </td>
+            </tr>
+
+
+                        <tr>
+                <td>83118930</td>
+                <td>Jazmín</td>
+                <td>Esparza</td>
+                <td>abril01@example.net</td>
+                                    <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
+                                
+                <td>
+                    <!-- <div class="table-data-feature" style="position: relative;"> -->
+                    <div class="botones-accion" style="">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <a href="http://localhost:8000/verDetalle/71">
+                            <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
+                        </button>
+
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                                <a href="http://localhost:8000/editarUsuario/71">
+                                <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                                <a href="#" data-href="http://localhost:8000/bajaUsuario/71" data-toggle="modal" data-target="#deleteModal">
+                                <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
+                            </button>
+                        
+                    </div>
+                </td>
+            </tr>
+
+
+                        <tr>
+                <td>18116583</td>
+                <td>Matías</td>
+                <td>Delao</td>
+                <td>regina.vallejo@example.com</td>
+                                    <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
+                                
+                <td>
+                    <!-- <div class="table-data-feature" style="position: relative;"> -->
+                    <div class="botones-accion" style="">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <a href="http://localhost:8000/verDetalle/72">
+                            <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
+                        </button>
+
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                                <a href="http://localhost:8000/editarUsuario/72">
+                                <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                                <a href="#" data-href="http://localhost:8000/bajaUsuario/72" data-toggle="modal" data-target="#deleteModal">
+                                <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
+                            </button>
+                        
+                    </div>
+                </td>
+            </tr>
+
+
+                        <tr>
+                <td>25970784</td>
+                <td>Mario</td>
+                <td>Portillo</td>
+                <td>xpelayo@example.org</td>
+                                    <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
+                                
+                <td>
+                    <!-- <div class="table-data-feature" style="position: relative;"> -->
+                    <div class="botones-accion" style="">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <a href="http://localhost:8000/verDetalle/73">
+                            <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
+                        </button>
+
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                                <a href="http://localhost:8000/editarUsuario/73">
+                                <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                                <a href="#" data-href="http://localhost:8000/bajaUsuario/73" data-toggle="modal" data-target="#deleteModal">
+                                <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
+                            </button>
+                        
+                    </div>
+                </td>
+            </tr>
+
+
+                        <tr>
+                <td>39382795</td>
+                <td>Samantha</td>
+                <td>Manzanares</td>
+                <td>elena53@example.org</td>
+                                    <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
+                                
+                <td>
+                    <!-- <div class="table-data-feature" style="position: relative;"> -->
+                    <div class="botones-accion" style="">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <a href="http://localhost:8000/verDetalle/74">
+                            <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
+                        </button>
+
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                                <a href="http://localhost:8000/editarUsuario/74">
+                                <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                                <a href="#" data-href="http://localhost:8000/bajaUsuario/74" data-toggle="modal" data-target="#deleteModal">
+                                <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
+                            </button>
+                        
+                    </div>
+                </td>
+            </tr>
+
+
+                        <tr>
+                <td>88340116</td>
+                <td>Santiago</td>
+                <td>Chacón</td>
+                <td>juansebastian99@example.org</td>
+                                    <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
+                                
+                <td>
+                    <!-- <div class="table-data-feature" style="position: relative;"> -->
+                    <div class="botones-accion" style="">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <a href="http://localhost:8000/verDetalle/75">
+                            <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
+                        </button>
+
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                                <a href="http://localhost:8000/editarUsuario/75">
+                                <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                                <a href="#" data-href="http://localhost:8000/bajaUsuario/75" data-toggle="modal" data-target="#deleteModal">
+                                <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
+                            </button>
+                        
+                    </div>
+                </td>
+            </tr>
+
+
+                        <tr>
+                <td>41155573</td>
+                <td>Antonia</td>
+                <td>Barrera</td>
+                <td>mmatias@example.org</td>
+                                    <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
+                                
+                <td>
+                    <!-- <div class="table-data-feature" style="position: relative;"> -->
+                    <div class="botones-accion" style="">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <a href="http://localhost:8000/verDetalle/76">
+                            <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
+                        </button>
+
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                                <a href="http://localhost:8000/editarUsuario/76">
+                                <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                                <a href="#" data-href="http://localhost:8000/bajaUsuario/76" data-toggle="modal" data-target="#deleteModal">
+                                <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
+                            </button>
+                        
+                    </div>
+                </td>
+            </tr>
+
+
+                        <tr>
+                <td>44939878</td>
+                <td>Sofía</td>
+                <td>Narváez</td>
+                <td>zmunoz@example.net</td>
+                                    <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
+                                
+                <td>
+                    <!-- <div class="table-data-feature" style="position: relative;"> -->
+                    <div class="botones-accion" style="">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <a href="http://localhost:8000/verDetalle/77">
+                            <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
+                        </button>
+
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                                <a href="http://localhost:8000/editarUsuario/77">
+                                <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                                <a href="#" data-href="http://localhost:8000/bajaUsuario/77" data-toggle="modal" data-target="#deleteModal">
+                                <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
+                            </button>
+                        
+                    </div>
+                </td>
+            </tr>
+
+
+                        <tr>
+                <td>17041918</td>
+                <td>Bruno</td>
+                <td>Regalado</td>
+                <td>ocampo.jazmin@example.net</td>
+                                    <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
+                                
+                <td>
+                    <!-- <div class="table-data-feature" style="position: relative;"> -->
+                    <div class="botones-accion" style="">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <a href="http://localhost:8000/verDetalle/78">
+                            <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
+                        </button>
+
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                                <a href="http://localhost:8000/editarUsuario/78">
+                                <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                                <a href="#" data-href="http://localhost:8000/bajaUsuario/78" data-toggle="modal" data-target="#deleteModal">
+                                <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
+                            </button>
+                        
+                    </div>
+                </td>
+            </tr>
+
+
+                        <tr>
+                <td>12271557</td>
+                <td>Laura</td>
+                <td>Zamora</td>
+                <td>valentin.gastelum@example.com</td>
+                                    <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
+                                
+                <td>
+                    <!-- <div class="table-data-feature" style="position: relative;"> -->
+                    <div class="botones-accion" style="">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <a href="http://localhost:8000/verDetalle/79">
+                            <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
+                        </button>
+
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                                <a href="http://localhost:8000/editarUsuario/79">
+                                <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                                <a href="#" data-href="http://localhost:8000/bajaUsuario/79" data-toggle="modal" data-target="#deleteModal">
+                                <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
+                            </button>
+                        
+                    </div>
+                </td>
+            </tr>
+
+
+                        <tr>
+                <td>67077827</td>
+                <td>Leonardo</td>
+                <td>Rael</td>
+                <td>emma88@example.org</td>
+                                    <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
+                                
+                <td>
+                    <!-- <div class="table-data-feature" style="position: relative;"> -->
+                    <div class="botones-accion" style="">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <a href="http://localhost:8000/verDetalle/80">
+                            <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
+                        </button>
+
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                                <a href="http://localhost:8000/editarUsuario/80">
+                                <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                                <a href="#" data-href="http://localhost:8000/bajaUsuario/80" data-toggle="modal" data-target="#deleteModal">
+                                <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
+                            </button>
+                        
+                    </div>
+                </td>
+            </tr>
+
+
+                        <tr>
+                <td>46735060</td>
+                <td>Rebeca</td>
+                <td>Alanis</td>
+                <td>villarreal.mariafernanda@example.org</td>
+                                    <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
+                                
+                <td>
+                    <!-- <div class="table-data-feature" style="position: relative;"> -->
+                    <div class="botones-accion" style="">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <a href="http://localhost:8000/verDetalle/81">
+                            <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
+                        </button>
+
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                                <a href="http://localhost:8000/editarUsuario/81">
+                                <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                                <a href="#" data-href="http://localhost:8000/bajaUsuario/81" data-toggle="modal" data-target="#deleteModal">
+                                <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
+                            </button>
+                        
+                    </div>
+                </td>
+            </tr>
+
+
+                        <tr>
+                <td>43692401</td>
+                <td>Jorge</td>
+                <td>Estrada</td>
+                <td>daniela.briseno@example.org</td>
+                                    <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
+                                
+                <td>
+                    <!-- <div class="table-data-feature" style="position: relative;"> -->
+                    <div class="botones-accion" style="">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <a href="http://localhost:8000/verDetalle/82">
+                            <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
+                        </button>
+
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                                <a href="http://localhost:8000/editarUsuario/82">
+                                <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                                <a href="#" data-href="http://localhost:8000/bajaUsuario/82" data-toggle="modal" data-target="#deleteModal">
+                                <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
+                            </button>
+                        
+                    </div>
+                </td>
+            </tr>
+
+
+                        <tr>
+                <td>74358648</td>
+                <td>Sergio</td>
+                <td>Quiñones</td>
+                <td>alejandro.adriana@example.net</td>
+                                    <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
+                                
+                <td>
+                    <!-- <div class="table-data-feature" style="position: relative;"> -->
+                    <div class="botones-accion" style="">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <a href="http://localhost:8000/verDetalle/83">
+                            <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
+                        </button>
+
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                                <a href="http://localhost:8000/editarUsuario/83">
+                                <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                                <a href="#" data-href="http://localhost:8000/bajaUsuario/83" data-toggle="modal" data-target="#deleteModal">
+                                <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
+                            </button>
+                        
+                    </div>
+                </td>
+            </tr>
+
+
+                        <tr>
+                <td>55385884</td>
+                <td>Emma</td>
+                <td>Rojo</td>
+                <td>rcarranza@example.net</td>
+                                    <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
+                                
+                <td>
+                    <!-- <div class="table-data-feature" style="position: relative;"> -->
+                    <div class="botones-accion" style="">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <a href="http://localhost:8000/verDetalle/84">
+                            <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
+                        </button>
+
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                                <a href="http://localhost:8000/editarUsuario/84">
+                                <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                                <a href="#" data-href="http://localhost:8000/bajaUsuario/84" data-toggle="modal" data-target="#deleteModal">
+                                <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
+                            </button>
+                        
+                    </div>
+                </td>
+            </tr>
+
+
+                        <tr>
+                <td>44378357</td>
+                <td>Antonella</td>
+                <td>Córdova</td>
+                <td>mariafernanda32@example.com</td>
+                                    <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
+                                
+                <td>
+                    <!-- <div class="table-data-feature" style="position: relative;"> -->
+                    <div class="botones-accion" style="">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <a href="http://localhost:8000/verDetalle/85">
+                            <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
+                        </button>
+
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                                <a href="http://localhost:8000/editarUsuario/85">
+                                <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                                <a href="#" data-href="http://localhost:8000/bajaUsuario/85" data-toggle="modal" data-target="#deleteModal">
+                                <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
+                            </button>
+                        
+                    </div>
+                </td>
+            </tr>
+
+
+                        <tr>
+                <td>44267120</td>
+                <td>Luana</td>
+                <td>Montes</td>
+                <td>alexander89@example.com</td>
+                                    <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
+                                
+                <td>
+                    <!-- <div class="table-data-feature" style="position: relative;"> -->
+                    <div class="botones-accion" style="">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <a href="http://localhost:8000/verDetalle/86">
+                            <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
+                        </button>
+
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                                <a href="http://localhost:8000/editarUsuario/86">
+                                <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                                <a href="#" data-href="http://localhost:8000/bajaUsuario/86" data-toggle="modal" data-target="#deleteModal">
+                                <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
+                            </button>
+                        
+                    </div>
+                </td>
+            </tr>
+
+
+                        <tr>
+                <td>20884107</td>
+                <td>Sara Sofía</td>
+                <td>Delafuente</td>
+                <td>cristobal71@example.org</td>
+                                    <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
+                                
+                <td>
+                    <!-- <div class="table-data-feature" style="position: relative;"> -->
+                    <div class="botones-accion" style="">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <a href="http://localhost:8000/verDetalle/87">
+                            <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
+                        </button>
+
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                                <a href="http://localhost:8000/editarUsuario/87">
+                                <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                                <a href="#" data-href="http://localhost:8000/bajaUsuario/87" data-toggle="modal" data-target="#deleteModal">
+                                <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
+                            </button>
+                        
+                    </div>
+                </td>
+            </tr>
+
+
+                        <tr>
+                <td>50634618</td>
+                <td>Matías</td>
+                <td>Luna</td>
+                <td>ortiz.lautaro@example.com</td>
+                                    <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
+                                
+                <td>
+                    <!-- <div class="table-data-feature" style="position: relative;"> -->
+                    <div class="botones-accion" style="">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <a href="http://localhost:8000/verDetalle/88">
+                            <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
+                        </button>
+
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                                <a href="http://localhost:8000/editarUsuario/88">
+                                <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                                <a href="#" data-href="http://localhost:8000/bajaUsuario/88" data-toggle="modal" data-target="#deleteModal">
+                                <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
+                            </button>
+                        
+                    </div>
+                </td>
+            </tr>
+
+
+                        <tr>
+                <td>79107377</td>
+                <td>Miguel</td>
+                <td>Segura</td>
+                <td>valentina.briones@example.net</td>
+                                    <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
+                                
+                <td>
+                    <!-- <div class="table-data-feature" style="position: relative;"> -->
+                    <div class="botones-accion" style="">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <a href="http://localhost:8000/verDetalle/89">
+                            <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
+                        </button>
+
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                                <a href="http://localhost:8000/editarUsuario/89">
+                                <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                                <a href="#" data-href="http://localhost:8000/bajaUsuario/89" data-toggle="modal" data-target="#deleteModal">
+                                <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
+                            </button>
+                        
+                    </div>
+                </td>
+            </tr>
+
+
+                        <tr>
+                <td>62751674</td>
+                <td>Valentino</td>
+                <td>Alaniz</td>
+                <td>pina.elias@example.net</td>
+                                    <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
+                                
+                <td>
+                    <!-- <div class="table-data-feature" style="position: relative;"> -->
+                    <div class="botones-accion" style="">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <a href="http://localhost:8000/verDetalle/90">
+                            <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
+                        </button>
+
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                                <a href="http://localhost:8000/editarUsuario/90">
+                                <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                                <a href="#" data-href="http://localhost:8000/bajaUsuario/90" data-toggle="modal" data-target="#deleteModal">
+                                <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
+                            </button>
+                        
+                    </div>
+                </td>
+            </tr>
+
+
+                        <tr>
+                <td>22199678</td>
+                <td>Ariadna</td>
+                <td>Rincón</td>
+                <td>alonzo.maria@example.org</td>
+                                    <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
+                                
+                <td>
+                    <!-- <div class="table-data-feature" style="position: relative;"> -->
+                    <div class="botones-accion" style="">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <a href="http://localhost:8000/verDetalle/91">
+                            <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
+                        </button>
+
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                                <a href="http://localhost:8000/editarUsuario/91">
+                                <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                                <a href="#" data-href="http://localhost:8000/bajaUsuario/91" data-toggle="modal" data-target="#deleteModal">
+                                <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
+                            </button>
+                        
+                    </div>
+                </td>
+            </tr>
+
+
+                        <tr>
+                <td>51685884</td>
+                <td>Daniela</td>
+                <td>Escobedo</td>
+                <td>eornelas@example.net</td>
+                                    <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
+                                
+                <td>
+                    <!-- <div class="table-data-feature" style="position: relative;"> -->
+                    <div class="botones-accion" style="">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <a href="http://localhost:8000/verDetalle/92">
+                            <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
+                        </button>
+
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                                <a href="http://localhost:8000/editarUsuario/92">
+                                <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                                <a href="#" data-href="http://localhost:8000/bajaUsuario/92" data-toggle="modal" data-target="#deleteModal">
+                                <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
+                            </button>
+                        
+                    </div>
+                </td>
+            </tr>
+
+
+                        <tr>
+                <td>39644292</td>
+                <td>Malena</td>
+                <td>Saiz</td>
+                <td>emilia.casas@example.org</td>
+                                    <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
+                                
+                <td>
+                    <!-- <div class="table-data-feature" style="position: relative;"> -->
+                    <div class="botones-accion" style="">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <a href="http://localhost:8000/verDetalle/93">
+                            <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
+                        </button>
+
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                                <a href="http://localhost:8000/editarUsuario/93">
+                                <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                                <a href="#" data-href="http://localhost:8000/bajaUsuario/93" data-toggle="modal" data-target="#deleteModal">
+                                <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
+                            </button>
+                        
+                    </div>
+                </td>
+            </tr>
+
+
+                        <tr>
+                <td>56395222</td>
+                <td>Sara</td>
+                <td>Valladares</td>
+                <td>gcastellanos@example.net</td>
+                                    <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
+                                
+                <td>
+                    <!-- <div class="table-data-feature" style="position: relative;"> -->
+                    <div class="botones-accion" style="">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <a href="http://localhost:8000/verDetalle/94">
+                            <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
+                        </button>
+
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                                <a href="http://localhost:8000/editarUsuario/94">
+                                <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                                <a href="#" data-href="http://localhost:8000/bajaUsuario/94" data-toggle="modal" data-target="#deleteModal">
+                                <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
+                            </button>
+                        
+                    </div>
+                </td>
+            </tr>
+
+
+                        <tr>
+                <td>63195343</td>
+                <td>Emilio</td>
+                <td>Arce</td>
+                <td>elena41@example.com</td>
+                                    <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
+                                
+                <td>
+                    <!-- <div class="table-data-feature" style="position: relative;"> -->
+                    <div class="botones-accion" style="">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <a href="http://localhost:8000/verDetalle/95">
+                            <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
+                        </button>
+
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                                <a href="http://localhost:8000/editarUsuario/95">
+                                <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                                <a href="#" data-href="http://localhost:8000/bajaUsuario/95" data-toggle="modal" data-target="#deleteModal">
+                                <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
+                            </button>
+                        
+                    </div>
+                </td>
+            </tr>
+
+
+                        <tr>
+                <td>36014713</td>
+                <td>Alessandra</td>
+                <td>Serna</td>
+                <td>maite93@example.net</td>
+                                    <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
+                                
+                <td>
+                    <!-- <div class="table-data-feature" style="position: relative;"> -->
+                    <div class="botones-accion" style="">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <a href="http://localhost:8000/verDetalle/96">
+                            <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
+                        </button>
+
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                                <a href="http://localhost:8000/editarUsuario/96">
+                                <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                                <a href="#" data-href="http://localhost:8000/bajaUsuario/96" data-toggle="modal" data-target="#deleteModal">
+                                <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
+                            </button>
+                        
+                    </div>
+                </td>
+            </tr>
+
+
+                        <tr>
+                <td>48784064</td>
+                <td>Bruno</td>
+                <td>Valadez</td>
+                <td>isabella.hernandez@example.net</td>
+                                    <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
+                                
+                <td>
+                    <!-- <div class="table-data-feature" style="position: relative;"> -->
+                    <div class="botones-accion" style="">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <a href="http://localhost:8000/verDetalle/97">
+                            <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
+                        </button>
+
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                                <a href="http://localhost:8000/editarUsuario/97">
+                                <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                                <a href="#" data-href="http://localhost:8000/bajaUsuario/97" data-toggle="modal" data-target="#deleteModal">
+                                <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
+                            </button>
+                        
+                    </div>
+                </td>
+            </tr>
+
+
+                        <tr>
+                <td>93537961</td>
+                <td>David</td>
+                <td>Merino</td>
+                <td>peres.juansebastian@example.com</td>
+                                    <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
+                                
+                <td>
+                    <!-- <div class="table-data-feature" style="position: relative;"> -->
+                    <div class="botones-accion" style="">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <a href="http://localhost:8000/verDetalle/98">
+                            <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
+                        </button>
+
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                                <a href="http://localhost:8000/editarUsuario/98">
+                                <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                                <a href="#" data-href="http://localhost:8000/bajaUsuario/98" data-toggle="modal" data-target="#deleteModal">
+                                <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
+                            </button>
+                        
+                    </div>
+                </td>
+            </tr>
+
+
+                        <tr>
+                <td>11223344</td>
+                <td>Felipe</td>
+                <td>Melo</td>
+                <td>feli120@gmail.com</td>
+                                    <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
+                                
+                <td>
+                    <!-- <div class="table-data-feature" style="position: relative;"> -->
+                    <div class="botones-accion" style="">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <a href="http://localhost:8000/verDetalle/99">
+                            <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
+                        </button>
+
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                                <a href="http://localhost:8000/editarUsuario/99">
+                                <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                                <a href="#" data-href="http://localhost:8000/bajaUsuario/99" data-toggle="modal" data-target="#deleteModal">
+                                <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
+                            </button>
+                        
+                    </div>
+                </td>
+            </tr>
+
+
+                        <tr>
+                <td>55555777</td>
+                <td>Felipe</td>
+                <td>González</td>
+                <td>felipegonzalez55@gmail.com</td>
+                                    <td><i style="color: green;" class="fa fa-arrow-circle-up" data-toggle="tooltip" data-placement="top" title="Activo"></i></td>
+                                
+                <td>
+                    <!-- <div class="table-data-feature" style="position: relative;"> -->
+                    <div class="botones-accion" style="">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ver detalle">
+                            <a href="http://localhost:8000/verDetalle/100">
+                            <i class="zmdi zmdi-eye" style="color: grey;"></i></a>
+                        </button>
+
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Editar">
+                                <a href="http://localhost:8000/editarUsuario/100">
+                                <i class="zmdi zmdi-edit" style="color: grey;"></i></a>
+                            </button>
+                            <button class="item" data-toggle="tooltip" data-placement="top" title="Dar de Baja">
+                                <a href="#" data-href="http://localhost:8000/bajaUsuario/100" data-toggle="modal" data-target="#deleteModal">
+                                <i class="zmdi zmdi-delete" style="color: grey;"></i></a>
+                            </button>
+                        
+                    </div>
+                </td>
+            </tr>
+
+
+                    </tbody>
+        <tfoot>
+            <tr>
+                <th>DNI</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Estado</th>
+                <th>Acción</th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+    <!-- The Modal Delete -->
+    <div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Dar de baja</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p>¿Está seguro que desea dar de baja éste usuario?</p>
+        </div>
+        <div class="modal-footer">
+            <a class="btn btn-danger btn-ok" >Aceptar</a>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        </div>
+        </div>
+    </div>
+    </div>
+
+
+        <!-- The Modal Up -->
+    <div class="modal" tabindex="-1" role="dialog" id="upModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Dar de alta</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p>¿Está seguro que desea dar de alta éste usuario?</p>
+        </div>
+        <div class="modal-footer">
+            <a class="btn btn-danger btn-ok" >Aceptar</a>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        </div>
+        </div>
+    </div>
+    </div>
+
+                <footer class="footer">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="copyright">
+                            <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | Ésta plantilla está diseñada por <a href="https://colorlib.com" target="_blank">F&G Web Design</a></p>
+                        </div>
+                    </div>
+                </div>
+                </footer>
+
+            </div>
+            <!-- END MAIN CONTENT-->
+            <!-- END PAGE CONTAINER-->
+        </div>
+        
+
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="http://localhost:8000/vendor/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="http://localhost:8000/vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="http://localhost:8000/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS       -->
+    <script src="http://localhost:8000/vendor/slick/slick.min.js">
+    </script>
+    <script src="http://localhost:8000/vendor/wow/wow.min.js"></script>
+    <script src="http://localhost:8000/vendor/animsition-2/animsition.min.js"></script>
+    <!-- <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    </script> -->
+    <script src="http://localhost:8000/vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="http://localhost:8000/vendor/counter-up/jquery.counterup.min.js">
+    </script>
+    <script src="http://localhost:8000/vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="http://localhost:8000/vendor/perfect-scrollbar-2/perfect-scrollbar.js"></script>
+    <script src="http://localhost:8000/vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="http://localhost:8000/vendor/select2-2/select2.min.js">
+    </script>
+
+    <!-- Main JS-->
+    <script src="http://localhost:8000/js/vendor/main.js"></script>
+
+    <!-- <script>
+  $(document).ready(function(){
+    $("#myModal").modal('show');
+  });
+</script> -->
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.js"></script> -->
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
+
+<script>
+
+    // Funcionalidad del modal DELETE
+    $('#deleteModal').on('show.bs.modal', function(e) {
+            $(this).find('.btn-ok').attr('href', 
+    $(e.relatedTarget).data('href'));
+
+    $('.debug-url').html('URL: <strong>' + 
+    $(this).find('.btn-ok').attr('href') + '</strong>');
+        });
+    // Funcionalidad del modal DELETE
+
+
+    // Funcionalidad del modal UP
+    $('#upModal').on('show.bs.modal', function(e) {
+            $(this).find('.btn-ok').attr('href', 
+    $(e.relatedTarget).data('href'));
+
+    $('.debug-url').html('URL: <strong>' + 
+    $(this).find('.btn-ok').attr('href') + '</strong>');
+        });
+    // Funcionalidad del modal UP
+   
+
+    $("#myModal").modal('show');
+    $(document).ready(function() {
+        
+
+        $('#myTable').DataTable(
+        {
+            "language": {
+                "decimal":        "",
+                "emptyTable":     "No hay datos disponibles para esta tabla.",
+                "info":           "Mostrando _START_ de _END_ sobre _TOTAL_ registros",
+                "infoEmpty":      "Mostrando 0 de 0 sobre 0 registros",
+                "infoFiltered":   "(filtrado de _MAX_ registros)",
+                "infoPostFix":    "",
+                "thousands":      ",",
+                "lengthMenu":     "Mostrar _MENU_ registros",
+                "loadingRecords": "Cargando...",
+                "processing":     "Procesando...",
+                "search":         "Buscar:",
+                "zeroRecords":    "No se encontró ningún registro",
+                "paginate": {
+                    "first":      "Primero",
+                    "last":       "Último",
+                    "next":       "Siguiente",
+                    "previous":   "Anterior"
+                }
+            }
+        });
+    });
+</script>
+
+
+</body>
+
+</html>
+<!-- end document-->

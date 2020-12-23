@@ -46,6 +46,10 @@
             <a class="linkBlanco" href="{{route('adminNuevoUsuario',['tipoUser' => 4])}}">
             <i class="fa fa-plus"></i>&nbsp; Añadir</a>
         </button>
+        <button type="button"  class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Exportar">
+            <a class="linkBlanco" target="_blank" href="{{route('clienteExcel')}}">
+            <i class="fa fa-file-excel-o"></i>&nbsp;</a>
+        </button>
     </div>
     <!-- <table id="myTable" class="table table-hover table-striped table-bordered" style="width:100%;text-align: center;"> -->
         <table id="myTable" class="table table-striped table-bordered dt-responsive nowrap" style="width: 100%; text-align: center;">
