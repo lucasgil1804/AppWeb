@@ -13,9 +13,9 @@ use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 
-class ExportCliente implements FromCollection, WithHeadings, WithTitle, WithEvents, ShouldAutoSize
+class ExportEmpleado implements FromCollection, WithHeadings, WithTitle, WithEvents, ShouldAutoSize
 {
-   use Exportable;
+    use Exportable;
 
      /**
      * @return array
@@ -23,10 +23,10 @@ class ExportCliente implements FromCollection, WithHeadings, WithTitle, WithEven
     public function headings(): array
     {
         return [
-            'DNI N°',
-            'Apellido',
-            'Nombre',
-            'Correo Electronico'
+            '    DNI N°',
+            '    Apellido',
+            '    Nombre',
+            '    Correo Electronico'
         ];
     }
 
@@ -35,15 +35,15 @@ class ExportCliente implements FromCollection, WithHeadings, WithTitle, WithEven
      */
     public function title(): string
     {
-        return 'Lista de Clientes';
+        return 'Lista de Empleados';
     }
 
     public function collection()
     {
        
-        $clientes=tipoUsuario::find(4);
+        $empleados=tipoUsuario::find(2);
 
-        return $clientes->users()->withTrashed()->get(['dni','apellido','nombre','email']);
+        return $empleados->users()->withTrashed()->get(['dni','apellido','nombre','email']);
     }
 
     /**
@@ -60,18 +60,3 @@ class ExportCliente implements FromCollection, WithHeadings, WithTitle, WithEven
         ];
     }
 }
-
-
-// class UserExport implements FromView
-// {
-//     public function view(): View
-//     {
-//         $clientes=tipoUsuario::find(4);
-
-//         $listaClientes = $clientes->users()->withTrashed()->get();
-
-//         return view('Admin.listaClientes', compact('listaClientes'));
-
-//     }
-
-// }

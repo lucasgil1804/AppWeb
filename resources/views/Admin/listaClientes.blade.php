@@ -48,7 +48,11 @@
         </button>
         <button type="button"  class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Exportar">
             <a class="linkBlanco" target="_blank" href="{{route('clienteExcel')}}">
-            <i class="fa fa-file-excel-o"></i>&nbsp;</a>
+            <i class="fa fa-file-excel"></i>&nbsp;</a>
+        </button>
+        <button type="button"  class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Exportar">
+            <a class="linkBlanco" target="_blank" href="{{route('clientePdf')}}">
+            <i class="fa fa-file-pdf"></i>&nbsp;</a>
         </button>
     </div>
     <!-- <table id="myTable" class="table table-hover table-striped table-bordered" style="width:100%;text-align: center;"> -->
