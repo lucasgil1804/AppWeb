@@ -1,6 +1,7 @@
 <?php
 use App\Exports\ExportCliente;
 use App\Exports\ExportEmpleado;
+use App\Exports\ExportTecnico;
 use Maatwebsite\Excel\Facades\Excel;
 
 /*
@@ -17,6 +18,9 @@ use Maatwebsite\Excel\Facades\Excel;
 // Route::get('/', function () {
 //     return view('Inicio');
 // });
+
+// Rutas para exportar Empleados, Tecnicos y Clientes en EXCEL y PDF
+
 Route::get('/exportClienteExcel', function () {
     return Excel::download(new ExportCliente, 'clientes.xlsx');
 })->name('clienteExcel');
@@ -25,8 +29,6 @@ Route::get('/exportClientePdf', function () {
     return Excel::download(new ExportCliente, 'clientes.pdf');
 })
 ->name('clientePdf');
-
-// Rutas para exportar Empleados en EXCEL y PDF
 
 Route::get('/exportEmpleadoExcel', function () {
     return Excel::download(new ExportEmpleado, 'empleados.xlsx');
@@ -37,7 +39,16 @@ Route::get('/exportEmpleadoPdf', function () {
 })
 ->name('empleadoPdf');
 
-// Rutas para exportar Empleados en EXCEL y PDF
+Route::get('/exportTecnicoExcel', function () {
+    return Excel::download(new ExportTecnico, 'tecnicos.xlsx');
+})->name('tecnicoExcel');
+
+Route::get('/exportTecnicoPdf', function () {
+    return Excel::download(new Exporttecnico, 'tecnico.pdf');
+})
+->name('tecnicoPdf');
+
+// Rutas para exportar Empleados, Tecnicos y Clientes en EXCEL y PDF
 
 Route::get('/', 'MyController@index')
 	->name('inicio');
