@@ -71,6 +71,8 @@ Route::get('/feedback', 'MyController@feedback')
 Route::get('/reparacionNotebook', 'MyController@reparacionNotebook')
 	->name('reparacionNotebook');
 
+Route::post('/enviarConsulta', 'MyController@enviarConsulta');	
+
 /* Estado Equipo*/
 Route::get('/estadoEquipo', 'MyController@estadoEquipo')
 	->name('estadoEquipo');

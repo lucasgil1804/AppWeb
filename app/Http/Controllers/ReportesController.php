@@ -188,9 +188,9 @@ class ReportesController extends Controller
     public function marcasReparadas()
     {
     	$consultaMarcas = DB::select('select M.descripcion as name, count(*) as y
-                                    from Reparaciones R inner join Equipos E
+                                    from reparaciones R inner join equipos E
                                     on R.id_equipo = E.id_equipo
-                                    inner join Marcas M 
+                                    inner join marcas M 
                                     on M.id_marca = E.id_marca                                    
                                     where (R.deleted_at IS NULL)
                                     group by M.descripcion
@@ -297,7 +297,7 @@ class ReportesController extends Controller
 
     public function valoresTableros()
     {
-    	$clientes = tipoUsuario::find(4);
+    	$clientes = TipoUsuario::find(4);
         $consultaClientes = $clientes->users()->count();
 
         $consultaReparaciones = Reparacion::count();
@@ -310,7 +310,14 @@ class ReportesController extends Controller
         $pendientes = $consultaDiagnostico + $consultaEnReparacion;
 
         $plazosEstimados = Reparacion::sum('plazo_estimado');
-        $promedioPlazo = $plazosEstimados / $consultaReparaciones;
+        
+        if ($consultaReparaciones != 0) {
+            $promedioPlazo = $plazosEstimados / $consultaReparaciones;
+        } else {
+            $promedioPlazo = 0;
+        }
+        
+        
 
         $arrayTablero = [$consultaClientes, $consultaReparaciones, $pendientes, $promedioPlazo];
 

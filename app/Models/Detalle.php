@@ -9,7 +9,7 @@ class Detalle extends Model
 {
     //use SoftDeletes;
 
-    public $table = 'detalleReparaciones';
+    public $table = 'detallereparaciones';
 
     protected $primaryKey = 'id_detalleReparacion';
 
@@ -19,16 +19,16 @@ class Detalle extends Model
 
     public function reparacion()
     {
-    	return $this->belongsTo(reparacion::class, 'id_reparacion');
+    	return $this->belongsTo(Reparacion::class, 'id_reparacion');
     }
 
     public function estado()
     {
-    	return $this->belongsTo(estado::class, 'id_estado');
+    	return $this->belongsTo(Estado::class, 'id_estado');
     }
 
     public function problema()
     {
-        return $this->belongsTo(problema::class, 'id_problema');
+        return $this->belongsTo(Problema::class, 'id_problema');
     }
 }
