@@ -38,7 +38,7 @@ class AdminController extends Controller
         //     // return view('Admin.index', compact('users'));
         //     return redirect()->route('adminIndex');
         //     }
-        $empleados=tipoUsuario::find(2);
+        $empleados=TipoUsuario::find(2);
 
         $listaEmpleados = $empleados->users()->withTrashed()->get();
 
@@ -57,7 +57,7 @@ class AdminController extends Controller
       // else{
       //   return redirect()->route('adminIndex');
       // }
-        $tecnicos=tipoUsuario::find(3);
+        $tecnicos=TipoUsuario::find(3);
 
         $listaTecnicos = $tecnicos->users()->withTrashed()->get();
 
@@ -66,7 +66,7 @@ class AdminController extends Controller
 
     public function listaCliente()
     {
-        $clientes=tipoUsuario::find(4);
+        $clientes=TipoUsuario::find(4);
 
         $listaClientes = $clientes->users()->withTrashed()->get();
 

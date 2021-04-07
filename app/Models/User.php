@@ -43,7 +43,8 @@ class User extends Authenticatable
 
     public function tipoUsuario()
     {
-        return $this->belongsTo(tipoUsuario::class, 'id_tipoUsuario');
+        //return $this->belongsTo(tipoUsuario::class, 'id_tipoUsuario');
+        return $this->belongsTo(TipoUsuario::class, 'id_tipoUsuario');
     }
 
     public function apeYNom()

@@ -4786,15 +4786,21 @@ div.dataTables_wrapper div.dataTables_filter input {
 .copyright {
     text-align: center;
     padding: 60px 0;
-    padding-top: 20px;
+    padding-top: 25px;
 }
 
 .copyright p {
     font-size: 14px;
     color: #666;
-    line-height: -webkit-calc(24/14);
+    /*line-height: -webkit-calc(24/14);
     line-height: -moz-calc(24/14);
-    line-height: calc(24/14);
+    line-height: calc(24/14);*/
+}
+
+@media (max-width: 991px) {
+  .copyright p {
+    height: 21%;
+   }
 }
 
 /* ----- Breadcrumb ----- */

@@ -7,7 +7,7 @@
 <body>
 	<div style="margin: 10px 80px; border: 2px double #000; padding: 15px;">
 		<div style="margin: 10px 0px;">
-			<img src="img/logo.png" alt="QuickFix" />
+			<img src="{{asset('img/logo.jpg')}}" alt="QuickFix" />
 		</div>
 		<div style="display: inline-block; margin-bottom: 15px;">
 			<p><b>Cliente:</b> {{$cliente}}</p>

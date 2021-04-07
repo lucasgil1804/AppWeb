@@ -47,9 +47,10 @@
 <body>
 		<div class="clearfix">
 			<div class="box" style="margin-right: 1px; margin-bottom: 1px;">
-				<img style="height: 70px; width: 270px; margin-left: 35px; margin-top: 30px;" src="img/logo.png" alt="QuickFix" /><br>
+				<img style="height: 70px; width: 270px; margin-left: 35px; margin-top: 30px;" src="{{asset('img/logo.jpg')}}" alt="QuickFix" /><br>
 				<p align="center"><b>San Martin 1524</b></p>
 				<p align="center">4-448149</p>
+				<p align="center">visitenos en quickfixctes.online</p>
 			</div>
 
 			<div class="box" style="margin-left: 1px; margin-bottom: 1px;">

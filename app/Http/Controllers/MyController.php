@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendConsult;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
 class MyController extends Controller
 {
     public function index()
@@ -18,6 +20,17 @@ class MyController extends Controller
     
     public function contacto()
     {
+        return view('contacto');
+    }
+
+    public function enviarConsulta(Request $request)
+    {
+        $consulta = $request->only(['name','email','subject','message']);
+
+        $receivers = ['juancruzf017@gmail.com','lucasgil.1804@gmail.com'];
+        Mail::to($receivers)->send(new SendConsult($consulta));
+
+        Session::flash('form_enviado', 'Su consula ha sido enviada correctamente.');
         return view('contacto');
     }
 
@@ -46,9 +59,9 @@ class MyController extends Controller
         return view('estadoEquipo');
     }
 
-     public function pruebaForm()
-    {
-        return view('Admin.pruebaform');
-    }
+    //  public function pruebaForm()
+    // {
+    //     return view('Admin.pruebaform');
+    // }
 
 }

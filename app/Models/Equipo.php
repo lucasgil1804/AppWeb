@@ -16,11 +16,11 @@ class Equipo extends Model
 
     public function marca()
     {
-    	return $this->belongsTo(marca::class, 'id_marca');
+    	return $this->belongsTo(Marca::class, 'id_marca');
     }
 
     public function tipoEquipo()
     {
-    	return $this->belongsTo(tipoEquipo::class, 'id_tipoEquipo');
+    	return $this->belongsTo(TipoEquipo::class, 'id_tipoEquipo');
     }
 }
