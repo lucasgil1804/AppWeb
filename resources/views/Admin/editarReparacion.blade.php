@@ -115,7 +115,7 @@
     						
     						<div id="containerDetalle" class="container" style="float: left;">
     							@if ($reparacion->id_estado == 1)
-                                    @include('Admin.EnDiagnostico')
+                                    @include('Admin.enDiagnostico')
                                 @else
                                     @include('Admin.editarDetalle')
                                 @endif
